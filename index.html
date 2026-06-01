@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Empowered Connection | Somatic Intimacy & Relating Coach | Marilys</title>
+<meta name="description" content="Somatic Intimacy & Relating Coach and Erotic Aliveness Guide & Bodyworker. More pleasure, deeper connection, authentic intimacy.">
+<meta property="og:site_name" content="Empowered Connection">
+<meta property="og:url" content="https://empowered-connection.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --accent:      #8a0c2f;
+    --accent-hover:#b9103f;
+    --accent-deep: #5a0820;
+    --coral:       #c95d43;
+    --peach:       #f5c98a;
+    --peach-light: #fde8c0;
+    --text-dark:   #4a1520;
+    --text-mid:    #7a3020;
+    --serif: 'Libre Baskerville', Georgia, serif;
+    --sans:  'Poppins', sans-serif;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--peach-light);
+    color: var(--text-dark);
+    font-family: var(--sans);
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 1.75;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 3rem; height: 80px;
+    background: var(--peach);
+    border-bottom: 1px solid rgba(138,12,47,0.15);
+  }
+  .nav-logo img { height: 56px; width: auto; display: block; }
+  .nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
+  .nav-links a {
+    font-family: var(--sans); font-size: 0.95rem; font-weight: 400;
+    text-decoration: none; color: var(--text-dark); transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--accent); }
+  .nav-cta {
+    background: var(--accent) !important; color: #fff !important;
+    padding: 0.5rem 1.3rem !important; border-radius: 6px !important;
+  }
+  .nav-cta:hover { background: var(--accent-hover) !important; }
+
+  /* BUTTONS */
+  .btn {
+    display: inline-block; text-decoration: none;
+    font-family: var(--sans); font-size: 1rem; font-weight: 500;
+    padding: 0.85rem 2.2rem; border-radius: 6px;
+    transition: all 0.22s ease; cursor: pointer; border: none;
+  }
+  .btn-primary { background: var(--accent); color: #fff; }
+  .btn-primary:hover { background: var(--accent-hover); transform: translateY(-1px); }
+
+  /* HERO */
+  .hero {
+    position: relative; min-height: 600px;
+    display: flex; align-items: center; justify-content: center;
+    text-align: center; overflow: hidden; padding: 5rem 2rem;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background-image: url('IMG_8867.jpeg');
+    background-size: cover; background-position: center 30%;
+  }
+  .hero-overlay {
+    position: absolute; inset: 0;
+    background: rgba(245, 175, 80, 0.58);
+  }
+  .hero-content { position: relative; z-index: 2; max-width: 860px; margin: 0 auto; }
+
+  .hero-title {
+    font-family: var(--serif); font-weight: 700;
+    font-size: clamp(3.2rem, 6.5vw, 6rem);
+    line-height: 1.05; color: var(--accent-deep);
+    margin-bottom: 1.2rem;
+  }
+  .hero-title em { font-style: italic; color: var(--accent); }
+
+  .hero-desires {
+    font-family: var(--serif); font-style: italic; font-weight: 700;
+    font-size: clamp(1.2rem, 2vw, 1.6rem);
+    color: var(--accent-deep);
+    line-height: 1.7; margin-bottom: 1.4rem;
+    max-width: 720px; margin-left: auto; margin-right: auto;
+  }
+
+  .hero-haveitall {
+    font-family: var(--serif); font-weight: 700;
+    font-size: clamp(2rem, 4vw, 3.8rem);
+    color: var(--accent-deep); line-height: 1.1;
+    margin-bottom: 0.5rem;
+  }
+
+  .hero-artist {
+    font-family: var(--serif); font-weight: 700;
+    font-size: clamp(2rem, 4vw, 3.8rem);
+    color: var(--accent); line-height: 1.1;
+    margin-bottom: 0.8rem;
+  }
+
+  .hero-honor {
+    font-family: var(--serif); font-style: italic;
+    font-size: clamp(1rem, 1.6vw, 1.2rem);
+    color: var(--accent-deep); margin-bottom: 2rem;
+  }
+
+  /* HI I'M MARILYS */
+  .marilys-split { background: var(--peach-light); padding: 4.5rem 3rem; }
+  .marilys-inner {
+    max-width: 1000px; margin: 0 auto;
+    display: flex; align-items: center; gap: 4rem;
+  }
+  .marilys-text { flex: 1; }
+  .marilys-text h2 {
+    font-family: var(--serif); font-weight: 700; font-style: italic;
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    color: var(--accent-deep); margin-bottom: 0.8rem;
+  }
+  .marilys-role-1 {
+    font-family: var(--serif); font-weight: 700; font-style: normal;
+    font-size: clamp(1.1rem, 2vw, 1.45rem);
+    color: var(--accent-deep); line-height: 1.3; margin-bottom: 0.2rem;
+  }
+  .marilys-role-2 {
+    font-family: var(--serif); font-weight: 400; font-style: normal;
+    font-size: clamp(1.1rem, 2vw, 1.45rem);
+    color: var(--accent); line-height: 1.3; margin-bottom: 1.2rem;
+  }
+  .marilys-look {
+    font-family: var(--serif); font-style: italic;
+    font-size: 1.1rem; color: var(--accent); margin-bottom: 1.8rem;
+  }
+  .marilys-photo {
+    flex-shrink: 0; width: 340px; height: 340px;
+    border-radius: 50%; overflow: hidden;
+    border: 6px solid var(--peach);
+  }
+  .marilys-photo img {
+    width: 100%; height: 100%;
+    object-fit: cover; object-position: center top; display: block;
+  }
+
+  /* FULFILLING */
+  .fulfilling { background: var(--peach-light); padding: 4rem 3rem; text-align: center; }
+  .fulfilling h2 {
+    font-family: var(--serif); font-weight: 700;
+    font-size: clamp(1.6rem, 2.8vw, 2.4rem);
+    color: var(--accent-deep); margin-bottom: 1rem; line-height: 1.3;
+  }
+  .fulfilling p {
+    font-family: var(--sans); font-size: 1.05rem;
+    color: var(--text-mid); max-width: 720px; margin: 0 auto; line-height: 1.8;
+  }
+
+  /* APPROACH */
+  .approach {
+    position: relative; padding: 5rem 3rem;
+    text-align: center; overflow: hidden;
+  }
+  .approach-bg {
+    position: absolute; inset: 0;
+    background-image: url('AND_3223_2_dance.jpg');
+    background-size: cover; background-position: center top;
+    filter: saturate(0.6) brightness(1.05);
+    opacity: 0.35;
+  }
+  .approach-content { position: relative; z-index: 2; max-width: 820px; margin: 0 auto; }
+  .approach-title {
+    font-family: var(--serif); font-weight: 700;
+    font-size: clamp(1.8rem, 3vw, 2.8rem);
+    color: var(--accent-deep); margin-bottom: 3rem; line-height: 1.2;
+  }
+  .approach-title .colored { color: var(--accent); }
+
+  .approach-block { margin-bottom: 2.5rem; }
+  .approach-block p {
+    font-family: var(--sans); font-size: 1.05rem;
+    color: var(--text-dark); line-height: 1.85;
+    max-width: 700px; margin: 0 auto; text-align: center;
+  }
+  .approach-block p .key {
+    font-family: var(--serif); font-weight: 700; font-size: 1.15rem;
+    color: var(--accent-deep);
+  }
+  .approach-divider {
+    border: none; border-top: 1px solid rgba(138,12,47,0.25);
+    margin: 2rem auto; max-width: 400px;
+  }
+
+  /* SPECIALIZE */
+  .specialize { background: var(--peach-light); padding: 4rem 3rem; text-align: center; }
+  .specialize h2 {
+    font-family: var(--serif); font-size: clamp(1.4rem, 2.3vw, 2rem);
+    font-weight: 400; color: var(--text-mid); margin-bottom: 0.5rem;
+  }
+  .specialize h2 strong { color: var(--accent-deep); font-weight: 700; }
+  .specialize .sub {
+    font-family: var(--sans); font-size: 1rem; font-style: italic;
+    color: var(--text-mid); margin-bottom: 2rem;
+  }
+  .specialize ul {
+    list-style: disc; text-align: left;
+    max-width: 700px; margin: 0 auto 2rem; padding-left: 1.5rem;
+  }
+  .specialize ul li {
+    font-family: var(--sans); font-size: 1rem;
+    color: var(--text-mid); margin-bottom: 0.7rem; line-height: 1.65;
+  }
+  .specialize ul li strong { color: var(--accent-deep); font-weight: 600; }
+  .specialize-cta {
+    font-family: var(--serif); font-size: clamp(1.1rem, 1.8vw, 1.4rem);
+    color: var(--text-mid); max-width: 720px;
+    margin: 0 auto 1.5rem; line-height: 1.65;
+  }
+  .specialize-cta strong { color: var(--accent-deep); }
+
+  /* ABOUT INTIMACY */
+  .about-intimacy {
+    position: relative; padding: 5rem 3rem;
+    text-align: center; overflow: hidden;
+  }
+  .intimacy-bg {
+    position: absolute; inset: 0;
+    background-image: url('https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=1600&q=80');
+    background-size: cover; background-position: center;
+  }
+  .intimacy-overlay {
+    position: absolute; inset: 0;
+    background: rgba(100, 35, 5, 0.52);
+  }
+  .intimacy-content { position: relative; z-index: 2; max-width: 860px; margin: 0 auto; }
+  .about-intimacy h2 {
+    font-family: var(--serif); font-size: clamp(1.8rem, 3vw, 2.8rem);
+    font-weight: 700; color: #fff; margin-bottom: 1.5rem;
+  }
+  .about-intimacy p {
+    font-family: var(--sans); font-size: 1.05rem;
+    color: rgba(255,255,255,0.95); line-height: 1.85; text-align: center;
+  }
+
+  /* ABOUT EMPOWERMENT */
+  .about-empowerment { background: var(--peach-light); padding: 4rem 3rem; }
+  .empowerment-inner {
+    max-width: 1000px; margin: 0 auto;
+    display: flex; align-items: flex-start; gap: 4rem;
+  }
+  .empowerment-photo { flex-shrink: 0; width: 380px; overflow: hidden; border-radius: 8px; }
+  .empowerment-photo img { width: 100%; height: auto; display: block; }
+  .empowerment-text { flex: 1; text-align: center; }
+  .empowerment-text h2 {
+    font-family: var(--serif); font-size: clamp(1.8rem, 3vw, 2.6rem);
+    font-weight: 700; color: var(--accent-deep); margin-bottom: 1.2rem;
+  }
+  .empowerment-text p {
+    font-family: var(--sans); font-size: 1.05rem;
+    color: var(--text-mid); line-height: 1.85; margin-bottom: 1rem;
+  }
+  .empowerment-text p strong { color: var(--accent-deep); font-weight: 600; }
+  .empowerment-text .welcome {
+    font-family: var(--serif); font-size: 1.3rem;
+    font-weight: 700; color: var(--accent-deep); margin-top: 1rem;
+  }
+
+  /* TESTIMONIALS */
+  .testimonials { background: var(--peach-light); padding: 4rem 3rem; text-align: center; }
+  .testimonials h2 {
+    font-family: var(--serif); font-size: clamp(1.8rem, 3vw, 2.8rem);
+    font-weight: 700; font-style: italic;
+    color: var(--accent-deep); margin-bottom: 2.5rem;
+  }
+  .carousel { position: relative; max-width: 860px; margin: 0 auto; }
+  .carousel-track { overflow: hidden; }
+  .carousel-slides { display: flex; transition: transform 0.4s ease; }
+  .testi-slide { min-width: 100%; padding: 0 1rem; }
+  .testi-card {
+    background: rgba(255,255,255,0.55); border-radius: 8px;
+    padding: 2.5rem 2.5rem 2rem; text-align: left;
+  }
+  .testi-quote-icon {
+    width: 44px; height: 44px; background: var(--peach);
+    border-radius: 50%; display: flex; align-items: center;
+    justify-content: center; margin-bottom: 1.2rem;
+    font-family: var(--serif); font-size: 1.8rem;
+    color: var(--accent); line-height: 1; padding-bottom: 4px;
+  }
+  .testi-card blockquote {
+    font-family: var(--sans); font-size: 1rem;
+    color: var(--text-mid); line-height: 1.8; margin-bottom: 1.5rem;
+  }
+  .testi-card blockquote strong { color: var(--accent-deep); font-weight: 600; }
+  .testi-author {
+    display: flex; align-items: center; gap: 0.75rem;
+    border-top: 1px solid rgba(138,12,47,0.15); padding-top: 1rem;
+  }
+  .testi-avatar {
+    width: 42px; height: 42px; border-radius: 50%;
+    overflow: hidden; background: var(--peach); flex-shrink: 0;
+  }
+  .testi-avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .testi-name { font-family: var(--sans); font-size: 0.9rem; font-weight: 500; color: var(--text-dark); }
+  .carousel-btn {
+    position: absolute; top: 50%; transform: translateY(-50%);
+    background: var(--accent); color: #fff; border: none;
+    width: 40px; height: 40px; border-radius: 50%;
+    font-size: 1.2rem; cursor: pointer; z-index: 10;
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.2s;
+  }
+  .carousel-btn:hover { background: var(--accent-hover); }
+  .carousel-prev { left: -20px; }
+  .carousel-next { right: -20px; }
+  .carousel-dots { display: flex; justify-content: center; gap: 8px; margin-top: 1.5rem; }
+  .carousel-dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: rgba(138,12,47,0.25); border: none; cursor: pointer; transition: background 0.2s;
+  }
+  .carousel-dot.active { background: var(--accent); }
+
+  /* CONTACT */
+  .contact-bar {
+    background: var(--peach-light); padding: 3rem;
+    text-align: center; border-top: 1px solid rgba(138,12,47,0.12);
+  }
+  .contact-bar h2 {
+    font-family: var(--serif); font-size: clamp(1.5rem, 2.5vw, 2.2rem);
+    font-weight: 700; font-style: italic;
+    color: var(--accent-deep); margin-bottom: 0.5rem;
+  }
+  .contact-bar p { font-family: var(--sans); font-size: 1.05rem; color: var(--text-mid); }
+  .contact-bar a { color: var(--accent); text-decoration: none; }
+  .contact-bar a:hover { color: var(--accent-hover); }
+
+  /* FOOTER */
+  footer {
+    background: var(--peach); padding: 1.5rem 3rem;
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 1rem;
+    border-top: 1px solid rgba(138,12,47,0.15);
+  }
+  .footer-links { display: flex; gap: 2rem; list-style: none; flex-wrap: wrap; }
+  .footer-links a { font-size: 0.9rem; text-decoration: none; color: var(--text-mid); transition: color 0.2s; }
+  .footer-links a:hover { color: var(--accent); }
+  .footer-copy { font-size: 0.85rem; color: var(--text-mid); }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    nav { padding: 0 1rem; }
+    .nav-links { display: none; }
+    .marilys-inner { flex-direction: column-reverse; align-items: center; gap: 2rem; }
+    .marilys-photo { width: 260px; height: 260px; }
+    .empowerment-inner { flex-direction: column; gap: 2rem; }
+    .empowerment-photo { width: 100%; }
+    .marilys-split, .fulfilling, .specialize,
+    .about-empowerment, .testimonials, .contact-bar { padding: 3rem 1.5rem; }
+    .approach, .about-intimacy { padding: 3.5rem 1.5rem; }
+    .carousel-prev { left: -10px; }
+    .carousel-next { right: -10px; }
+    footer { padding: 1.5rem; flex-direction: column; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="/" class="nav-logo"><img src="Logo__Dark_red.png" alt="Empowered Connection"></a>
+  <ul class="nav-links">
+    <li><a href="/">Coaching &amp; About</a></li>
+    <li><a href="/group-offerings">Group Offerings</a></li>
+    <li><a href="/turn-on-your-life">Free Challenge</a></li>
+    <li><a href="/conflict-repair-free-guide">Free Guide</a></li>
+    <li><a href="https://tidycal.com/intimacy-coaching/consultation-with-marilys" target="_blank" class="nav-cta">Schedule a Call</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <h1 class="hero-title">You want <em>more</em></h1>
+    <p class="hero-desires">pleasure, connection, intimacy, authenticity, playfulness, loving touch, depth, attunement, understanding, ease, sensuality, vitality, alignment, fulfillment in all relationships,... be met in your desires...</p>
+    <p class="hero-haveitall">&amp; you can have it all.</p>
+    <p class="hero-artist">You are an Intimacy Artist!</p>
+    <p class="hero-honor">It is my honor to support &amp; welcome you — <em>all of you</em> — here ❤</p>
+    <a href="https://tidycal.com/intimacy-coaching/consultation-with-marilys" target="_blank" class="btn btn-primary">Yes !!! I already know I want to work with you !!!</a>
+  </div>
+</section>
+
+<!-- HI I'M MARILYS -->
+<section class="marilys-split">
+  <div class="marilys-inner">
+    <div class="marilys-text">
+      <h2>Hi! I'm Marilys,</h2>
+      <p class="marilys-role-1">Your Somatic Intimacy &amp; Relating Coach.</p>
+      <p class="marilys-role-2">Your Erotic Aliveness Guide &amp; Bodyworker.</p>
+      <p class="marilys-look">I look forward to connecting with you ❤</p>
+      <a href="https://tidycal.com/intimacy-coaching/consultation-with-marilys" target="_blank" class="btn btn-primary">Schedule a Connection Call</a>
+    </div>
+    <div class="marilys-photo">
+      <img src="IMG_8655_squareish.jpg" alt="Marilys — Somatic Intimacy Coach">
+    </div>
+  </div>
+</section>
+
+<!-- FULFILLING -->
+<section class="fulfilling">
+  <div style="max-width:860px;margin:0 auto;">
+    <h2>You know your life can be more fulfilling &amp; you decide that your time is NOW!</h2>
+    <p>You get to actualize YOUR unique desires, live in alignment with your inner calling &amp; be loved exactly as you are. You get to enjoy every bit of your journey with the best support tailored to you.</p>
+  </div>
+</section>
+
+<!-- APPROACH -->
+<section class="approach">
+  <div class="approach-bg"></div>
+  <div class="approach-content">
+    <h2 class="approach-title">My approach is <span class="colored">somatic,</span> <span class="colored">holistic</span> &amp; <span class="colored">trauma informed.</span></h2>
+
+    <div class="approach-block">
+      <p><span class="key">Somatic</span> comes the Greek "sōmatikos" which means "of the body." A somatic approach acknowledges the upmost importance of a regulated nervous system to experience true fulfillment. It also recognizes that the body can store traumatic experiences &amp; memories which unconsciously impacts present behaviors even when it seems to go against what the conscious mind knows &amp; desires. Many issues stem from a disconnection between the mind &amp; body. As we reconnect with the wisdom &amp; natural healing power of our bodies, beautiful releases can occur, freeing the system and allowing old patterns to shift with ease. It is truly empowering to slow down to listen, rebuild trust with our body &amp; learn to regulate our nervous system. That is when magic unfolds.</p>
+    </div>
+
+    <hr class="approach-divider">
+
+    <div class="approach-block">
+      <p><span class="key">Holistic</span> emphasize on the interconnectedness within the multidimensional aspects of our human experience. It recognizes that mindset and physical health is greatly impacted by the physical &amp; social environment one lives in by example. When a challenge is showing up in one's life, it impacts all aspects of their lives to some degree. As in holistic medicine, the focus is not on the symptom but on the whole system interactions &amp; root cause.</p>
+    </div>
+
+    <hr class="approach-divider">
+
+    <div class="approach-block">
+      <p><span class="key">Trauma-informed</span> because our deepest relational challenges of the present are typically connected to our most challenging experiences from earlier in life and understanding that connection is often the first step towards creating a new narrative. A trauma informed approach supports the system in releasing stuck energy in the body from a regulated nervous system, creating a greater sense of safety &amp; security within.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SPECIALIZE -->
+<section class="specialize">
+  <div style="max-width:860px;margin:0 auto;">
+    <h2>I specialize in <strong>everything relational dynamics &amp; intimacy.</strong></h2>
+    <p class="sub">Here are examples of what I love supporting my clients with:</p>
+    <ul>
+      <li><strong>Techniques to Pleasure Her/Him</strong>, Orgasmic Anatomy, Multiple &amp; <strong>Full Body Orgasms</strong></li>
+      <li>Premature Ejaculation, <strong>Ejaculatory Choice</strong>, Erectile Dysfunction &amp; Performance Anxiety</li>
+      <li><strong>Revive the Spark</strong>, Increase Polarity, Power Play, Surrender &amp; Leadership, <strong>Spice It Up</strong></li>
+      <li><strong>Confidence</strong> &amp; Skills to <strong>Ask for What You Want</strong> in the Bedroom/Dating/Life &amp; <strong>Receive it</strong></li>
+      <li><strong>Strengthen Relationship</strong> &amp; <strong>Build Trust</strong> through <strong>Conflicts,</strong> Loving <strong>Boundaries</strong> &amp; Repairs</li>
+      <li>Reconnect to your bodies through <strong>sensuality, pleasure,</strong> somatic &amp; regulation practices</li>
+      <li><strong>Communication Skills</strong> for ease, Understanding, <strong>Turn-On</strong> &amp; <strong>Secure Relationships</strong></li>
+      <li>Shift/Heal disempowering dynamics (ie <strong>ppl pleasing, overextending,</strong> resentful, etc)</li>
+      <li><strong>Turn triggers</strong> &amp; challenging emotions into <strong>generative energy</strong></li>
+      <li>Un-shaming, <strong>De-armoring</strong>, Deepen Emotional Connection</li>
+    </ul>
+    <p class="specialize-cta">If you recognize yourself in any of the above, let's have a conversation (my gift to you) &amp; explore if working together feels like a good fit for both of us to support you with allll what <strong>YOU desire right now.</strong></p>
+    <a href="https://tidycal.com/intimacy-coaching/consultation-with-marilys" target="_blank" class="btn btn-primary">Yes, I'd like to schedule my complimentary intake call !</a>
+  </div>
+</section>
+
+<!-- ABOUT INTIMACY -->
+<section class="about-intimacy">
+  <div class="intimacy-bg"></div>
+  <div class="intimacy-overlay"></div>
+  <div class="intimacy-content">
+    <h2>About Intimacy</h2>
+    <p>Many associate intimacy with sexuality. Of course sexuality is inherently intimate, yet intimacy is so much more. It is what allows an experience, a relationship to feel truly connective &amp; fulfilling. Intimacy is a feeling of closeness and connection. It is when we feel seen &amp; loved into the depth of our being. It can happen during a sexual exchange or it can be solely emotional intimacy. Intimacy involves being open and vulnerable. That is what deepens connection and a sense of closeness which can even be experienced as a feeling of oneness at times. Tantric intimacy unites body, heart, mind, spirit and soul in the pleasures of living and loving. When truly embodied, it is enlivening and can be experienced everywhere, in all areas of our lives. It is so beautiful, powerful &amp; can feel ecstatic. My belief is that most human crave for more intimacy without knowing how to nurture it outside of sexual context.</p>
+  </div>
+</section>
+
+<!-- ABOUT EMPOWERMENT -->
+<section class="about-empowerment">
+  <div class="empowerment-inner">
+    <div class="empowerment-photo">
+      <img src="AND_3223_2_dance.jpg" alt="Marilys — embodied joy and aliveness">
+    </div>
+    <div class="empowerment-text">
+      <h2>About Empowerment</h2>
+      <p><strong>Power</strong> is the ability to influence the course of events, to have impacts in our world. <strong>We all have this ability and are all powerful beyond measure.</strong></p>
+      <p>The definition of <strong>empowering</strong> is 'to give power or authority to…' We can empower ourselves and also others! We can knowingly choose to use our power and join it to someone else's to support them in their endeavor and we can also give our power away unconsciously sometimes (when we blame others for how we feel by example) which usually cause a feeling of helplessness (disempowerment) in ourselves.</p>
+      <p><strong>Empowerment</strong> is to consciously develop more awareness, skills, agency and intentionality around how we use our inherent power for <strong>more fulfilling relationships &amp; life experiences.</strong></p>
+      <p class="welcome"><strong>Welcome to Empowered Connection ❤</strong></p>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <h2>What they say...</h2>
+  <div class="carousel">
+    <button class="carousel-btn carousel-prev" aria-label="Previous">&#8249;</button>
+    <div class="carousel-track">
+      <div class="carousel-slides" id="slides">
+
+        <div class="testi-slide"><div class="testi-card">
+          <div class="testi-quote-icon">"</div>
+          <blockquote>"Marilys is absolutely an incredible coach. She helped me <strong>experience the most fulfilling connections</strong> in my new community when before I was having a really hard time connecting with others and <strong>expressing my authentic self.</strong> I realized I was withholding so much from the people I love the most and that was not serving my relationships. Marilys helped me work through so much fear and learn how to say the important things to create <strong>so much more love, intimacy, and connection in my relationships.</strong> Because of our work together I've felt so loved, well received, and connected by my community and I feel like I can walk into any room and able to relate with anyone in the room. <strong>My confidence skyrocketed</strong> and Marilys has been a huge part of it. If you're thinking about working with Marilys I highly recommend it!! <strong>She has changed my life."</strong></blockquote>
+          <div class="testi-author">
+            <div class="testi-avatar"><img src="https://import.cdn.thinkific.com/580603%2Fcustom_site_themes%2Fid%2FZlyd0MS16XnuKS86Tbpg_Kay%20f.jpg.png" alt="Kay Ferah"></div>
+            <span class="testi-name">Kay Ferah</span>
+          </div>
+        </div></div>
+
+        <div class="testi-slide"><div class="testi-card">
+          <div class="testi-quote-icon">"</div>
+          <blockquote>"<strong>Working with Marilys changed my life in the best way and I am forever grateful!</strong> Her non-judgmental presence allowed me to reveal some things I had never shared with anyone else (because of shame) then I got to alchemize that shame with her support. <strong>I feel more myself and I feel more connected to my husband than EVER after 17 years of marriage, thanks to her support with our communication, understanding of the energetics and clarifying our boundaries.</strong> Shifting from people pleasing and co-dependency to interdependency feels so freeing and empowering. <strong>Our sexual &amp; emotional intimacy is also better than ever.</strong> I highly recommend to anyone that wants to improve their relationships (starting with themselves) to work with her!!"</blockquote>
+          <div class="testi-author">
+            <div class="testi-avatar"></div>
+            <span class="testi-name">Natalie</span>
+          </div>
+        </div></div>
+
+        <div class="testi-slide"><div class="testi-card">
+          <div class="testi-quote-icon">"</div>
+          <blockquote>"<strong>We are deeply grateful for how impactful just 1 session with Marilys was.</strong> Our goal was to connect with each other, learn, slow down, and seek a spiritual connection between us. It was a great success. <strong>It was all we hoped and so much more.</strong> <strong>Marilys perfectly understood how to help us find a deeper connection</strong> through tantric practices, breathing, gazing, touch, massage techniques and emotional intimacy. <strong>Her intuition with us was spot on. Our connection strengthened and we learned a lot about intimacy and each other.</strong> It was intimate, sensual and it felt safe to open and be vulnerable. <strong>It was an incredible experience, and we would highly recommend her guidance.</strong>"</blockquote>
+          <div class="testi-author">
+            <div class="testi-avatar"></div>
+            <span class="testi-name">Julie &amp; Steven R.</span>
+          </div>
+        </div></div>
+
+        <div class="testi-slide"><div class="testi-card">
+          <div class="testi-quote-icon">"</div>
+          <blockquote>"I never thought I could have the clarity I have now after only 6 sessions. And that so much growth could happen in that short amount of time. <strong>I feel more excited about my life, more aware of my energy and thoughts (which impacts everything, including all my relationships) and I learned to be softer with myself which I so deeply needed.</strong> Her coaching and the exercises we did together felt very tailored to me. <strong>She understood in a second when we touched trauma and we were able to work through it together.</strong> She is an all-in-one coach and it feels seamless. There was a meditative quality, career advancement quality, psychological quality and a connection between us that's hard to find in medical practitioners. <strong>It's so worth it to make that commitment and it's very comforting to work with Marilys. Only good and growth can come from it!!"</strong></blockquote>
+          <div class="testi-author">
+            <div class="testi-avatar"><img src="https://import.cdn.thinkific.com/580603%2Fcustom_site_themes%2Fid%2FU2zMW4rqSMhrVo22yTT6_muirean2.jpg.png" alt="Muireann O'Callaghan"></div>
+            <span class="testi-name">Muireann O'Callaghan</span>
+          </div>
+        </div></div>
+
+        <div class="testi-slide"><div class="testi-card">
+          <div class="testi-quote-icon">"</div>
+          <blockquote>"Working with Marilys allowed me to find clarity on a number of levels - ranging from what to work on in the next week, to what is the deep sense of purpose that is driving my action. <strong>She brings a combination of deep understanding, groundedness, matter-of-factness and even playfulness, that allows me to open up my head and my heart, and feel welcome in doing so.</strong> My usual defensiveness comes down because I feel seen by her and encouraged by the work we do together. <strong>At the end of our sessions, I usually have a feeling of ease and possibility with things that may have felt daunting or overwhelming.</strong> She also has a high capacity for attunement, offers powerful reflections that help me see where I am avoiding or fixating and then supports me shifting into more empowering thoughts and actions. <strong>I would highly recommend Marilys as a coach."</strong></blockquote>
+          <div class="testi-author">
+            <div class="testi-avatar"><img src="https://import.cdn.thinkific.com/580603%2Fcustom_site_themes%2Fid%2FSUx0SL4Sl2ofjUV0jxIP_James.jpg.png" alt="James Novakowski"></div>
+            <span class="testi-name">James Novakowski</span>
+          </div>
+        </div></div>
+
+      </div>
+    </div>
+    <button class="carousel-btn carousel-next" aria-label="Next">&#8250;</button>
+    <div class="carousel-dots" id="dots"></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<div class="contact-bar">
+  <h2>Still have questions?</h2>
+  <p>Email me at <a href="mailto:marilys@empowered-connection.com">marilys@empowered-connection.com</a> ❤</p>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <ul class="footer-links">
+    <li><a href="/">About</a></li>
+    <li><a href="/group-offerings">Group Offerings</a></li>
+    <li><a href="/turn-on-your-life">Free Challenge</a></li>
+    <li><a href="/conflict-repair-free-guide">Free Guide</a></li>
+  </ul>
+  <p class="footer-copy">© Copyright Empowered Connection 2026</p>
+</footer>
+
+<script>
+  const slides = document.getElementById('slides');
+  const dotsContainer = document.getElementById('dots');
+  const total = document.querySelectorAll('.testi-slide').length;
+  let current = 0;
+  for (let i = 0; i < total; i++) {
+    const dot = document.createElement('button');
+    dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+    dot.setAttribute('aria-label', 'Slide ' + (i+1));
+    dot.addEventListener('click', () => goTo(i));
+    dotsContainer.appendChild(dot);
+  }
+  function goTo(n) {
+    current = (n + total) % total;
+    slides.style.transform = 'translateX(-' + (current * 100) + '%)';
+    document.querySelectorAll('.carousel-dot').forEach((d,i) => d.classList.toggle('active', i === current));
+  }
+  document.querySelector('.carousel-prev').addEventListener('click', () => goTo(current - 1));
+  document.querySelector('.carousel-next').addEventListener('click', () => goTo(current + 1));
+  setInterval(() => goTo(current + 1), 6000);
+</script>
+</body>
+</html>
