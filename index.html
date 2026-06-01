@@ -5,8 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Empowered Connection | Somatic Intimacy & Relating Coach | Marilys</title>
 <meta name="description" content="Somatic Intimacy & Relating Coach and Erotic Aliveness Guide & Bodyworker. More pleasure, deeper connection, authentic intimacy.">
-<meta property="og:site_name" content="Empowered Connection">
-<meta property="og:url" content="https://empowered-connection.com">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -16,7 +14,6 @@
     --accent-hover:#b9103f;
     --accent-deep: #5a0820;
     --coral:       #c95d43;
-    --coral-light: #d4724a;
     --peach:       #f5c98a;
     --peach-light: #fde8c0;
     --text-dark:   #4a1520;
@@ -79,12 +76,14 @@
     background-size: cover;
     background-position: center 15%;
   }
+  /* More opaque overlay */
   .hero-overlay {
     position: absolute; inset: 0;
-    background: rgba(253, 232, 192, 0.6);
+    background: rgba(253, 232, 192, 0.72);
   }
   .hero-content { position: relative; z-index: 2; max-width: 920px; margin: 0 auto; }
 
+  /* "You want more" */
   .hero-title {
     font-family: var(--serif); font-weight: 700;
     font-size: clamp(2.4rem, 4.5vw, 4.2rem);
@@ -93,30 +92,31 @@
   }
   .hero-title em { font-style: italic; color: var(--accent); }
 
+  /* Desires — 3 forced lines */
   .hero-desires {
     font-family: var(--serif); font-style: italic; font-weight: 700;
     font-size: clamp(1rem, 1.55vw, 1.35rem);
     color: var(--accent);
-    line-height: 1.65; margin-bottom: 1.4rem;
+    line-height: 1.65; margin-bottom: 1.6rem;
     max-width: 860px; margin-left: auto; margin-right: auto;
   }
 
-  /* 2 points smaller than hero-title */
+  /* "& you can have it all." — 2 smaller than hero-title */
   .hero-haveitall {
     font-family: var(--serif); font-weight: 700;
-    font-size: clamp(2rem, 3.8vw, 3.6rem);
+    font-size: clamp(1.8rem, 3.4vw, 3.2rem);
     color: var(--accent-deep); line-height: 1.1;
-    margin-bottom: 0.6rem;
+    margin-bottom: 0.7rem;
   }
 
-  /* 3 points bigger than before, all coral */
-  .hero-artist-line {
+  /* "You are an Intimacy Artist!" — white, 2 bigger than before */
+  .hero-artist {
     font-family: var(--serif); font-weight: 700;
-    font-size: clamp(1.7rem, 3vw, 2.8rem);
-    color: var(--coral);
+    font-size: clamp(1.9rem, 3.2vw, 3rem);
+    color: #fff;
     line-height: 1.2; margin-bottom: 1rem;
+    text-shadow: 0 1px 6px rgba(90,8,32,0.35);
   }
-  .hero-artist-line em { font-style: italic; font-weight: 400; }
 
   .hero-ready {
     font-family: var(--serif); font-style: italic; font-weight: 700;
@@ -134,21 +134,21 @@
   .marilys-text h2 {
     font-family: var(--serif); font-weight: 700; font-style: italic;
     font-size: clamp(2rem, 3.5vw, 3rem);
-    color: var(--accent-deep); margin-bottom: 1.2rem;
+    color: var(--accent-deep); margin-bottom: 1.4rem;
   }
   .marilys-role-1 {
     font-family: var(--serif); font-weight: 700;
     font-size: clamp(1.1rem, 2vw, 1.45rem);
-    color: var(--accent-deep); line-height: 1.3; margin-bottom: 0.2rem;
+    color: var(--accent-deep); line-height: 1.3; margin-bottom: 0.6rem;
   }
   .marilys-role-2 {
     font-family: var(--serif); font-weight: 400;
     font-size: clamp(1.1rem, 2vw, 1.45rem);
-    color: var(--accent); line-height: 1.3; margin-bottom: 1.5rem;
+    color: var(--accent); line-height: 1.3; margin-bottom: 1.8rem;
   }
   .marilys-look {
     font-family: var(--serif); font-style: italic; font-weight: 700;
-    font-size: 1.15rem; color: var(--accent-deep); margin-bottom: 1.8rem;
+    font-size: 1.15rem; color: var(--accent-deep); margin-bottom: 2rem;
   }
   .marilys-photo {
     flex-shrink: 0; width: 420px; height: 420px;
@@ -201,7 +201,6 @@
     font-family: var(--serif); font-weight: 700; font-size: 1.15rem;
     color: var(--coral);
   }
-  /* bold words in approach paragraphs */
   .approach-block p strong { color: var(--coral); font-weight: 700; }
   .approach-divider {
     border: none; border-top: 1px solid rgba(138,12,47,0.25);
@@ -224,10 +223,10 @@
   }
   .specialize ul li {
     font-family: var(--sans); font-size: 1rem;
-    color: var(--coral); margin-bottom: 0.5rem;
+    color: var(--accent); margin-bottom: 0.5rem;
     line-height: 1.4;
   }
-  .specialize ul li strong { color: var(--coral); font-weight: 600; }
+  .specialize ul li strong { color: var(--accent); font-weight: 600; }
   .specialize-cta {
     font-family: var(--serif); font-size: clamp(1.1rem, 1.8vw, 1.4rem);
     color: var(--text-mid); margin-bottom: 0.2rem; line-height: 1.4;
@@ -244,10 +243,10 @@
   }
   .intimacy-bg {
     position: absolute; inset: 0;
-    background-image: url('https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=1600&q=80');
+    background-image: url('hands-heart.png');
     background-size: cover; background-position: center;
   }
-  .intimacy-overlay { position: absolute; inset: 0; background: rgba(100,35,5,0.52); }
+  .intimacy-overlay { position: absolute; inset: 0; background: rgba(80,20,5,0.58); }
   .intimacy-content { position: relative; z-index: 2; max-width: 960px; margin: 0 auto; }
   .about-intimacy h2 {
     font-family: var(--serif); font-size: clamp(1.8rem, 3vw, 2.8rem);
@@ -403,9 +402,9 @@
       depth, attunement, understanding, ease, sensuality, vitality, alignment,<br>
       fulfillment in all relationships,... be met in your desires...
     </p>
-    <p class="hero-haveitall">&amp; you can have it all</p>
-    <p class="hero-artist-line"><em>because you are an</em> Intimacy Artist!</p>
-    <p class="hero-ready">Ready to make your life &amp; intimacy the juiciest and most fun it's ever been!?</p>
+    <p class="hero-haveitall">&amp; you can have it all.</p>
+    <p class="hero-artist">You are an Intimacy Artist!</p>
+    <p class="hero-ready">Ready to experience your most turned-on life!?</p>
     <a href="https://tidycal.com/intimacy-coaching/consultation-with-marilys" target="_blank" class="btn btn-primary">Yes !!! I already know I want to work with you !!!</a>
   </div>
 </section>
@@ -505,7 +504,6 @@
     <button class="carousel-btn carousel-prev" aria-label="Previous">&#8249;</button>
     <div class="carousel-track">
       <div class="carousel-slides" id="slides">
-
         <div class="testi-slide"><div class="testi-card">
           <div class="testi-quote-icon">"</div>
           <blockquote>"Marilys is absolutely an incredible coach. She helped me <strong>experience the most fulfilling connections</strong> in my new community when before I was having a really hard time connecting with others and <strong>expressing my authentic self.</strong> I realized I was withholding so much from the people I love the most and that was not serving my relationships. Marilys helped me work through so much fear and learn how to say the important things to create <strong>so much more love, intimacy, and connection in my relationships.</strong> Because of our work together I've felt so loved, well received, and connected by my community and I feel like I can walk into any room and able to relate with anyone in the room. <strong>My confidence skyrocketed</strong> and Marilys has been a huge part of it. If you're thinking about working with Marilys I highly recommend it!! <strong>She has changed my life."</strong></blockquote>
@@ -526,7 +524,7 @@
 
         <div class="testi-slide"><div class="testi-card">
           <div class="testi-quote-icon">"</div>
-          <blockquote>"<strong>We are deeply grateful for how impactful just 1 session with Marilys was.</strong> Our goal was to connect with each other, learn, slow down, and seek a spiritual connection between us. It was a great success. <strong>It was all we hoped and so much more.</strong> <strong>Marilys perfectly understood how to help us find a deeper connection</strong> through tantric practices, breathing, gazing, touch, massage techniques and emotional intimacy. <strong>Her intuition with us was spot on. Our connection strengthened and we learned a lot about intimacy and each other.</strong> It was intimate, sensual and it felt safe to open and be vulnerable. <strong>It was an incredible experience, and we would highly recommend her guidance.</strong>"</blockquote>
+          <blockquote>"<strong>We are deeply grateful for how impactful just 1 session with Marilys was.</strong> Our goal was to connect with each other, learn, slow down, and seek a spiritual connection between us. <strong>Marilys perfectly understood how to help us find a deeper connection</strong> through tantric practices, breathing, gazing, touch, massage techniques and emotional intimacy. <strong>Her intuition with us was spot on. Our connection strengthened and we learned a lot about intimacy and each other.</strong> It was intimate, sensual and it felt safe to open and be vulnerable. <strong>It was an incredible experience, and we would highly recommend her guidance.</strong>"</blockquote>
           <div class="testi-author">
             <div class="testi-avatar"></div>
             <span class="testi-name">Julie &amp; Steven R.</span>
@@ -535,7 +533,7 @@
 
         <div class="testi-slide"><div class="testi-card">
           <div class="testi-quote-icon">"</div>
-          <blockquote>"I never thought I could have the clarity I have now after only 6 sessions. And that so much growth could happen in that short amount of time. <strong>I feel more excited about my life, more aware of my energy and thoughts (which impacts everything, including all my relationships) and I learned to be softer with myself which I so deeply needed.</strong> Her coaching and the exercises we did together felt very tailored to me. <strong>She understood in a second when we touched trauma and we were able to work through it together.</strong> She is an all-in-one coach and it feels seamless. There was a meditative quality, career advancement quality, psychological quality and a connection between us that's hard to find in medical practitioners. <strong>It's so worth it to make that commitment and it's very comforting to work with Marilys. Only good and growth can come from it!!"</strong></blockquote>
+          <blockquote>"I never thought I could have the clarity I have now after only 6 sessions. <strong>I feel more excited about my life, more aware of my energy and thoughts and I learned to be softer with myself which I so deeply needed.</strong> Her coaching felt very tailored to me. <strong>She understood in a second when we touched trauma and we were able to work through it together.</strong> There was a meditative quality, career advancement quality, psychological quality and a connection between us that's hard to find in medical practitioners. <strong>It's so worth it to make that commitment and it's very comforting to work with Marilys. Only good and growth can come from it!!"</strong></blockquote>
           <div class="testi-author">
             <div class="testi-avatar"><img src="https://import.cdn.thinkific.com/580603%2Fcustom_site_themes%2Fid%2FU2zMW4rqSMhrVo22yTT6_muirean2.jpg.png" alt="Muireann O'Callaghan"></div>
             <span class="testi-name">Muireann O'Callaghan</span>
@@ -544,13 +542,12 @@
 
         <div class="testi-slide"><div class="testi-card">
           <div class="testi-quote-icon">"</div>
-          <blockquote>"Working with Marilys allowed me to find clarity on a number of levels - ranging from what to work on in the next week, to what is the deep sense of purpose that is driving my action. <strong>She brings a combination of deep understanding, groundedness, matter-of-factness and even playfulness, that allows me to open up my head and my heart, and feel welcome in doing so.</strong> My usual defensiveness comes down because I feel seen by her and encouraged by the work we do together. <strong>At the end of our sessions, I usually have a feeling of ease and possibility with things that may have felt daunting or overwhelming.</strong> She also has a high capacity for attunement, offers powerful reflections that help me see where I am avoiding or fixating and then supports me shifting into more empowering thoughts and actions. <strong>I would highly recommend Marilys as a coach."</strong></blockquote>
+          <blockquote>"Working with Marilys allowed me to find clarity on a number of levels. <strong>She brings a combination of deep understanding, groundedness, matter-of-factness and even playfulness, that allows me to open up my head and my heart, and feel welcome in doing so.</strong> My usual defensiveness comes down because I feel seen by her and encouraged by the work we do together. <strong>At the end of our sessions, I usually have a feeling of ease and possibility with things that may have felt daunting or overwhelming.</strong> She also has a high capacity for attunement, offers powerful reflections that help me see where I am avoiding or fixating and then supports me shifting into more empowering thoughts and actions. <strong>I would highly recommend Marilys as a coach."</strong></blockquote>
           <div class="testi-author">
             <div class="testi-avatar"><img src="https://import.cdn.thinkific.com/580603%2Fcustom_site_themes%2Fid%2FSUx0SL4Sl2ofjUV0jxIP_James.jpg.png" alt="James Novakowski"></div>
             <span class="testi-name">James Novakowski</span>
           </div>
         </div></div>
-
       </div>
     </div>
     <button class="carousel-btn carousel-next" aria-label="Next">&#8250;</button>
