@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Turn On Your Life — Free 7-Day Challenge | Empowered Connection</title>
+<meta name="description" content="Experience more turn-on, vitality and pleasure in 7 days than most people feel in a year. Free challenge with Marilys.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --accent:      #8a0c2f;
+    --accent-hover:#b9103f;
+    --accent-deep: #5a0820;
+    --coral:       #c95d43;
+    --peach:       #f5c98a;
+    --peach-light: #fde8c0;
+    --peach-mid:   #f0b87a;
+    --text-dark:   #4a1520;
+    --text-mid:    #7a3020;
+    --serif: 'Libre Baskerville', Georgia, serif;
+    --sans:  'Poppins', sans-serif;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--peach-light);
+    color: var(--text-dark);
+    font-family: var(--sans);
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 1.75;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: sticky; top: 0; z-index: 200;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 3rem; height: 80px;
+    background: var(--peach);
+    border-bottom: 1px solid rgba(138,12,47,0.15);
+  }
+  .nav-logo img { height: 56px; width: auto; display: block; }
+  .nav-cta {
+    display: inline-block; background: var(--accent); color: #fff;
+    text-decoration: none; font-family: var(--sans);
+    font-size: 0.9rem; font-weight: 500;
+    padding: 0.55rem 1.4rem; border-radius: 6px; transition: background 0.2s;
+  }
+  .nav-cta:hover { background: var(--accent-hover); }
+
+  /* BUTTONS */
+  .btn {
+    display: inline-block; text-decoration: none;
+    font-family: var(--sans); font-size: 1rem; font-weight: 600;
+    padding: 1rem 2.5rem; border-radius: 6px;
+    transition: all 0.22s ease; cursor: pointer; border: none;
+  }
+  .btn-primary { background: var(--accent); color: #fff; }
+  .btn-primary:hover { background: var(--accent-hover); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(138,12,47,0.3); }
+  .btn-cream { background: var(--peach-light); color: var(--accent-deep); }
+  .btn-cream:hover { background: var(--peach); transform: translateY(-2px); }
+  .btn-large { font-size: 1.1rem; padding: 1.1rem 3rem; }
+
+  /* POPUP OVERLAY */
+  .popup-overlay {
+    display: none;
+    position: fixed; inset: 0; z-index: 1000;
+    background: rgba(90,8,32,0.7);
+    backdrop-filter: blur(4px);
+    align-items: center; justify-content: center;
+    padding: 1.5rem;
+  }
+  .popup-overlay.active { display: flex; }
+  .popup-box {
+    background: var(--peach-light);
+    border-radius: 16px;
+    padding: 3rem 2.5rem;
+    max-width: 480px; width: 100%;
+    position: relative;
+    box-shadow: 0 20px 60px rgba(90,8,32,0.4);
+    animation: popIn 0.3s ease;
+  }
+  @keyframes popIn {
+    from { opacity: 0; transform: scale(0.92) translateY(20px); }
+    to   { opacity: 1; transform: scale(1) translateY(0); }
+  }
+  .popup-close {
+    position: absolute; top: 1rem; right: 1.2rem;
+    background: none; border: none; cursor: pointer;
+    font-size: 1.5rem; color: var(--text-mid); line-height: 1;
+    transition: color 0.2s;
+  }
+  .popup-close:hover { color: var(--accent); }
+  .popup-box h3 {
+    font-family: var(--serif); font-size: 1.4rem; font-weight: 700;
+    color: var(--accent-deep); text-align: center; margin-bottom: 0.4rem;
+  }
+  .popup-box .popup-sub {
+    font-family: var(--sans); font-size: 0.88rem;
+    color: var(--text-mid); text-align: center; margin-bottom: 1.8rem;
+    font-style: italic;
+  }
+  .form-field {
+    width: 100%; padding: 0.75rem 1rem; margin-bottom: 0.75rem;
+    border: 1px solid rgba(138,12,47,0.2); border-radius: 6px;
+    font-family: var(--sans); font-size: 0.95rem; color: var(--text-dark);
+    background: #fff; outline: none; transition: border-color 0.2s;
+  }
+  .form-field:focus { border-color: var(--accent); }
+  .form-field::placeholder { color: rgba(122,48,32,0.4); }
+  select.form-field { cursor: pointer; }
+  /* REPLACE the form inside .popup-form-inner with your Flodesk embed */
+  .popup-form-inner {}
+  .popup-trust {
+    font-size: 0.78rem; color: var(--text-mid);
+    text-align: center; margin-top: 0.8rem; font-style: italic;
+  }
+
+  /* HERO */
+  .hero {
+    position: relative; min-height: 100vh;
+    display: grid; grid-template-columns: 55% 45%;
+    overflow: hidden;
+  }
+  .hero-left {
+    display: flex; flex-direction: column;
+    justify-content: center; align-items: center;
+    text-align: center; padding: 5rem 4rem;
+    background: var(--peach-light); position: relative; z-index: 2;
+  }
+  .hero-eyebrow {
+    font-family: var(--sans); font-size: 0.78rem; font-weight: 500;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--coral); margin-bottom: 1.2rem;
+  }
+  .hero h1 {
+    font-family: var(--serif); font-weight: 700;
+    font-size: clamp(3.5rem, 6vw, 6rem);
+    color: var(--accent-deep); line-height: 1.0; margin-bottom: 1.2rem;
+  }
+  .hero-sub {
+    font-family: var(--serif); font-style: italic; font-weight: 700;
+    font-size: clamp(1.15rem, 1.9vw, 1.5rem);
+    color: var(--accent); line-height: 1.55; margin-bottom: 1.8rem; max-width: 520px;
+  }
+  .hero-body {
+    font-family: var(--sans); font-size: 1rem;
+    color: var(--text-mid); line-height: 1.75; margin-bottom: 2rem; max-width: 520px;
+  }
+  .hero-body strong { color: var(--text-dark); font-weight: 600; }
+  .hero-zinger {
+    font-family: var(--serif); font-style: italic; font-weight: 700;
+    font-size: 1.05rem; color: var(--text-dark); margin-bottom: 1.2rem;
+  }
+  .hero-right { position: relative; overflow: hidden; }
+  .hero-right img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
+  .hero-right::before {
+    content: ''; position: absolute; inset: 0; z-index: 1;
+    background: linear-gradient(to right, var(--peach-light) 0%, transparent 12%);
+  }
+
+  /* STORY */
+  .story { background: var(--peach-mid); padding: 5rem; }
+  .story-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 5rem; align-items: start; max-width: 1100px; margin: 0 auto;
+  }
+  .story-img-main { width: 100%; border-radius: 12px; overflow: hidden; aspect-ratio: 4/5; }
+  .story-img-main img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
+  .story-img-secondary { width: 75%; margin-left: auto; margin-top: 1.5rem; border-radius: 12px; overflow: hidden; aspect-ratio: 3/2; }
+  .story-img-secondary img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .story-content p { font-family: var(--sans); font-size: 1rem; color: var(--text-dark); line-height: 1.85; margin-bottom: 0.9rem; }
+  .story-content p strong { color: var(--text-dark); font-weight: 600; }
+  .story-content .red { color: var(--accent); font-weight: 700; }
+  .story-content .red-plain { color: var(--accent); }
+  .story-bigger { font-family: var(--sans); font-size: 1.1rem; font-weight: 600; color: var(--text-dark); margin-bottom: 0.5rem !important; }
+  .story-welcome { color: var(--accent); font-weight: 600; font-size: 1rem; }
+
+  /* DARK SECTION */
+  .section-dark { background: var(--accent-deep); padding: 5rem; }
+  .dark-inner { max-width: 900px; margin: 0 auto; text-align: center; }
+  .dark-lead {
+    font-family: var(--serif); font-weight: 700;
+    font-size: clamp(1.8rem, 3.2vw, 2.8rem);
+    color: var(--peach-light); line-height: 1.2; margin-bottom: 0.5rem;
+  }
+  .dark-lead2 {
+    font-family: var(--serif); font-weight: 700;
+    font-size: clamp(1.6rem, 2.8vw, 2.4rem);
+    color: var(--peach-light); line-height: 1.2; margin-bottom: 1.5rem;
+  }
+  .dark-secondary {
+    font-family: var(--serif); font-style: italic;
+    font-size: clamp(1rem, 1.6vw, 1.25rem);
+    color: rgba(253,232,192,0.75); margin-bottom: 0.5rem;
+  }
+  .dark-p { font-family: var(--sans); font-size: 1rem; color: rgba(253,232,192,0.82); line-height: 1.8; margin-bottom: 1rem; }
+  .dark-p strong { color: var(--peach-light); font-weight: 600; }
+  .reason-block { margin: 2rem 0; }
+  .reason {
+    font-family: var(--serif); font-weight: 700;
+    font-size: clamp(1.1rem, 1.8vw, 1.4rem);
+    color: var(--peach); margin-bottom: 0.4rem;
+  }
+  .reason-continuation {
+    font-family: var(--sans); font-size: 0.97rem;
+    color: rgba(253,232,192,0.7); font-style: italic; margin-bottom: 1rem;
+  }
+  .big-q {
+    font-family: var(--serif); font-weight: 700;
+    font-size: clamp(2rem, 3.5vw, 3.2rem);
+    color: var(--peach); line-height: 1.15; margin: 2.5rem 0 0.5rem;
+  }
+  .dimming { font-family: var(--serif); font-weight: 700; font-size: 1.1rem; color: var(--peach-light); margin-bottom: 0.3rem; }
+  .not-you { font-family: var(--serif); font-style: italic; font-size: 1rem; color: rgba(253,232,192,0.55); margin-bottom: 2.5rem; }
+
+  /* INVERSION */
+  .inv-table { display: grid; grid-template-columns: 1fr 1fr; max-width: 940px; margin: 2.5rem auto; border: 1px solid rgba(253,232,192,0.15); border-radius: 8px; overflow: hidden; }
+  .inv-h { background: rgba(253,232,192,0.08); padding: 0.9rem 1.5rem; font-family: var(--sans); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--coral); text-align: center; border-bottom: 1px solid rgba(253,232,192,0.15); }
+  .inv-h.r { border-left: 1px solid rgba(253,232,192,0.15); }
+  .inv-l { padding: 1.3rem 1.5rem; border-bottom: 1px solid rgba(253,232,192,0.1); font-family: var(--sans); font-size: 0.92rem; color: rgba(253,232,192,0.55); line-height: 1.65; font-style: italic; }
+  .inv-r { padding: 1.3rem 1.5rem; border-bottom: 1px solid rgba(253,232,192,0.1); border-left: 1px solid rgba(253,232,192,0.15); font-family: var(--sans); font-size: 0.92rem; color: var(--peach-light); line-height: 1.65; font-weight: 500; }
+  .inv-l:last-child, .inv-r:last-child { border-bottom: none; }
+
+  .numbness { font-family: var(--serif); font-style: italic; font-size: clamp(1.1rem,1.8vw,1.5rem); color: rgba(253,232,192,0.6); margin: 2.5rem 0 0.5rem; }
+  .body-sensation {
+    font-family: var(--serif); font-weight: 700;
+    font-size: clamp(1.5rem, 2.8vw, 2.4rem);
+    color: var(--peach-light); line-height: 1.25; margin-bottom: 2.5rem;
+  }
+  .wrong-intro { font-family: var(--serif); font-weight: 700; font-size: clamp(1.1rem,1.8vw,1.5rem); color: var(--peach); margin-bottom: 0.6rem; }
+  .wrong-list-flat { font-family: var(--sans); font-size: 1rem; color: rgba(253,232,192,0.7); margin-bottom: 1.2rem; font-style: italic; }
+  .not-circ { font-family: var(--sans); font-size: 1rem; color: rgba(253,232,192,0.82); margin-bottom: 0.3rem; }
+  .life-force { font-family: var(--serif); font-weight: 700; font-size: clamp(1.6rem,3vw,2.8rem); color: var(--peach); margin-bottom: 2rem; }
+  .baseline-lines p {
+    font-family: var(--serif); font-weight: 700;
+    font-size: clamp(1.3rem, 2.3vw, 2rem);
+    color: var(--peach); line-height: 1.3; margin-bottom: 0.2rem;
+  }
+
+  /* WHAT'S POSSIBLE */
+  .possible { background: var(--peach-light); padding: 5rem; }
+  .imagine { font-family: var(--serif); font-weight: 700; font-style: italic; font-size: clamp(3.5rem, 7vw, 7rem); color: var(--accent-deep); text-align: center; line-height: 1; margin-bottom: 0.5rem; }
+  .imagine-sub { font-family: var(--sans); font-size: 0.9rem; color: var(--text-mid); text-align: center; font-style: italic; margin-bottom: 4rem; }
+  .scene { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; max-width: 1100px; margin: 0 auto 5rem; }
+  .scene.rev { direction: rtl; }
+  .scene.rev > * { direction: ltr; }
+  .scene-img { border-radius: 12px; overflow: hidden; aspect-ratio: 4/3; }
+  .scene-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .scene-headline { font-family: var(--serif); font-weight: 700; font-size: clamp(1.2rem, 2vw, 1.7rem); color: var(--accent); line-height: 1.25; margin-bottom: 0.8rem; }
+  .scene-body { font-family: var(--sans); font-size: 1rem; color: var(--text-mid); line-height: 1.8; margin-bottom: 1rem; }
+  .scene-body strong { color: var(--text-dark); font-weight: 600; }
+  .testi {
+    background: rgba(255,255,255,0.6); border-left: 3px solid var(--coral);
+    border-radius: 0 8px 8px 0; padding: 1.2rem 1.5rem;
+  }
+  .testi blockquote { font-family: var(--serif); font-style: italic; font-size: 0.95rem; color: var(--text-mid); line-height: 1.7; margin-bottom: 0.4rem; }
+  .testi blockquote strong { color: var(--accent-deep); font-style: normal; font-weight: 700; }
+  .testi blockquote em { font-style: italic; font-weight: 700; color: var(--accent-deep); }
+  .testi-name { font-family: var(--sans); font-size: 0.8rem; font-weight: 500; color: var(--accent); }
+
+  .feel-diff { text-align: center; max-width: 680px; margin: 0 auto 2rem; }
+  .feel-diff p { font-family: var(--serif); font-size: clamp(1.2rem,2vw,1.6rem); color: var(--text-dark); line-height: 1.5; margin-bottom: 0.2rem; }
+  .feel-diff p.lighter { color: var(--text-mid); font-size: clamp(1rem,1.6vw,1.2rem); }
+  .outcome-bullets { list-style: none; max-width: 680px; margin: 1.5rem auto; }
+  .outcome-bullets li { font-family: var(--sans); font-size: 1rem; color: var(--text-mid); padding: 0.55rem 0; border-bottom: 1px solid rgba(138,12,47,0.1); display: flex; gap: 0.75rem; align-items: flex-start; line-height: 1.6; }
+
+  /* DOES IT WORK */
+  .works { background: var(--peach-light); padding: 5rem; text-align: center; }
+  .works-h1 { font-family: var(--serif); font-weight: 700; font-size: clamp(1.4rem,2.3vw,2rem); color: var(--accent); margin-bottom: 0; }
+  .works-h2 { font-family: var(--serif); font-weight: 700; font-size: clamp(1.2rem,2vw,1.7rem); color: var(--accent); margin-bottom: 1.5rem; font-style: italic; }
+  .works-powerful { font-family: var(--serif); font-style: italic; font-weight: 700; font-size: clamp(1.1rem,1.8vw,1.5rem); color: var(--accent); margin: 1.5rem 0 2rem; }
+  .works-testi-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; max-width: 1100px; margin: 0 auto; }
+  .works-testi { background: rgba(255,255,255,0.55); border-radius: 8px; padding: 1.8rem; text-align: left; }
+  .works-testi blockquote { font-family: var(--serif); font-style: italic; font-size: 0.97rem; color: var(--text-mid); line-height: 1.75; margin-bottom: 0.8rem; }
+  .works-testi blockquote strong { color: var(--accent-deep); font-style: normal; font-weight: 700; }
+  .works-testi blockquote em { font-weight: 700; font-style: italic; }
+  .works-testi .name { font-family: var(--sans); font-size: 0.8rem; font-weight: 500; color: var(--accent); }
+
+  /* FOR YOU */
+  .for-you { background: var(--peach-mid); padding: 5rem; text-align: center; }
+  .for-you h2 { font-family: var(--serif); font-weight: 700; font-size: clamp(1.8rem,3vw,2.8rem); color: var(--accent-deep); margin-bottom: 2rem; }
+  .check-list { list-style: none; max-width: 800px; margin: 0 auto 2.5rem; text-align: left; }
+  .check-list li { font-family: var(--sans); font-size: 1rem; color: var(--text-mid); padding: 0.7rem 0; border-bottom: 1px solid rgba(138,12,47,0.1); display: flex; gap: 0.75rem; align-items: flex-start; line-height: 1.6; }
+
+  /* NOT FOR YOU */
+  .not-for-you { background: var(--peach-light); padding: 2rem 5rem 5rem; text-align: center; }
+  .not-for-you h3 { font-family: var(--serif); font-size: 1.4rem; font-weight: 700; color: var(--text-mid); margin-bottom: 1.5rem; }
+  .x-list { list-style: none; max-width: 620px; margin: 0 auto; text-align: left; }
+  .x-list li { font-family: var(--sans); font-size: 1rem; color: var(--text-mid); padding: 0.6rem 0; border-bottom: 1px solid rgba(138,12,47,0.08); display: flex; gap: 0.75rem; align-items: flex-start; line-height: 1.6; }
+  .x-icon { color: var(--accent); font-weight: 700; flex-shrink: 0; }
+
+  /* HOW IT WORKS */
+  .how { background: var(--peach-mid); padding: 5rem; }
+  .how-title { font-family: var(--serif); font-weight: 700; font-size: clamp(1.8rem,3vw,2.6rem); color: var(--accent-deep); text-align: center; margin-bottom: 0.4rem; }
+  .how-sub { font-family: var(--sans); font-size: 1rem; color: var(--text-mid); text-align: center; margin-bottom: 3rem; font-style: italic; }
+  .how-cards { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; max-width: 1100px; margin: 0 auto 3rem; }
+  .how-card { background: rgba(255,255,255,0.5); border-radius: 10px; padding: 2rem; }
+  .how-card-title { font-family: var(--serif); font-weight: 700; font-size: 1.05rem; color: var(--accent); margin-bottom: 0.6rem; line-height: 1.35; }
+  .how-card p { font-family: var(--sans); font-size: 0.92rem; color: var(--text-mid); line-height: 1.7; }
+  .how-card p a { color: var(--peach-mid); text-decoration: none; font-style: italic; }
+
+  /* 7 DAYS */
+  .days { background: var(--accent-deep); padding: 5rem; }
+  .days h2 { font-family: var(--serif); font-weight: 700; font-size: clamp(1.8rem,3vw,2.8rem); color: var(--peach-light); text-align: center; margin-bottom: 0.4rem; }
+  .days-sub { font-family: var(--serif); font-style: italic; font-size: 1.05rem; color: rgba(253,232,192,0.6); text-align: center; margin-bottom: 2.5rem; }
+  .days-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap: 1.2rem; max-width: 1100px; margin: 0 auto; }
+  .day-card { background: rgba(253,232,192,0.06); border: 1px solid rgba(253,232,192,0.15); border-radius: 8px; padding: 1.6rem; transition: background 0.2s; }
+  .day-card:hover { background: rgba(253,232,192,0.1); }
+  .day-label { font-family: var(--sans); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--coral); margin-bottom: 0.3rem; display: block; }
+  .day-card h3 { font-family: var(--serif); font-size: 1rem; font-weight: 700; font-style: italic; color: var(--peach); margin-bottom: 0.5rem; line-height: 1.3; }
+  .day-card p { font-family: var(--sans); font-size: 0.88rem; color: rgba(253,232,192,0.65); line-height: 1.65; }
+
+  /* FAQ */
+  .faq { background: var(--peach-mid); padding: 5rem; }
+  .faq-label { font-family: var(--sans); font-size: 0.72rem; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(122,48,32,0.35); text-align: center; display: block; margin-bottom: 0.4rem; }
+  .faq h2 { font-family: var(--serif); font-weight: 700; font-size: clamp(1.8rem,3vw,2.6rem); color: var(--accent-deep); text-align: center; margin-bottom: 2.5rem; }
+  .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; max-width: 1000px; margin: 0 auto; }
+  .faq-item { background: rgba(255,255,255,0.5); border-radius: 8px; padding: 1.6rem; }
+  .faq-item h3 { font-family: var(--serif); font-size: 1rem; font-weight: 700; font-style: italic; color: var(--accent); margin-bottom: 0.5rem; }
+  .faq-item p { font-family: var(--sans); font-size: 0.92rem; color: var(--text-mid); line-height: 1.7; }
+  .faq-item p strong { color: var(--accent-deep); font-weight: 600; }
+
+  /* FINAL CTA */
+  .final-cta { position: relative; overflow: hidden; background: var(--accent); padding: 6rem 5rem; text-align: center; }
+  .final-cta::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 50%, rgba(232,168,90,0.15) 0%, transparent 70%); }
+  .final-small { font-family: var(--serif); font-style: italic; font-size: 1rem; color: rgba(253,232,192,0.6); margin-bottom: 0.8rem; position: relative; }
+  .final-title { font-family: var(--serif); font-weight: 700; font-size: clamp(2.2rem,4.5vw,4rem); color: var(--peach-light); line-height: 1.1; margin-bottom: 0.3rem; position: relative; }
+  .final-title2 { font-family: var(--serif); font-size: clamp(1.1rem,1.8vw,1.5rem); color: rgba(253,232,192,0.75); margin-bottom: 2rem; position: relative; }
+  .upsell-note { font-family: var(--serif); font-style: italic; font-size: 0.95rem; color: rgba(253,232,192,0.5); max-width: 580px; margin: 1.5rem auto 0; position: relative; }
+
+  /* IMG DIVIDER */
+  .img-divider { position: relative; height: 380px; overflow: hidden; }
+  .img-divider img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; display: block; filter: brightness(0.72); }
+  .img-divider-overlay { position: absolute; inset: 0; background: rgba(90,8,32,0.4); display: flex; align-items: center; justify-content: center; }
+  .img-divider-text { font-family: var(--serif); font-style: italic; font-weight: 700; font-size: clamp(1.4rem,2.8vw,2.2rem); color: #fff; text-align: center; max-width: 700px; padding: 0 2rem; text-shadow: 0 2px 12px rgba(0,0,0,0.4); line-height: 1.4; }
+
+  /* FOOTER */
+  footer { background: var(--accent-deep); padding: 2rem 5rem; text-align: center; }
+  footer p { font-family: var(--sans); font-size: 0.82rem; color: rgba(253,232,192,0.4); line-height: 1.8; }
+  footer a { color: rgba(253,232,192,0.55); text-decoration: none; }
+  footer a:hover { color: var(--peach-light); }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    nav { padding: 0 1.5rem; }
+    .hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-left { padding: 3rem 1.5rem; }
+    .hero-right { height: 60vw; }
+    .story { padding: 3.5rem 1.5rem; }
+    .story-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .section-dark { padding: 3.5rem 1.5rem; }
+    .inv-table { grid-template-columns: 1fr; }
+    .inv-h.r, .inv-r { border-left: none; border-top: 1px solid rgba(253,232,192,0.15); }
+    .possible { padding: 3.5rem 1.5rem; }
+    .scene { grid-template-columns: 1fr; gap: 2rem; }
+    .scene.rev { direction: ltr; }
+    .works { padding: 3.5rem 1.5rem; }
+    .works-testi-grid { grid-template-columns: 1fr; }
+    .for-you, .not-for-you { padding: 3.5rem 1.5rem; }
+    .how { padding: 3.5rem 1.5rem; }
+    .how-cards { grid-template-columns: 1fr; }
+    .days { padding: 3.5rem 1.5rem; }
+    .faq { padding: 3.5rem 1.5rem; }
+    .faq-grid { grid-template-columns: 1fr; }
+    .final-cta { padding: 4rem 1.5rem; }
+    footer { padding: 2rem 1.5rem; }
+    .img-divider { height: 260px; }
+    .popup-box { padding: 2rem 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- FLODESK POPUP OVERLAY -->
+<div class="popup-overlay" id="popupOverlay">
+  <div class="popup-box">
+    <button class="popup-close" onclick="closePopup()" aria-label="Close">×</button>
+    <h3>Save My Free Spot 🔥</h3>
+    <p class="popup-sub">Free 7-Day Challenge · Starts June 12th</p>
+
+    <!-- ============================================================ -->
+    <!-- FLODESK API FORM                                             -->
+    <!-- Replace YOUR_FLODESK_API_KEY with your actual key           -->
+    <!-- Replace YOUR_SEGMENT_ID with your Flodesk segment ID        -->
+    <!-- ============================================================ -->
+    <div class="popup-form-inner">
+      <div id="form-error" style="display:none; color:#8a0c2f; font-size:0.85rem; margin-bottom:0.75rem; font-family:var(--sans); text-align:center;"></div>
+      <input type="text" class="form-field" id="fd-firstName" placeholder="First Name" name="firstName">
+      <input type="email" class="form-field" id="fd-email" placeholder="Email Address" name="email">
+      <select class="form-field" id="fd-hearAbout" name="hearAbout">
+        <option value="" disabled selected>How did you hear about this challenge?</option>
+        <option>Intimacy Artists Community</option>
+        <option>Friend / Word of Mouth</option>
+        <option>WhatsApp Group</option>
+        <option>Instagram</option>
+        <option>Facebook</option>
+        <option>Email</option>
+        <option>Google</option>
+        <option>Other</option>
+      </select>
+      <button class="btn btn-primary btn-large" id="fd-submit" style="width:100%; margin-top:0.5rem;" onclick="submitToFlodesk()">Let's Turn It All The Way ONNNNN!!! →</button>
+      <div id="form-success" style="display:none; text-align:center; padding:1.5rem 0;">
+        <p style="font-family:var(--serif); font-size:1.2rem; font-weight:700; color:var(--accent-deep); margin-bottom:0.5rem;">You're in! 🔥</p>
+        <p style="font-family:var(--sans); font-size:0.9rem; color:var(--text-mid);">Check your inbox to confirm your spot. See you June 12th!</p>
+      </div>
+    </div>
+    <!-- ============================================================ -->
+
+    <p class="popup-trust">✓ Free. Check your inbox to confirm your spot.</p>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a href="/" class="nav-logo"><img src="Logo. Dark red.png" alt="Empowered Connection"></a>
+  <button class="nav-cta btn" onclick="openPopup()">Save My Free Spot</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <span class="hero-eyebrow">Free 7-Day Challenge · Starts June 12th</span>
+    <h1>Turn On<br>Your Life</h1>
+    <p class="hero-sub">Experience more turn-on, vitality and pleasure in 7 days than most people feel in a year — all from the inside out!</p>
+    <p class="hero-body">The only FREE challenge <strong>empowering you to cultivate your OWN Erotic Aliveness</strong> — alongside <strong>150+ Intimacy Artists</strong> — creating ripples so <strong>high-vibe</strong> people start asking what are you on and want to have what you're having!</p>
+    <p class="hero-zinger">The world has been telling you to turn it down your whole life.<br>We say...</p>
+    <button class="btn btn-primary btn-large" onclick="openPopup()">Let's Turn It All The Way ONNNNN!!! →</button>
+  </div>
+  <div class="hero-right">
+    <img src="toyl-jump.jpg" alt="Pure aliveness">
+  </div>
+</section>
+
+<!-- STORY -->
+<section class="story">
+  <div class="story-grid">
+    <div>
+      <div class="story-img-main"><img src="toyl-spin.jpg" alt="Marilys — embodied and free"></div>
+      <div class="story-img-secondary"><img src="toyl-kite.jpg" alt="Marilys kitesurfing"></div>
+    </div>
+    <div class="story-content">
+      <p>"I was <strong>living on the beach</strong>, building my <strong>dream business</strong> with my <strong>husband</strong> who I loved dearly... We were the <strong>power couple</strong> everyone looked up to, and my Eros was the <span class="red">most turned off it'd ever been in my life</span> (maybe besides when I was suicidal at 13 — but that's a story for another time 😅)."</p>
+      <p><strong>And I was waking up in a sigh. Dragging my feet.</strong> Trying to be a good wife, yet, while there was a lot to be grateful for, <span class="red-plain">I felt disconnected.</span></p>
+      <p><strong>Feeling lost as to how to turn it back on.</strong></p>
+      <p>I looked outside myself. Better communication. More effort. More trying.</p>
+      <p>What I didn't know yet is that <strong>the switch was inside me all along.</strong></p>
+      <p>As it is inside you.</p>
+      <p>But we have been <span class="red">conditioned to tone it down for years</span> so it's as we forgot we own the switch!</p>
+      <p>It took a divorce and a community circle in Nicaragua (another great story)... to start learning to turn it back on. Then, many more years to understand how <strong>deeply empowering it is to reclaim our capacity to turn it on, on demand!</strong></p>
+      <p>What I share in this challenge <span class="red">puts the power switch back in YOUR hands.</span></p>
+      <p class="story-bigger">You generate aliveness and pleasure, anytime.</p>
+      <p>On a Tuesday. In traffic. Doing dishes.</p>
+      <p class="story-welcome">Welcome to Turn On Your Life Challenge! ;)</p>
+      <button class="btn btn-primary" style="margin-top:1.2rem;" onclick="openPopup()">Let's Turn It All The Way ONNNNN!!! →</button>
+    </div>
+  </div>
+</section>
+
+<!-- THE REAL REASON -->
+<section class="section-dark">
+  <div class="dark-inner">
+    <p class="dark-lead">Maybe… connection feels like a polite roommate agreement.</p>
+    <p class="dark-lead2">Or you move through your day wondering... is this really it?</p>
+    <p class="dark-secondary">There is nothing wrong with you. You're not too old. Not too busy.</p>
+    <p class="dark-secondary">And it's not your partner. Not your libido. Not your trauma.</p>
+    <p class="dark-p" style="margin-top:1.5rem;">There are really only two reasons:</p>
+    <div class="reason-block">
+      <p class="reason">1 — You keep looking outside yourself.</p>
+      <p class="reason">2 — You've been told to turn it down</p>
+      <p class="reason-continuation">— subtly, not so subtly, for years — but no one ever showed you to turn it back up!</p>
+    </div>
+    <p class="big-q">Who benefits from you turning it down?</p>
+    <p class="dimming">Dimming. Repressing. Suppressing. Shaming. Getting small.</p>
+    <p class="not-you">...Not you. Not the people who love you. Not the world.</p>
+
+    <div class="inv-table">
+      <div class="inv-h">What we've been led to believe</div>
+      <div class="inv-h r">What is true</div>
+      <div class="inv-l">Sexual energy is risky. Shameful. Something to keep separate from "real" life.</div>
+      <div class="inv-r">It's life force. Creative power. The fuel for confidence, vitality, magnetism and connection — and it belongs in every room you walk into.</div>
+      <div class="inv-l">Pleasure is earned. After the to-do list. On weekends. On vacation.</div>
+      <div class="inv-r">Pleasure isn't a reward. It's our natural state. When you cultivate it as a way of life, you feel more energized and everything feels more easeful.</div>
+      <div class="inv-l">You need the right partner, the right moment, the right circumstances to feel turned on.</div>
+      <div class="inv-r">Erotic aliveness is inherent in you. It's the source code within each of us. You just haven't been taught to cultivate it.</div>
+    </div>
+
+    <p class="numbness">Your numbness is not maturity.</p>
+    <p class="body-sensation">Your aliveness, erotic presence, turn-on is experienced through your body's sensation.</p>
+    <p class="wrong-intro">You may have been looking for what's missing in...</p>
+    <p class="wrong-list-flat">Therapy, communication skills, date nights, lingerie, toys, yoga, gym, meditation,...</p>
+    <p class="not-circ">But that aliveness isn't circumstances based.</p>
+    <p class="life-force">It's your LIFE FORCE.</p>
+    <p class="dark-p">When you Turn On Your Life,</p>
+    <div class="baseline-lines">
+      <p>Pleasure becomes your baseline.</p>
+      <p>Your natural state.</p>
+      <p>The way you move through the world.</p>
+    </div>
+    <button class="btn btn-cream btn-large" style="margin-top:2rem;" onclick="openPopup()">LET'S FREAKING GOOOO!!! →</button>
+  </div>
+</section>
+
+<!-- WHAT'S POSSIBLE -->
+<section class="possible">
+  <p class="imagine">Imagine...</p>
+  <p class="imagine-sub">(Not someday. Not after the right partner shows up. Now.)</p>
+
+  <div class="scene">
+    <div class="scene-img"><img src="toyl-spin.jpg" alt="Embodied joy"></div>
+    <div>
+      <p class="scene-headline">You wake up smiling, so excited for the day ahead.</p>
+      <p class="scene-body"><strong>You're humming while making breakfast, hips swaying, enjoying the early morning sun kissing your skin.</strong> You're not waiting for the weekend to feel turned on by life. It's already happening.</p>
+      <div class="testi">
+        <blockquote>"Working with Marilys changed my life in the best way. I feel more myself and <strong>more connected to my husband than EVER</strong> after 17 years of marriage." — Natalie</blockquote>
+      </div>
+    </div>
+  </div>
+
+  <div class="scene rev">
+    <div class="scene-img"><img src="toyl-jump.jpg" alt="Magnetic presence"></div>
+    <div>
+      <p class="scene-headline">People feel your aliveness as soon as you walk into the room.</p>
+      <p class="scene-body"><strong>Your body is relaxed, grounded, confident. Conversations light you up, because you choose to.</strong> That low-grade performance anxiety: gone. That is Erotic Presence.</p>
+      <div class="testi">
+        <blockquote>"I had done a lot of therapy and in terms of exponential growth, <em>working with Marilys has been nothing short of miraculous.</em> I've become much more confident expressing my desires and new people are open and receptive to me in ways I hadn't experienced before." — David</blockquote>
+      </div>
+    </div>
+  </div>
+
+  <div class="scene">
+    <div class="scene-img"><img src="toyl-kite.jpg" alt="Glowing aliveness"></div>
+    <div>
+      <p class="scene-headline">"What are you on?! You're GLOWING. I want whatever you're having!"</p>
+      <p class="scene-body">Says a friend you haven't seen in months when you meet at the coffee shop. You remember how you felt last time you saw each other and feel grateful.</p>
+      <div class="testi">
+        <blockquote>"When my wife and I returned home after our first session, our daughter looked at her and said: '<strong>What did you do? Mom is glowing!</strong>' Now in our midlife <em>we feel 20 years old again.</em>" — Dan</blockquote>
+      </div>
+    </div>
+  </div>
+
+  <div class="scene rev">
+    <div class="scene-img"><img src="toyl-fly.jpg" alt="Freedom"></div>
+    <div>
+      <p class="scene-headline">Someone cuts you off in traffic and you SMILE. Genuinely.</p>
+      <p class="scene-body"><strong>Your life is filled with so much delight that the world's friction doesn't land the same way anymore.</strong></p>
+      <div class="testi">
+        <blockquote>"<em>My confidence skyrocketed.</em> I feel more connected to myself and excited about my life!" — Kay Ferah</blockquote>
+      </div>
+      <div class="testi" style="margin-top:0.8rem;">
+        <blockquote>"What I gained transformed every area of my life — not just relationships, but how I show up everywhere. The value I received far exceeded my expectations." — Martin</blockquote>
+      </div>
+    </div>
+  </div>
+
+  <div class="feel-diff">
+    <p>You won't just feel better.</p>
+    <p>You'll feel different.</p>
+    <p class="lighter">Not because something changed around you.<br>Because something turned on — within you.</p>
+  </div>
+
+  <ul class="outcome-bullets" style="margin:0 auto 2rem;">
+    <li>🔥 You inhabit your body — present, grounded, sensual in a way that's unmistakable</li>
+    <li>🔥 Pleasure is your new baseline &amp; your energy compounds — creativity, confidence, drive, all time high</li>
+    <li>🔥 Connection deepens — with yourself, others &amp; life itself</li>
+    <li>🔥 You own the switch, forever</li>
+  </ul>
+  <div style="text-align:center;">
+    <button class="btn btn-primary btn-large" onclick="openPopup()">Yes, Let's Goooo!!! →</button>
+  </div>
+</section>
+
+<!-- IMAGE DIVIDER -->
+<div class="img-divider">
+  <img src="toyl-fly.jpg" alt="Pure freedom">
+  <div class="img-divider-overlay">
+    <p class="img-divider-text">"In terms of experiential growth in a short period of time, working with Marilys has been nothing short of miraculous." — David</p>
+  </div>
+</div>
+
+<!-- DOES IT WORK -->
+<section class="works">
+  <p class="works-h1">Whether you feel completely shut down...</p>
+  <p class="works-h2">or doing well just sensing there's more…</p>
+  <p class="works-powerful">No matter where you're at in your journey — it will be powerful.</p>
+  <div class="works-testi-grid">
+    <div class="works-testi">
+      <blockquote>"We had come to believe my wife was <strong>asexual.</strong> For over 30 years <em>I tried everything.</em> After working with Marilys <strong>something turned-on</strong> and we've never been so excited about the adventures ahead!" — Dan</blockquote>
+    </div>
+    <div class="works-testi">
+      <blockquote>"In terms of experiential growth, <em>working with Marilys has been nothing short of miraculous.</em> I feel like a new man." — David</blockquote>
+    </div>
+    <div class="works-testi">
+      <blockquote>"What I learned <em>transformed every area of my life.</em> The value I received far exceeded my expectations." — Martin</blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- THIS IS FOR YOU -->
+<section class="for-you">
+  <h2>This is for you if...</h2>
+  <ul class="check-list">
+    <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" style="flex-shrink:0;margin-top:2px"><circle cx="12" cy="12" r="10" fill="#8a0c2f" opacity="0.15"/><path d="M7 12l4 4 6-7" stroke="#8a0c2f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>You're growth-oriented, self-aware, and realize your turn-on comes from the inside out</li>
+    <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" style="flex-shrink:0;margin-top:2px"><circle cx="12" cy="12" r="10" fill="#8a0c2f" opacity="0.15"/><path d="M7 12l4 4 6-7" stroke="#8a0c2f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>You want to feel as alive in your body as you are in your head</li>
+    <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" style="flex-shrink:0;margin-top:2px"><circle cx="12" cy="12" r="10" fill="#8a0c2f" opacity="0.15"/><path d="M7 12l4 4 6-7" stroke="#8a0c2f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>You're open to trying new practices and ready to stop performing and start actually feeling</li>
+    <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" style="flex-shrink:0;margin-top:2px"><circle cx="12" cy="12" r="10" fill="#8a0c2f" opacity="0.15"/><path d="M7 12l4 4 6-7" stroke="#8a0c2f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>You're single, partnered, any gender — ready to generate your own aliveness</li>
+    <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" style="flex-shrink:0;margin-top:2px"><circle cx="12" cy="12" r="10" fill="#8a0c2f" opacity="0.15"/><path d="M7 12l4 4 6-7" stroke="#8a0c2f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>You suspect there's a whole dimension of yourself you haven't fully accessed yet</li>
+    <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" style="flex-shrink:0;margin-top:2px"><circle cx="12" cy="12" r="10" fill="#8a0c2f" opacity="0.15"/><path d="M7 12l4 4 6-7" stroke="#8a0c2f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>You've ever thought: "I've done SO much work on myself — why do I still feel this disconnected?"</li>
+  </ul>
+  <button class="btn btn-primary btn-large" onclick="openPopup()">Yes — Save My Spot →</button>
+</section>
+
+<!-- NOT FOR YOU -->
+<section class="not-for-you">
+  <h3>Not the right fit if...</h3>
+  <ul class="x-list">
+    <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" style="flex-shrink:0;margin-top:2px"><circle cx="12" cy="12" r="10" fill="#8a0c2f" opacity="0.1"/><path d="M15 9l-6 6M9 9l6 6" stroke="#8a0c2f" stroke-width="2" stroke-linecap="round"/></svg>You want a quick fix with no practice involved</li>
+    <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" style="flex-shrink:0;margin-top:2px"><circle cx="12" cy="12" r="10" fill="#8a0c2f" opacity="0.1"/><path d="M15 9l-6 6M9 9l6 6" stroke="#8a0c2f" stroke-width="2" stroke-linecap="round"/></svg>You're not open to exploring your body and energy</li>
+    <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" style="flex-shrink:0;margin-top:2px"><circle cx="12" cy="12" r="10" fill="#8a0c2f" opacity="0.1"/><path d="M15 9l-6 6M9 9l6 6" stroke="#8a0c2f" stroke-width="2" stroke-linecap="round"/></svg>You want theory without feeling anything shift</li>
+    <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" style="flex-shrink:0;margin-top:2px"><circle cx="12" cy="12" r="10" fill="#8a0c2f" opacity="0.1"/><path d="M15 9l-6 6M9 9l6 6" stroke="#8a0c2f" stroke-width="2" stroke-linecap="round"/></svg>You're looking for explicit sexual content (this isn't that)</li>
+  </ul>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how">
+  <h2 class="how-title">How does the Turn On Your Life Challenge work?</h2>
+  <p class="how-sub">Simple. Powerful. 7 days.</p>
+  <div class="how-cards">
+    <div class="how-card">
+      <p class="how-card-title">Receive life-changing wisdom and embodied practices daily straight to your inbox.</p>
+      <p>A shift you can feel and integrate right away. Each day builds on the last so you turn it up a notch every day.</p>
+    </div>
+    <div class="how-card">
+      <p class="how-card-title">We come together inside the Intimacy Artist Community throughout the week.</p>
+      <p>150+ humans choosing aliveness &amp; connection. You'll be witnessed, you'll witness others, and feel the difference between doing this alone and together.</p>
+    </div>
+    <div class="how-card">
+      <p class="how-card-title">Bonus live sessions with Marilys for those who join early!</p>
+      <p>Sign up now to receive your invitation to join the live session on day 1: <a href="#">Erotic Presence &amp; Turn-On as a Way of Life</a> on June 12th.</p>
+    </div>
+  </div>
+  <div style="text-align:center;">
+    <button class="btn btn-primary btn-large" onclick="openPopup()">Join free — save my spot →</button>
+  </div>
+</section>
+
+<!-- 7 DAYS -->
+<section class="days">
+  <h2>Your 7 days inside Turn On Your Life</h2>
+  <p class="days-sub">Each day, a new dimension of your aliveness unlocked.</p>
+  <div class="days-grid">
+    <div class="day-card"><span class="day-label">Day 1</span><h3>Erotic Presence &amp; Turn-On as a Way of Life</h3><p>Reclaim pleasure not as a destination but as how you experience the world. Warning: you may get high on your own supplies!</p></div>
+    <div class="day-card"><span class="day-label">Day 2</span><h3>Your Erotic Body &amp; Self-Activation</h3><p>Your body is the instrument and you can tune it and activate it yourself. A very empowering practice that can shift everything in 5 minutes.</p></div>
+    <div class="day-card"><span class="day-label">Day 3</span><h3>Orgasmic Anatomy &amp; Intimate Muscle Fitness</h3><p>The most overlooked foundation of pleasure and aliveness. Toned, awake, alive — from the inside out.</p></div>
+    <div class="day-card"><span class="day-label">Day 4</span><h3>Erotic Energy Circulation &amp; Vitality</h3><p>Your sexual energy is your most powerful, creative, healing resource. Learn to circulate it intentionally and watch magic happen.</p></div>
+    <div class="day-card"><span class="day-label">Day 5</span><h3>The Art of Attunement &amp; Sacred Sexuality</h3><p>Embodied communication &amp; the orgasm window to create deeper intimacy with yourself, a partner, or the whole world.</p></div>
+    <div class="day-card"><span class="day-label">Day 6</span><h3>The Feminine &amp; Masculine Dance</h3><p>Polarity is what creates the erotic tension that creates life. Outside and inside of you. Learn to dance with it.</p></div>
+    <div class="day-card" style="grid-column:1/-1; background:rgba(253,232,192,0.1); border-color:rgba(253,232,192,0.3);"><span class="day-label">Day 7</span><h3>Your Turned-On Life: Integration &amp; Intimacy Artists Celebration</h3><p>Anchoring the foundations where everything compounds. You are an Intimacy Artist. This is only the beginning.</p></div>
+  </div>
+  <div style="text-align:center; margin-top:2.5rem;">
+    <button class="btn-cream btn btn-large" onclick="openPopup()">Turn it on — join free →</button>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <span class="faq-label">FAQ</span>
+  <h2>You might be wondering...</h2>
+  <div class="faq-grid">
+    <div class="faq-item"><h3>Is this open to all genders?</h3><p>Yes. Eros belongs to every human. Any gender, any orientation, any relationship status.</p></div>
+    <div class="faq-item"><h3>Is this sexually explicit?</h3><p>No. Think more "finally feeling alive in your body."</p></div>
+    <div class="faq-item"><h3>What if I'm single?</h3><p>Most practices are solo. Your relationship with your own body is the foundation everything else is built on.</p></div>
+    <div class="faq-item"><h3>I've done therapy, yoga and tantra. How is this different?</h3><p>TOYL connects you directly with your body's erotic intelligence — rooted in modern nervous system science and following tantric principles, designed for immediate somatic shifts.</p></div>
+    <div class="faq-item"><h3>How do I access it?</h3><p>After registering you'll receive a welcome email with everything you need — including your invite to the <strong>Intimacy Artist Community</strong>. The practices will land in your inbox daily.</p></div>
+    <div class="faq-item"><h3>Is it really free?</h3><p>Yes. Free for now because I care about creating ripples together. I may add a small "skin in the game" fee later.</p></div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <p class="final-small">The world has been telling you to turn it down your whole life.</p>
+  <h2 class="final-title">This is your moment</h2>
+  <p class="final-title2">to say yes to 7 days turning it back ON, together.</p>
+  <button class="btn-cream btn btn-large" onclick="openPopup()">Let's Turn It All The Way ONNNNN!!! →</button>
+  <p class="upsell-note">If you want to go deeper after this challenge — <em>Orgasmic Life</em> is opening up exclusively for challenge participants at a special rate.</p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2025 Empowered Connection · <a href="mailto:marilys@empowered-connection.com">marilys@empowered-connection.com</a></p>
+  <p><a href="#">Privacy Policy</a> · <a href="#">Terms</a></p>
+  <p>This page contains content about human sensuality and embodiment. By continuing you confirm you are 18+.</p>
+</footer>
+
+<script>
+  // ============================================================
+  // FLODESK API INTEGRATION
+  // Step 1: Replace YOUR_FLODESK_API_KEY with your actual key
+  // Step 2: Replace YOUR_SEGMENT_ID with your segment ID
+  // Both found in Flodesk → Account Settings → API
+  // ============================================================
+  const FLODESK_API_KEY = 'YOUR_FLODESK_API_KEY';
+  const FLODESK_SEGMENT_ID = 'YOUR_SEGMENT_ID';
+
+  async function submitToFlodesk() {
+    const firstName = document.getElementById('fd-firstName').value.trim();
+    const email = document.getElementById('fd-email').value.trim();
+    const hearAbout = document.getElementById('fd-hearAbout').value;
+    const errorEl = document.getElementById('form-error');
+    const submitBtn = document.getElementById('fd-submit');
+
+    // Basic validation
+    errorEl.style.display = 'none';
+    if (!firstName) { errorEl.textContent = 'Please enter your first name.'; errorEl.style.display = 'block'; return; }
+    if (!email || !email.includes('@')) { errorEl.textContent = 'Please enter a valid email address.'; errorEl.style.display = 'block'; return; }
+
+    // Disable button while submitting
+    submitBtn.textContent = 'Saving your spot...';
+    submitBtn.disabled = true;
+
+    try {
+      const response = await fetch('https://api.flodesk.com/v1/subscribers', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Basic ' + btoa(FLODESK_API_KEY + ':')
+        },
+        body: JSON.stringify({
+          email: email,
+          first_name: firstName,
+          segments: [FLODESK_SEGMENT_ID],
+          custom_fields: {
+            how_did_you_hear: hearAbout || 'Not specified'
+          }
+        })
+      });
+
+      if (response.ok || response.status === 200 || response.status === 201) {
+        // Show success
+        document.getElementById('fd-firstName').style.display = 'none';
+        document.getElementById('fd-email').style.display = 'none';
+        document.getElementById('fd-hearAbout').style.display = 'none';
+        submitBtn.style.display = 'none';
+        document.getElementById('form-success').style.display = 'block';
+      } else {
+        const data = await response.json();
+        errorEl.textContent = data.message || 'Something went wrong. Please try again.';
+        errorEl.style.display = 'block';
+        submitBtn.textContent = "Let's Turn It All The Way ONNNNN!!! →";
+        submitBtn.disabled = false;
+      }
+    } catch (err) {
+      errorEl.textContent = 'Connection error. Please try again.';
+      errorEl.style.display = 'block';
+      submitBtn.textContent = "Let's Turn It All The Way ONNNNN!!! →";
+      submitBtn.disabled = false;
+    }
+  }
+  // ============================================================
+
+  function openPopup() {
+    document.getElementById('popupOverlay').classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+  function closePopup() {
+    document.getElementById('popupOverlay').classList.remove('active');
+    document.body.style.overflow = '';
+  }
+  // Close on overlay click
+  document.getElementById('popupOverlay').addEventListener('click', function(e) {
+    if (e.target === this) closePopup();
+  });
+  // Close on Escape key
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closePopup();
+  });
+</script>
+</body>
+</html>
