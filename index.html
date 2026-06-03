@@ -97,13 +97,14 @@
   /* "You already know more" split layout */
   .hero-line1 {
     font-family: var(--serif); font-weight: 700;
-    font-size: clamp(2.6rem, 5.5vw, 5rem);
+    font-size: clamp(2.6rem, 5.5vw, 4rem);
     color: var(--accent-deep); line-height: 1.05;
     margin-bottom: 0;
   }
   /* desire words — small, centered, italic */
   .hero-desires {
     font-family: var(--serif); font-style: italic;
+    font-weight: 700;
     font-size: clamp(0.85rem, 1.3vw, 1.1rem);
     color: var(--accent); opacity: 0.75;
     letter-spacing: 0.08em;
@@ -113,28 +114,29 @@
   /* "is possible." */
   .hero-line2 {
     font-family: var(--serif); font-weight: 700;
-    font-size: clamp(2.6rem, 5.5vw, 5rem);
+    font-size: clamp(2.6rem, 5.5vw, 4rem);
     color: var(--accent-deep); line-height: 1.05;
     margin-bottom: 0.8rem;
   }
   /* "more" italic + accent red */
   .hero-more {
     font-style: italic;
-    color: var(--accent);
+    color: var(--accent-hover);
   }
   .hero-turning {
     font-family: var(--serif); font-style: italic; font-weight: 400;
-    font-size: clamp(1.1rem, 2vw, 1.6rem);
-    color: var(--accent-deep); margin-bottom: 0.5rem;
-    opacity: 0.9;
+    font-size: clamp(1.1rem, 2vw, 4rem);
+    color: #FAEAD1;
+    text-shadow: 0 2px 12px rgba(90,8,32,0.5); margin-bottom: 0.5rem;
+    opacity: 1.2;
   }
   .hero-artist {
     font-family: var(--serif); font-weight: 700;
-    font-size: clamp(1.3rem, 2.4vw, 2rem);
+    font-size: clamp(1.3rem, 2.4vw, 6rem);
     color: var(--accent-deep); margin-bottom: 1rem;
     letter-spacing: 0.01em;
   }
-  .hero-artist em { font-style: italic; color: var(--accent); }
+  .hero-artist em { font-style: italic; color: var(--accent-hover); }
   .hero-welcome {
     font-family: var(--script);
     font-size: clamp(2.8rem, 5vw, 4.5rem);
@@ -252,11 +254,11 @@
   /* left column — stacked photos */
   .marilys-photos {
     flex-shrink: 0; width: 340px;
-    display: flex; flex-direction: column; gap: 1.8rem;
+    display: flex; flex-direction: column; gap: 5rem;
     align-items: center;
   }
   .marilys-photo-round {
-    width: 300px; height: 300px;
+    width: 350px; height: 350px;
     border-radius: 50%; overflow: hidden;
     border: 6px solid var(--peach);
     box-shadow: 0 12px 40px rgba(138,12,47,0.12);
@@ -483,15 +485,9 @@
   <ul class="nav-links">
     <li><a href="/">Coaching &amp; About</a></li>
     <li><a href="/group-offerings">Group Offerings</a></li>
-<<<<<<< Updated upstream
     <li><a href="/turn-on-your-life">7-Day Challenge</a></li>
     <li><a href="/conflict-repair-free-guide">Conflict Repair Guide</a></li>
     <li><a href="https://tidycal.com/intimacy-coaching/consultation-with-marilys" target="_blank" class="nav-cta">Request Your Consultation</a></li>
-=======
-    <li><a href="/turn-on-your-life">Free Challenge</a></li>
-    <li><a href="/conflict-repair-free-guide">Free Guide</a></li>
-    <li><a href="https://tidycal.com/intimacy-coaching/consultation-with-marilys" target="_blank" class="nav-cta">Schedule a Consultation Call</a></li>
->>>>>>> Stashed changes
   </ul>
 </nav>
 
@@ -506,7 +502,6 @@
     <p class="hero-turning">It's time to turn your knowing into experiencing.</p>
     <p class="hero-artist">Because you are an <em>Intimacy Artist</em>.</p>
     <span class="hero-welcome">Welcome.</span>
-    <a href="https://tidycal.com/intimacy-coaching/consultation-with-marilys" target="_blank" class="btn btn-primary">Request Your Consultation</a>
   </div>
 </section>
 
@@ -515,17 +510,17 @@
   <div class="pain-bg"></div>
   <div class="pain-overlay"></div>
   <div class="pain-inner">
-    <h2 class="pain-title">You know something's off.</h2>
+    <h2 class="pain-title">You know something's off</h2>
     <div class="pain-body">
-      <p>Not in a dramatic way. From the outside, your life probably looks pretty good — maybe even great. You show up. You're capable. People like you.</p>
-      <p>And yet in your most private moments — in the middle of a conversation that should feel connected, in the middle of touch that should feel electric — you notice you're slightly... <span class="hi">in your head</span>. Not fully in it. Not fully yourself.</p>
-      <p>You're not bad at relationships. You're actually pretty good at them — <span class="hi">on the surface</span>. You're thoughtful. You care. You try. And somewhere underneath all of that trying is an exhaustion you don't really talk about — <span class="hi">the exhaustion of working so hard at connection and still feeling like you're slightly missing it</span>. Like there's a depth of connection available that you keep almost touching.</p>
+      <p>Not in a dramatic way. From the outside, <span class="hi">your life probably looks pretty good</span> — maybe even great. You show up. You're capable. People like you.</p>
+      <p>And yet <span class="hi">in your most private moments</span> — in the middle of a conversation that should feel connected, in the middle of touch that should feel electric — you notice you're slightly... <span class="hi">in your head</span>. <em>Not fully in it</em>. Not fully yourself.</p>
+      <p>You're not bad at relationships. You're actually pretty good at them — <span class="hi">on the surface</span>. You're thoughtful. You care. You try. And somewhere underneath all of that trying is an exhaustion you don't really talk about — <span class="hi">the exhaustion of working so hard at connection and still feeling like you're slightly missing it</span>. Like there's a depth of connection available that you keep <em>almost touching</em>.</p>
       <p>Maybe it shows up as shutting down when things get charged. Not knowing how to ask for what you actually want. Going along, keeping the peace, then quietly resenting it. Touching and being touched but not quite... landing.</p>
       <p>Maybe you've tried to understand it. Read the books. Done the therapy. Sat in the workshops. You can talk about your patterns.</p>
-      <p>But still — <span class="hi">something keeps just escaping you</span>.</p>
-      <p>You've started to wonder if this is just... how it is for you.</p>
+      <p>But still — <em>something keeps escaping you</em>.</p>
+      <p><span class="hi">You've started to wonder if this is just... how it is for you.</span></p>
       <p class="bold">It isn't.</p>
-      <p>And somewhere in you, you already know — <span class="hi">more is available</span>. More presence. More pleasure. More depth. More vitality. More of that turned-on, fully-alive feeling you get glimpses of and can't quite seem to stay in.</p>
+      <p>And somewhere in you, you already know — <span class="hi">more is available</span>. </p>More presence. More pleasure. More depth. More vitality. More of that turned-on, fully-alive feeling you get glimpses of and can't quite seem to stay in.</p>
     </div>
   </div>
 </section>
@@ -583,7 +578,7 @@
     </div>
     <!-- right: text -->
     <div class="marilys-text">
-      <p class="marilys-signature">I'm Marilys.</p>
+      <p class="marilys-signature">I'm Marilys</p>
       <p class="marilys-title-1">Somatic Intimacy &amp; Relating Coach</p>
       <p class="marilys-title-2">Erotic Aliveness Guide · Bodyworker</p>
       <div class="marilys-body">
@@ -594,6 +589,8 @@
         <p>I work with a small number of clients at a time — individuals and couples who feel the call to go deeper than they've gone before. <em>My approach is somatic, holistic, and trauma-informed — which means we work with your whole system, not just your mind.</em></p>
         <p>If you've found your way here, something in you already knows it's time.</p>
         <p><span class="bold">I trust that.</span></p>
+            <a href="https://tidycal.com/intimacy-coaching/consultation-with-marilys" target="_blank" class="btn btn-primary">Request Your Consultation</a>
+
       </div>
     </div>
   </div>
