@@ -249,13 +249,25 @@
     max-width: 1100px; margin: 0 auto;
     display: flex; align-items: flex-start; gap: 4.5rem;
   }
-  .marilys-photo {
-    flex-shrink: 0; width: 380px; height: 380px;
+  /* left column — stacked photos */
+  .marilys-photos {
+    flex-shrink: 0; width: 340px;
+    display: flex; flex-direction: column; gap: 1.8rem;
+    align-items: center;
+  }
+  .marilys-photo-round {
+    width: 300px; height: 300px;
     border-radius: 50%; overflow: hidden;
     border: 6px solid var(--peach);
     box-shadow: 0 12px 40px rgba(138,12,47,0.12);
+    flex-shrink: 0;
   }
-  .marilys-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+  .marilys-photo-round img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+  .marilys-photo-dance {
+    width: 100%; border-radius: 16px; overflow: hidden;
+    box-shadow: 0 8px 28px rgba(138,12,47,0.1);
+  }
+  .marilys-photo-dance img { width: 100%; height: 240px; object-fit: cover; object-position: center 20%; display: block; }
   .marilys-text { flex: 1; padding-top: 0.5rem; }
   .marilys-signature {
     font-family: var(--script);
@@ -450,7 +462,10 @@
     .testi-grid { grid-template-columns: 1fr; }
     .testi-bottom-grid { grid-template-columns: 1fr; }
     .marilys-inner { flex-direction: column-reverse; align-items: center; gap: 2.5rem; }
-    .marilys-photo { width: 260px; height: 260px; }
+    .marilys-photos { width: 100%; flex-direction: row; flex-wrap: wrap; justify-content: center; }
+    .marilys-photo-round { width: 220px; height: 220px; }
+    .marilys-photo-dance { width: 220px; }
+    .marilys-photo-dance img { height: 180px; }
     .marilys-text { text-align: center; }
     .focus-grid { grid-template-columns: 1fr; gap: 2rem; }
     .pain, .testi-top, .marilys-section, .focus,
@@ -552,9 +567,16 @@
 <!-- ── MARILYS ─────────────────────────────────────────────────── -->
 <section class="marilys-section">
   <div class="marilys-inner">
-    <div class="marilys-photo">
-      <img src="IMG_8655.squareish.jpg" alt="Marilys — Somatic Intimacy Coach">
+    <!-- left: stacked photos -->
+    <div class="marilys-photos">
+      <div class="marilys-photo-round">
+        <img src="IMG_8655.squareish.jpg" alt="Marilys — Somatic Intimacy Coach">
+      </div>
+      <div class="marilys-photo-dance">
+        <img src="AND_3223.2.dance.jpg" alt="Marilys in movement">
+      </div>
     </div>
+    <!-- right: text -->
     <div class="marilys-text">
       <p class="marilys-signature">I'm Marilys.</p>
       <p class="marilys-title-1">Somatic Intimacy &amp; Relating Coach</p>
