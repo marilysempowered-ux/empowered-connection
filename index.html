@@ -44,14 +44,14 @@
     position: sticky; top: 0; z-index: 100;
     display: flex; align-items: center; justify-content: space-between;
     padding: 0 3rem; height: 64px;
-    background: var(--peach);
+    background: var(--accent-deep);
     border-bottom: 1px solid rgba(138,12,47,0.15);
   }
   .nav-logo img { height: 44px; width: auto; display: block; }
   .nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
   .nav-links a {
     font-family: var(--sans); font-size: 0.92rem; font-weight: 400;
-    text-decoration: none; color: var(--text-dark); transition: color 0.2s;
+    text-decoration: none; color: #fff; transition: color 0.2s;
   }
   .nav-links a:hover { color: var(--accent); }
   .nav-cta {
@@ -76,7 +76,7 @@
 
   /* ── HERO ────────────────────────────────────────────────── */
   .hero {
-    position: relative; min-height: 680px;
+    position: relative; min-height: 500px;
     display: flex; align-items: center; justify-content: center;
     text-align: center; overflow: hidden; padding: 6rem 2rem;
   }
@@ -116,7 +116,7 @@
     font-family: var(--serif); font-weight: 700;
     font-size: clamp(2.6rem, 5.5vw, 4rem);
     color: var(--accent-deep); line-height: 1.05;
-    margin-bottom: 0.8rem;
+    margin-bottom: 2rem;
   }
   /* "more" italic + accent red */
   .hero-more {
@@ -125,23 +125,23 @@
   }
   .hero-turning {
     font-family: var(--serif); font-style: italic; font-weight: 400;
-    font-size: clamp(1.1rem, 2vw, 4rem);
+    font-size: clamp(2.3rem, 2vw, 4rem);
     color: #FAEAD1;
-    text-shadow: 0 2px 12px rgba(90,8,32,0.5); margin-bottom: 0.5rem;
+    text-shadow: 0 2px 12px rgba(90,8,32,0.5); margin-bottom: 3rem;
     opacity: 1.2;
   }
   .hero-artist {
     font-family: var(--serif); font-weight: 700;
-    font-size: clamp(1.3rem, 2.4vw, 6rem);
-    color: var(--accent-deep); margin-bottom: 1rem;
-    letter-spacing: 0.01em;
+    font-size: clamp(1.5rem, 2.4vw, 6rem);
+    color: var(--accent-deep); margin-bottom: -2rem;
+    letter-spacing: 0.02em;
   }
   .hero-artist em { font-style: italic; color: var(--accent-hover); }
   .hero-welcome {
     font-family: var(--script);
     font-size: clamp(2.8rem, 5vw, 4.5rem);
     color: var(--accent-deep);
-    line-height: 1.1; margin-bottom: 2rem;
+    line-height: 1.1; margin-bottom: 0.5rem;
     display: block;
   }
 
@@ -199,8 +199,8 @@
     display: flex; flex-direction: column;
   }
   .testi-setup {
-    font-family: var(--serif); font-style: italic;
-    font-size: 0.97rem; color: var(--accent);
+    font-family: var(--serif);
+    font-size: 0.97rem; color: var(--accent-hover);
     font-weight: 700; margin-bottom: 1rem; line-height: 1.45;
   }
   .testi-quote {
@@ -260,7 +260,7 @@
   .marilys-photo-round {
     width: 350px; height: 350px;
     border-radius: 50%; overflow: hidden;
-    border: 6px solid var(--peach);
+    border: 5px solid var(--accent-deep);
     box-shadow: 0 12px 40px rgba(138,12,47,0.12);
     flex-shrink: 0;
   }
@@ -269,7 +269,7 @@
     width: 100%; border-radius: 16px; overflow: hidden;
     box-shadow: 0 8px 28px rgba(138,12,47,0.1);
   }
-.marilys-photo-dance img { width: 100%; height: auto; object-fit: contain; display: block; }  .marilys-text { flex: 1; padding-top: 0.5rem; }
+.marilys-photo-dance img { width: 100%; height: auto; object-fit: contain; display: block;border: 5px solid var(--accent-deep); }  .marilys-text { flex: 1; padding-top: 0.5rem; }
   .marilys-signature {
     font-family: var(--script);
     font-size: clamp(2.6rem, 4.5vw, 4rem);
@@ -283,7 +283,7 @@
   .marilys-title-2 {
     font-family: var(--serif); font-weight: 400; font-style: italic;
     font-size: clamp(1rem, 1.5vw, 1.25rem);
-    color: var(--accent); line-height: 1.4; margin-bottom: 2rem;
+    color: var(--accent-hover); line-height: 1.4; margin-bottom: 2rem;
   }
   .marilys-body {
     font-family: var(--sans); font-size: 1.05rem;
@@ -499,9 +499,10 @@
     <h1 class="hero-line1">You already know <em class="hero-more">more</em></h1>
     <p class="hero-desires">connection · depth · authenticity · pleasure · sensuality · vitality · turn on · feeling met</p>
     <p class="hero-line2">is possible.</p>
-    <p class="hero-turning">It's time to turn your knowing into experiencing.</p>
-    <p class="hero-artist">Because you are an <em>Intimacy Artist</em>.</p>
+    <p class="hero-turning">Let's turn your <span style="color:#fff3ef;">knowing</span> into <span style="color:#fff3ef;">experiencing</span>.</p>
     <span class="hero-welcome">Welcome.</span>
+        <p class="hero-artist">You are an <em>Intimacy Artist</em>.</p></p>
+
   </div>
 </section>
 
@@ -520,7 +521,7 @@
       <p>But still — <em>something keeps escaping you</em>.</p>
       <p><span class="hi">You've started to wonder if this is just... how it is for you.</span></p>
       <p class="bold">It isn't.</p>
-      <p>And somewhere in you, you already know — <span class="hi">more is available</span>. </p>More presence. More pleasure. More depth. More vitality. More of that turned-on, fully-alive feeling you get glimpses of and can't quite seem to stay in.</p>
+      <p>And somewhere in you, you already know — <span class="hi">more is available</span>. </p><em>More presence. More pleasure. More depth. More vitality.</em> </p><p><span class="hi">More of that turned-on, fully-alive feeling you get glimpses of and can't quite seem to stay in.</span></p>
     </div>
   </div>
 </section>
@@ -531,20 +532,20 @@
     <div class="testi-grid">
 
       <div class="testi-card">
-        <p class="testi-setup">In a sexless marriage for 36 years. Now more excited than ever for the adventures ahead.</p>
+        <p class="testi-setup">In a sexless marriage for 36 years. Now, more excited than ever for the adventures ahead!</p>
         <p class="testi-quote">"When we returned home from our session, the first question our daughters asked was: <em>'What did you do? Mom is glowing!'</em> Now, in our midlife, we feel our most alive as if we were 20 again. I felt I had tried everything and almost gave up, believing my wife was asexual. I'm forever grateful to Marilys for guiding us towards <em>a life we could have never imagined in our wildest dreams</em>."</p>
-        <p class="testi-name">— Dan</p>
+        <p class="testi-name">— Dan (& Wendy)</p>
       </div>
 
       <div class="testi-card">
-        <p class="testi-setup">Done with people-pleasing. No more hiding in shame.</p>
-        <p class="testi-quote">"Her non-judgmental presence allowed me to reveal things I had never shared with anyone because of shame — then I got to alchemize that shame with her support. <em>I feel more myself and more connected to my husband than ever after 17 years of marriage.</em> Shifting from people-pleasing and co-dependency to interdependency feels so freeing."</p>
+        <p class="testi-setup">Done with people-pleasing. No more hiding in shame. More connected than ever.</p>
+        <p class="testi-quote">"Marilys supported me with revealing things I had never shared with anyone because of shame. Then we alchemize that shame. I also shifted from people-pleasing and co-dependency to interdependency and I feel so much more free and empowered even though I thought I was before.<em>I now feel more myself and more connected to my husband than ever, after 17 years of marriage!</em>"</p>
         <p class="testi-name">— Natalie</p>
       </div>
 
       <div class="testi-card">
-        <p class="testi-setup">Years of therapy. His biggest shifts came from a few months of working together.</p>
-        <p class="testi-quote">"I now know what I want and express it <em>with my head held high</em>, making eye contact. I feel much more confident in my touch, my self-control, being present with my partner — <em>a complete 180</em>. In terms of experiential growth in such a short period of time, working with Marilys has been <em>nothing short of miraculous</em>."</p>
+        <p class="testi-setup">After years of therapy, I experienced my biggest shifts — beyond what I believed possible for myself — within a couple months of working with Marilys.</p>
+        <p class="testi-quote">"I now know what I want and express it <em>with my head held high</em>, making eye contact. I feel much more confident in my touch, my self-control, being present with my partner — <em>a complete 180</em>. I have done a lot of therapy in my life, and in terms of experiential growth in such a short period of time, working with Marilys has been <em>nothing short of miraculous</em>."</p>
         <p class="testi-name">— David</p>
       </div>
 
