@@ -71,8 +71,8 @@
   }
   .btn-primary { background: var(--accent); color: #fff; }
   .btn-primary:hover { background: var(--accent-hover); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(138,12,47,0.25); }
-  .btn-light { background: rgba(255,255,255,0.92); color: var(--accent); }
-  .btn-light:hover { background: #fff; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.15); }
+  .btn-light { background: rgb(250, 235, 212); color: var(--accent); }
+  .btn-light:hover { background: rgb(253, 247, 239); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.15); }
 
   /* ── HERO ────────────────────────────────────────────────── */
   .hero {
@@ -165,7 +165,7 @@
   }
   .pain-inner {
     position: relative; z-index: 2;
-    max-width: 900px; margin: 0 auto;
+    max-width: 1000px; margin: 0 auto;
   }
   .pain-title {
     font-family: var(--serif); font-weight: 700;
@@ -175,7 +175,7 @@
   }
   .pain-body {
     font-family: var(--sans); font-weight: 300;
-    font-size: clamp(1.05rem, 1.7vw, 1.2rem);
+    font-size: clamp(1.00rem, 1.7vw, 1.2rem);
     color: var(--text-dark); line-height: 2.05;
   }
   .pain-body p { margin-bottom: 1.4rem; }
@@ -277,12 +277,12 @@
   }
   .marilys-title-1 {
     font-family: var(--serif); font-weight: 700;
-    font-size: clamp(1rem, 1.5vw, 1.25rem);
+    font-size: clamp(1.5rem, 1.5vw, 1.25rem);
     color: var(--accent); line-height: 1.4; margin-bottom: 0.1rem;
   }
   .marilys-title-2 {
     font-family: var(--serif); font-weight: 400; font-style: italic;
-    font-size: clamp(1rem, 1.5vw, 1.25rem);
+    font-size: clamp(1.5rem, 1.5vw, 1.25rem);
     color: var(--accent-hover); line-height: 1.4; margin-bottom: 2rem;
   }
   .marilys-body {
@@ -327,18 +327,18 @@
   .consult { background: var(--accent-deep); padding: 6rem 2rem; text-align: center; }
   .consult-inner { max-width: 700px; margin: 0 auto; }
   .consult-eyebrow {
-    font-family: var(--sans); font-size: 0.82rem; font-weight: 500;
+    font-family: var(--sans); font-size: 1rem; font-weight: 500;
     letter-spacing: 0.18em; text-transform: uppercase;
     color: var(--peach); opacity: 0.7; margin-bottom: 0.8rem;
   }
   .consult-headline {
     font-family: var(--serif); font-weight: 700;
-    font-size: clamp(1.5rem, 2.8vw, 2.4rem);
+    font-size: clamp(1.5rem, 2.8vw, 1.8rem);
     color: var(--peach-light); margin-bottom: 0.6rem; line-height: 1.15;
   }
   .consult-sub {
     font-family: var(--serif); font-style: italic;
-    font-size: clamp(1rem, 1.8vw, 1.35rem);
+    font-size: clamp(1.8rem, 1.8vw, 1.8rem);
     color: var(--peach); margin-bottom: 2.5rem; opacity: 0.85;
   }
   .consult-body {
@@ -368,14 +368,14 @@
   .faq { background: var(--peach-light); padding: 5.5rem 2rem; }
   .faq-inner { max-width: 820px; margin: 0 auto; }
   .faq-label {
-    font-family: var(--sans); font-size: 0.8rem; font-weight: 500;
+    font-family: var(--sans); font-size: 1.8rem; font-weight: 500;
     letter-spacing: 0.18em; text-transform: uppercase;
     color: var(--accent); opacity: 0.7; margin-bottom: 0.6rem;
     text-align: center;
   }
   .faq-title {
     font-family: var(--serif); font-weight: 700;
-    font-size: clamp(1.5rem, 2.5vw, 2.2rem);
+    font-size: clamp(1.5rem, 2.5vw, 1.5rem);
     color: var(--accent-deep); margin-bottom: 3rem;
     text-align: center; line-height: 1.2;
   }
@@ -422,7 +422,7 @@
   /* ── FINAL CTA ───────────────────────────────────────────── */
   .final-cta {
     position: relative;
-    background-image: url('IMG_8655.squareish.jpg');
+    background-image: url('hands-heart.png');
     background-size: cover; background-position: center top;
     padding: 8rem 2rem; text-align: center; overflow: hidden;
   }
@@ -430,19 +430,19 @@
   .final-cta-inner { position: relative; z-index: 2; max-width: 900px; margin: 0 auto; }
   .final-cta-title {
     font-family: var(--serif); font-weight: 700;
-    font-size: clamp(2.2rem, 4.5vw, 4rem);
+    font-size: clamp(2rem, 4.5vw, 3rem);
     color: #fff; line-height: 1.1; margin-bottom: 2rem;
   }
   .final-cta-title em { font-style: italic; color: var(--peach); }
 
   /* ── CONTACT ─────────────────────────────────────────────── */
   .contact-bar {
-    background: var(--peach); padding: 2.2rem 5rem; text-align: center;
+    background: var(--accent-deep); padding: 2.2rem 5rem; text-align: center;
     border-top: 1px solid rgba(138,12,47,0.12);
   }
-  .contact-bar p { font-family: var(--sans); font-size: 1rem; color: var(--text-mid); }
-  .contact-bar a { color: var(--accent); text-decoration: none; }
-  .contact-bar a:hover { color: var(--accent-hover); }
+  .contact-bar p { font-family: var(--sans); font-size: .8rem; color: rgb(250, 234, 209); }
+  .contact-bar a { color:rgb(250, 234, 209); text-decoration: none; }
+  .contact-bar a:hover { color: #fff; }
 
   /* ── FOOTER ──────────────────────────────────────────────── */
   footer {
@@ -484,9 +484,8 @@
   <a href="/" class="nav-logo"><img src="Logo. Dark red.png" alt="Empowered Connection"></a>
   <ul class="nav-links">
     <li><a href="/">Coaching &amp; About</a></li>
-    <li><a href="/group-offerings">Group Offerings</a></li>
-    <li><a href="/turn-on-your-life">7-Day Challenge</a></li>
-    <li><a href="/conflict-repair-free-guide">Conflict Repair Guide</a></li>
+    <li><a href="/turn-on-your-life">Turn On Your Life 7-day Challenge</a></li>
+    <li><a href="/conflict-repair-free-guide">Free Conflict Repair Guide</a></li>
     <li><a href="https://tidycal.com/intimacy-coaching/consultation-with-marilys" target="_blank" class="nav-cta">Request Your Consultation</a></li>
   </ul>
 </nav>
@@ -516,12 +515,15 @@
       <p>Not in a dramatic way. From the outside, <span class="hi">your life probably looks pretty good</span> — maybe even great. You show up. You're capable. People like you.</p>
       <p>And yet <span class="hi">in your most private moments</span> — in the middle of a conversation that should feel connected, in the middle of touch that should feel electric — you notice you're slightly... <span class="hi">in your head</span>. <em>Not fully in it</em>. Not fully yourself.</p>
       <p>You're not bad at relationships. You're actually pretty good at them — <span class="hi">on the surface</span>. You're thoughtful. You care. You try. And somewhere underneath all of that trying is an exhaustion you don't really talk about — <span class="hi">the exhaustion of working so hard at connection and still feeling like you're slightly missing it</span>. Like there's a depth of connection available that you keep <em>almost touching</em>.</p>
-      <p>Maybe it shows up as shutting down when things get charged. Not knowing how to ask for what you actually want. Going along, keeping the peace, then quietly resenting it. Touching and being touched but not quite... landing.</p>
+      <p>Maybe it shows up as <em>shutting down</em> when things get charged. <em>Not knowing how to ask for what you want</em>. Going along, keeping the peace, then <em>quietly resenting it</em>. Touching and being touched but feeling... <span class="hi">disconnected.</span></p>
       <p>Maybe you've tried to understand it. Read the books. Done the therapy. Sat in the workshops. You can talk about your patterns.</p>
       <p>But still — <em>something keeps escaping you</em>.</p>
       <p><span class="hi">You've started to wonder if this is just... how it is for you.</span></p>
       <p class="bold">It isn't.</p>
       <p>And somewhere in you, you already know — <span class="hi">more is available</span>. </p><em>More presence. More pleasure. More depth. More vitality.</em> </p><p><span class="hi">More of that turned-on, fully-alive feeling you get glimpses of and can't quite seem to stay in.</span></p>
+      <p>
+            <a href="https://tidycal.com/intimacy-coaching/consultation-with-marilys" target="_blank" class="btn btn-primary">Become an <em>Intimacy Artist</em></a>
+  </div></p>
     </div>
   </div>
 </section>
@@ -590,7 +592,7 @@
         <p>I work with a small number of clients at a time — individuals and couples who feel the call to go deeper than they've gone before. <em>My approach is somatic, holistic, and trauma-informed — which means we work with your whole system, not just your mind.</em></p>
         <p>If you've found your way here, something in you already knows it's time.</p>
         <p><span class="bold">I trust that.</span></p>
-            <a href="https://tidycal.com/intimacy-coaching/consultation-with-marilys" target="_blank" class="btn btn-primary">Request Your Consultation</a>
+            <a href="https://tidycal.com/intimacy-coaching/consultation-with-marilys" target="_blank" class="btn btn-primary">It begins with a genuine conversation</a>
 
       </div>
     </div>
@@ -632,17 +634,18 @@
 <section class="consult">
   <div class="consult-inner">
     <p class="consult-eyebrow">Work with me</p>
-    <h2 class="consult-headline">I Work With Very Few Private Clients.</h2>
+    <h2 class="consult-headline">I Work With Very Few 
+    <p>Private Clients</p></h2>
     <p class="consult-sub">Are You One?</p>
     <p class="consult-headline" style="font-size:clamp(1.2rem,2vw,1.6rem); font-style:italic; font-weight:400; margin-bottom:2rem; opacity:0.9;">If something in you feels a yes...</p>
     <div class="consult-body">
-      <p>This begins with a genuine 45-minute conversation, heart to heart.</p>
-      <p>I'll open with a short somatic practice — to connect not just with your head but also with your body. From there, we go into your world — <span class="hi">what you're experiencing, your longings and desires, what might be underneath what you're saying, and what becomes possible from here</span>.</p>
-      <p>You'll leave with something concrete, regardless of what we decide together.</p>
-      <p>If there's alignment, we'll close by exploring what working together will look and feel like.</p>
+      <p>We begins with a genuine, heart ot heart, conversation.</p>
+      <p>I'll open with a short somatic practice — to connect not just with your head but also with your body. From there, we go into your world — <span class="hi">what you're experiencing, your longings and desires, what might be underneath what you're saying, and <em>what becomes possible from here</em></span>.</p>
+      <p>You'll leave with something concrete.</p>
+      <p>If we both feel aligned to working together, we'll end the conversation with exploring what working together will look and feel like.</p>
     </div>
     <p class="consult-investment">Investment: $150 · applied toward your package</p>
-    <p class="consult-filter">This isn't for everyone. It's for the ones who are done talking about it and ready to shift.</p>
+    <p class="consult-filter">This isn't for everyone. It's for the ones who are <em>done talking about it, ready to shift.</em></p>
     <a href="https://tidycal.com/intimacy-coaching/consultation-with-marilys" target="_blank" class="btn btn-light">Request Your Consultation</a>
   </div>
 </section>
@@ -653,19 +656,19 @@
     <div class="testi-bottom-grid">
 
       <div class="testi-card">
-        <p class="testi-setup">One session. New depth in their connection unlocked.</p>
-        <p class="testi-quote">"<em>Marilys perfectly understood how to help us find deeper connection</em> through tantric practices, touch and emotional intimacy. Her intuition was spot on. It was intimate, sensual and it felt safe to open and be vulnerable. An incredible experience."</p>
+        <p class="testi-setup">One session. New depth in our connection unlocked.</p>
+        <p class="testi-quote">"<em>Marilys perfectly understood how to help us find deeper connection</em> through tantric practices, touch and emotional intimacy. Her intuition was spot on. It's not only that it was an incredible experience: intimate, sensual and we both felt so safe to open and be vulnerable. But even after one session, we left inspired and with a lot to play with at home."</p>
         <p class="testi-name">— Julie &amp; Steven R.</p>
       </div>
 
       <div class="testi-card">
-        <p class="testi-setup">Came for his closest relationships. It rippled into every one.</p>
+        <p class="testi-setup"> Came to improve my partnership. All of my relationships improved amazingly.</p>
         <p class="testi-quote">"I was hoping to improve my intimate relationships. What I gained transformed every area of my life. <em>What impressed me most was Marilys' ability to make something challenging feel comfortable, engaging, even enjoyable.</em> I feel far more equipped to handle conflict without shutting down, reacting, or losing myself."</p>
         <p class="testi-name">— Martin</p>
       </div>
 
       <div class="testi-card">
-        <p class="testi-setup">She didn't know this much could shift this fast.</p>
+        <p class="testi-setup">I didn't know this much could shift this fast.</p>
         <p class="testi-quote">"I feel more excited about my life, more aware of my energy. Marilys understood in a second when we touched trauma and we were able to work through it together. There was a meditative quality, psychological quality and <em>a quality of connection that's hard to find</em>."</p>
         <p class="testi-name">— Muireann</p>
       </div>
@@ -769,13 +772,14 @@
   <div class="final-cta-overlay"></div>
   <div class="final-cta-inner">
     <h2 class="final-cta-title">You've Read Enough.<br><em>Now Feel It.</em></h2>
-    <a href="https://tidycal.com/intimacy-coaching/consultation-with-marilys" target="_blank" class="btn btn-light">Request Your Consultation</a>
+    <a href="https://tidycal.com/intimacy-coaching/consultation-with-marilys" target="_blank" class="btn btn-light">I'm Ready</a>
   </div>
 </section>
 
 <!-- ── CONTACT ─────────────────────────────────────────────────── -->
 <div class="contact-bar">
-  <p>Still have questions? <a href="mailto:marilys@empowered-connection.com">marilys@empowered-connection.com</a> ❤</p>
+  <p>Still have questions? <a href="mailto:marilys@empowered-connection.com">marilys@empowered-connection.com</a> ❤
+    <p> © Empowered Connection, 2026 </p>
 </div>
 
 <!-- ── FOOTER ──────────────────────────────────────────────────── */
