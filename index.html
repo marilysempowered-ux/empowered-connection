@@ -54,7 +54,7 @@
     font-family: var(--sans); font-size: 0.92rem; font-weight: 400;
     text-decoration: none; color: #fff; transition: color 0.2s;
   }
-  .nav-links a:hover { color: var(--peach-light:); }
+  .nav-links a:hover { color: var(--peach-light); }
   .nav-cta {
     background: var(--accent) !important; color: #fff !important;
     padding: 0.5rem 1.3rem !important; border-radius: 30px !important;
@@ -438,11 +438,13 @@
   .faq-icon svg { width: 12px; height: 12px; fill: #fff; transition: transform 0.3s ease; }
   .faq-btn[aria-expanded="true"] .faq-icon { background: var(--accent-hover); }
   .faq-btn[aria-expanded="true"] .faq-icon svg { transform: rotate(180deg); }
-  .faq-answer {
-    overflow: hidden; max-height: 0;
-    transition: max-height 0.38s ease, padding 0.3s ease;
-  }
-  .faq-answer.open { max-height: 600px; }
+.faq-answer {
+  overflow: hidden;
+  max-height: 0;
+  padding: 0;
+  transition: max-height 0.38s ease;
+}
+  .faq-answer.open { max-height: 2000px; }
   .faq-answer-inner {
     font-family: var(--sans); font-size: 1rem;
     color: var(--text-dark); line-height: 1.9;
@@ -846,20 +848,25 @@
 </footer>
 
 <script>
-  document.querySelectorAll('.faq-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const answer = btn.nextElementSibling;
-      const isOpen = btn.getAttribute('aria-expanded') === 'true';
-      document.querySelectorAll('.faq-btn').forEach(b => {
-        b.setAttribute('aria-expanded', 'false');
-        b.nextElementSibling.classList.remove('open');
-      });
-      if (!isOpen) {
-        btn.setAttribute('aria-expanded', 'true');
-        answer.classList.add('open');
-      }
+document.querySelectorAll('.faq-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.closest('.faq-item');
+    const answer = item.querySelector('.faq-answer');
+    const isOpen = btn.getAttribute('aria-expanded') === 'true';
+
+    // Close all
+    document.querySelectorAll('.faq-item').forEach(i => {
+      i.querySelector('.faq-btn').setAttribute('aria-expanded', 'false');
+      i.querySelector('.faq-answer').classList.remove('open');
     });
+
+    // Open this one if it wasn't open
+    if (!isOpen) {
+      btn.setAttribute('aria-expanded', 'true');
+      answer.classList.add('open');
+    }
   });
+});
 </script>
 </body>
 </html>
