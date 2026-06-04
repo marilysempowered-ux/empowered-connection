@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Coming Soon | Empowered Connection</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;500;600&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --accent:      #8a0c2f;
+    --accent-hover:#b9103f;
+    --accent-deep: #5a0820;
+    --peach-light: #fde8c0;
+    --peach:       #f5c98a;
+    --text-dark:   #4a1520;
+    --text-mid:    #7a3020;
+    --serif:  'Libre Baskerville', Georgia, serif;
+    --sans:   'Poppins', sans-serif;
+    --script: 'Dancing Script', cursive;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--peach-light);
+    font-family: var(--sans);
+    min-height: 100vh;
+    display: flex; flex-direction: column;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 3rem; height: 64px;
+    background: var(--accent-deep);
+    border-bottom: 1px solid rgba(138,12,47,0.15);
+  }
+  .nav-logo img { height: 44px; width: auto; }
+  .nav-cta {
+    font-family: var(--sans); font-size: 0.92rem; font-weight: 500;
+    text-decoration: none; color: #fff;
+    background: var(--accent); padding: 0.5rem 1.3rem;
+    border-radius: 30px; transition: background 0.2s;
+  }
+  .nav-cta:hover { background: var(--accent-hover); }
+
+  /* MAIN */
+  main {
+    flex: 1; display: flex; align-items: center; justify-content: center;
+    padding: 4rem 2rem; text-align: center;
+    position: relative; overflow: hidden;
+  }
+  .bg-words {
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    pointer-events: none; overflow: hidden;
+  }
+  .bg-words span {
+    font-family: var(--serif); font-weight: 700;
+    font-size: clamp(3rem, 8vw, 8rem);
+    color: var(--accent); opacity: 0.05;
+    white-space: nowrap; transform: rotate(-8deg);
+    user-select: none;
+  }
+  .content { position: relative; z-index: 2; max-width: 680px; margin: 0 auto; }
+  .logo-mark {
+    font-family: var(--script);
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    color: var(--accent-deep); margin-bottom: 0.5rem;
+    display: block;
+  }
+  .eyebrow {
+    font-family: var(--sans); font-size: 0.78rem; font-weight: 500;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--accent); opacity: 0.7; margin-bottom: 1.5rem;
+  }
+  h1 {
+    font-family: var(--serif); font-weight: 700;
+    font-size: clamp(1.8rem, 3.5vw, 3rem);
+    color: var(--accent-deep); line-height: 1.15; margin-bottom: 1rem;
+  }
+  h1 em { font-style: italic; color: var(--accent); }
+  .sub {
+    font-family: var(--serif); font-style: italic;
+    font-size: clamp(1rem, 1.8vw, 1.3rem);
+    color: var(--text-mid); line-height: 1.7; margin-bottom: 2.5rem;
+  }
+  .divider {
+    width: 60px; height: 2px; background: var(--accent);
+    margin: 0 auto 2.5rem; opacity: 0.3; border-radius: 2px;
+  }
+  .note {
+    font-family: var(--sans); font-size: 1rem;
+    color: var(--text-mid); line-height: 1.8; margin-bottom: 2.5rem;
+  }
+  .note a { color: var(--accent); text-decoration: none; }
+  .note a:hover { color: var(--accent-hover); }
+  .btn {
+    display: inline-block; text-decoration: none;
+    font-family: var(--sans); font-size: 1rem; font-weight: 500;
+    padding: 0.9rem 2.4rem; border-radius: 30px;
+    background: var(--accent); color: #fff;
+    transition: all 0.22s ease;
+  }
+  .btn:hover { background: var(--accent-hover); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(138,12,47,0.25); }
+
+  /* FOOTER */
+  footer {
+    background: var(--accent-deep); padding: 1.2rem 3rem;
+    text-align: center;
+  }
+  footer p { font-family: var(--sans); font-size: 0.85rem; color: rgba(253,232,192,0.6); }
+
+  @media (max-width: 640px) {
+    nav { padding: 0 1rem; }
+    main { padding: 3rem 1.5rem; }
+    footer { padding: 1.2rem 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo"><img src="Logo. Dark red.png" alt="Empowered Connection"></a>
+  <a href="https://tidycal.com/intimacy-coaching/consultation-with-marilys" target="_blank" class="nav-cta">Request Your Consultation</a>
+</nav>
+
+<main>
+  <div class="bg-words" aria-hidden="true">
+    <span>connection · pleasure · depth · aliveness</span>
+  </div>
+  <div class="content">
+    <span class="logo-mark">Something beautiful is coming.</span>
+    <p class="eyebrow">Empowered Connection</p>
+    <h1>This page is being<br><em>thoughtfully crafted</em>.</h1>
+    <div class="divider"></div>
+    <p class="sub">Check back soon — good things take the time they need.</p>
+    <p class="note">
+      In the meantime, if something in you feels a yes —<br>
+      I'd love to connect.<br><br>
+      <a href="mailto:marilys@empowered-connection.com">marilys@empowered-connection.com</a>
+    </p>
+    <a href="https://tidycal.com/intimacy-coaching/consultation-with-marilys" target="_blank" class="btn">Request Your Consultation</a>
+  </div>
+</main>
+
+<footer>
+  <p>© Copyright Empowered Connection 2026</p>
+</footer>
+
+</body>
+</html>
