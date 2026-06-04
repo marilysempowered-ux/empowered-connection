@@ -390,7 +390,7 @@
   .faq { background: var(--peach-light); padding: 5.5rem 2rem; }
   .faq-inner { max-width: 820px; margin: 0 auto; }
   .faq-label {
-    font-family: var(--sans); font-size: 1.8rem; font-weight: 500;
+    font-family: var(--sans); font-size: 2.5rem; font-weight: 500;
     letter-spacing: 0.18em; text-transform: uppercase;
     color: var(--accent); opacity: 0.7; margin-bottom: 0.6rem;
     text-align: center;
@@ -585,7 +585,7 @@
 
       <div class="testi-card">
         <p class="testi-setup">After years of therapy, I experienced my biggest shifts — beyond what I believed possible for myself — within a couple months of working with Marilys.</p>
-        <p class="testi-quote">"I now know what I want and express it <em>with my head held high</em>, making eye contact. I feel much more confident in my touch, my self-control, being present with my partner — <em>a complete 180</em>. I have done a lot of therapy in my life, and in terms of experiential growth in such a short period of time, working with Marilys has been <em>nothing short of miraculous</em>."</p>
+        <p class="testi-quote">"I now know what I want and express it with my head held high, making eye contact. <em>I feel much more confident in my touch, my self-control, being present with my partner — a complete 180</em>. I have done a lot of therapy in my life, and in terms of experiential growth in such a short period of time, working with Marilys has been <em>nothing short of miraculous</em>."</p>
         <p class="testi-name">— David</p>
       </div>
 
@@ -624,12 +624,12 @@
       <p class="marilys-title-2">Erotic Aliveness Guide · Bodyworker</p>
       <div class="marilys-body">
         <p>People ask me what I do and I never quite give the same answer — because what happens through this work <em>simply cannot be put in a box</em>.</p>
-        <p>Sometimes I'm supporting someone to finally feel at home in their own body. Sometimes I'm with a couple learning how to touch each other again — not perform, not manage, but <span class="hi">genuinely meet</span>. Sometimes we're working through a trigger that's been hijacking intimacy for years, or finding language for a desire that's never been spoken out loud, or understanding the energetics of what makes connection feel <span class="hi">electric versus effortful</span>.</p>
-        <p>What I know — and what most people in this space won't say directly — is that <span class="bold">intimacy isn't a department of your life. It's the frequency your whole life runs on.</span> When it's blocked, everything feels slightly muted — your energy, your creativity, your aliveness, your sense of self. When it opens? Everything compounds. You don't just have better relationships. You radiate. <span class="hi">You feel connected to life itself.</span></p>
+        <p>Sometimes I'm supporting someone to <span class="hi">finally feel at home in their own body</span>. Sometimes I'm with a <span class="hi">couple learning how to touch each other differently</span> — not perform, not manage, but <span class="hi">genuinely meet</span>. Sometimes we're working through a trigger that's been hijacking intimacy for years, or finding language for a desire that's never been spoken out loud, or understanding the energetics of what makes connection feel <span class="hi">generative and compounding versus effortful and draining</span>.</p>
+        <p>What I know — and what most people in this space won't say directly — is that <span class="hi">intimacy isn't a department of your life. It's the frequency your whole life runs on.</span> When it's blocked, everything feels slightly muted — your energy, your creativity, your aliveness, your sense of self. When it opens? Everything compounds. You don't just have better relationships. You radiate. <span class="hi">You feel connected to life itself.</span></p>
         <p>That's what this work is about.</p>
         <p>I work with a small number of clients at a time — individuals and couples who feel the call to go deeper than they've gone before. <em>My approach is somatic, holistic, and trauma-informed — which means we work with your whole system, not just your mind.</em></p>
         <p>If you've found your way here, something in you already knows it's time.</p>
-        <p><span class="bold">I trust that.</span></p>
+        <p><span class="hi">I trust that.</span></p>
             <a href="https://tidycal.com/intimacy-coaching/consultation-with-marilys" target="_blank" class="btn btn-primary">It begins with a genuine conversation</a>
 
       </div>
@@ -831,17 +831,14 @@
 </footer>
 
 <script>
-  // FAQ accordion
   document.querySelectorAll('.faq-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       const answer = btn.nextElementSibling;
       const isOpen = btn.getAttribute('aria-expanded') === 'true';
-      // close all
       document.querySelectorAll('.faq-btn').forEach(b => {
         b.setAttribute('aria-expanded', 'false');
         b.nextElementSibling.classList.remove('open');
       });
-      // open clicked if it was closed
       if (!isOpen) {
         btn.setAttribute('aria-expanded', 'true');
         answer.classList.add('open');
