@@ -710,13 +710,9 @@
 
 <script>
   // ============================================================
-  // FLODESK API INTEGRATION
-  // Step 1: Replace YOUR_FLODESK_API_KEY with your actual key
-  // Step 2: Replace YOUR_SEGMENT_ID with your segment ID
-  // Both found in Flodesk → Account Settings → API
+  // FORM SUBMISSION — routes through /api/join (Vercel function)
+  // API key lives safely in Vercel Environment Variables
   // ============================================================
-  const FLODESK_API_KEY = fd_key_f14d8a9979154ba19577d0e8ced9b7d6.yUtxCjhkhFNqiKBJjSjerLi3ixZO33zAXY9uPy2IWdo4C59DpcUwPFimCY6r4RdfExyYCTIjy873672sdv0m7c437Haq4uxKpVWar1gg0bjnpVt1fUAXc4rUwLd4uTFLqGcPQ70K5G9EO8cdy6tpKaccY7NS53hEirZfbXmzu4Bqfg2GyuhJkZfti46bljtp;
-  const FLODESK_SEGMENT_ID = '6a225a1190d4fc4a1372ae02';
 
   async function submitToFlodesk() {
     const firstName = document.getElementById('fd-firstName').value.trim();
@@ -727,40 +723,44 @@
 
     // Basic validation
     errorEl.style.display = 'none';
-    if (!firstName) { errorEl.textContent = 'Please enter your first name.'; errorEl.style.display = 'block'; return; }
-    if (!email || !email.includes('@')) { errorEl.textContent = 'Please enter a valid email address.'; errorEl.style.display = 'block'; return; }
+    if (!firstName) {
+      errorEl.textContent = 'Please enter your first name.';
+      errorEl.style.display = 'block';
+      return;
+    }
+    if (!email || !email.includes('@')) {
+      errorEl.textContent = 'Please enter a valid email address.';
+      errorEl.style.display = 'block';
+      return;
+    }
 
     // Disable button while submitting
     submitBtn.textContent = 'Saving your spot...';
     submitBtn.disabled = true;
 
     try {
-      const response = await fetch('https://api.flodesk.com/v1/subscribers', {
+      const response = await fetch('/api/join', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': 'Basic ' + btoa(FLODESK_API_KEY + ':')
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
+          firstName: firstName,
           email: email,
-          first_name: firstName,
-          segments: [FLODESK_SEGMENT_ID],
-          custom_fields: {
-            how_did_you_hear: hearAbout || 'Not specified'
-          }
+          segmentId: '6a225a1190d4fc4a1372ae02',
+          hearAbout: hearAbout || 'Not specified'
         })
       });
 
-      if (response.ok || response.status === 200 || response.status === 201) {
-        // Show success
+      const data = await response.json();
+
+      if (response.ok && data.success) {
+        // Show success state
         document.getElementById('fd-firstName').style.display = 'none';
         document.getElementById('fd-email').style.display = 'none';
         document.getElementById('fd-hearAbout').style.display = 'none';
         submitBtn.style.display = 'none';
         document.getElementById('form-success').style.display = 'block';
       } else {
-        const data = await response.json();
-        errorEl.textContent = data.message || 'Something went wrong. Please try again.';
+        errorEl.textContent = data.error || 'Something went wrong. Please try again.';
         errorEl.style.display = 'block';
         submitBtn.textContent = "Let's Turn It All The Way ONNNNN!!! →";
         submitBtn.disabled = false;
