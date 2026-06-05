@@ -483,11 +483,14 @@
 
   /* ── FOOTER ──────────────────────────────────────────────── */
   footer {
-    background: var(--accent-deep); padding: 1rem 3rem;
-    display: flex; align-items: center; justify-content: space-between;
-    flex-wrap: wrap; gap: 0.75rem;
+    background: var(--accent-deep); padding: 1.5rem 3rem;
+    display: flex; flex-direction: column; align-items: center;
+    gap: 0.4rem; text-align: center;
     border-top: 1px solid rgba(138,12,47,0.15);
   }
+  .footer-contact { font-family: var(--sans); font-size: 0.9rem; color: var(--text-mid); }
+  .footer-contact a { color: var(--text-mid); text-decoration: none; }
+  .footer-contact a:hover { color: var(--accent); }
   .footer-links { display: flex; gap: 2rem; list-style: none; flex-wrap: wrap; }
   .footer-links a { font-size: 0.9rem; text-decoration: none; color: var(--text-mid); transition: color 0.2s; }
   .footer-links a:hover { color: var(--accent); }
@@ -831,20 +834,10 @@
   </div>
 </section>
 
-<!-- ── CONTACT ─────────────────────────────────────────────────── -->
-<div class="contact-bar">
-  <p>Still have questions? <a href="mailto:marilys@empowered-connection.com">marilys@empowered-connection.com</a> ❤</p>
-    <p> © Empowered Connection, 2026 </p>
-</div>
 
 <!-- ── FOOTER ──────────────────────────────────────────────────── -->
 <footer>
-  <ul class="footer-links">
-    <li><a href="/">Coaching &amp; About</a></li>
-    <li><a href="/group-offerings">Group Offerings</a></li>
-    <li><a href="/turn-on-your-life">7-Day Challenge</a></li>
-    <li><a href="/conflict-repair-free-guide">Conflict Repair Guide</a></li>
-  </ul>
+  <p class="footer-contact">Questions? <a href="mailto:marilys@empowered-connection.com">marilys@empowered-connection.com</a></p>
   <p class="footer-copy">© Copyright Empowered Connection 2026</p>
 </footer>
 
