@@ -601,7 +601,7 @@
       </div>
 
       <div class="testi-card">
-        <p class="testi-setup">After years of therapy (and a divorce), what I accomplished within a couple months of working with Marilys is beyond what I ever believed possible for myself.</p>
+        <p class="testi-setup">After years of therapy, then a divorce, what I accomplished within a couple months of working with Marilys is beyond what I ever believed possible for myself.</p>
         <p class="testi-quote">"I now know what I want and express it with my head held high, making eye contact. <em>I feel much more confident in my touch, my self-control, being present with a partner — a complete 180</em>. I have done a lot of therapy in my life, and in terms of experiential growth in such a short period of time, working with Marilys has been <em>nothing short of miraculous</em>."</p>
         <p class="testi-name">— David</p>
       </div>
@@ -836,7 +836,7 @@
     <p> © Empowered Connection, 2026 </p>
 </div>
 
-<!-- ── FOOTER ──────────────────────────────────────────────────── */
+<!-- ── FOOTER ──────────────────────────────────────────────────── -->
 <footer>
   <ul class="footer-links">
     <li><a href="/">Coaching &amp; About</a></li>
@@ -848,37 +848,25 @@
 </footer>
 
 <script>
-(function() {
-  function initFAQ() {
-    var btns = document.querySelectorAll('.faq-btn');
-    btns.forEach(function(btn) {
-      btn.addEventListener('click', function() {
-        var item = btn.closest('.faq-item');
-        var answer = item.querySelector('.faq-answer');
-        var isOpen = answer.style.maxHeight && answer.style.maxHeight !== '0px';
-        // Close all
-        document.querySelectorAll('.faq-answer').forEach(function(a) {
-          a.style.maxHeight = '0px';
-          a.style.overflow = 'hidden';
-        });
-        document.querySelectorAll('.faq-btn').forEach(function(b) {
-          b.setAttribute('aria-expanded', 'false');
-        });
-        // Open clicked one
-        if (!isOpen) {
-          answer.style.maxHeight = answer.scrollHeight + 'px';
-          answer.style.overflow = 'hidden';
-          btn.setAttribute('aria-expanded', 'true');
-        }
+window.onload = function() {
+  var items = document.querySelectorAll('.faq-item');
+  items.forEach(function(item) {
+    var btn = item.querySelector('.faq-btn');
+    var answer = item.querySelector('.faq-answer');
+    answer.style.overflow = 'hidden';
+    answer.style.maxHeight = '0px';
+    answer.style.transition = 'max-height 0.3s ease';
+    btn.onclick = function() {
+      var isOpen = answer.style.maxHeight !== '0px';
+      items.forEach(function(i) {
+        i.querySelector('.faq-answer').style.maxHeight = '0px';
       });
-    });
-  }
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initFAQ);
-  } else {
-    initFAQ();
-  }
-})();
+      if (!isOpen) {
+        answer.style.maxHeight = answer.scrollHeight + 'px';
+      }
+    };
+  });
+};
 </script>
 </body>
 </html>
