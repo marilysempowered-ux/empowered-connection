@@ -215,17 +215,23 @@
 
   /* ── TESTIMONIALS TOP ────────────────────────────────────── */
 .testi-top {
-  background: var(--peach-light);
+  position: relative;
   background-image: url('sacredconnection.png');
   background-size: cover;
   background-position: center;
-  padding: 5rem 2rem; position: relative;
+  padding: 5rem 2rem;
 }
-  .testi-top-inner { max-width: 1140px; margin: 0 auto; }
-  .testi-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
+.testi-top::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: rgba(253,232,192,0.78);
+  z-index: 0;
+}
+.testi-top-inner { max-width: 1140px; margin: 0 auto; position: relative; z-index: 1; }
+.testi-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
   }
   .testi-card {
     background: rgba(255,255,255,0.62);
