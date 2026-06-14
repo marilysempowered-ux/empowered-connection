@@ -162,7 +162,11 @@
 
   /* PROOF STRIP */
   .proof-strip {
+<<<<<<< HEAD
     background: var(--accent-deep);
+=======
+    background: var(--coral);
+>>>>>>> c56ef513f67de1b4eee593717fcfe947008aa0cf
     padding: 1.6rem 2rem;
     overflow: hidden;
     position: relative;
@@ -188,10 +192,17 @@
   }
   .proof-line .name {
     font-family: var(--sans); font-style: normal; font-weight: 500;
+<<<<<<< HEAD
     font-size: 0.78rem; color: var(--coral); text-transform: uppercase;
     letter-spacing: 0.1em;
   }
   .proof-line .dot { color: rgba(253,232,192,0.25); font-weight: 400; }
+=======
+    font-size: 0.78rem; color: var(--accent-deep); text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+  .proof-line .dot { color: rgba(253,232,192,0.5); font-weight: 400; }
+>>>>>>> c56ef513f67de1b4eee593717fcfe947008aa0cf
 
   /* MIRROR — ALIGNED 3-COLUMN TOLD / TRUTH */
   .mirror { background: var(--accent-deep); padding: 5rem 4rem; }
@@ -224,6 +235,10 @@
   .mirror-col-told {
     font-family: var(--serif); font-size: 0.98rem;
     color: rgba(253,232,192,0.55); line-height: 1.65; margin-bottom: 0.5rem;
+<<<<<<< HEAD
+=======
+    background: rgba(253,232,192,0.06); border-radius: 10px; padding: 1.4rem;
+>>>>>>> c56ef513f67de1b4eee593717fcfe947008aa0cf
   }
   .mirror-col-told strong { color: rgba(253,232,192,0.7); font-style: normal; font-weight: 600; }
   .mirror-truth-label {
@@ -234,6 +249,7 @@
   .mirror-col-truth {
     font-family: var(--sans); font-size: 0.95rem; font-weight: 500;
     color: var(--peach-light); line-height: 1.7;
+<<<<<<< HEAD
   }
   .mirror-col-truth strong { color: var(--peach); font-weight: 700; }
 
@@ -241,6 +257,31 @@
     font-family: var(--serif); font-style: italic; font-weight: 700;
     font-size: clamp(1.2rem, 2vw, 1.6rem); color: var(--peach);
     text-align: center; max-width: 720px; margin: 0 auto 2.5rem; line-height: 1.5;
+=======
+    background: rgba(253,232,192,0.06); border-radius: 10px; padding: 1.4rem;
+    position: relative; overflow: hidden; z-index: 0;
+  }
+  .mirror-col-truth::before {
+    content: ''; position: absolute; inset: -75%; z-index: -2;
+    background: conic-gradient(from 0deg, transparent 0deg, transparent 280deg, var(--peach-mid) 320deg, var(--peach-light) 340deg, var(--peach-mid) 350deg, transparent 360deg);
+    animation: travelLight 4s linear infinite;
+  }
+  .mirror-col-truth::after {
+    content: ''; position: absolute; inset: 1px; border-radius: 9px; z-index: -1;
+    background: rgba(90,8,32,0.97);
+  }
+  .mirror-col-truth strong { color: var(--peach); font-weight: 700; }
+
+  @keyframes travelLight {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+  }
+
+  .mirror-craving {
+    font-family: var(--serif); font-style: italic; font-weight: 700;
+    font-size: clamp(1.2rem, 2vw, 1.6rem); color: var(--peach);
+    text-align: center; max-width: 720px; margin: 4.5rem auto 2.5rem; line-height: 1.5;
+>>>>>>> c56ef513f67de1b4eee593717fcfe947008aa0cf
   }
   .mirror-craving  strong { color: var(--peach-light); }
 
@@ -264,9 +305,15 @@
   .mechanism { background: var(--peach-light); padding: 5rem 4rem; }
   .mechanism-inner { max-width: 1000px; margin: 0 auto; }
   .mechanism-tagline {
+<<<<<<< HEAD
     font-family: var(--serif); font-weight: 700;
     font-size: clamp(1.6rem, 2.8vw, 2.3rem); color: var(--accent-deep);
     text-align: center; margin: 0 auto 1.8rem; line-height: 1.4;
+=======
+    font-family: var(--serif); font-style: italic; font-weight: 700;
+    font-size: clamp(2.2rem, 4.5vw, 3.4rem); color: var(--accent-deep);
+    text-align: center; margin: 0 auto 1.8rem; line-height: 1.15;
+>>>>>>> c56ef513f67de1b4eee593717fcfe947008aa0cf
   }
   .mechanism-inner p { font-family: var(--sans); font-size: 1.02rem; color: var(--text-dark); line-height: 1.85; margin-bottom: 1.1rem; }
   .mechanism-big {
@@ -275,11 +322,14 @@
     color: var(--accent); line-height: 1.4;
     margin: 1.8rem 0 1.2rem !important;
   }
+<<<<<<< HEAD
   .mechanism-tagline {
     font-family: var(--serif); font-style: italic; font-weight: 700;
     font-size: clamp(1.2rem, 2vw, 1.6rem); color: var(--accent-deep);
     text-align: center; margin: 2.5rem auto 1rem; line-height: 1.5;
   }
+=======
+>>>>>>> c56ef513f67de1b4eee593717fcfe947008aa0cf
 
   /* IMAGINE — REDESIGNED (single column, after story) */
   .imagine-section { background: var(--peach-mid); padding: 5rem 4rem; }
@@ -302,6 +352,7 @@
     padding-top: 0.8rem; border-top: 1px solid rgba(138,12,47,0.1);
   }
 
+<<<<<<< HEAD
   /* GUARANTEE */
   .guarantee { background: var(--peach-mid); padding: 5rem 4rem; }
   .guarantee-inner { max-width: 1000px; margin: 0 auto; }
@@ -323,6 +374,26 @@
   }
   .guarantee-list li > span { flex: 1; }
   .guarantee-list li strong { color: var(--accent); font-weight: 700; }
+=======
+  /* MY PROMISE TO YOU — centered, sits before final Imagine CTA */
+  .promise-block {
+    max-width: 760px; margin: 1rem auto 2.5rem; text-align: center;
+    background: rgba(255,255,255,0.55); border-radius: 16px;
+    padding: 2.5rem 2.5rem; border: 1px solid rgba(255,255,255,0.6);
+  }
+  .guarantee-label {
+    font-family: var(--sans); font-size: 0.8rem; font-weight: 600;
+    letter-spacing: 0.2em; text-transform: uppercase; color: var(--coral);
+    margin-bottom: 1.2rem; display: block; text-align: center;
+  }
+  .promise-line {
+    font-family: var(--serif); font-size: clamp(1.1rem, 2vw, 1.4rem);
+    color: var(--accent-deep); line-height: 1.6;
+    margin-bottom: 0.9rem;
+  }
+  .promise-line:last-child { margin-bottom: 0; }
+  .promise-line strong { color: var(--accent); font-weight: 700; }
+>>>>>>> c56ef513f67de1b4eee593717fcfe947008aa0cf
 
   /* BINARY CHOICE */
   .binary { background: var(--accent-deep); padding: 5rem 4rem; }
@@ -355,8 +426,13 @@
   /* STORY — typographic, no images, intimate column */
   .story-hook {
     font-family: var(--serif); font-style: italic; font-weight: 700;
+<<<<<<< HEAD
     font-size: clamp(1.1rem, 1.8vw, 1.4rem); color: var(--accent);
     text-align: center; max-width: 860px; margin: 0 auto 2.5rem;
+=======
+    font-size: clamp(2.2rem, 4.5vw, 3.4rem); color: var(--accent);
+    text-align: center; max-width: 860px; margin: 0 auto 2.5rem; line-height: 1.15;
+>>>>>>> c56ef513f67de1b4eee593717fcfe947008aa0cf
   }
   .story { background: var(--peach-mid); padding: 5rem 4rem; }
   .story-inner { max-width: 1000px; margin: 0 auto; }
@@ -564,7 +640,11 @@
   .faq h2 { font-family: var(--serif); font-weight: 700; font-size: clamp(1.8rem,3vw,2.6rem); color: var(--accent-deep); text-align: center; margin-bottom: 2.5rem; }
   .faq-accordion { max-width: 860px; margin: 0 auto; }
   .faq-item {
+<<<<<<< HEAD
     background: rgba(255,255,255,0.5); border-radius: 8px;
+=======
+    background: rgba(255,255,255,0.25); border-radius: 8px;
+>>>>>>> c56ef513f67de1b4eee593717fcfe947008aa0cf
     margin-bottom: 0.8rem; overflow: hidden;
   }
   .faq-item summary {
@@ -575,10 +655,17 @@
   }
   .faq-item summary::-webkit-details-marker { display: none; }
   .faq-item summary::after {
+<<<<<<< HEAD
     content: '+'; font-family: var(--sans); font-weight: 400; font-size: 1.3rem;
     color: var(--coral); flex-shrink: 0; transition: transform 0.2s;
   }
   .faq-item[open] summary::after { transform: rotate(45deg); }
+=======
+    content: '⌄'; font-family: var(--sans); font-weight: 700; font-size: 1.3rem;
+    color: var(--coral); flex-shrink: 0; transition: transform 0.2s; line-height: 1;
+  }
+  .faq-item[open] summary::after { transform: rotate(180deg); }
+>>>>>>> c56ef513f67de1b4eee593717fcfe947008aa0cf
   .faq-item p { font-family: var(--sans); font-size: 0.92rem; color: var(--text-mid); line-height: 1.7; padding: 0 1.6rem 1.3rem; }
   .faq-item p strong { color: var(--accent-deep); font-weight: 600; }
 
@@ -631,7 +718,11 @@
     .faq { padding: 3.5rem 1.5rem; }
     .faq-item summary { font-size: 0.95rem; padding: 1rem 1.2rem; }
     .faq-item p { padding: 0 1.2rem 1.2rem; }
+<<<<<<< HEAD
     .guarantee { padding: 3.5rem 1.5rem; }
+=======
+    .promise-block { padding: 1.8rem 1.4rem; }
+>>>>>>> c56ef513f67de1b4eee593717fcfe947008aa0cf
     .binary { padding: 3.5rem 1.5rem; }
     .binary-options { grid-template-columns: 1fr; }
     .binary-or { text-align: center; }
@@ -754,7 +845,11 @@
         <p class="mirror-col-told">...pleasure is earned — after the to-do list, on weekends, on vacation.</p>
       </div>
       <div>
+<<<<<<< HEAD
         <p class="mirror-col-told">...we need the right partner or the right circumstances to feel turned on.</p>
+=======
+        <p class="mirror-col-told">...we need the right partner, the right moment, the right circumstances to feel turned on.</p>
+>>>>>>> c56ef513f67de1b4eee593717fcfe947008aa0cf
       </div>
     </div>
 
@@ -779,7 +874,11 @@
       <p class="wrong-thing">⚡ <strong>Communication skills</strong> — helpful! But you can know all the right words and still feel nothing in your body.</p>
       <p class="wrong-thing">⚡ <strong>Date nights, lingerie, toys, etc</strong> — like new curtains in a house with no electricity. It's nice. Not what lights you up.</p>
     </div>
+<<<<<<< HEAD
     <p class="mirror-craving">But it goes wayyy beyond intimacy.<br><strong>Erotic energy </strong>isn't a nice-to-have for the right circumstances.</p>
+=======
+    <p class="mirror-craving" style="margin-top:1.5rem;">But it goes wayyy beyond intimacy.<br><strong>Erotic energy </strong>isn't a nice-to-have for the right circumstances.</p>
+>>>>>>> c56ef513f67de1b4eee593717fcfe947008aa0cf
 
     <p class="life-force-callout"> It's your <strong>LIFE FORCE</strong> — what makes you feel <em><strong>alive</strong></em> in ANY situation.</p>
     <p class="life-force-callout" style="margin-top:1rem; font-size: clamp(1.1rem,1.8vw,1.4rem); color: rgba(253,232,192,0.8); font-weight: 400;">After Turn On Your Life, pleasure becomes your baseline. Your natural state. The way you move through the world — as you were designed to. 🔥</p>
@@ -791,6 +890,7 @@
 </section>
 
 
+<<<<<<< HEAD
 <!-- GUARANTEE -->
 <section class="guarantee">
   <div class="guarantee-inner">
@@ -806,6 +906,11 @@
 <!-- STORY (typographic, no images) -->
 <section class="story">
   <p class="story-hook">Ever feel like you've been sneakily turned down — and didn't even notice?</p>
+=======
+<!-- STORY (typographic, no images) -->
+<section class="story">
+  <p class="story-hook">Sneakily Turned Down?</p>
+>>>>>>> c56ef513f67de1b4eee593717fcfe947008aa0cf
   <div class="story-inner">
 
     <p>I remember waking up in a sigh. Dragging my feet. Trying so hard to be a good wife. Hours at my laptop, building a future that would finally let me enjoy.</p>
@@ -844,7 +949,11 @@
 <!-- THE MECHANISM -->
 <section class="mechanism">
   <div class="mechanism-inner">
+<<<<<<< HEAD
     <p class="mechanism-tagline">The fastest shift I've ever seen in clients — and what causes it</p>
+=======
+    <p class="mechanism-tagline">Energy matters more than strategy.</p>
+>>>>>>> c56ef513f67de1b4eee593717fcfe947008aa0cf
 
     <p>When I first started as a coach, there was a lot of talking in my sessions. People left feeling understood, clear, seen. They knew what to do.</p>
 
@@ -901,6 +1010,13 @@
     <li>🔥 Connection deepens — with yourself, others &amp; life itself</li>
     <li>🔥 You own the switch, forever</li>
   </ul>
+  <div class="promise-block">
+    <span class="guarantee-label">My Promise to You</span>
+    <p class="promise-line"><strong>Everyone can learn to turn themselves on, on demand.</strong></p>
+    <p class="promise-line">When you do, <strong>everything starts to feel and taste better.</strong></p>
+    <p class="promise-line">In 7 days, I give you the exact practices that have me spontaneously dance, sing out loud walking the dogs, and make dinner like it's a celebration — <strong>so you can be turned on for the rest of your life.</strong></p>
+  </div>
+
   <div style="text-align:center;">
     <button class="btn btn-primary btn-large" onclick="openPopup()">Yes, Let's Goooo!!! →</button>
   </div>
