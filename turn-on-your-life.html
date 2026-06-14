@@ -384,6 +384,23 @@
     font-family: var(--serif); font-style: italic;
     font-size: 1rem; color: var(--text-mid);
   }
+  .story-img-left {
+  float: left;
+  width: 220px;
+  height: auto;
+  border-radius: 12px;
+  margin: 0 1.8rem 1rem 0;
+  shape-outside: margin-box;
+}
+@media (max-width: 640px) {
+  .story-img-left {
+    float: none;
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto 1.5rem;
+    display: block;
+  }
+}
   .story-divider { width: 48px; height: 2px; background: var(--coral); margin: 2rem 0; opacity: 0.4; }
   .story-welcome { color: var(--accent); font-weight: 600; font-size: 1.05rem; }
 
@@ -817,7 +834,9 @@
     <p class="story-big">It was slowly killing me, and the relationship.</p>
  
     <div class="story-divider"></div>
- 
+    
+ <img src="AND_3223_2_dance.jpg" alt="Marilys dancing freely in a field" class="story-img-left">
+
     <p><strong>I had to learn how to turn myself back on.</strong></p>
  
     <p>Now, you'll find me <span class="red">dancing at the grocery store, singing out loud walking the dogs, laughing for no apparent reason</span> — because life feels so good.</p>
