@@ -161,19 +161,22 @@
   }
 
   /* STORY */
-  .story { background: var(--peach-mid); padding: 5rem; }
-  .story-grid {
-    display: grid; grid-template-columns: 1fr 1fr;
-    gap: 5rem; align-items: start; max-width: 1100px; margin: 0 auto;
+  .story { background: var(--peach-mid); padding: 5rem 4rem; }
+  .story-inner { max-width: 1340px; margin: 0 auto; }
+  .story-float-right {
+    float: right; margin: 0.3rem 0 2rem 3rem;
+    width: 40%; border-radius: 12px; overflow: hidden;
   }
-  .story-img-main { width: 100%; border-radius: 12px; overflow: hidden; aspect-ratio: 4/5; }
-  .story-img-main img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
-  .story-img-secondary { width: 75%; margin-left: auto; margin-top: 1.5rem; border-radius: 12px; overflow: hidden; aspect-ratio: 3/2; }
-  .story-img-secondary img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .story-content p { font-family: var(--sans); font-size: 1rem; color: var(--text-dark); line-height: 1.85; margin-bottom: 0.9rem; }
-  .story-content p strong { color: var(--text-dark); font-weight: 600; }
-  .story-content .red { color: var(--accent); font-weight: 700; }
-  .story-content .red-plain { color: var(--accent); }
+  .story-float-right img { width: 100%; display: block; object-fit: cover; }
+  .story-float-left {
+    float: left; margin: 0.3rem 3rem 2rem 0;
+    width: 36%; border-radius: 12px; overflow: hidden;
+  }
+  .story-float-left img { width: 100%; display: block; object-fit: cover; }
+  .story-inner p { font-family: var(--sans); font-size: 1rem; color: var(--text-dark); line-height: 1.85; margin-bottom: 0.9rem; }
+  .story-inner p strong { color: var(--text-dark); font-weight: 600; }
+  .story-inner .red { color: var(--accent); font-weight: 700; }
+  .story-inner .red-plain { color: var(--accent); }
   .story-bigger { font-family: var(--sans); font-size: 1.1rem; font-weight: 600; color: var(--text-dark); margin-bottom: 0.5rem !important; }
   .story-welcome { color: var(--accent); font-weight: 600; font-size: 1rem; }
 
@@ -349,7 +352,7 @@
     .hero-left { padding: 3rem 1.5rem; }
     .hero-right { height: 60vw; }
     .story { padding: 3.5rem 1.5rem; }
-    .story-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .story-float-right, .story-float-left { float: none; width: 100%; margin: 0 0 1.5rem 0; }
     .section-dark { padding: 3.5rem 1.5rem; }
     .inv-table { grid-template-columns: 1fr; }
     .inv-h.r, .inv-r { border-left: none; border-top: 1px solid rgba(253,232,192,0.15); }
@@ -435,46 +438,55 @@
 
 <!-- STORY -->
 <section class="story">
-  <div class="story-grid">
-    <div>
-      <div class="story-img-main"><img src="AND_9036_1.jpg" alt="Marilys — embodied and free"></div>
-      <div class="story-img-secondary"><img src="QQP_5886.jpg" alt="Marilys kitesurfing"></div>
+  <div class="story-inner">
+
+    <!-- New kitesurf photo floats RIGHT -->
+    <div class="story-float-right">
+      <img src="yeah.jpg" alt="Marilys kitesurfing — pure aliveness">
     </div>
-    <div class="story-content"> 
-      <p>"I was <strong>living on the beach</strong>, palmtree outside my window, building my <strong>dream business</strong> with my <strong>husband</strong>... 
-        <p> It looked good from the <em>outside</em>.</p>
-        <p>But... our turn on? <span class="red">Sneakily yet steadily going downhill</span>.</p>
-      <p><strong>Till... I was waking up in a sigh. Dragging my feet.</strong> 
-       <p>Trying to be a good wife...</p>
-       <p>Living for a future that never came.</p>
-        <p>I had it "all" but... <span class="red">I felt disconnected.</span></p>
-      <p>I looked outside myself. </p>
-      <p>Better communication. More effort. More trying.</p>
-      <p>One day I asked for a hug; he called me <em>needy</em>.</p>
-      <p><strong>Shame. Confusion. Powerlessness.</strong> </p>
-      <p><span class="red">I got smaller. Quieter about what I needed.</span></p>
-      <p>What I didn't realize then is that those small decisions to keep things "good" slowly turned down my aliveness, my excitement for my life, my fire, my turn on.</p>
-      <p><strong>It was slowly killing me, and the relationship.</strong></p>
-      <p>And I felt lost as to how to turn it back on.</p>
-      <p>The good: it sent me on a beautiful journey of learning to cultivate my inner fire. </p>
-      <p> Years later, I get to share with all of you what I've learned and change so many lives with <em>Intimacy Artistry.</em></p>
-      <p>It took my divorce for me to realize <strong>the "switch" was inside me all along.</strong></p>
-      <p>As it is inside <em>you</em>.</p>
-      <p>But... we have been <span class="red">conditioned to tone it down for years</span> and many don't even remember what it's like to feel fully alive, turned on, embodied in our pleasure!</p>
-      <p>It's as if we were waiting for permission...</p>
-      <p><strong>This. Is your permission.</strong></p> 
-      <p>What I'll share in this challenge <span class="red">puts the power switch back in YOUR hands.</span></p>
-      <p>After years of nerding out on this, in my personal life and with clients, I realized it comes down to just a few things that most either overlook or never learn about.</p>
-      <p>Then, I had one of those brilliant world changing yet utterly simple shower thoughts 😜
-      <p> 💭 "What amazing HIGH-VIBE ripples could we create in the world if even just 100 of us commited to these practices for a week!"</p>
-      <p>Can you imagine!?</p>
-      <p>I distilled it into simple practices that will support anyone to reconnect with their <strong>innate capacity to turn it on, on demand! </p>
-      </p><span class="red"> So you too can generate aliveness and pleasure, anytime.</span></p>
-      <p>On a Tuesday. In traffic. Doing dishes.</p>
-      <p>No matter, what's happening outside of you...</p>
-      <p class="story-welcome"><span class="red">Welcome, to Turn On Your Life Challenge! 🔥🤗</span></p>
-      <button class="btn btn-primary" style="margin-top:1.2rem;" onclick="openPopup()">Let's Turn It All The Way ONNNNN!!! →</button>
+
+    <p>"I was <strong>living on the beach</strong>, palmtree outside my window, building my <strong>dream business</strong> with my <strong>husband</strong>...</p>
+    <p>It looked good from the <em>outside</em>.</p>
+    <p>But... our turn on? <span class="red">Sneakily yet steadily going downhill</span>.</p>
+    <p><strong>Till... I was waking up in a sigh. Dragging my feet.</strong></p>
+    <p>Trying to be a good wife...</p>
+    <p>Living for a future that never came.</p>
+    <p>I had it "all" but... <span class="red">I felt disconnected.</span></p>
+    <p>I looked outside myself.</p>
+    <p>Better communication. More effort. More trying.</p>
+    <p>One day I asked for a hug; he called me <em>needy</em>.</p>
+    <p><strong>Shame. Confusion. Powerlessness.</strong></p>
+    <p><span class="red">I got smaller. Quieter about what I needed.</span></p>
+    <p>What I didn't realize then is that those small decisions to keep things "good" slowly turned down my aliveness, my excitement for my life, my fire, my turn on.</p>
+    <p><strong>It was slowly killing me, and the relationship.</strong></p>
+    <p>And I felt lost as to how to turn it back on.</p>
+
+    <!-- QQP_5886 floats LEFT -->
+    <div class="story-float-left">
+      <img src="QQP_5886.jpg" alt="Marilys in flow">
     </div>
+
+    <p>The good: it sent me on a beautiful journey of learning to cultivate my inner fire.</p>
+    <p>Years later, I get to share with all of you what I've learned and change so many lives with <em>Intimacy Artistry.</em></p>
+    <p>It took my divorce for me to realize <strong>the "switch" was inside me all along.</strong></p>
+    <p>As it is inside <em>you</em>.</p>
+    <p>But... we have been <span class="red">conditioned to tone it down for years</span> and many don't even remember what it's like to feel fully alive, turned on, embodied in our pleasure!</p>
+    <p>It's as if we were waiting for permission...</p>
+    <p><strong>This. Is your permission.</strong></p>
+    <p>What I'll share in this challenge <span class="red">puts the power switch back in YOUR hands.</span></p>
+    <p>After years of nerding out on this, in my personal life and with clients, I realized it comes down to just a few things that most either overlook or never learn about.</p>
+    <p>Then, I had one of those brilliant world changing yet utterly simple shower thoughts 😜</p>
+    <p>💭 "What amazing HIGH-VIBE ripples could we create in the world if even just 100 of us commited to these practices for a week!"</p>
+    <p>Can you imagine!?</p>
+    <p>I distilled it into simple practices that will support anyone to reconnect with their <strong>innate capacity to turn it on, on demand!</strong></p>
+    <p><span class="red">So you too can generate aliveness and pleasure, anytime.</span></p>
+    <p>On a Tuesday. In traffic. Doing dishes.</p>
+    <p>No matter what's happening outside of you...</p>
+    <p class="story-welcome"><span class="red">Welcome, to Turn On Your Life Challenge! 🔥🤗</span></p>
+
+    <div style="clear:both;"></div>
+    <button class="btn btn-primary" style="margin-top:1.2rem;" onclick="openPopup()">Let's Turn It All The Way ONNNNN!!! →</button>
+
   </div>
 </section>
 
