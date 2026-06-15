@@ -364,9 +364,10 @@
   /* STORY — typographic, no images, intimate column */
   .story-hook {
     font-family: var(--serif); font-style: italic; font-weight: 700;
-    font-size: clamp(2.2rem, 4.5vw, 3.4rem); color: var(--accent);
+    font-size: clamp(2rem, 4.5vw, 2rem); color: var(--accent);
     text-align: center; max-width: 860px; margin: 0 auto 2.5rem; line-height: 1.15;
-  }
+}
+
   .story { background: var(--peach-mid); padding: 5rem 4rem; }
   .story-inner { max-width: 1000px; margin: 0 auto; }
   .story-inner p { font-family: var(--sans); font-size: 1.05rem; color: var(--text-dark); line-height: 1.85; margin-bottom: 1.1rem; }
@@ -384,6 +385,25 @@
     font-family: var(--serif); font-style: italic;
     font-size: 1rem; color: var(--text-mid);
   }
+
+  .story-img-left {
+    float: left;
+    width: 250px;
+    height: auto;
+    border-radius: 12px;
+    margin: 0 1.8rem 1rem 0;
+    shape-outside: margin-box;
+  }
+  @media (max-width: 640px) {
+    .story-img-left {
+      float: none;
+      width: 100%;
+      max-width: 320px;
+      margin: 0 auto 1.5rem;
+      display: block;
+    }
+  }
+
   .story-divider { width: 48px; height: 2px; background: var(--coral); margin: 2rem 0; opacity: 0.4; }
   .story-welcome { color: var(--accent); font-weight: 600; font-size: 1.05rem; }
 
@@ -776,7 +796,7 @@
         <p class="mirror-col-told">...pleasure is earned — after the to-do list, on weekends, on vacation.</p>
       </div>
       <div>
-        <p class="mirror-col-told">...we need the right partner, the right moment, the right circumstances to feel turned on.</p>
+        <p class="mirror-col-told">...we need the right partner or circumstances... to be allowed to feel turned on.</p>
       </div>
     </div>
 
@@ -790,7 +810,7 @@
         <p class="mirror-col-truth">Pleasure is <strong>nourishment</strong>. When you cultivate it daily, everything feels more energized, easeful and connective.</p>
       </div>
       <div>
-        <p class="mirror-col-truth">You are the <strong>source</strong>. You have the switch. You have the power to light up a entire room — from the inside out. </p>
+        <p class="mirror-col-truth">You are the <strong>source</strong>. You have the switch. You have the power to light up an entire room — from the inside out.</p>
       </div>
     </div>
 
@@ -807,7 +827,7 @@
     <p class="life-force-callout" style="margin-top:1rem; font-size: clamp(1.1rem,1.8vw,1.4rem); color: var(--coral) ; font-weight: 400;">Inside Turn On Your Life, pleasure becomes your baseline. <br>Simply, how you move through the world — as you were designed to. 🔥</p>
 
     <div style="text-align:center; margin-top:2.5rem;">
-      <button class="btn btn-cream btn-large" onclick="openPopup()">LET'S FREAKING GOOOO!!! →</button>
+      <button class="btn btn-cream btn-large" onclick="openPopup()">I'M IN!!! →</button>
     </div>
   </div>
 </section>
@@ -815,43 +835,44 @@
 
 <!-- STORY (typographic, no images) -->
 <section class="story" data-section="story">
-  <p class="story-hook">Sneakily Turned Down?</p>
+  <p class="story-hook">Sneakily Turned Down</p>
   <div class="story-inner">
 
-    <p>I woke up in a sigh. Dragging my feet. Doing what I thought a "good wife" does. Palmtree outside our window, building our dream business...</p>
+    <p><strong>I woke up in a sigh. Dragging my feet. Doing what I thought a "good wife" does.</strong></p>
 
-    <p class="story-big">It looked good from the outside — but it felt heavy.</p>
-    <p class="red">Living for a future that never came. I felt disconnected.</p>
-    <p>My turn-on was sneakily yet steadily going downhill.</p>
+    <p>Palmtree outside our window, building our dream business...<br><strong>It looked good from the outside — but it felt heavy.</strong><br>Living for a future that never came. I felt disconnected.</p>
 
-    <p>I looked outside myself. Better communication. More effort. More trying. One day I asked for a hug. He called me <em>needy</em>.</p>
+    <p class="red">My turn-on was sneakily yet steadily going downhill.</p>
 
-    <p><span class="red">I got smaller. Quieter about what I needed.</span> Those small decisions to keep things "good" were slowly turning down my aliveness — my fire, my turn-on.</p>
+    <p>I looked outside myself. Better communication. More effort. More trying.</p>
+    <p>Asking for a hug, I was called <em>needy</em>.<br><span class="red">So I got smaller. Quieter about what I wanted.</span><br>Those small decisions to keep things "good" were slowly turning down my aliveness — my fire, my turn-on.</p>
 
     <p class="story-big">It was slowly killing me, and the relationship.</p>
 
     <div class="story-divider"></div>
 
-    <p><strong>I had to learn how to turn myself back on. And I did.</strong></p>
+    <img src="AND_3223.2.dance.jpg" alt="Marilys dancing freely in a field" class="story-img-left">
 
-    <p>Now, you'll find me dancing at the grocery store, singing out loud walking the dogs, laughing for no apparent reason — because life feels so good.</p>
+<p style="font-family: var(--serif); font-style: italic; font-weight: 700; font-size: clamp(1.6rem, 4vw, 1.6rem); color: var(--accent-deep); line-height: 1.3; margin: 1.2rem 0;">I had to learn how to turn myself back on.</p>
 
-    <p>But… divorce happened before I found the "switch" — and I realized so many relationships end because <span class="red">no one teaches this</span>.</p>
+    <p>Now, you'll find me <span class="red">dancing at the grocery store, singing out loud walking the dogs, laughing for no apparent reason</span> — because life feels so good.</p>
 
-    <p>Beyond polarity, communication skills, attachment style… <strong>your turn-on, your energy, your erotic presence is where it's at.</strong></p>
+    <p>But… <em><strong>divorce happened</strong></em> before I found the "switch" — and I then realized <em><strong>so many relationships end that way.</strong></em> Yet,<span class="red"> no one teaches this</span>.</p>
 
-    <p class="story-big">Everything becomes more pleasurable — even the most mundane tasks!</p>
-    <p>And it ripples out in all areas of your life.</p>
+    <p>Beyond polarity, communication skills, attachment style… <br><strong>your turn-on, your energy, your erotic presence is where it's at.</strong></p>
+
+    <p><span class="red">Everything becomes more pleasurable</span> — even the most mundane tasks!</p>
+    <p class="red">And it ripples out in all areas of your life.</p>
 
     <div class="story-divider"></div>
 
-    <p>After years of supporting hundreds through Empowered Connection, I recently created the free <strong>Intimacy Artists</strong> community — which immediately grew to <span class="red">160+ people</span> — and I had this brilliant shower thought…</p>
+    <p>After years of supporting hundreds through my brand Empowered Connection, I recently created this free <strong>Intimacy Artists</strong> — which immediately grew to <span class="red">160+ people</span> — and I had this shower thought…</p>
 
-    <p class="story-quiet">💭 "What amazing HIGH-VIBE ripple effect could we create in the world if we all cultivated our turn-on together for 1 week!?</p>
+    <p class="story-quiet">💭 <strong>What amazing HIGH-VIBE ripple effect could we create in the world if we all cultivated our turn-on together for 1 week!?</strong></p>
 
-    <p class="story-big">We are doing it! Introducing: <strong>Turn On Your Life Method</strong> — simple practices that put <span class="red">the power switch back in YOUR hands</span>.</p>
+    <p>We are doing it! <br>I distilled in <strong>Turn On Your Life</strong> the exact method I use to<span class="red"> generate aliveness and pleasure, anytime I want.</span></p>
 
-    <p>On a Tuesday. In traffic. Doing dishes. No matter what's happening outside of you.</p>
+    <p>On a Tuesday. In traffic. Doing dishes. <br>No matter what's happening outside of you.</p>
 
     <p class="story-welcome">Welcome to Turn On Your Life. 🔥</p>
 
