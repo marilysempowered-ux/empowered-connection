@@ -565,6 +565,19 @@
     footer { padding: 1.5rem; flex-direction: column; align-items: flex-start; }
   }
 </style>
+
+<!-- PostHog Analytics -->
+<script>
+  !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init Ge ws me Ai capture Ke calculateEventProperties Ws register register_once register_for_session unregister unregister_for_session Ts getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSurveysLoaded onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey getNextSurveyStep identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups setOptedIn setOptedOut hasOptedIn hasOptedOut clear_opt_in_out_capturing debug".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+  posthog.init('YOUR_POSTHOG_PROJECT_API_KEY', { api_host: 'https://us.i.posthog.com', person_profiles: 'identified_only' });
+</script>
+
+<!-- Vercel Analytics -->
+<script>
+  window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+</script>
+<script defer src="/_vercel/insights/script.js"></script>
+
 </head>
 <body>
 
@@ -599,7 +612,7 @@
 </nav>
 
 <!-- ── HERO ──────────────────────────────────────────────────── -->
-<section class="hero">
+<section class="hero" data-section="hero">
   <div class="hero-bg"></div>
   <div class="hero-overlay"></div>
   <div class="hero-content">
@@ -614,7 +627,7 @@
 </section>
 
 <!-- ── PAIN ───────────────────────────────────────────────────── -->
-<section class="pain">
+<section class="pain" data-section="pain">
   <div class="pain-bg"></div>
   <div class="pain-overlay"></div>
   <div class="pain-inner">
@@ -637,7 +650,7 @@
 </section>
 
 <!-- ── TESTIMONIALS TOP ────────────────────────────────────────── -->
-<section class="testi-top">
+<section class="testi-top" data-section="testimonials_top">
   <div class="testi-top-inner">
       <h2 class="testi-title">A glimpse of what's possible...</h2>
     <div class="testi-grid">
@@ -668,7 +681,7 @@
 
 <!-- ── DAVID VIDEO (place after intro — uncomment and add src when ready) ── -->
 <!--
-<section class="video-testi">
+<section class="video-testi" data-section="video_testimonial">
   <div class="video-testi-inner">
     <p class="video-setup">Hear it in David's own words.</p>
     <div class="video-embed">
@@ -679,7 +692,7 @@
 -->
 
 <!-- ── MARILYS ─────────────────────────────────────────────────── -->
-<section class="marilys-section">
+<section class="marilys-section" data-section="about_marilys">
   <div class="marilys-inner">
     <!-- left: stacked photos -->
     <div class="marilys-photos">
@@ -711,7 +724,7 @@
 </section>
 
 <!-- ── FOCUS ───────────────────────────────────────────────────── -->
-<section class="focus">
+<section class="focus" data-section="focus_areas">
   <div class="focus-bg"></div>
   <div class="focus-inner">
     <h2 class="focus-title">We focus on what matters.</h2>
@@ -742,7 +755,7 @@
 </section>
 
 <!-- ── CONSULTATION ────────────────────────────────────────────── -->
-<section class="consult">
+<section class="consult" data-section="consult_offer">
   <div class="consult-inner">
     <p class="consult-eyebrow">Work with me</p>
     <h2 class="consult-headline">I Work With Very Few 
@@ -762,7 +775,7 @@
 </section>
 
 <!-- ── TESTIMONIALS BOTTOM ─────────────────────────────────────── -->
-<section class="testi-bottom">
+<section class="testi-bottom" data-section="testimonials_bottom">
   <div class="testi-bottom-inner">
     <div class="testi-bottom-grid">
 
@@ -795,7 +808,7 @@
 </section>
 
 <!-- ── FAQ ────────────────────────────────────────────────────── -->
-<section class="faq">
+<section class="faq" data-section="faq">
   <div class="faq-inner">
     <p class="faq-label">FAQ</p>
 
@@ -878,7 +891,7 @@
 </section>
 
 <!-- ── FINAL CTA ───────────────────────────────────────────────── -->
-<section class="final-cta">
+<section class="final-cta" data-section="final_cta">
   <div class="final-cta-overlay"></div>
   <div class="final-cta-inner">
     <h2 class="final-cta-title">You've Read Enough.<br><em>Now Feel It.</em></h2>
@@ -933,5 +946,6 @@ window.onload = function() {
   });
 };
 </script>
+<script src="/analytics.js"></script>
 </body>
 </html>

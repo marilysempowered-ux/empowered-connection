@@ -364,7 +364,7 @@
   /* STORY — typographic, no images, intimate column */
   .story-hook {
     font-family: var(--serif); font-style: italic; font-weight: 700;
-    font-size: clamp(2.2rem, 4.5vw, 2.2rem); color: var(--accent);
+    font-size: clamp(2.2rem, 4.5vw, 3.4rem); color: var(--accent);
     text-align: center; max-width: 860px; margin: 0 auto 2.5rem; line-height: 1.15;
   }
   .story { background: var(--peach-mid); padding: 5rem 4rem; }
@@ -384,23 +384,6 @@
     font-family: var(--serif); font-style: italic;
     font-size: 1rem; color: var(--text-mid);
   }
-  .story-img-left {
-  float: left;
-  width: 220px;
-  height: auto;
-  border-radius: 12px;
-  margin: 0 1.8rem 1rem 0;
-  shape-outside: margin-box;
-}
-@media (max-width: 640px) {
-  .story-img-left {
-    float: none;
-    width: 100%;
-    max-width: 320px;
-    margin: 0 auto 1.5rem;
-    display: block;
-  }
-}
   .story-divider { width: 48px; height: 2px; background: var(--coral); margin: 2rem 0; opacity: 0.4; }
   .story-welcome { color: var(--accent); font-weight: 600; font-size: 1.05rem; }
 
@@ -668,6 +651,19 @@
   }
 
 </style>
+
+<!-- PostHog Analytics -->
+<script>
+  !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init Ge ws me Ai capture Ke calculateEventProperties Ws register register_once register_for_session unregister unregister_for_session Ts getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSurveysLoaded onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey getNextSurveyStep identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups setOptedIn setOptedOut hasOptedIn hasOptedOut clear_opt_in_out_capturing debug".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+  posthog.init('YOUR_POSTHOG_PROJECT_API_KEY', { api_host: 'https://us.i.posthog.com', person_profiles: 'identified_only' });
+</script>
+
+<!-- Vercel Analytics -->
+<script>
+  window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+</script>
+<script defer src="/_vercel/insights/script.js"></script>
+
 </head>
 <body>
 
@@ -717,7 +713,7 @@
 </nav>
 
 <!-- HERO -->
-<section class="hero">
+<section class="hero" data-section="hero">
   <div class="hero-left">
     <span class="hero-eyebrow">Free 7-Day Challenge · Starts June 26th</span>
 <img src="toyl-logo.png" alt="Turn On Your Life" style="max-width: 420px; width: 100%; margin-bottom: 0.5rem; mix-blend-mode: darken;">
@@ -732,7 +728,7 @@
 </section>
 
 <!-- PROOF STRIP -->
-<section class="proof-strip">
+<section class="proof-strip" data-section="proof_strip">
   <div class="proof-strip-track">
     <p class="proof-line">"Mom is glowing!" — after ONE session <span class="name">— Wendy's daughter</span></p>
     <span class="dot">✦</span>
@@ -764,7 +760,7 @@
 
 
 <!-- THE MIRROR / MYTH vs TRUTH (moved up — right after proof) -->
-<section class="mirror">
+<section class="mirror" data-section="mirror">
   <div class="mirror-inner">
     <p class="mirror-q">Who benefits from you turning it down?</p>
     <p class="mirror-dimming">Dimming. Repressing. Suppressing. Shaming. Getting small.<br></p>
@@ -780,7 +776,7 @@
         <p class="mirror-col-told">...pleasure is earned — after the to-do list, on weekends, on vacation.</p>
       </div>
       <div>
-        <p class="mirror-col-told">...we need the right partner or circumstances... to be allowed to feel turned on.</p>
+        <p class="mirror-col-told">...we need the right partner, the right moment, the right circumstances to feel turned on.</p>
       </div>
     </div>
 
@@ -788,13 +784,13 @@
 
     <div class="mirror-grid">
       <div>
-        <p class="mirror-col-truth">Sexual energy is <strong>life force</strong>. Creative power. It fuels your vitality, confidence, magnetism — everywhere you go.</p>
+        <p class="mirror-col-truth">Sexual energy is <strong>life force</strong> — creative power, the fuel for confidence, vitality, magnetism and connection — everywhere you go.</p>
       </div>
       <div>
-        <p class="mirror-col-truth">Pleasure is <strong>nourishment</strong>. When you cultivate it daily, everything feels more energized, easeful and connective.</p>
+        <p class="mirror-col-truth">Pleasure is <strong>fuel</strong>. Cultivate it as a way of life and everything feels more energized, easeful and connective.</p>
       </div>
       <div>
-        <p class="mirror-col-truth">You are the <strong>source</strong>. You have the switch. You have the power to light up a entire room — from the inside out. </p>
+        <p class="mirror-col-truth">You are the <strong>source</strong>. You have the switch. You've just been taught to turn it down, instead of feeding off of it.</p>
       </div>
     </div>
 
@@ -818,55 +814,54 @@
 
 
 <!-- STORY (typographic, no images) -->
-<section class="story">
-  <p class="story-hook">Sneakily Turned Down</p>
+<section class="story" data-section="story">
+  <p class="story-hook">Sneakily Turned Down?</p>
   <div class="story-inner">
 
-     <p><strong>I woke up in a sigh. Dragging my feet. Doing what I thought a "good wife" does. </strong><p>
+    <p>I woke up in a sigh. Dragging my feet. Doing what I thought a "good wife" does. Palmtree outside our window, building our dream business...</p>
 
-     </p>Palmtree outside our window, building our dream business...<br><strong>It looked good from the outside — but it felt heavy.</strong><br>Living for a future that never came. I felt disconnected.</p>
+    <p class="story-big">It looked good from the outside — but it felt heavy.</p>
+    <p class="red">Living for a future that never came. I felt disconnected.</p>
+    <p>My turn-on was sneakily yet steadily going downhill.</p>
 
-    <p class="red">My turn-on was sneakily yet steadily going downhill. </p>
- 
-    <p>I looked outside myself. Better communication. More effort. More trying. 
-      <p>Asking for a hug, I was called <em>needy</em>.<br><span class="red">So I got smaller. Quieter about what I needed.</span> <br>Those small decisions to keep things "good" were slowly turning down my aliveness — my fire, my turn-on.</p>
- 
+    <p>I looked outside myself. Better communication. More effort. More trying. One day I asked for a hug. He called me <em>needy</em>.</p>
+
+    <p><span class="red">I got smaller. Quieter about what I needed.</span> Those small decisions to keep things "good" were slowly turning down my aliveness — my fire, my turn-on.</p>
+
     <p class="story-big">It was slowly killing me, and the relationship.</p>
- 
+
     <div class="story-divider"></div>
 
- <img src="AND_3223.2.dance.jpg" alt="Marilys dancing freely in a field" class="story-img-left">
+    <p><strong>I had to learn how to turn myself back on. And I did.</strong></p>
 
-    <p><strong>I had to learn how to turn myself back on.</strong></p>
- 
-    <p>Now, you'll find me <span class="red">dancing at the grocery store, singing out loud walking the dogs, laughing for no apparent reason</span> — because life feels so good.</p>
- 
-    <p>But… <em><strong>divorce happened</strong></em> before I found the "switch" — and I realized so many relationships end because <span class="red">no one teaches this</span>.</p>
- 
-    <p>Beyond polarity, communication skills, attachment style… <br><strong>your turn-on, your energy, your erotic presence is where it's at.</strong></p>
- 
-    <p><span class="red">Everything becomes more pleasurable</span> — even the most mundane tasks!</p>
-    <p class="red">And it ripples out in all areas of your life.</p>
- 
+    <p>Now, you'll find me dancing at the grocery store, singing out loud walking the dogs, laughing for no apparent reason — because life feels so good.</p>
+
+    <p>But… divorce happened before I found the "switch" — and I realized so many relationships end because <span class="red">no one teaches this</span>.</p>
+
+    <p>Beyond polarity, communication skills, attachment style… <strong>your turn-on, your energy, your erotic presence is where it's at.</strong></p>
+
+    <p class="story-big">Everything becomes more pleasurable — even the most mundane tasks!</p>
+    <p>And it ripples out in all areas of your life.</p>
+
     <div class="story-divider"></div>
- 
+
     <p>After years of supporting hundreds through Empowered Connection, I recently created the free <strong>Intimacy Artists</strong> community — which immediately grew to <span class="red">160+ people</span> — and I had this brilliant shower thought…</p>
- 
-    <p class="story-quiet">💭 <strong>What amazing HIGH-VIBE ripple effect could we create in the world if we all cultivated our turn-on together for 1 week!?</strong></p>
- 
-    <p>We are doing it! <br>Introducing: <strong>Turn On Your Life Method</strong> — simple practices that put <span class="red">the power switch back in YOUR hands. <br><strong>So you can generate aliveness and pleasure, anytime.</strong></span>.</p>
- 
-    <p>On a Tuesday. In traffic. Doing dishes. <br>No matter what's happening outside of you.</p>
- 
+
+    <p class="story-quiet">💭 "What amazing HIGH-VIBE ripple effect could we create in the world if we all cultivated our turn-on together for 1 week!?</p>
+
+    <p class="story-big">We are doing it! Introducing: <strong>Turn On Your Life Method</strong> — simple practices that put <span class="red">the power switch back in YOUR hands</span>.</p>
+
+    <p>On a Tuesday. In traffic. Doing dishes. No matter what's happening outside of you.</p>
+
     <p class="story-welcome">Welcome to Turn On Your Life. 🔥</p>
- 
+
     <button class="btn btn-primary" style="margin-top:1.2rem;" onclick="openPopup()">Let's Turn It All The Way ONNNNN!!! →</button>
- 
+
   </div>
 </section>
 
 <!-- THE MECHANISM -->
-<section class="mechanism">
+<section class="mechanism" data-section="mechanism">
   <div class="mechanism-inner">
     <p class="mechanism-tagline">Energy matters more than strategy.</p>
 
@@ -887,7 +882,7 @@
 </section>
 
 <!-- IMAGINE — redesigned, placed after story -->
-<section class="imagine-section">
+<section class="imagine-section" data-section="imagine">
   <p class="imagine-title">Imagine...</p>
   <p class="imagine-tag">(Not someday. Not after the right partner shows up. Now.)</p>
 
@@ -938,7 +933,7 @@
 </section>
 
 <!-- DOES IT WORK / WHO THIS HELPS -->
-<section class="works">
+<section class="works" data-section="works">
   <p class="works-h2">No matter where you're at in your journey — this is powerful. 🔥</p>
   <p style="font-family: var(--sans); font-size: 1rem; color: var(--text-mid); max-width: 720px; margin: 0 auto 2.5rem; line-height: 1.8;">I've worked with people who hadn't felt desire in years. People in long-term relationships that had gone quiet. Singles who'd given up on feeling magnetic. People who thought they were "just not that sexual." And people who thought they were already pretty turned on — and opened up a whole new dimension they didn't know was there.</p>
   <div class="works-testi-grid">
@@ -955,12 +950,12 @@
 </section>
 
 <!-- PRICE ANCHOR -->
-<section class="price-anchor">
+<section class="price-anchor" data-section="price_anchor">
   <p>✨ What I'm sharing in these 7 days includes practices I've only taught inside private sessions and my <strong>Orgasmic Life</strong> program (valued at $888). This challenge is your free door in.</p>
 </section>
 
 <!-- THIS IS FOR YOU -->
-<section class="for-you">
+<section class="for-you" data-section="for_you">
   <h2>This is for you if...</h2>
   <ul class="check-list">
     <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" style="flex-shrink:0;margin-top:2px"><circle cx="12" cy="12" r="10" fill="#8a0c2f" opacity="0.15"/><path d="M7 12l4 4 6-7" stroke="#8a0c2f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>You're growth-oriented, self-aware, and realize your turn-on comes from the inside out</li>
@@ -974,7 +969,7 @@
 </section>
 
 <!-- NOT FOR YOU -->
-<section class="not-for-you">
+<section class="not-for-you" data-section="not_for_you">
   <h3>Not the right fit if...</h3>
   <ul class="x-list">
     <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" style="flex-shrink:0;margin-top:2px"><circle cx="12" cy="12" r="10" fill="#8a0c2f" opacity="0.1"/><path d="M15 9l-6 6M9 9l6 6" stroke="#8a0c2f" stroke-width="2" stroke-linecap="round"/></svg>You want a quick fix with no practice involved</li>
@@ -985,7 +980,7 @@
 </section>
 
 <!-- HOW IT WORKS -->
-<section class="how">
+<section class="how" data-section="how_it_works">
   <h2 class="how-title">What happens inside Turn On Your Life</h2>
   <p class="how-sub">Simple. Powerful. 7 days.</p>
   <div class="how-steps">
@@ -1025,7 +1020,7 @@
 
 
 <!-- 7 DAYS — TIMELINE -->
-<section class="days">
+<section class="days" data-section="days_breakdown">
   <h2>Each day, a new dimension of your aliveness unlocked.</h2>
   <div class="timeline">
     <div class="timeline-item">
@@ -1084,7 +1079,7 @@
 </section>
 
 <!-- FAQ -->
-<section class="faq">
+<section class="faq" data-section="faq">
   <span class="faq-label">FAQ</span>
   <h2>You might be wondering...</h2>
   <div class="faq-accordion">
@@ -1098,7 +1093,7 @@
 </section>
 
 <!-- BINARY CHOICE -->
-<section class="binary">
+<section class="binary" data-section="binary_choice">
   <div class="binary-inner">
     <p class="binary-lead">You have two options.</p>
     <div class="binary-options">
@@ -1115,7 +1110,7 @@
 </section>
 
 <!-- FINAL CTA -->
-<section class="final-cta">
+<section class="final-cta" data-section="final_cta">
   <p class="final-small">The world has been telling you to turn it down your whole life.</p>
   <h2 class="final-title">This is your moment</h2>
   <p class="final-title2">to say yes — to 7 days turning it ON, together. 🔥</p>
@@ -1215,5 +1210,6 @@
     if (e.key === 'Escape') closePopup();
   });
 </script>
+<script src="/analytics.js"></script>
 </body>
 </html>
