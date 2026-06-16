@@ -157,15 +157,15 @@
   /* HERO */
   .hero {
     position: relative; min-height: 100vh;
-    display: grid; grid-template-columns: 55% 45%;
-    overflow: hidden;
+    display: grid; grid-template-columns: 55% 50%;
+    overflow: hidden; margin-top: -5rem
   }
-  .hero-left {
-    display: flex; flex-direction: column;
-    justify-content: center; align-items: center;
-    text-align: center; padding: 5rem 4rem;
-    background: var(--peach-light); position: relative; z-index: 2;
-  }
+.hero-left {
+  display: flex; flex-direction: column;
+  justify-content: center; align-items: center;
+  text-align: center; padding: 5rem 4rem 1rem;
+  background: var(--peach-light); position: relative; z-index: 2;
+}
   .hero-eyebrow {
     font-family: var(--sans); font-size: 0.78rem; font-weight: 500;
     letter-spacing: 0.18em; text-transform: uppercase;
@@ -187,12 +187,13 @@
   }
 .hero-body strong { color: var(--coral); font-weight: 600; }  .hero-zinger {
     font-family: var(--serif); font-style: italic; font-weight: 700;
-    font-size: 1.05rem; color: var(--text-dark); margin-bottom: 1.2rem;
+    font-size: 1.05rem; color: var(--text-dark); margin-bottom: 1.2rem; 
   }
-  .hero-right { position: relative; overflow: hidden; }
-  .hero-right img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
-  .hero-right::before {
-    content: ''; position: absolute; inset: 0; z-index: 1;
+  .hero-right { position: relative; margin-top: -6rem; overflow: hidden; }
+.hero-right img { width: 100%; height: 125%; object-fit: cover; object-position: center 30%; display: block; transform: scale(1.25); }  
+
+.hero-right::before {
+    content: ''; position: absolute; inset: 0; z-index: 1; 
     background: linear-gradient(to right, var(--peach-light) 0%, transparent 12%);
   }
 
@@ -332,7 +333,7 @@
   /* IMAGINE — REDESIGNED (single column, after story) */
   .imagine-section { background: var(--peach-mid); padding: 5rem 4rem; }
   .imagine-title { font-family: var(--serif); font-weight: 700; font-style: italic; font-size: clamp(3rem, 6vw, 5.5rem); color: var(--accent-deep); text-align: center; line-height: 1; margin-bottom: 0.4rem; }
-  .imagine-tag { font-family: var(--sans); font-size: 0.92rem; color: var(--text-mid); text-align: center; font-style: italic; margin-bottom: 3.5rem; }
+  .imagine-tag { font-family: var(--sans); font-size: 0.92rem; color: var(--text-mid); text-align: center; font-style: italic; margin-bottom: 3.5rem; margin-top: 1rem; }
   .imagine-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; max-width: 1000px; margin: 0 auto 3rem; }
   .imagine-card {
     background: rgba(255,255,255,0.6); border-radius: 12px; padding: 1.8rem;
@@ -421,6 +422,11 @@
     font-family: var(--serif); font-style: italic;
     font-size: 1rem; color: var(--text-mid);
   }
+.ia-link {
+  color: var(--text-dark); font-weight: 600; text-decoration: underline;
+  transition: color 0.2s;
+}
+.ia-link:hover { color: var(--accent); }
 
   .story-img-left {
     float: left;
@@ -793,11 +799,15 @@
 <section class="hero" data-section="hero">
   <div class="hero-left">
 <img src="toyl-logo.png" alt="Turn On Your Life" style="max-width: 420px; width: 100%; margin-bottom: 0.5rem; mix-blend-mode: darken;">
-    <p class="hero-sub">Experience more turn-on, vitality and pleasure in 7 days than most people feel in a whole year — no matter your circumstances!</p>
-    <p class="hero-body">The only FREE challenge <strong>empowering you to cultivate your OWN Erotic Aliveness</strong> — alongside <strong>150+ Intimacy Artists</strong> — creating ripples so <strong>high-vibe</strong> people start asking what are you on and want to have what you're having!</p>
-<p class="hero-zinger">The world has been telling you to <u>turn it down</u>  your whole life.<br></p>
-    <button class="btn btn-primary btn-large" onclick="openPopup()">We say... Let's Turn It All The Way ONNNNN!!! →</button>
-  </div>
+    <p class="hero-sub">Experience more turn-on, vitality and pleasure in 1 week than most people feel in a whole year — no matter your circumstances!</p>
+    <p class="hero-body">7 days to <strong>cultivate your Erotic Aliveness</strong> — with our <a href="https://www.facebook.com/groups/intimacy.artists.community" target="_blank" rel="noopener" class="ia-link" style="font-weight: 400;color: var(--text-mid)">community of Intimacy Artists</a> — creating ripples so <strong>high-vibe</strong> people wonder what you're on and want to have what you're having! 🤣</p>
+
+
+    <p class="hero-zinger">The world has been telling you to <strong>turn it down</strong> your whole life.<br></p>
+    <button class="btn btn-primary btn-large" onclick="openPopup()">We say... Let's Turn It All The Way ONNNNN!!!🔥 →</button>
+
+<p class="imagine-tag" style="font-style: normal;">(become <strong>the one</strong> who can turn yourself on, <em>anytime, anywhere.</em>)</p>
+</div>
   <div class="hero-right">
     <img src="AND_6692.larger.jpg" alt="Pure aliveness" style="transform: scaleX(-1);">
   </div>
@@ -880,7 +890,8 @@
     <p class="mirror-craving" style="margin-top:1.5rem;">But it goes wayyy beyond intimacy.<br><strong>Erotic energy </strong>isn't a nice-to-have for the right circumstances.</p>
 
     <p class="life-force-callout"> It's your <strong>LIFE FORCE</strong> — what makes you feel <em><strong>alive</strong></em> in ANY situation.</p>
-    <p class="life-force-callout" style="margin-top:1rem; font-size: clamp(1.1rem,1.8vw,1.4rem); color: var(--coral) ; font-weight: 400;">Inside Turn On Your Life, pleasure becomes your baseline. <br>Simply, how you move through the world — as you were designed to. 🔥</p>
+    <p class="life-force-callout" style="margin-top:1rem; font-size: clamp(1.1rem,1.8vw,1.4rem); color: var(--coral) ; font-weight: 400;"><em>An Intimacy Artist chooses aliveness — in their body, relationships, lives — on purpose.</em> </p> 
+    <p class="life-force-callout"style="margin-top:1rem; font-size: clamp(1.1rem,1.8vw,1.4rem) ; font-weight: 400;"> Inside Turn On Your Life, pleasure becomes your baseline. <br>How you move through the world — as you were designed to. 🔥</p>
 
     <div style="text-align:center; margin-top:2.5rem;">
       <button class="btn btn-cream btn-large" onclick="openPopup()">I'M IN!!! →</button>
@@ -896,12 +907,12 @@
 
     <p><strong>I woke up in a sigh. Dragging my feet. Doing what I thought a "good wife" does.</strong></p>
 
-    <p>Palmtree outside our window, building our dream business...<br><strong>It looked good from the outside — but it felt heavy.</strong><br>Living for a future that never came. I felt disconnected.</p>
+    <p>Palmtree outside our window, building our dream business...<br><span class="red">It looked good from the outside — but it felt heavy.</span><br>Living for a future that never came. I felt <em>disconnected.</em></p>
 
-    <p class="red">My turn-on was sneakily yet steadily going downhill.</p>
+    <p class="red"><strong>My turn-on was sneakily yet steadily going downhill.</strong></p>
 
-    <p>I looked outside myself. Better communication. More effort. More trying.</p>
-    <p>Asking for a hug, I was called <em>needy</em>.<br><span class="red">So I got smaller. Quieter about what I wanted.</span><br>Those small decisions to keep things "good" were slowly turning down my aliveness — my fire, my turn-on.</p>
+    <p>I searched outside myself. Better communication. More effort. More trying.</p>
+    <p>Asking for a hug, I was called <em>needy</em>.<br><span class="red">So I got smaller. Quieter about what I wanted.</span><br>I felt <em>depressed</em>.<br>Small decisions made to keep things "good" were slowly shutting me down — <em>turning down my aliveness, my fire, my turn-on.</em></p>
 
     <p class="story-big">It was slowly killing me, and the relationship.</p>
 
@@ -909,32 +920,35 @@
 
     <img src="AND_3223.2.dance.jpg" alt="Marilys dancing freely in a field" class="story-img-left">
 
+        <p>Meeting me today, you'd never imagine how turned off I'd been.</p>
+
+
 <p style="font-family: var(--serif); font-style: italic; font-weight: 700; font-size: clamp(1.6rem, 4vw, 1.6rem); color: var(--accent-deep); line-height: 1.3; margin: 1.2rem 0;">I had to learn how to turn myself back on.</p>
 
     <p>Now, you'll find me <span class="red">dancing at the grocery store, singing out loud walking the dogs, laughing for no apparent reason</span> — because life feels so good.</p>
 
     <p>But… <em><strong>divorce happened</strong></em> before I found the "switch" — and I then realized <em><strong>so many relationships end that way.</strong></em> Yet,<span class="red"> no one teaches this</span>.</p>
 
-    <p>Beyond polarity, communication skills, attachment style… <br><strong>your turn-on, your energy, your erotic presence is where it's at.</strong></p>
+<p>Beyond polarity, communication skills, attachment style… <br><span class="red">your turn on, your energy, your erotic presence is where it's at.</span></p>
 
-    <p><span class="red">Everything becomes more pleasurable</span> — even the most mundane tasks!</p>
-    <p class="red">And it ripples out in all areas of your life.</p>
-
+    <p><strong>Everything becomes more pleasurable</strong> — even the most mundane tasks!</p>
+<p class="red">And it ripples out in all areas of your life.</p>
     <div class="story-divider"></div>
 
 
 <img src="ripples.png" alt="Ripples of aliveness rippling out into the world" class="story-img-right">
 
 
-    <p>After years of supporting hundreds through my brand Empowered Connection, I recently created this free <strong>Intimacy Artists</strong> — which immediately grew to <span class="red">160+ people</span> — and I had this shower thought…</p>
-
-    <p class="story-quiet">💭 <strong>What amazing HIGH-VIBE ripple effect could we create in the world if we all cultivated our turn-on together for 1 week!?</strong></p>
-
-    <p>We are doing it! <br>I distilled in <strong>Turn On Your Life</strong> the exact method I use to<span class="red"> generate aliveness and pleasure, anytime I want.</span></p>
+<p>After years of supporting hundreds through my brand Empowered Connection, I recently created this free <a href="https://www.facebook.com/groups/intimacy.artists.community" target="_blank" rel="noopener" class="ia-link">Intimacy Artists community</a> — which immediately grew to <strong>160+ people</strong> — and I had this shower thought…</p>
+    <p class="story-quiet">💭 <span class="red">What amazing HIGH-VIBE ripple effect could we create in the world if we all cultivated our turn-on together for 1 week!?</span></p>
+    <p>We are doing it! <br>I distilled in <span class="red">Turn On Your Life</span> the exact method I use to <strong>generate aliveness and pleasure, anytime I want.</strong></p>
 
     <p>On a Tuesday. In traffic. Doing dishes. <br>No matter what's happening outside of you.</p>
 
-    <p class="story-welcome">Welcome to Turn On Your Life. 🔥</p>
+    <p>You know, it's not about more information. <br><span class="red">It's time to feel real shifts, in your body.</span></p>
+
+    <p><strong>Welcome to Turn On Your Life. 🔥</strong>
+    <br><em>And, your community, of Intimacy Artists.</em></p>
 
     <button class="btn btn-primary" style="margin-top:1.2rem;" onclick="openPopup()">Let's Turn It All The Way ONNNNN!!! →</button>
 
@@ -1183,7 +1197,7 @@
       </div>
       <span class="binary-or">or</span>
       <div class="binary-card highlight">
-        <p>Spend 7 days to take back the power switch and own it like you mean it. 😄 Be the one dancing at the grocery store because life actually feels that good. Be the one whose energy walks into the room before they do. Be the one who can turn themselves on, anywhere, anytime — and in doing so, creates ripples from the inside out, making the world a little more alive just by being in it.</p>
+        <p>Spend 7 days to take back the power switch and own it like you mean it. 😄 Be the one dancing at the grocery store because life actually feels that good. Be the one whose energy walks into the room before they do. Be the one who can turn themselves on, anywhere, anytime — and in doing so, creates ripples from the inside out, making the world a little more alive just by being in it. <strong>Because you are an Intimacy Artist.</strong></p>
       </div>
     </div>
     <p class="binary-close" style="margin-top:1.5rem;">That's what's possible inside Turn On Your Life.</p>
@@ -1194,8 +1208,8 @@
 <section class="final-cta" data-section="final_cta">
   <p class="final-small">The world has been telling you to turn it down your whole life.</p>
   <h2 class="final-title">This is your moment</h2>
-  <p class="final-title2">to say yes — to 7 days turning it ON, together. 🔥</p>
-  <button class="btn-cream btn btn-large" onclick="openPopup()">Let's Turn It All The Way ONNNNN!!! →</button>
+  <p class="final-title2">to say yes — to 7 days turning it ON, together. </p>
+  <button class="btn-cream btn btn-large" onclick="openPopup()">See you inside, Intimacy Artist. 🔥 →</button>
   <p class="upsell-note">And if after this challenge you want to continue on this path together — take it to the next level, deepen with more advanced practices and live a truly orgasmic life — you'll have the opportunity to join our 6-week <em>Orgasmic Life</em> program at a special rate, available only during the challenge.</p>
 </section>
 
