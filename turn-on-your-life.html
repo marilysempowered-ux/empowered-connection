@@ -34,43 +34,58 @@
     overflow-x: hidden;
   }
 
-  /* LIVE EVENT BANNER */
-  .live-banner {
-    background: var(--accent);
-    padding: 0.9rem 1.5rem;
-    display: flex; align-items: center; justify-content: center;
-    flex-wrap: wrap; gap: 0.8rem;
-    font-family: var(--sans); font-weight: 600;
-    color: var(--peach-light);
-    text-align: center;
-  }
-  .live-badge {
-    display: inline-flex; align-items: center; gap: 0.5rem;
-    background: rgba(253,232,192,0.12);
-    border: 1px solid rgba(253,232,192,0.3);
-    border-radius: 999px;
-    padding: 0.4rem 1rem;
-    font-size: 0.92rem;
-    white-space: nowrap;
-  }
-  .live-dot {
-    width: 8px; height: 8px; border-radius: 50%;
-    background: var(--coral);
-    animation: livePulse 1.6s ease-in-out infinite;
-  }
-  @keyframes livePulse {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.4; transform: scale(0.85); }
-  }
-  .live-details {
-    font-size: 0.92rem;
-  }
-  @media (max-width: 640px) {
-    .live-banner { padding: 0.8rem 1rem; font-size: 0.85rem; }
-    .live-badge, .live-details { font-size: 0.85rem; }
-  }
+/* STICKY LIVE BANNER (logo + live event details + CTA) */
+.live-banner {
+  position: sticky; top: 0; z-index: 200;
+  background: var(--accent-deep);
+  padding: 0.5rem 1.5rem;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 1.5rem;
+  min-height: 64px;
+}
+.live-logo img { height: 40px; width: auto; display: block; filter: brightness(0) invert(1); }
+.live-center {
+  display: flex; align-items: center; justify-content: center;
+  flex-wrap: wrap; gap: 0.8rem;
+  flex: 1;
+  font-family: var(--sans); font-weight: 400;
+  color: #fff;
+  text-align: center;
+}
+.live-badge {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 999px;
+  padding: 0.35rem 1rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.live-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--coral);
+  animation: livePulse 1.6s ease-in-out infinite;
+}
+@keyframes livePulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.85); }
+}
+.live-details { font-size: 0.85rem; color:  #fff ; }
+.live-cta {
+  background: var(--accent) !important; color: #fff !important;
+  padding: 0.5rem 1.3rem !important; border-radius: 30px !important;
+  font-size: 0.88rem !important; font-weight: 500 !important;
+  flex-shrink: 0; white-space: nowrap;
+}
+.live-cta:hover { background: var(--accent-hover) !important; }
 
-
+@media (max-width: 900px) {
+  .live-banner { flex-wrap: wrap; padding: 0.6rem 1rem; gap: 0.5rem; min-height: auto; }
+  .live-center { order: 3; width: 100%; font-size: 0.78rem; }
+  .live-badge, .live-details { font-size: 0.78rem; }
+  .live-logo img { height: 32px; }
+}
 
   /* BUTTONS */
   .btn {
@@ -84,17 +99,6 @@
   .btn-cream { background: var(--peach-light); color: var(--accent-deep); }
   .btn-cream:hover { background: var(--peach); transform: translateY(-2px); }
   .btn-large { font-size: 1.1rem; padding: 1.1rem 3rem; }
-
-  /* ANIMATED ARROW */
-  .btn-arrow {
-    display: inline-block;
-    animation: arrowPulse 1.4s ease-in-out infinite;
-  }
-  @keyframes arrowPulse {
-    0%, 100% { transform: translateX(0); opacity: 1; }
-    50%       { transform: translateX(5px); opacity: 0.7; }
-  }
-
 
   /* POPUP OVERLAY */
   .popup-overlay {
@@ -153,19 +157,19 @@
   /* HERO */
   .hero {
     position: relative; min-height: 100vh;
-    display: grid; grid-template-columns: 55% 45%;
-    overflow: hidden;
+    display: grid; grid-template-columns: 55% 50%;
+    overflow: hidden; margin-top: -5rem
   }
-  .hero-left {
-    display: flex; flex-direction: column;
-    justify-content: center; align-items: center;
-    text-align: center; padding: 5rem 4rem;
-    background: var(--peach-light); position: relative; z-index: 2;
-  }
+.hero-left {
+  display: flex; flex-direction: column;
+  justify-content: center; align-items: center;
+  text-align: center; padding: 5rem 4rem 1rem;
+  background: var(--peach-light); position: relative; z-index: 2;
+}
   .hero-eyebrow {
     font-family: var(--sans); font-size: 0.78rem; font-weight: 500;
     letter-spacing: 0.18em; text-transform: uppercase;
-    color: var(--coral); margin-bottom: 1.2rem;
+    color: var(--coral); margin-bottom: 0rem;
   }
   .hero h1 {
     font-family: var(--serif); font-weight: 700;
@@ -183,12 +187,13 @@
   }
 .hero-body strong { color: var(--coral); font-weight: 600; }  .hero-zinger {
     font-family: var(--serif); font-style: italic; font-weight: 700;
-    font-size: 1.05rem; color: var(--text-dark); margin-bottom: 1.2rem;
+    font-size: 1.05rem; color: var(--text-dark); margin-bottom: 1.2rem; 
   }
-  .hero-right { position: relative; overflow: hidden; }
-  .hero-right img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
-  .hero-right::before {
-    content: ''; position: absolute; inset: 0; z-index: 1;
+  .hero-right { position: relative; margin-top: -6rem; overflow: hidden; }
+.hero-right img { width: 100%; height: 125%; object-fit: cover; object-position: center 30%; display: block; transform: scale(1.25); }  
+
+.hero-right::before {
+    content: ''; position: absolute; inset: 0; z-index: 1; 
     background: linear-gradient(to right, var(--peach-light) 0%, transparent 12%);
   }
 
@@ -326,9 +331,9 @@
   }
 
   /* IMAGINE — REDESIGNED (single column, after story) */
-  .imagine-section { background: var(--peach-light); padding: 5rem 4rem; }
+  .imagine-section { background: var(--peach-mid); padding: 5rem 4rem; }
   .imagine-title { font-family: var(--serif); font-weight: 700; font-style: italic; font-size: clamp(3rem, 6vw, 5.5rem); color: var(--accent-deep); text-align: center; line-height: 1; margin-bottom: 0.4rem; }
-  .imagine-tag { font-family: var(--sans); font-size: 0.92rem; color: var(--text-mid); text-align: center; font-style: italic; margin-bottom: 3.5rem; }
+  .imagine-tag { font-family: var(--sans); font-size: 0.92rem; color: var(--text-mid); text-align: center; font-style: italic; margin-bottom: 3.5rem; margin-top: 1rem; }
   .imagine-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; max-width: 1000px; margin: 0 auto 3rem; }
   .imagine-card {
     background: rgba(255,255,255,0.6); border-radius: 12px; padding: 1.8rem;
@@ -393,13 +398,6 @@
     line-height: 1.6; margin-bottom: 0.5rem;
   }
 
-
-  /* IA COMMUNITY LINK */
-  .ia-link {
-    color: var(--text-dark); font-weight: 400; text-decoration: underline;
-    transition: color 0.2s;
-  }
-  .ia-link:hover { color: var(--accent); }
   /* STORY — typographic, no images, intimate column */
   .story-hook {
     font-family: var(--serif); font-style: italic; font-weight: 700;
@@ -424,6 +422,11 @@
     font-family: var(--serif); font-style: italic;
     font-size: 1rem; color: var(--text-mid);
   }
+.ia-link {
+  color: var(--text-dark); font-weight: 600; text-decoration: underline;
+  transition: color 0.2s;
+}
+.ia-link:hover { color: var(--accent); }
 
   .story-img-left {
     float: left;
@@ -553,7 +556,7 @@
   .outcome-bullets li { font-family: var(--sans); font-size: 1rem; color: var(--text-mid); padding: 0.55rem 0; border-bottom: 1px solid rgba(138,12,47,0.1); display: flex; gap: 0.75rem; align-items: flex-start; line-height: 1.6; }
 
   /* DOES IT WORK / FOR SOMEONE LIKE ME */
-  .works { background: var(--peach-mid); padding: 5rem; text-align: center; }
+  .works { background: var(--peach-light); padding: 5rem; text-align: center; }
   .works-h1 { font-family: var(--serif); font-weight: 700; font-size: clamp(1.4rem,2.3vw,2rem); color: var(--accent); margin-bottom: 0; }
   .works-h2 { font-family: var(--serif); font-weight: 700; font-size: clamp(1.6rem,2.8vw,2.4rem); color: var(--accent-deep); margin-bottom: 1.5rem; }
   .works-powerful { font-family: var(--sans); font-size: 0.78rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--coral); margin: 0 0 0.6rem; }
@@ -563,10 +566,10 @@
   .works-testi blockquote strong { color: var(--accent-deep); font-style: normal; font-weight: 700; }
   .works-testi blockquote em { font-weight: 700; font-style: italic; }
   .works-testi .name { font-family: var(--sans); font-size: 0.8rem; font-weight: 500; color: var(--accent); }
-  .price-anchor { background: var(--peach-mid); padding: 0 4rem 4rem; text-align: center; }
+  .price-anchor { background: var(--peach-light); padding: 0 4rem 4rem; text-align: center; }
   .price-anchor p {
     max-width: 700px; margin: 0 auto; padding: 1.6rem 2rem;
-    background: rgba(255,255,255,0.45); border-radius: 10px;
+    background: var(--peach); border-radius: 10px;
     border: 1px solid rgba(232,168,90,0.4);
     font-family: var(--serif); font-style: italic; font-size: 1.05rem;
     color: var(--accent-deep); line-height: 1.7;
@@ -574,7 +577,7 @@
   .price-anchor p strong { color: var(--accent); font-style: normal; font-weight: 700; }
 
   /* FOR YOU */
-  .for-you { background: var(--peach-light); padding: 5rem; text-align: center; }
+  .for-you { background: var(--peach-mid); padding: 5rem; text-align: center; }
   .for-you h2 { font-family: var(--serif); font-weight: 700; font-size: clamp(1.8rem,3vw,2.8rem); color: var(--accent-deep); margin-bottom: 2rem; }
   .check-list { list-style: none; max-width: 800px; margin: 0 auto 2.5rem; text-align: left; }
   .check-list li { font-family: var(--sans); font-size: 1rem; color: var(--text-mid); padding: 0.7rem 0; border-bottom: 1px solid rgba(138,12,47,0.1); display: flex; gap: 0.75rem; align-items: flex-start; line-height: 1.6; }
@@ -644,7 +647,7 @@
 
 
   /* FAQ */
-  .faq { background: var(--peach-light); padding: 5rem; }
+  .faq { background: var(--peach-mid); padding: 5rem; }
   .faq-label { font-family: var(--sans); font-size: 0.72rem; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(122,48,32,0.35); text-align: center; display: block; margin-bottom: 0.4rem; }
   .faq h2 { font-family: var(--serif); font-weight: 700; font-size: clamp(1.8rem,3vw,2.6rem); color: var(--accent-deep); text-align: center; margin-bottom: 2.5rem; }
   .faq-accordion { max-width: 860px; margin: 0 auto; }
@@ -682,25 +685,6 @@
   .img-divider-overlay { position: absolute; inset: 0; background: rgba(90,8,32,0.4); display: flex; align-items: center; justify-content: center; }
   .img-divider-text { font-family: var(--serif); font-style: italic; font-weight: 700; font-size: clamp(1.4rem,2.8vw,2.2rem); color: #fff; text-align: center; max-width: 700px; padding: 0 2rem; text-shadow: 0 2px 12px rgba(0,0,0,0.4); line-height: 1.4; }
 
-
-  /* INTIMACY ARTIST SHIMMER on final CTA */
-  .ia-glow {
-    position: relative;
-    display: inline;
-  }
-  .ia-glow::after {
-    content: '';
-    position: absolute;
-    top: 0; left: -100%;
-    width: 60%; height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.45), transparent);
-    animation: iaShimmer 3s ease-in-out infinite;
-    pointer-events: none;
-  }
-  @keyframes iaShimmer {
-    0%       { left: -100%; }
-    60%, 100% { left: 160%; }
-  }
   /* FOOTER */
   footer { background: var(--accent-deep); padding: 2rem 5rem; text-align: center; }
   footer p { font-family: var(--sans); font-size: 0.82rem; color: rgba(253,232,192,0.4); line-height: 1.8; }
@@ -709,7 +693,7 @@
 
   /* RESPONSIVE */
   @media (max-width: 900px) {
-    nav { padding: 0 1.5rem; }
+    .live-banner { padding: 0.7rem 1rem; }
     .hero { grid-template-columns: 1fr; min-height: auto; }
     .hero-left { padding: 3rem 1.5rem; }
     .hero-right { height: 60vw; }
@@ -732,7 +716,7 @@
     .timeline::before { left: 22px; }
     .timeline-item { grid-template-columns: 44px 1fr; gap: 1rem; }
     .timeline-num { width: 44px; height: 44px; font-size: 1.05rem; }
-    .faq { padding: 3.5rem 1.5rem; } /* peach-light */
+    .faq { padding: 3.5rem 1.5rem; }
     .faq-item summary { font-size: 0.95rem; padding: 1rem 1.2rem; }
     .faq-item p { padding: 0 1.2rem 1.2rem; }
     .promise-block { padding: 1.8rem 1.4rem; }
@@ -801,16 +785,14 @@
   </div>
 </div>
 
-<!-- NAV -->
-<nav>
-  <a href="/" class="nav-logo"><img src="Logo. Dark red.png" alt="Empowered Connection"></a>
-  <button class="nav-cta btn" onclick="openPopup()">Join the Challenge</button>
-</nav>
-
-<!-- LIVE EVENT BANNER -->
+<!-- STICKY HEADER / LIVE BANNER -->
 <div class="live-banner">
-  <span class="live-badge"><span class="live-dot"></span>LIVE Free Virtual Event</span>
-  <span class="live-details">Attend From Anywhere · 📅 June 25 – July 1, 2026 @ 11am PT · 90 Minutes/Day</span>
+  <a href="/" class="live-logo"><img src="Logo. Dark red.png" alt="Empowered Connection"></a>
+  <div class="live-center">
+    <span class="live-badge"><span class="live-dot"></span>LIVE Free 7-day Challenge</span>
+    <span class="live-details"> 📅 June 25 - July 1, 2026  ·  20 Minutes/Day</span>
+  </div>
+  <button class="live-cta btn" onclick="openPopup()">Join the Challenge</button>
 </div>
 
 <!-- HERO -->
@@ -818,10 +800,14 @@
   <div class="hero-left">
 <img src="toyl-logo.png" alt="Turn On Your Life" style="max-width: 420px; width: 100%; margin-bottom: 0.5rem; mix-blend-mode: darken;">
     <p class="hero-sub">Experience more turn-on, vitality and pleasure in 1 week than most people feel in a whole year — no matter your circumstances!</p>
-    <p class="hero-body">7 days to <strong>cultivate your Erotic Aliveness</strong> — with our <a href="https://www.facebook.com/groups/intimacy.artists.community" target="_blank" rel="noopener" class="ia-link">community of Intimacy Artists</a> — creating ripples so <strong>high-vibe</strong> people wonder what you're on and want to have what you're having! 🤣</p>
-<p class="hero-zinger">The world has been telling you to <strong>turn it down</strong> your whole life.<br></p>
-    <button class="btn btn-primary btn-large" onclick="openPopup()">We say... Let's Turn It All The Way ONNNNN!!! →</button>
-  </div>
+    <p class="hero-body">7 days to <strong>cultivate your Erotic Aliveness</strong> — with our <a href="https://www.facebook.com/groups/intimacy.artists.community" target="_blank" rel="noopener" class="ia-link" style="font-weight: 400;color: var(--text-mid)">community of Intimacy Artists</a> — creating ripples so <strong>high-vibe</strong> people wonder what you're on and want to have what you're having! 🤣</p>
+
+
+    <p class="hero-zinger">The world has been telling you to <strong>turn it down</strong> your whole life.<br></p>
+    <button class="btn btn-primary btn-large" onclick="openPopup()">We say... Let's Turn It All The Way ONNNNN!!!🔥 →</button>
+
+<p class="imagine-tag" style="font-style: normal;">(become <strong>the one</strong> who can turn yourself on, <em>anytime, anywhere.</em>)</p>
+</div>
   <div class="hero-right">
     <img src="AND_6692.larger.jpg" alt="Pure aliveness" style="transform: scaleX(-1);">
   </div>
@@ -904,11 +890,11 @@
     <p class="mirror-craving" style="margin-top:1.5rem;">But it goes wayyy beyond intimacy.<br><strong>Erotic energy </strong>isn't a nice-to-have for the right circumstances.</p>
 
     <p class="life-force-callout"> It's your <strong>LIFE FORCE</strong> — what makes you feel <em><strong>alive</strong></em> in ANY situation.</p>
-    <p class="life-force-callout" style="margin-top:1rem; font-size: clamp(1.1rem,1.8vw,1.4rem); color: var(--coral); font-weight: 400; font-style: italic;">An Intimacy Artist chooses aliveness — in their body, relationships, life — on purpose.</p>
-    <p class="life-force-callout" style="margin-top:1rem; font-size: clamp(1.1rem,1.8vw,1.4rem); font-weight: 400;">Inside Turn On Your Life, pleasure becomes your baseline. <br>How you move through the world — as you were designed to. 🔥</p>
+    <p class="life-force-callout" style="margin-top:1rem; font-size: clamp(1.1rem,1.8vw,1.4rem); color: var(--coral) ; font-weight: 400;"><em>An Intimacy Artist chooses aliveness — in their body, relationships, lives — on purpose.</em> </p> 
+    <p class="life-force-callout"style="margin-top:1rem; font-size: clamp(1.1rem,1.8vw,1.4rem) ; font-weight: 400;"> Inside Turn On Your Life, pleasure becomes your baseline. <br>How you move through the world — as you were designed to. 🔥</p>
 
     <div style="text-align:center; margin-top:2.5rem;">
-      <button class="btn btn-cream btn-large" onclick="openPopup()">I'M IN!!! <span class="btn-arrow">→</span></button>
+      <button class="btn btn-cream btn-large" onclick="openPopup()">I'M IN!!! →</button>
     </div>
   </div>
 </section>
@@ -921,12 +907,12 @@
 
     <p><strong>I woke up in a sigh. Dragging my feet. Doing what I thought a "good wife" does.</strong></p>
 
-    <p>Palmtree outside our window, building our dream business...<br><strong>It looked good from the outside — but it felt heavy.</strong><br>Living for a future that never came. I felt disconnected.</p>
+    <p>Palmtree outside our window, building our dream business...<br><span class="red">It looked good from the outside — but it felt heavy.</span><br>Living for a future that never came. I felt <em>disconnected.</em></p>
 
-    <p class="red">My turn-on was sneakily yet steadily going downhill.</p>
+    <p class="red"><strong>My turn-on was sneakily yet steadily going downhill.</strong></p>
 
-    <p>I looked outside myself. Better communication. More effort. More trying.</p>
-    <p>Asking for a hug, I was called <em>needy</em>.<br><span class="red">So I got smaller. Quieter about what I wanted.</span><br>Those small decisions to keep things "good" were slowly turning down my aliveness — my fire, my turn-on.</p>
+    <p>I searched outside myself. Better communication. More effort. More trying.</p>
+    <p>Asking for a hug, I was called <em>needy</em>.<br><span class="red">So I got smaller. Quieter about what I wanted.</span><br>I felt <em>depressed</em>.<br>Small decisions made to keep things "good" were slowly shutting me down — <em>turning down my aliveness, my fire, my turn-on.</em></p>
 
     <p class="story-big">It was slowly killing me, and the relationship.</p>
 
@@ -934,42 +920,66 @@
 
     <img src="AND_3223.2.dance.jpg" alt="Marilys dancing freely in a field" class="story-img-left">
 
+        <p>Meeting me today, you'd never imagine how turned off I'd been.</p>
+
+
 <p style="font-family: var(--serif); font-style: italic; font-weight: 700; font-size: clamp(1.6rem, 4vw, 1.6rem); color: var(--accent-deep); line-height: 1.3; margin: 1.2rem 0;">I had to learn how to turn myself back on.</p>
 
     <p>Now, you'll find me <span class="red">dancing at the grocery store, singing out loud walking the dogs, laughing for no apparent reason</span> — because life feels so good.</p>
 
     <p>But… <em><strong>divorce happened</strong></em> before I found the "switch" — and I then realized <em><strong>so many relationships end that way.</strong></em> Yet,<span class="red"> no one teaches this</span>.</p>
 
-    <p>Beyond polarity, communication skills, attachment style… <br><span class="red">your turn-on, your energy, your erotic presence is where it's at.</span></p>
+<p>Beyond polarity, communication skills, attachment style… <br><span class="red">your turn on, your energy, your erotic presence is where it's at.</span></p>
 
     <p><strong>Everything becomes more pleasurable</strong> — even the most mundane tasks!</p>
-    <p><strong>And it ripples out in all areas of your life.</strong></p>
-
+<p class="red">And it ripples out in all areas of your life.</p>
     <div class="story-divider"></div>
 
 
 <img src="ripples.png" alt="Ripples of aliveness rippling out into the world" class="story-img-right">
 
 
-    <p>After years of supporting hundreds through my brand Empowered Connection, I recently created this free <strong>Intimacy Artists</strong> — which immediately grew to <span class="red">160+ people</span> — and I had this shower thought…</p>
-
+<p>After years of supporting hundreds through my brand Empowered Connection, I recently created this free <a href="https://www.facebook.com/groups/intimacy.artists.community" target="_blank" rel="noopener" class="ia-link">Intimacy Artists community</a> — which immediately grew to <strong>160+ people</strong> — and I had this shower thought…</p>
     <p class="story-quiet">💭 <span class="red">What amazing HIGH-VIBE ripple effect could we create in the world if we all cultivated our turn-on together for 1 week!?</span></p>
-
-    <p>We are doing it! <br>I distilled in <strong>Turn On Your Life</strong> the exact method I use to<span class="red"> generate aliveness and pleasure, anytime I want.</span></p>
+    <p>We are doing it! <br>I distilled in <span class="red">Turn On Your Life</span> the exact method I use to <strong>generate aliveness and pleasure, anytime I want.</strong></p>
 
     <p>On a Tuesday. In traffic. Doing dishes. <br>No matter what's happening outside of you.</p>
 
-    <p><strong>Welcome to Turn On Your Life. 🔥</strong><br><em>And, your community, of Intimacy Artists.</em></p>
+    <p>You know, it's not about more information. <br><span class="red">It's time to feel real shifts, in your body.</span></p>
 
-    <button class="btn btn-primary" style="margin-top:1.2rem;" onclick="openPopup()">Let's Turn It All The Way ONNNNN!!! <span class="btn-arrow">→</span></button>
+    <p><strong>Welcome to Turn On Your Life. 🔥</strong>
+    <br><em>And, your community, of Intimacy Artists.</em></p>
 
+    <button class="btn btn-primary" style="margin-top:1.2rem;" onclick="openPopup()">Let's Turn It All The Way ONNNNN!!! →</button>
+
+  </div>
+</section>
+
+<!-- THE MECHANISM -->
+<section class="mechanism" data-section="mechanism">
+  <div class="mechanism-inner">
+    <p class="mechanism-tagline">Energy matters more than strategy.</p>
+
+    <p>When I first started as a coach, there was a lot of talking in my sessions. People left feeling understood, clear, seen. They knew what to do.</p>
+
+    <p class="mechanism-big">But even when they did it, nothing shifted much — because they were doing it from an energy that felt flat, anxious, or depleted.</p>
+
+    <p>I knew they needed to shift their energy. I just didn't know how yet. Telling them wasn't enough.</p>
+
+    <p>When I started adding somatic and energetic practices, people shifted faster, had bigger breakthroughs — and didn't leave the same way.</p>
+
+    <p class="mechanism-big">They left turned on. Excited about life.</p>
+
+    <p>They didn't just have the strategy anymore. They were <em>in</em> the state. That was the real shift.</p>
+
+    <p>That's what these 7 days are about — reconnecting to your own turn-on, so everything you already know starts to ripple out. Everything feels better. Everything shifts with more ease.</p>
   </div>
 </section>
 
 <!-- IMAGINE — redesigned, placed after story -->
 <section class="imagine-section" data-section="imagine">
   <p class="imagine-title">Imagine...</p>
-  <p class="imagine-tag" style="font-style: normal;">(become <strong>the one</strong> who can turn yourself on, <em>anytime, anywhere.</em>)</p>
+  <p class="imagine-tag">(Not someday. Not after the right partner shows up. Now.)</p>
 
   <div class="imagine-grid">
     <div class="imagine-card">
@@ -1013,7 +1023,7 @@
   </div>
 
   <div style="text-align:center;">
-    <button class="btn btn-primary btn-large" onclick="openPopup()">Yes, Let's Goooo!!! <span class="btn-arrow">→</span></button>
+    <button class="btn btn-primary btn-large" onclick="openPopup()">Yes, Let's Goooo!!! →</button>
   </div>
 </section>
 
@@ -1050,7 +1060,7 @@
     <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" style="flex-shrink:0;margin-top:2px"><circle cx="12" cy="12" r="10" fill="#8a0c2f" opacity="0.15"/><path d="M7 12l4 4 6-7" stroke="#8a0c2f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>You suspect there's a whole dimension of yourself you haven't fully accessed yet</li>
     <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" style="flex-shrink:0;margin-top:2px"><circle cx="12" cy="12" r="10" fill="#8a0c2f" opacity="0.15"/><path d="M7 12l4 4 6-7" stroke="#8a0c2f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>You've ever thought: "I've done SO much work on myself — why do I still feel this disconnected?"</li>
   </ul>
-  <button class="btn btn-primary btn-large" onclick="openPopup()">Yes — Save My Spot <span class="btn-arrow">→</span></button>
+  <button class="btn btn-primary btn-large" onclick="openPopup()">Yes — Save My Spot →</button>
 </section>
 
 <!-- NOT FOR YOU -->
@@ -1099,7 +1109,7 @@
     </div>
   </div>
   <div style="text-align:center;">
-    <button class="btn btn-primary btn-large" onclick="openPopup()">Join free — save my spot <span class="btn-arrow">→</span></button>
+    <button class="btn btn-primary btn-large" onclick="openPopup()">Join free — save my spot →</button>
   </div>
 </section>
 
@@ -1159,7 +1169,7 @@
     </div>
   </div>
   <div style="text-align:center; margin-top:2.5rem;">
-    <button class="btn-cream btn btn-large" onclick="openPopup()">Turn it on — join free <span class="btn-arrow">→</span></button>
+    <button class="btn-cream btn btn-large" onclick="openPopup()">Turn it on — join free →</button>
   </div>
 </section>
 
@@ -1198,9 +1208,9 @@
 <section class="final-cta" data-section="final_cta">
   <p class="final-small">The world has been telling you to turn it down your whole life.</p>
   <h2 class="final-title">This is your moment</h2>
-  <p class="final-title2">to say yes — to 7 days turning it ON, together. 🔥</p>
-  <button class="btn-cream btn btn-large" onclick="openPopup()">Let's Turn It All The Way ONNNNN!!! →</button>
-  <p class="upsell-note">For those who want to continue on the Intimacy Artistry path &amp; truly live an Orgasmic Life, there will be a special invitation inside. <br>You'll know if it's for you.</p>
+  <p class="final-title2">to say yes — to 7 days turning it ON, together. </p>
+  <button class="btn-cream btn btn-large" onclick="openPopup()">See you inside, Intimacy Artist. 🔥 →</button>
+  <p class="upsell-note">For those who want to continue on the Intimacy Artistry path & truly live an Orgasmic Life, there will be a special invitation inside. <br>You'll know if it's for you. </p>
 </section>
 
 
