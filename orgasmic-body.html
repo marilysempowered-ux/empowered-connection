@@ -178,7 +178,7 @@
   .hero-subtitle {
     font-family: var(--display); font-style: italic; font-weight: 300;
     font-size: clamp(1.2rem, 2.5vw, 1.6rem);
-    color: var(--text-mid); margin-bottom: 2.2rem; line-height: 1.5;
+    color: var(--text-mid); margin-top: 2.5rem; margin-bottom: 2.2rem; line-height: 1.5;
   }
   .hero-meta {
     display: flex; flex-wrap: wrap; justify-content: center;
@@ -486,18 +486,11 @@
 
 <!-- ── HERO ───────────────────────────────────────────────────── -->
 <header class="hero">
-  <span class="hero-eyebrow">In-Person Workshop · Boulder, CO · June 28</span>
+  <span class="hero-eyebrow">In-Person Workshop · Boulder, CO · June 28 · 4:00 – 7:00 PM</span>
   <h1 class="hero-title">Orgasmic<br><em>Body</em></h1>
-  <p class="hero-subtitle">Awaken your life-force. Open your energy. Feel more alive.</p>
+  <p class="hero-subtitle"><strong>Free up</strong>  your energetic channels. <strong>Open</strong>  your body to more pleasure and vitality. <br><strong>Connect</strong> with the power of your sexual energy — in a platonic setting. </p>
   <div class="hero-meta">
-    <span>3-Hour Workshop</span>
-    &nbsp;◆&nbsp;
-    <span>Private Home · Boulder</span>
-    &nbsp;◆&nbsp;
-    <span>Saturday, June 28</span>
-    &nbsp;◆&nbsp;
-    <span>4:00 – 6:30 PM</span>
-  </div>
+
   <button onclick="openPopup()" class="btn btn-primary">Secure Your Spot</button>
 </header>
 
@@ -748,7 +741,7 @@
         body: JSON.stringify({
           firstName: firstName,
           email: email,
-          segmentId: 'ORGASMIC_BODY_SEGMENT_ID'
+          segmentId: '6a348d45010e2baa01fb3121'
         })
       });
       const data = await response.json();
