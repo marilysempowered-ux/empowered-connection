@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/png" href="/favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Orgasmic Body — In-Person Workshop | Empowered Connection</title>
+<meta name="description" content="A 3-hour intimate workshop to awaken your life-force, open energy channels, and feel more alive. Boulder, CO — June 28.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;500;600&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --accent:       #8a0c2f;
+    --accent-hover: #b9103f;
+    --accent-deep:  #5a0820;
+    --peach:        #f5c98a;
+    --peach-light:  #fde8c0;
+    --peach-mid:    #faebd4;
+    --text-dark:    #4a1520;
+    --text-mid:     #7a3020;
+    --serif:  'Libre Baskerville', Georgia, serif;
+    --display: 'Cormorant Garamond', Georgia, serif;
+    --sans:   'Poppins', sans-serif;
+    --script: 'Dancing Script', cursive;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--peach-light);
+    color: var(--text-dark);
+    font-family: var(--sans);
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 1.85;
+    overflow-x: hidden;
+  }
+
+  /* ── POPUP / FLODESK FORM ─────────────────────────────────── */
+  .popup-overlay {
+    display: none;
+    position: fixed; inset: 0; z-index: 1000;
+    background: rgba(90,8,32,0.7);
+    backdrop-filter: blur(4px);
+    align-items: center; justify-content: center;
+    padding: 1.5rem;
+  }
+  .popup-overlay.active { display: flex; }
+  .popup-box {
+    background: var(--peach-light);
+    border-radius: 16px;
+    padding: 3rem 2.5rem;
+    max-width: 480px; width: 100%;
+    position: relative;
+    box-shadow: 0 20px 60px rgba(90,8,32,0.4);
+    animation: popIn 0.3s ease;
+  }
+  @keyframes popIn {
+    from { opacity: 0; transform: scale(0.92) translateY(20px); }
+    to   { opacity: 1; transform: scale(1) translateY(0); }
+  }
+  .popup-close {
+    position: absolute; top: 1rem; right: 1.2rem;
+    background: none; border: none; cursor: pointer;
+    font-size: 1.5rem; color: var(--text-mid); line-height: 1;
+    transition: color 0.2s;
+  }
+  .popup-close:hover { color: var(--accent); }
+  .popup-box h3 {
+    font-family: var(--display); font-size: 1.8rem; font-weight: 400;
+    color: var(--accent-deep); text-align: center; margin-bottom: 0.4rem;
+  }
+  .popup-box .popup-sub {
+    font-family: var(--sans); font-size: 0.88rem;
+    color: var(--text-mid); text-align: center; margin-bottom: 1.8rem;
+    font-style: italic;
+  }
+  .form-field {
+    width: 100%; padding: 0.75rem 1rem; margin-bottom: 0.75rem;
+    border: 1px solid rgba(138,12,47,0.2); border-radius: 6px;
+    font-family: var(--sans); font-size: 0.95rem; color: var(--text-dark);
+    background: #fff; outline: none; transition: border-color 0.2s;
+  }
+  .form-field:focus { border-color: var(--accent); }
+  .form-field::placeholder { color: rgba(122,48,32,0.4); }
+  .popup-trust {
+    font-size: 0.78rem; color: var(--text-mid);
+    text-align: center; margin-top: 0.8rem; font-style: italic;
+  }
+
+  /* ── NAV (exact from index) ───────────────────────────────── */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 3rem; height: 64px;
+    background: var(--accent-deep);
+    border-bottom: 1px solid rgba(138,12,47,0.15);
+  }
+  .nav-logo img { height: 44px; width: auto; display: block; }
+  .nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
+  .nav-links a {
+    font-family: var(--sans); font-size: 0.92rem; font-weight: 400;
+    text-decoration: none; color: #fff; transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--peach-light); }
+  .nav-cta {
+    background: var(--accent) !important; color: #fff !important;
+    padding: 0.5rem 1.3rem !important; border-radius: 30px !important;
+    font-weight: 500 !important;
+  }
+  .nav-cta:hover { background: var(--accent-hover) !important; }
+  .nav-dropdown { position: relative; }
+  .nav-dropdown-toggle { cursor: pointer; }
+  .nav-dropdown-menu {
+    display: none; position: absolute; top: 100%; left: 0;
+    background: var(--accent-deep); border-radius: 8px; padding: 0.5rem 0;
+    list-style: none; min-width: 200px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15); z-index: 200;
+  }
+  .nav-dropdown-menu li a {
+    display: block; padding: 0.6rem 1.2rem;
+    color: rgba(253,232,192,0.85) !important;
+    font-size: 0.88rem; white-space: nowrap;
+  }
+  .nav-dropdown-menu li a:hover { color: #fff !important; background: rgba(255,255,255,0.08); }
+  .nav-dropdown:hover > .nav-dropdown-menu { display: block; }
+  .nav-dropdown--nested { position: relative; }
+  .nav-dropdown-menu--nested { display: none; position: static; padding-left: 1rem; box-shadow: none; }
+  .nav-dropdown--nested:hover .nav-dropdown-menu--nested,
+  .nav-dropdown--nested.open .nav-dropdown-menu--nested { display: block; }
+  .nav-toggle {
+    display: none; background: none; border: none; cursor: pointer;
+    width: 32px; height: 24px; position: relative; z-index: 110;
+  }
+  .nav-toggle span {
+    display: block; position: absolute; left: 0; right: 0; height: 2px;
+    background: #fff; border-radius: 2px; transition: 0.25s ease;
+  }
+  .nav-toggle span:nth-child(1) { top: 0; }
+  .nav-toggle span:nth-child(2) { top: 11px; }
+  .nav-toggle span:nth-child(3) { top: 22px; }
+  .nav-toggle.open span:nth-child(1) { top: 11px; transform: rotate(45deg); }
+  .nav-toggle.open span:nth-child(2) { opacity: 0; }
+  .nav-toggle.open span:nth-child(3) { top: 11px; transform: rotate(-45deg); }
+
+  /* ── BUTTONS ──────────────────────────────────────────────── */
+  .btn {
+    display: inline-block; text-decoration: none;
+    font-family: var(--sans); font-size: 1rem; font-weight: 500;
+    padding: 0.9rem 2.4rem; border-radius: 30px;
+    transition: all 0.22s ease; cursor: pointer; border: none;
+    letter-spacing: 0.01em;
+  }
+  .btn-primary { background: var(--accent); color: #fff; }
+  .btn-primary:hover { background: var(--accent-hover); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(138,12,47,0.25); }
+  .btn-light { background: rgb(250,235,212); color: var(--accent); }
+  .btn-light:hover { background: rgb(253,247,239); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.15); }
+
+  /* ── HERO ─────────────────────────────────────────────────── */
+  .hero {
+    padding: 5.5rem 2rem 4.5rem; text-align: center;
+    background: var(--peach-light);
+    border-bottom: 1px solid rgba(138,12,47,0.08);
+  }
+  .hero-eyebrow {
+    font-family: var(--sans); font-size: 0.78rem; font-weight: 500;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--accent); opacity: 0.75; margin-bottom: 1.5rem; display: block;
+  }
+  .hero-title {
+    font-family: var(--display); font-weight: 300;
+    font-size: clamp(4rem, 10vw, 7.5rem);
+    color: var(--accent); line-height: 0.95;
+    margin-bottom: 0.5rem; letter-spacing: -0.01em;
+  }
+  .hero-title em { font-style: italic; font-weight: 300; color: var(--text-dark); }
+  .hero-subtitle {
+    font-family: var(--display); font-style: italic; font-weight: 300;
+    font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+    color: var(--text-mid); margin-bottom: 2.2rem; line-height: 1.5;
+  }
+  .hero-meta {
+    display: flex; flex-wrap: wrap; justify-content: center;
+    gap: 0.4rem 1.6rem;
+    font-family: var(--sans); font-size: 0.8rem; font-weight: 400;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--text-mid); margin-bottom: 2.5rem; opacity: 0.9;
+  }
+
+  /* ── IMAGE SLOT ───────────────────────────────────────────── */
+  .image-slot {
+    background: var(--peach-mid);
+    border: 2px dashed rgba(138,12,47,0.2);
+    border-radius: 12px;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center; gap: 0.5rem;
+    color: var(--text-mid); font-family: var(--sans);
+    font-size: 0.82rem; padding: 2rem; text-align: center;
+  }
+  .image-slot .slot-icon { font-size: 2rem; opacity: 0.4; }
+  .image-slot .slot-note { font-size: 0.72rem; opacity: 0.55; font-style: italic; }
+  .hero-image-wrap { max-width: 800px; margin: 0 auto; padding: 2.5rem 2rem 0; }
+  .hero-image-slot { height: 400px; border-radius: 16px; }
+
+  /* ── SECTIONS ─────────────────────────────────────────────── */
+  section { padding: 5rem 2rem; }
+  .inner { max-width: 740px; margin: 0 auto; }
+  .inner-wide { max-width: 1080px; margin: 0 auto; }
+  .alt-bg { background: var(--peach-mid); }
+
+  .section-label {
+    font-family: var(--sans); font-size: 0.72rem; font-weight: 500;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--accent); opacity: 0.75; display: block; margin-bottom: 0.8rem;
+  }
+  .section-title {
+    font-family: var(--serif); font-weight: 700;
+    font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+    color: var(--accent-deep); line-height: 1.15; margin-bottom: 1.6rem;
+  }
+  .section-title em { font-style: italic; color: var(--accent-hover); }
+  .body-text { font-family: var(--sans); font-size: 1.02rem; color: var(--text-dark); line-height: 1.95; }
+  .body-text p { margin-bottom: 1.2rem; }
+  .body-text p:last-child { margin-bottom: 0; }
+  .body-text .hi { color: var(--accent); font-weight: 600; }
+  .body-text em { font-style: italic; color: var(--text-mid); }
+
+  hr.divider { max-width: 1080px; margin: 0 auto; border: none; border-top: 1px solid rgba(138,12,47,0.1); }
+
+  /* ── FEEL WORDS ───────────────────────────────────────────── */
+  .feel-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 0.75rem; margin-top: 2.5rem;
+  }
+  .feel-item {
+    background: rgba(255,255,255,0.62); border: 1px solid rgba(138,12,47,0.1);
+    border-radius: 12px; padding: 1rem 1.25rem;
+    font-family: var(--serif); font-style: italic; font-weight: 400;
+    font-size: 1.1rem; color: var(--accent-deep); text-align: center;
+  }
+  .feel-item::before { content: '✦ '; font-size: 0.6rem; color: var(--accent); vertical-align: 3px; font-style: normal; }
+
+  /* ── PRACTICE LIST ────────────────────────────────────────── */
+  .practice-list { list-style: none; margin: 2rem 0 0; border-top: 1px solid rgba(138,12,47,0.12); }
+  .practice-list li {
+    padding: 1.1rem 0; border-bottom: 1px solid rgba(138,12,47,0.1);
+    display: flex; gap: 1.2rem; align-items: baseline;
+    font-family: var(--sans); font-size: 0.97rem; color: var(--text-dark); line-height: 1.7;
+  }
+  .practice-list li .dot {
+    font-size: 0.5rem; color: var(--accent); min-width: 0.8rem;
+    padding-top: 0.55rem; flex-shrink: 0;
+  }
+  .practice-list li strong { font-weight: 600; color: var(--accent-deep); }
+  .practice-note {
+    font-family: var(--sans); font-size: 0.9rem; font-style: italic;
+    color: var(--text-mid); margin-top: 1.5rem; line-height: 1.75;
+    padding: 1rem 1.25rem;
+    border-left: 2px solid rgba(138,12,47,0.2);
+    background: rgba(255,255,255,0.45); border-radius: 0 8px 8px 0;
+  }
+
+  /* ── PULL QUOTE ───────────────────────────────────────────── */
+  .pull-quote-section { background: var(--accent-deep); padding: 4rem 2rem; text-align: center; }
+  .pull-quote-section blockquote {
+    font-family: var(--display); font-style: italic; font-weight: 300;
+    font-size: clamp(1.4rem, 3vw, 2rem);
+    color: var(--peach-light); max-width: 680px; margin: 0 auto 1rem; line-height: 1.5;
+  }
+  .pull-quote-section cite {
+    font-family: var(--sans); font-size: 0.78rem;
+    letter-spacing: 0.16em; text-transform: uppercase;
+    color: rgba(245,201,138,0.7); font-style: normal;
+  }
+
+  /* ── TESTIMONIALS ─────────────────────────────────────────── */
+  .testi-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2rem; margin-top: 3rem; }
+  .testi-card {
+    background: rgba(255,255,255,0.62); border-radius: 12px;
+    padding: 2rem 1.8rem 1.8rem; border: 1px solid rgba(138,12,47,0.08);
+    display: flex; flex-direction: column;
+  }
+  .testi-quote {
+    font-family: var(--sans); font-size: 0.96rem;
+    color: var(--text-mid); line-height: 1.82; flex: 1; margin-bottom: 1.2rem;
+  }
+  .testi-name {
+    font-family: var(--sans); font-size: 0.88rem; font-weight: 600;
+    color: var(--accent); border-top: 1px solid rgba(138,12,47,0.12); padding-top: 0.8rem;
+  }
+
+  /* ── MARILYS ─────────────────────────────────────────────── */
+  .marilys-section {
+    background: var(--peach-light); padding: 5.5rem 2rem;
+    border-top: 1px solid rgba(138,12,47,0.08);
+  }
+  .marilys-inner { max-width: 1060px; margin: 0 auto; display: flex; align-items: flex-start; gap: 4rem; }
+  .marilys-photo-wrap { flex-shrink: 0; width: 300px; }
+  .marilys-photo-round {
+    width: 300px; height: 300px; border-radius: 50%; overflow: hidden;
+    border: 5px solid var(--accent-deep);
+    box-shadow: 0 12px 40px rgba(138,12,47,0.12);
+  }
+  .marilys-photo-round img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+  .marilys-photo-slot { width: 300px; height: 300px; border-radius: 50%; }
+  .marilys-text { flex: 1; padding-top: 0.5rem; }
+  .marilys-signature {
+    font-family: var(--script); font-size: clamp(2.4rem, 4vw, 3.6rem);
+    color: var(--accent-deep); line-height: 1.1; margin-bottom: 0.3rem;
+  }
+  .marilys-title-1 { font-family: var(--serif); font-weight: 700; font-size: 1.05rem; color: var(--accent); line-height: 1.4; margin-bottom: 0.1rem; }
+  .marilys-title-2 { font-family: var(--serif); font-weight: 400; font-style: italic; font-size: 1.05rem; color: var(--accent-hover); line-height: 1.4; margin-bottom: 2rem; }
+  .marilys-body { font-family: var(--sans); font-size: 1.02rem; color: var(--text-dark); line-height: 1.9; }
+  .marilys-body p { margin-bottom: 1.3rem; }
+  .marilys-body p:last-child { margin-bottom: 0; }
+  .marilys-body .hi { color: var(--accent); font-weight: 600; }
+  .marilys-body em { font-style: italic; color: var(--text-mid); }
+
+  /* ── SCHEDULE ─────────────────────────────────────────────── */
+  .schedule-box {
+    background: rgba(255,255,255,0.55); border: 1px solid rgba(138,12,47,0.1);
+    border-radius: 12px; padding: 2rem; margin: 2rem 0;
+  }
+  .schedule-label {
+    font-family: var(--sans); font-size: 0.72rem; font-weight: 500;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--accent); opacity: 0.7; margin-bottom: 1rem; display: block;
+  }
+  .schedule-row {
+    display: flex; gap: 1.5rem; padding: 0.7rem 0;
+    border-bottom: 1px solid rgba(138,12,47,0.08); align-items: baseline;
+  }
+  .schedule-row:last-child { border-bottom: none; }
+  .schedule-time { font-family: var(--serif); font-style: italic; font-size: 0.92rem; color: var(--accent); min-width: 130px; white-space: nowrap; }
+  .schedule-desc { font-family: var(--sans); font-size: 0.95rem; color: var(--text-dark); }
+  .details-row {
+    display: flex; gap: 1rem; padding: 0.55rem 0;
+    border-bottom: 1px solid rgba(138,12,47,0.08); font-size: 0.95rem;
+  }
+  .details-row:last-child { border-bottom: none; }
+  .details-label {
+    font-family: var(--sans); font-size: 0.7rem; font-weight: 500;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--accent); min-width: 90px; padding-top: 0.2rem; opacity: 0.8;
+  }
+  .details-value { font-family: var(--sans); color: var(--text-dark); line-height: 1.7; }
+  .details-value em { font-style: italic; color: var(--text-mid); font-size: 0.88rem; }
+
+  /* ── WHAT'S NEXT ──────────────────────────────────────────── */
+  .next-section { background: var(--peach-mid); padding: 5rem 2rem; }
+  .next-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2.5rem; }
+  .next-card {
+    background: rgba(255,255,255,0.62); border-radius: 12px;
+    padding: 2rem 1.8rem; border: 1px solid rgba(138,12,47,0.1);
+    display: flex; flex-direction: column;
+  }
+  .next-card-label {
+    font-family: var(--sans); font-size: 0.7rem; font-weight: 500;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--accent); opacity: 0.75; margin-bottom: 0.75rem; display: block;
+  }
+  .next-card-title { font-family: var(--serif); font-weight: 700; font-size: 1.25rem; color: var(--accent-deep); margin-bottom: 0.8rem; line-height: 1.3; }
+  .next-card-body { font-family: var(--sans); font-size: 0.96rem; color: var(--text-mid); line-height: 1.82; flex: 1; margin-bottom: 1.5rem; }
+
+  /* ── FINAL CTA ────────────────────────────────────────────── */
+  .final-cta { background: var(--accent-deep); padding: 6rem 2rem; text-align: center; }
+  .final-cta-inner { max-width: 680px; margin: 0 auto; }
+  .final-cta-eyebrow {
+    font-family: var(--sans); font-size: 0.78rem; font-weight: 500;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--peach); opacity: 0.65; margin-bottom: 1rem; display: block;
+  }
+  .final-cta-title {
+    font-family: var(--serif); font-weight: 700;
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    color: var(--peach-light); line-height: 1.15; margin-bottom: 1.2rem;
+  }
+  .final-cta-title em { font-style: italic; color: var(--peach); }
+  .final-cta-sub { font-family: var(--sans); font-size: 1rem; color: rgba(253,232,192,0.75); margin-bottom: 2.2rem; line-height: 1.85; }
+
+  /* ── FOOTER ───────────────────────────────────────────────── */
+  footer {
+    background: var(--accent-deep); padding: 1.5rem 3rem;
+    display: flex; flex-direction: column; align-items: center;
+    gap: 0.4rem; text-align: center;
+    border-top: 1px solid rgba(138,12,47,0.15);
+  }
+  .footer-ig { font-family: var(--sans); font-size: 0.88rem; color: var(--peach-light); }
+  .footer-ig a { color: var(--peach-light); text-decoration: none; transition: color 0.2s; }
+  .footer-ig a:hover { color: var(--peach); }
+  .footer-contact { font-family: var(--sans); font-size: 0.9rem; color: var(--peach-light); }
+  .footer-contact a { color: var(--peach-light); text-decoration: none; }
+  .footer-contact a:hover { color: var(--accent); }
+  .footer-copy { font-size: 0.85rem; color: var(--peach-light); opacity: 0.6; }
+
+  /* ── RESPONSIVE ───────────────────────────────────────────── */
+  .video-grid { grid-template-columns: 1fr !important; }
+  @media (max-width: 960px) {
+    nav { padding: 0 1rem; }
+    .nav-toggle { display: block; }
+    .nav-links {
+      display: none; position: absolute; top: 64px; left: 0; right: 0;
+      flex-direction: column; align-items: flex-start; gap: 0;
+      background: var(--accent-deep); border-bottom: 1px solid rgba(138,12,47,0.15);
+      padding: 0.5rem 1rem 1.5rem; max-height: calc(100vh - 64px); overflow-y: auto;
+    }
+    .nav-links.open { display: flex; }
+    .nav-links > li { width: 100%; }
+    .nav-links a { display: block; padding: 0.8rem 0; }
+    .nav-dropdown-menu { display: none; position: static; box-shadow: none; min-width: 0; padding-left: 1rem; background: transparent; }
+    .nav-dropdown:hover .nav-dropdown-menu { display: none; }
+    .nav-dropdown.open .nav-dropdown-menu { display: block; }
+    .testi-grid { grid-template-columns: 1fr; }
+    .marilys-inner { flex-direction: column-reverse; align-items: center; gap: 2.5rem; }
+    .marilys-photo-wrap { width: 100%; display: flex; justify-content: center; }
+    .marilys-photo-round { width: 240px; height: 240px; }
+    .marilys-photo-slot { width: 240px; height: 240px; }
+    .marilys-text { text-align: center; }
+    .next-grid { grid-template-columns: 1fr; }
+    .hero-image-slot { height: 260px; }
+    section { padding: 3.5rem 1.5rem; }
+    footer { padding: 1.5rem; }
+    .popup-box { padding: 2rem 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── POPUP / FLODESK FORM ───────────────────────────────────── -->
+<div class="popup-overlay" id="popupOverlay">
+  <div class="popup-box">
+    <button class="popup-close" onclick="closePopup()" aria-label="Close">×</button>
+    <div class="popup-form-inner">
+      <h3>Secure Your Spot</h3>
+      <p class="popup-sub">Saturday, June 28 · Boulder, CO · 4:00–6:30 PM</p>
+      <div id="form-error" style="display:none; color:#8a0c2f; font-size:0.85rem; margin-bottom:0.75rem; font-family:var(--sans); text-align:center;"></div>
+      <input type="text" class="form-field" id="fd-firstName" placeholder="First Name" name="firstName">
+      <input type="email" class="form-field" id="fd-email" placeholder="Email Address" name="email">
+      <button class="btn btn-primary" id="fd-submit" style="width:100%; margin-top:0.5rem;" onclick="submitToFlodesk()">Yes, I'm In →</button>
+      <div id="form-success" style="display:none; text-align:center; padding:1.5rem 0;">
+        <p style="font-family:var(--display); font-size:2rem; font-weight:400; color:var(--accent-deep); margin-bottom:0.75rem;">You're in. ✨</p>
+        <p style="font-family:var(--serif); font-size:1rem; font-weight:700; color:var(--accent-deep); margin-bottom:0.75rem;">Welcome to Orgasmic Body.</p>
+        <p style="font-family:var(--sans); font-size:0.95rem; font-weight:600; color:var(--accent); margin-bottom:0.75rem;">Check your inbox — the details are on their way.</p>
+        <p style="font-family:var(--sans); font-size:0.88rem; color:var(--text-mid); margin-bottom:0.5rem;">→ You'll receive the full location and everything you need before June 28.</p>
+        <p style="font-family:var(--sans); font-size:0.82rem; color:var(--text-mid); font-style:italic;">Can't find the email? Check your junk folder or write to <a href="mailto:marilys@empowered-connection.com" style="color:var(--accent);">marilys@empowered-connection.com</a></p>
+      </div>
+      <p class="popup-trust">✦ Intimate gathering — limited spots</p>
+    </div>
+  </div>
+</div>
+
+<!-- ── NAV ───────────────────────────────────────────────────── -->
+<nav>
+  <a href="/" class="nav-logo"><img src="Logo. Dark red.png" alt="Empowered Connection"></a>
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="/">Private Coaching & About</a></li>
+    <li class="nav-dropdown">
+      <a href="#" class="nav-dropdown-toggle">Group Offerings ▾</a>
+      <ul class="nav-dropdown-menu">
+        <li><a href="/turn-on-your-life">Turn On Your Life 7-Day Challenge</a></li>
+        <li class="nav-dropdown nav-dropdown--nested">
+          <a href="#" class="nav-dropdown-toggle">The Intimacy Artistry Path ▾</a>
+          <ul class="nav-dropdown-menu nav-dropdown-menu--nested">
+            <li><a href="/coming-soon">Closer Through Conflict</a></li>
+            <li><a href="/coming-soon">Orgasmic Life</a></li>
+            <li><a href="/coming-soon">Orgasmic Intimacy</a></li>
+            <li><a href="/orgasmic-body">Orgasmic Body (in-person workshop)</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li class="nav-dropdown">
+      <a href="#" class="nav-dropdown-toggle">Resources ▾</a>
+      <ul class="nav-dropdown-menu">
+        <li><a href="/turn-on-your-life">Turn On Your Life 7-Day Challenge</a></li>
+        <li><a href="/conflict-repair-free-guide">Conflict Repair Guide</a></li>
+      </ul>
+    </li>
+    <li><a href="https://tidycal.com/intimacy-coaching/consultation-with-marilys" target="_blank" class="nav-cta">Request Your Consultation</a></li>
+  </ul>
+</nav>
+
+<!-- ── HERO ───────────────────────────────────────────────────── -->
+<header class="hero">
+  <span class="hero-eyebrow">In-Person Workshop · Boulder, CO · June 28</span>
+  <h1 class="hero-title">Orgasmic<br><em>Body</em></h1>
+  <p class="hero-subtitle">Awaken your life-force. Open your energy. Feel more alive.</p>
+  <div class="hero-meta">
+    <span>3-Hour Workshop</span>
+    &nbsp;◆&nbsp;
+    <span>Private Home · Boulder</span>
+    &nbsp;◆&nbsp;
+    <span>Saturday, June 28</span>
+    &nbsp;◆&nbsp;
+    <span>4:00 – 6:30 PM</span>
+  </div>
+  <button onclick="openPopup()" class="btn btn-primary">Secure Your Spot</button>
+</header>
+
+<!-- ── HERO IMAGE ──────────────────────────────────────────────── -->
+<div class="hero-image-wrap">
+  <img src="workshop-photo.jpeg" alt="Orgasmic Body workshop — energy activation and platonic touch" style="width:100%; height:480px; object-fit:cover; object-position:center 30%; border-radius:16px; display:block;">
+</div>
+
+<!-- ── INTRO ───────────────────────────────────────────────────── -->
+<section>
+  <div class="inner">
+    <span class="section-label">What this is</span>
+    <h2 class="section-title">Your body holds more<br><em>than you've been told.</em></h2>
+    <div class="body-text">
+      <p>Sexual energy is life-force. Creative power. The aliveness that fuels your vitality, your magnetism, your joy — everywhere you go. And yet most of us have been trained to suppress it, disconnect from it, or keep it separate from "regular" life.</p>
+      <p>Orgasmic Body is a 3-hour immersive experience where we change that. Through breath, energy activation, somatic practice, and <span class="hi">completely platonic partner work</span>, we open the channels your body has been holding closed — and let life-force flow again.</p>
+      <p>No partner needed. No experience required. Just a readiness to feel more.</p>
+    </div>
+    <div class="feel-grid">
+      <div class="feel-item">More alive</div>
+      <div class="feel-item">More open</div>
+      <div class="feel-item">More nourished</div>
+      <div class="feel-item">More turned-on</div>
+      <div class="feel-item">More energized</div>
+      <div class="feel-item">More yourself</div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ── WHAT WE COVER ───────────────────────────────────────────── -->
+<section class="alt-bg">
+  <div class="inner">
+    <span class="section-label">What we'll explore</span>
+    <h2 class="section-title">An immersive journey<br><em>through the body.</em></h2>
+    <div class="body-text">
+      <p>This workshop blends modern nervous system science with ancient tantric wisdom — the <span class="hi">Energy Orgasm methodology</span> — developed to awaken healing sexual energy and nourish body, mind, and soul with life-force flow and pleasure.</p>
+    </div>
+    <ul class="practice-list">
+      <li><span class="dot">◆</span><div><strong>The Wheel of Sexuality</strong> — Identify where your energy is blocked and why</div></li>
+      <li><span class="dot">◆</span><div><strong>Body & Energy Cleansing + Sexual Cord Cutting</strong> — Release what's ready to go</div></li>
+      <li><span class="dot">◆</span><div><strong>Creating a Magnetic Field</strong> — Open channels for vital energy to circulate freely</div></li>
+      <li><span class="dot">◆</span><div><strong>Intimate Muscle Anatomy & Pleasure-Awareness Activation</strong> — Know your body's design, awaken its capacity</div></li>
+      <li><span class="dot">◆</span><div><strong>Power Within Activation</strong> — Reclaim your sexual energy as a source of self-healing and joy</div></li>
+      <li><span class="dot">◆</span><div><strong>Tantric Breathwork for Energy Mastery</strong> — Use breath as the key to presence and flow</div></li>
+      <li><span class="dot">◆</span><div><strong>From Tension to Surrender</strong> — Free blockages, feel vital, connect with kundalini energy</div></li>
+    </ul>
+    <p class="practice-note">All partner work uses completely platonic, consensual touch to support each other in opening energy channels. This is non-sexual practice rooted in safety, care, and mutual support.</p>
+  </div>
+</section>
+
+<!-- ── PULL QUOTE ──────────────────────────────────────────────── -->
+<div class="pull-quote-section">
+  <blockquote>"All my body was vibrating — and the most important thing: I felt so much happiness and joy. I felt like I'm radiating love. That was the first time experiencing this."</blockquote>
+  <cite>— M.H., Miami FL</cite>
+</div>
+
+<!-- ── WHY IT WORKS ────────────────────────────────────────────── -->
+<section>
+  <div class="inner">
+    <span class="section-label">Why it works</span>
+    <h2 class="section-title">The body keeps<br><em>everything.</em></h2>
+    <div class="body-text">
+      <p>Your body holds information about everything that has ever happened to you. Every moment of stress, shutdown, or disconnection is stored — as bracing, contracting, closing — which leads to <span class="hi">energy loss, emotional flatness, and feeling like you're going through the motions</span>.</p>
+      <p>Energy Orgasms work by filling the body with sensations of love, care, and joy — opening flow again, removing blocks, and awakening your body's innate libido potential. The result: greater vitality, emotional well-being, and a deeper relationship with yourself and others.</p>
+      <p>For couples, this work can <span class="hi">reignite passion and deepen intimacy</span>. For everyone, it can feel like coming home to yourself.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ── TESTIMONIALS ────────────────────────────────────────────── -->
+<section style="background: var(--peach-mid);">
+  <div class="inner-wide">
+    <span class="section-label" style="text-align:center; display:block;">What people are saying</span>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <p class="testi-quote">"Energy Orgasms session was sooo yummy. You need to have one, or like twenty... So much bliss, like ecstasy throughout the body. So much pleasure."</p>
+        <p class="testi-name">— A.D., Miami FL</p>
+      </div>
+      <div class="testi-card">
+        <p class="testi-quote">"I can sense energy in a way I've never sensed before — it's a whole new sensory feeling."</p>
+        <p class="testi-name">— A.B., New York</p>
+      </div>
+      <div class="testi-card">
+        <p class="testi-quote">"It was really, really releasing... I feel like I'm still kind of high on the energy, shaking around."</p>
+        <p class="testi-name">— G.O., Istanbul, Turkey</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── VIDEOS / GALLERY ────────────────────────────────────────── -->
+<section style="background: var(--peach-light); padding: 4rem 2rem;">
+  <div class="inner-wide">
+    <span class="section-label" style="text-align:center; display:block;">Feel the energy</span>
+    <div class="video-grid" style="display:grid; grid-template-columns: 1fr 1fr 1fr; gap:1.25rem; margin-top:2rem;">
+
+      <video autoplay muted loop playsinline
+        style="width:100%; aspect-ratio:9/16; object-fit:cover; border-radius:12px; display:block;">
+        <source src="workshop-video-1.mov" type="video/mp4">
+      </video>
+
+      <video autoplay muted loop playsinline
+        style="width:100%; aspect-ratio:9/16; object-fit:cover; border-radius:12px; display:block;">
+        <source src="workshop-video-2.mov" type="video/mp4">
+      </video>
+
+      <video autoplay muted loop playsinline
+        style="width:100%; aspect-ratio:9/16; object-fit:cover; border-radius:12px; display:block;">
+        <source src="workshop-video-3.mov" type="video/mp4">
+      </video>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── MARILYS ─────────────────────────────────────────────────── -->
+<section class="marilys-section">
+  <div class="marilys-inner">
+    <div class="marilys-photo-wrap">
+      <div class="marilys-photo-round">
+        <img src="workshop-photo.jpeg" alt="Marilys facilitating Orgasmic Body workshop" style="width:100%; height:100%; object-fit:cover; object-position:left 20%;">
+      </div>
+    </div>
+    <div class="marilys-text">
+      <span class="section-label">Your facilitator</span>
+      <p class="marilys-signature">Marilys</p>
+      <p class="marilys-title-1">Somatic Intimacy & Relating Coach</p>
+      <p class="marilys-title-2">Erotic Aliveness Guide · Energy Orgasms Facilitator</p>
+      <div class="marilys-body">
+        <p>I've spent years guiding people — individuals and couples — back into <span class="hi">the aliveness their bodies were always capable of</span>. What I know, and what most people in this space won't say directly, is that sexual energy isn't a department of your life. It's the frequency your whole life runs on.</p>
+        <p>I trained directly in the <span class="hi">Energy Orgasms methodology</span> — a revolutionary approach to awakening pleasurable sensations and increasing sexual energy through non-sexual touch and kundalini activation. Combined with my background in somatic coaching, bodywork, and the energetics of intimacy, I hold this work from a place that is both <em>deeply safe and genuinely transformative</em>.</p>
+        <p>I've seen people arrive feeling flat, armored, disconnected — and leave vibrating, open, lit up from the inside. Not because something happened to them, but because something in them <span class="hi">remembered it was always there</span>.</p>
+        <p>That's what this workshop is about. And I'd love to hold that space for you.</p>
+        <a href="/" class="btn btn-primary" style="margin-top:0.75rem;">Work With Me</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SCHEDULE + DETAILS ──────────────────────────────────────── -->
+<section class="alt-bg" id="details">
+  <div class="inner">
+    <span class="section-label">Details</span>
+    <h2 class="section-title">Saturday, June 28<br><em>Boulder, CO</em></h2>
+    <div class="schedule-box">
+      <span class="schedule-label">Schedule</span>
+      <div class="schedule-row">
+        <span class="schedule-time">4:00 – 4:15 PM</span>
+        <span class="schedule-desc">Meet & Greet — arrive, settle in, connect</span>
+      </div>
+      <div class="schedule-row">
+        <span class="schedule-time">4:15 – 6:00 PM</span>
+        <span class="schedule-desc">Instruction & Practice — the full journey</span>
+      </div>
+      <div class="schedule-row">
+        <span class="schedule-time">6:00 – 6:30 PM</span>
+        <span class="schedule-desc">Integration & Closing</span>
+      </div>
+    </div>
+    <div class="schedule-box">
+      <div class="details-row">
+        <span class="details-label">Location</span>
+        <span class="details-value">Private home · Boulder, CO<br><em>Exact address shared upon registration</em></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── WHAT'S NEXT / SEEDING ───────────────────────────────────── -->
+<section class="next-section">
+  <div class="inner-wide">
+    <span class="section-label" style="text-align:center; display:block;">Want to go deeper?</span>
+    <h2 class="section-title" style="text-align:center;">This is just the beginning<br><em>of what's possible.</em></h2>
+    <div class="next-grid">
+      <div class="next-card">
+        <span class="next-card-label">Private 1:1 Work</span>
+        <p class="next-card-title">Somatic Intimacy Coaching with Marilys</p>
+        <p class="next-card-body">For those who feel called to go further — into the patterns, the body, the full depth of what's available. I work with a small number of private clients at a time, individually and with couples. This is where real, lasting transformation happens.</p>
+        <a href="/" class="btn btn-primary" style="align-self: flex-start;">Request a Conversation</a>
+      </div>
+      <div class="next-card">
+        <span class="next-card-label">Group Program · Starting in July</span>
+        <p class="next-card-title">Orgasmic Life — The Full Journey</p>
+        <p class="next-card-body">The Orgasmic Life program is where everything you touch in this workshop is taken to its full depth — at your own pace, with a community of people doing the same. If today opens something in you, this is where you go next.</p>
+        <a href="/coming-soon" class="btn btn-light" style="align-self: flex-start;">Learn More</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FINAL CTA ───────────────────────────────────────────────── -->
+<section class="final-cta" id="register">
+  <div class="final-cta-inner">
+    <span class="final-cta-eyebrow">June 28 · Boulder, CO · Limited Spots</span>
+    <h2 class="final-cta-title">Ready to feel<br><em>more alive?</em></h2>
+    <p class="final-cta-sub">This is an intimate gathering — space is intentionally limited. If you feel the pull, that's your answer.</p>
+    <button onclick="openPopup()" class="btn btn-light">Register Now</button>
+  </div>
+</section>
+
+<!-- ── FOOTER ──────────────────────────────────────────────────── -->
+<footer>
+  <p class="footer-ig"><a href="https://instagram.com/empowered.connection" target="_blank">@empowered.connection</a></p>
+  <p class="footer-contact">Questions? <a href="mailto:marilys@empowered-connection.com">marilys@empowered-connection.com</a></p>
+  <p class="footer-copy">© Copyright Empowered Connection 2026</p>
+</footer>
+
+<script>
+  function openPopup() {
+    document.getElementById('popupOverlay').classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+  function closePopup() {
+    document.getElementById('popupOverlay').classList.remove('active');
+    document.body.style.overflow = '';
+  }
+  document.getElementById('popupOverlay').addEventListener('click', function(e) {
+    if (e.target === this) closePopup();
+  });
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closePopup();
+  });
+
+  async function submitToFlodesk() {
+    const firstName = document.getElementById('fd-firstName').value.trim();
+    const email     = document.getElementById('fd-email').value.trim();
+    const errorEl   = document.getElementById('form-error');
+    const submitBtn = document.getElementById('fd-submit');
+    errorEl.style.display = 'none';
+    if (!firstName) {
+      errorEl.textContent = 'Please enter your first name.';
+      errorEl.style.display = 'block'; return;
+    }
+    if (!email || !email.includes('@')) {
+      errorEl.textContent = 'Please enter a valid email address.';
+      errorEl.style.display = 'block'; return;
+    }
+    submitBtn.textContent = 'Saving your spot...';
+    submitBtn.disabled = true;
+    try {
+      const response = await fetch('/api/join', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          firstName: firstName,
+          email: email,
+          segmentId: 'ORGASMIC_BODY_SEGMENT_ID'
+        })
+      });
+      const data = await response.json();
+      if (response.ok && data.success) {
+        document.getElementById('fd-firstName').style.display = 'none';
+        document.getElementById('fd-email').style.display = 'none';
+        submitBtn.style.display = 'none';
+        document.getElementById('form-success').style.display = 'block';
+      } else {
+        errorEl.textContent = data.error || 'Something went wrong. Please try again.';
+        errorEl.style.display = 'block';
+        submitBtn.textContent = 'Yes, I\'m In →';
+        submitBtn.disabled = false;
+      }
+    } catch (err) {
+      errorEl.textContent = 'Connection error. Please try again.';
+      errorEl.style.display = 'block';
+      submitBtn.textContent = 'Yes, I\'m In →';
+      submitBtn.disabled = false;
+    }
+  }
+
+  // Mobile nav
+  window.onload = function() {
+    var navToggle = document.getElementById('navToggle');
+    var navLinks  = document.getElementById('navLinks');
+    navToggle.onclick = function() {
+      var isOpen = navLinks.classList.toggle('open');
+      navToggle.classList.toggle('open', isOpen);
+      navToggle.setAttribute('aria-expanded', isOpen);
+    };
+    document.querySelectorAll('.nav-dropdown-toggle').forEach(function(toggle) {
+      toggle.addEventListener('click', function(e) {
+        if (window.innerWidth <= 960) {
+          e.preventDefault();
+          toggle.parentElement.classList.toggle('open');
+        }
+      });
+    });
+  };
+</script>
+<script src="/analytics.js"></script>
+</body>
+</html>
