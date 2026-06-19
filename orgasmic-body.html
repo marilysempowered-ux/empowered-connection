@@ -241,17 +241,11 @@
   hr.divider { max-width: 1080px; margin: 0 auto; border: none; border-top: 1px solid rgba(138,12,47,0.1); }
 
   /* ── FEEL WORDS ───────────────────────────────────────────── */
-  .feel-grid {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-    gap: 0.75rem; margin-top: 2.5rem;
-  }
-  .feel-item {
-    background: rgba(255,255,255,0.62); border: 1px solid rgba(138,12,47,0.1);
-    border-radius: 12px; padding: 1rem 1.25rem;
-    font-family: var(--serif); font-style: italic; font-weight: 400;
-    font-size: 1.1rem; color: var(--accent-deep); text-align: center;
-  }
-  .feel-item::before { content: '✦ '; font-size: 0.6rem; color: var(--accent); vertical-align: 3px; font-style: normal; }
+.feel-inline {
+  font-family: var(--serif); font-style: italic; font-weight: 400;
+  font-size: 1.05rem; color: var(--accent-deep);
+}
+.feel-inline .sep { color: var(--accent); font-style: normal; margin: 0 0.5rem; font-size: 0.7rem; vertical-align: 2px; }
 
   /* ── PRACTICE LIST ────────────────────────────────────────── */
   .practice-list { list-style: none; margin: 2rem 0 0; border-top: 1px solid rgba(138,12,47,0.12); }
@@ -319,18 +313,18 @@
     border-top: 1px solid rgba(138,12,47,0.08);
   }
   .marilys-inner { max-width: 1060px; margin: 0 auto; display: flex; align-items: flex-start; gap: 4rem; }
-  .marilys-photo-wrap { flex-shrink: 0; width: 300px; position: relative; padding-bottom: 3rem; }
+  .marilys-photo-wrap { flex-shrink: 0; width: 300px; position: relative; padding-bottom: 7rem; }
   .marilys-photo-round {
     width: 300px; height: auto; border-radius: 16px; overflow: hidden;
     border: none;
     box-shadow: 0 12px 40px rgba(138,12,47,0.12);
-    position: relative; z-index: 2;
+    position: relative; z-index: 1;
   }
   .marilys-photo-round img { width: 100%; height: auto; display: block; }
   .marilys-photo-second {
     width: 200px; height: auto; border-radius: 16px; overflow: hidden;
-    box-shadow: 0 10px 30px rgba(138,12,47,0.18);
-    position: absolute; right: -30px; bottom: 0; z-index: 1;
+    box-shadow: 0 10px 30px rgba(138,12,47,0.22);
+    position: absolute; right: -20px; bottom: -13rem; z-index: 2;
     transform: rotate(4deg);
     border: 6px solid var(--peach-light);
   }
@@ -442,9 +436,9 @@
     .nav-dropdown:hover .nav-dropdown-menu { display: none; }
     .nav-dropdown.open .nav-dropdown-menu { display: block; }
     .marilys-inner { flex-direction: column-reverse; align-items: center; gap: 2.5rem; }
-    .marilys-photo-wrap { width: 280px; display: block; justify-content: unset; padding-bottom: 2.5rem; }
+    .marilys-photo-wrap { width: 280px; display: block; justify-content: unset; padding-bottom: 6rem; }
     .marilys-photo-round { width: 280px; height: auto; }
-    .marilys-photo-second { width: 160px; right: -20px; }
+    .marilys-photo-second { width: 150px; right: -15px; bottom: -1rem; }
     .marilys-text { text-align: center; }
     .next-grid { grid-template-columns: 1fr; }
     section { padding: 3.5rem 1.5rem; }
@@ -578,7 +572,7 @@
     <div class="hero-text">
       <h1 class="hero-title">Orgasmic<br><em>Body</em></h1>
       <p class="hero-subtitle"><strong>Free up</strong>  your energetic channels. <strong>Open</strong>  your body to more pleasure and vitality. <br><strong>Connect</strong> with the power of your sexual energy — in a platonic setting.</p>
-      <button onclick="openPopup()" class="btn btn-primary">Secure Your Spot</button>
+      <a href="https://buy.stripe.com/dRmdR9dgk7SDblQ6s62Fa0p" class="btn btn-primary" style="display:inline-block; text-align:center;">Secure Your Spot</a>
     </div>
 
     <div class="hero-image">
@@ -590,25 +584,17 @@
 
 <!-- ── INTRO ───────────────────────────────────────────────────── -->
 <section>
-  <div class="inner">
+  <div class="inner" style="max-width: 1000px;">
     <span class="section-label">Why this workshop</span>
     <h2 class="section-title">Your body holds unresolved experiences<br><em>preventing your energy to flow freely</em></h2>
     <div class="body-text">
       <p>Your body holds information about everything that has ever happened to you. Every moment of stress, shutdown, or disconnection is stored — often as bracing, contracting, closing.</p>
-      <p>On top of that, most have learned to repress their emotions or sexual energy on some level. The body is then using it's precious energy holding back your natural energy flow — sometimes for years — which often result in emotional flatness or feeling like you're going through the motions. All this leads to <span class="hi">disminished vitality, energy levels, turn on, libido, access to pleasure, and overall well-being</span>.</p>
+      <p>On top of that, most have learned to repress their emotions or sexual energy on some level. The body is then using it's precious energy holding back your natural energy flow — sometimes for years — which often result in emotional flatness or feeling like you're going through the motions. All this leads to <span class="hi">disminished: vitality, energy levels, turn on, libido, access to pleasure, and overall well-being</span>.</p>
       <p>Sexual energy is life-force. It is creative and healing energy. It fuels your aliveness, your magnetism, your joy — everywhere you go. Being conditionned to disconnect from it, or keep it separate from "regular" life, we can experience only a fraction of it's power and gifts.</p>
       <p>Orgasmic Body is a 3-hour immersive experience — using energy activation and platonic somatic practices — to release what no longer serves you, reopen your channels, and reconnect to your own powerful energy so that you can feel more alive, more open, more you, and more connected to your body intelligence and natural flow.</p>
-      <p class="practice-note">No partner needed. No experience required. Just a readiness to feel more.</p>
-    </div>
-    <div class="feel-grid">
-      <div class="feel-item">More alive</div>
-      <div class="feel-item">More open</div>
-      <div class="feel-item">More nourished</div>
-      <div class="feel-item">More turned-on</div>
-      <div class="feel-item">More energized</div>
-      <div class="feel-item">More yourself</div>
-    </div>
-  </div>
+<p class="practice-note">No partner needed. No experience required. Just a readiness to feel more.</p>
+</div>
+<p class="feel-inline" style="text-align:center; margin-top:1.5rem;">More alive <span class="sep">✦</span> More open <span class="sep">✦</span> More nourished <span class="sep">✦</span> More turned-on <span class="sep">✦</span> More energized <span class="sep">✦</span> More yourself</p>
 </section>
 
 <hr class="divider">
@@ -626,9 +612,10 @@
     </div>
 
     <div class="journey-row">
-      <div class="journey-row-image">
-        <img src="IMG_1585.jpeg" alt="Energy Orgasms workshop atmosphere">
-      </div>
+     <div class="journey-row-image">
+  <img src="IMG_1585.jpeg" alt="Energy Orgasms workshop atmosphere">
+  <a href="https://buy.stripe.com/dRmdR9dgk7SDblQ6s62Fa0p" class="btn btn-primary" style="display:block; text-align:center; margin-top:2rem;">Join Orgasmic Body</a>
+</div>
       <div class="journey-row-content">
         <ul class="practice-list">
           <li><span class="dot">◆</span><div><strong>Body & Energy Cleansing</strong> — Release what's ready to go</div></li>
@@ -653,8 +640,7 @@
 
 <!-- ── WHY IT WORKS ────────────────────────────────────────────── -->
 <section>
-  <div class="journey-wrap" style="padding-top:5rem; padding-bottom:5rem;">
-    <div class="journey-row">
+<div class="journey-wrap" style="padding-top:5rem; padding-bottom:2rem;">    <div class="journey-row">
       <div class="journey-row-content">
         <span class="section-label">How it works</span>
         <h2 class="section-title">Your body is<br><em>naturally orgasmic</em></h2>
@@ -663,9 +649,9 @@
           <p>For couples, this work often <span class="hi">reignite passion and deepen intimacy</span>. For everyone, it can feel like coming home to yourself.</p>
         </div>
       </div>
-      <div class="journey-row-image">
-        <img src="IMG_1591.jpeg" alt="Energy Orgasms session moment">
-      </div>
+    <div class="journey-row-image" style="width: 260px;">
+  <img src="IMG_1591.jpeg" alt="Energy Orgasms session moment">
+</div>
     </div>
   </div>
 </section>
@@ -757,13 +743,14 @@
       <span class="section-label">Your facilitator</span>
       <p class="marilys-signature">Marilys</p>
       <p class="marilys-title-1">Somatic Intimacy & Relating Coach</p>
-      <p class="marilys-title-2">Erotic Aliveness Guide · Energy Orgasms Facilitator</p>
+    <p class="marilys-title-2">Erotic Aliveness Guide · Bodyworker<br>
+      <span style="color: var(--text-mid); font-size: 0.8em;">Kundalini Activation & Energy Orgasms Facilitator</span></p>
       <div class="marilys-body">
-        <p>I've spent years guiding people — individuals and couples — back into <span class="hi">the aliveness their bodies were always capable of</span>. What I know, and what most people in this space won't say directly, is that sexual energy isn't a department of your life. It's the frequency your whole life runs on.</p>
-        <p>I trained directly in the <span class="hi">Energy Orgasms methodology</span> — a revolutionary approach to awakening pleasurable sensations and increasing sexual energy through non-sexual touch and kundalini activation. Combined with my background in somatic coaching, bodywork, and the energetics of intimacy, I hold this work from a place that is both <em>deeply safe and genuinely transformative</em>.</p>
-        <p>I've seen people arrive feeling flat, armored, disconnected — and leave vibrating, open, lit up from the inside. Not because something happened to them, but because something in them <span class="hi">remembered it was always there</span>.</p>
-        <p>That's what this workshop is about. And I'd love to hold that space for you.</p>
-        <a href="/" class="btn btn-primary" style="margin-top:0.75rem;">Work With Me</a>
+        <p>I've been guiding people — individuals and couples — into <span class="hi">more aliveness in their bodies, relationships and lives for years.</span>. What I know, and what most people in this space won't say directly, is that your sexual energy isn't a department of your life. It's the frequency your whole life runs on.</p>
+        <p>I've trained a kundalini activation facilitator and directly in the <span class="hi">Energy Orgasms methodology</span> — a revolutionary approach to awakening pleasurable sensations and increasing sexual energy through non-sexual touch and energetic activation. Combined with my background in somatic coaching, bodywork, and the energetics of intimacy, the spaces I hold are <em>deeply transformational</em>.</p>
+        <p>I've seen people arrive feeling flat, armored, disconnected — and leave vibrating, open, lit up from the inside. Something in them remembering <span class="hi"> it was always there</span>.</p>
+        <p>I also offer private 1:1 sessions or for couples who want to deepen their connection in intimacy. <br>If this calls you, I'd love to hold that space for you.</p>
+        <a href="/" class="btn btn-primary" style="margin-top:0.75rem;">About Private Sessions</a>
       </div>
     </div>
   </div>
@@ -781,11 +768,11 @@
         <span class="schedule-desc">Meet & Greet — arrive, settle in, connect</span>
       </div>
       <div class="schedule-row">
-        <span class="schedule-time">4:15 – 6:00 PM</span>
+        <span class="schedule-time">4:15 – 6:30 PM</span>
         <span class="schedule-desc">Instruction & Practice — the full journey</span>
       </div>
       <div class="schedule-row">
-        <span class="schedule-time">6:00 – 6:30 PM</span>
+        <span class="schedule-time">6:30 – 7:00 PM</span>
         <span class="schedule-desc">Integration & Closing</span>
       </div>
     </div>
@@ -801,20 +788,13 @@
 <!-- ── WHAT'S NEXT / SEEDING ───────────────────────────────────── -->
 <section class="next-section">
   <div class="inner-wide">
-    <span class="section-label" style="text-align:center; display:block;">Want to go deeper?</span>
+    <span class="section-label" style="text-align:center; display:block;">Expanding into an orgasmic life</span>
     <h2 class="section-title" style="text-align:center;">This is just the beginning<br><em>of what's possible.</em></h2>
-    <div class="next-grid">
-      <div class="next-card">
-        <span class="next-card-label">Private 1:1 Work</span>
-        <p class="next-card-title">Somatic Intimacy Coaching with Marilys</p>
-        <p class="next-card-body">For those who feel called to go further — into the patterns, the body, the full depth of what's available. I work with a small number of private clients at a time, individually and with couples. This is where real, lasting transformation happens.</p>
-        <a href="/" class="btn btn-primary" style="align-self: flex-start;">Request a Conversation</a>
-      </div>
-      <div class="next-card">
+<div class="next-grid" style="grid-template-columns: 1fr; max-width: 740px; margin-left: auto; margin-right: auto;">      <div class="next-card">
         <span class="next-card-label">Group Program · Starting in July</span>
-        <p class="next-card-title">Orgasmic Life — The Full Journey</p>
-        <p class="next-card-body">The Orgasmic Life program is where everything you touch in this workshop is taken to its full depth — at your own pace, with a community of people doing the same. If today opens something in you, this is where you go next.</p>
-        <a href="/coming-soon" class="btn btn-light" style="align-self: flex-start;">Learn More</a>
+        <p class="next-card-title">Orgasmic Life</p>
+        <p class="next-card-body">It starts with an Orgasmic Body. Then, we learn to cultivate an Orgasmic Life — not just sometimes, when things align — everyday, in every moment. This is a live in-depth 6-week program shared with an small group, supporting youto integrate simple yet powerful practices into your daily life, increasing the pleasure, aliveness and vitality you experience. It's for those who want to feel sovereign with their energy and the fulness of their orgasmic potential.</p>
+        <a href="/coming-soon" class="btn btn-light" style="align-self: flex-start;">All Details Coming Soon</a>
       </div>
     </div>
   </div>
@@ -824,9 +804,9 @@
 <section class="final-cta" id="register">
   <div class="final-cta-inner">
     <span class="final-cta-eyebrow">June 28 · Boulder, CO · Limited Spots</span>
-    <h2 class="final-cta-title">Ready to feel<br><em>more alive?</em></h2>
-    <p class="final-cta-sub">This is an intimate gathering — space is intentionally limited. If you feel the pull, that's your answer.</p>
-    <button onclick="openPopup()" class="btn btn-light">Register Now</button>
+    <h2 class="final-cta-title">Ready for an<br><em>Orgasmic Body?</em></h2>
+    <p class="final-cta-sub">This is an intimate gathering — space is intentionally limited. <br> Here is to opening up to the fullness of your orgasmic potential!</p>
+    <a href="https://buy.stripe.com/dRmdR9dgk7SDblQ6s62Fa0p" class="btn btn-light" style="display:inline-block; text-align:center;">Register Now</a>
   </div>
 </section>
 
