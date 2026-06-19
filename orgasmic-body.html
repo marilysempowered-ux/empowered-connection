@@ -158,11 +158,6 @@
   .btn-light:hover { background: rgb(253,247,239); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.15); }
 
   /* ── HERO ─────────────────────────────────────────────────── */
-  .hero {
-    padding: 5.5rem 2rem 4.5rem; text-align: center;
-    background: var(--peach-light);
-    border-bottom: 1px solid rgba(138,12,47,0.08);
-  }
   .hero-eyebrow {
     font-family: var(--sans); font-size: 0.78rem; font-weight: 500;
     letter-spacing: 0.22em; text-transform: uppercase;
@@ -178,7 +173,10 @@
   .hero-subtitle {
     font-family: var(--display); font-style: italic; font-weight: 300;
     font-size: clamp(1.2rem, 2.5vw, 1.6rem);
-    color: var(--text-mid); margin-bottom: 2.2rem; line-height: 1.5;
+    color: var(--text-mid); margin-top: 2.2rem; margin-bottom: 2.2rem; line-height: 1.5;
+  }
+  .hero-subtitle strong {
+    font-weight: 700; color: var(--accent-deep); font-style: normal;
   }
   .hero-meta {
     display: flex; flex-wrap: wrap; justify-content: center;
@@ -186,6 +184,22 @@
     font-family: var(--sans); font-size: 0.8rem; font-weight: 400;
     letter-spacing: 0.12em; text-transform: uppercase;
     color: var(--text-mid); margin-bottom: 2.5rem; opacity: 0.9;
+  }
+  .hero-split {
+    max-width: 1100px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: center; gap: 4rem;
+    padding: 0 3rem 4rem;
+  }
+  .hero-text { flex: 0 1 500px; min-width: 0; text-align: center; }
+  .hero-text .hero-eyebrow { text-align: left; }
+  .hero-text .hero-meta { justify-content: flex-start; }
+  .hero-image { flex-shrink: 0; width: 280px; }
+
+  @media (max-width: 768px) {
+    .hero-split { flex-direction: column; padding: 3rem 1.5rem; }
+    .hero-text { text-align: center; }
+    .hero-text .hero-eyebrow { text-align: center; }
+    .hero-image { width: 100%; }
   }
 
   /* ── IMAGE SLOT ───────────────────────────────────────────── */
@@ -200,8 +214,6 @@
   }
   .image-slot .slot-icon { font-size: 2rem; opacity: 0.4; }
   .image-slot .slot-note { font-size: 0.72rem; opacity: 0.55; font-style: italic; }
-  .hero-image-wrap { max-width: 800px; margin: 0 auto; padding: 2.5rem 2rem 0; }
-  .hero-image-slot { height: 400px; border-radius: 16px; }
 
   /* ── SECTIONS ─────────────────────────────────────────────── */
   section { padding: 5rem 2rem; }
@@ -274,20 +286,31 @@
     color: rgba(245,201,138,0.7); font-style: normal;
   }
 
-  /* ── TESTIMONIALS ─────────────────────────────────────────── */
-  .testi-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2rem; margin-top: 3rem; }
+  /* ── TESTIMONIALS (split layout) ─────────────────────────── */
   .testi-card {
     background: rgba(255,255,255,0.62); border-radius: 12px;
-    padding: 2rem 1.8rem 1.8rem; border: 1px solid rgba(138,12,47,0.08);
+    padding: 1.5rem 1.6rem; border: 1px solid rgba(138,12,47,0.08);
     display: flex; flex-direction: column;
   }
   .testi-quote {
     font-family: var(--sans); font-size: 0.96rem;
-    color: var(--text-mid); line-height: 1.82; flex: 1; margin-bottom: 1.2rem;
+    color: var(--text-mid); line-height: 1.75; flex: 1; margin-bottom: 0.9rem;
   }
   .testi-name {
     font-family: var(--sans); font-size: 0.88rem; font-weight: 600;
-    color: var(--accent); border-top: 1px solid rgba(138,12,47,0.12); padding-top: 0.8rem;
+    color: var(--accent); border-top: 1px solid rgba(138,12,47,0.12); padding-top: 0.7rem;
+  }
+  .testimonials-split-inner {
+    max-width: 1100px; margin: 0 auto; padding: 4rem 3rem;
+    display: flex; align-items: center; gap: 3rem;
+  }
+  .testimonials-split-image { flex-shrink: 0; width: 340px; }
+  .testimonials-split-content { flex: 1; min-width: 0; }
+  .testimonials-split-list { display: flex; flex-direction: column; gap: 1.1rem; margin-top: 1.5rem; }
+
+  @media (max-width: 768px) {
+    .testimonials-split-inner { flex-direction: column; padding: 3rem 1.5rem; }
+    .testimonials-split-image { width: 100%; }
   }
 
   /* ── MARILYS ─────────────────────────────────────────────── */
@@ -296,14 +319,22 @@
     border-top: 1px solid rgba(138,12,47,0.08);
   }
   .marilys-inner { max-width: 1060px; margin: 0 auto; display: flex; align-items: flex-start; gap: 4rem; }
-  .marilys-photo-wrap { flex-shrink: 0; width: 300px; }
+  .marilys-photo-wrap { flex-shrink: 0; width: 300px; position: relative; padding-bottom: 3rem; }
   .marilys-photo-round {
-    width: 300px; height: 300px; border-radius: 50%; overflow: hidden;
-    border: 5px solid var(--accent-deep);
+    width: 300px; height: auto; border-radius: 16px; overflow: hidden;
+    border: none;
     box-shadow: 0 12px 40px rgba(138,12,47,0.12);
+    position: relative; z-index: 2;
   }
-  .marilys-photo-round img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
-  .marilys-photo-slot { width: 300px; height: 300px; border-radius: 50%; }
+  .marilys-photo-round img { width: 100%; height: auto; display: block; }
+  .marilys-photo-second {
+    width: 200px; height: auto; border-radius: 16px; overflow: hidden;
+    box-shadow: 0 10px 30px rgba(138,12,47,0.18);
+    position: absolute; right: -30px; bottom: 0; z-index: 1;
+    transform: rotate(4deg);
+    border: 6px solid var(--peach-light);
+  }
+  .marilys-photo-second img { width: 100%; height: auto; display: block; }
   .marilys-text { flex: 1; padding-top: 0.5rem; }
   .marilys-signature {
     font-family: var(--script); font-size: clamp(2.4rem, 4vw, 3.6rem);
@@ -395,7 +426,6 @@
   .footer-copy { font-size: 0.85rem; color: var(--peach-light); opacity: 0.6; }
 
   /* ── RESPONSIVE ───────────────────────────────────────────── */
-  .video-grid { grid-template-columns: 1fr !important; }
   @media (max-width: 960px) {
     nav { padding: 0 1rem; }
     .nav-toggle { display: block; }
@@ -411,17 +441,73 @@
     .nav-dropdown-menu { display: none; position: static; box-shadow: none; min-width: 0; padding-left: 1rem; background: transparent; }
     .nav-dropdown:hover .nav-dropdown-menu { display: none; }
     .nav-dropdown.open .nav-dropdown-menu { display: block; }
-    .testi-grid { grid-template-columns: 1fr; }
     .marilys-inner { flex-direction: column-reverse; align-items: center; gap: 2.5rem; }
-    .marilys-photo-wrap { width: 100%; display: flex; justify-content: center; }
-    .marilys-photo-round { width: 240px; height: 240px; }
-    .marilys-photo-slot { width: 240px; height: 240px; }
+    .marilys-photo-wrap { width: 280px; display: block; justify-content: unset; padding-bottom: 2.5rem; }
+    .marilys-photo-round { width: 280px; height: auto; }
+    .marilys-photo-second { width: 160px; right: -20px; }
     .marilys-text { text-align: center; }
     .next-grid { grid-template-columns: 1fr; }
-    .hero-image-slot { height: 260px; }
     section { padding: 3.5rem 1.5rem; }
     footer { padding: 1.5rem; }
     .popup-box { padding: 2rem 1.5rem; }
+    .video-grid { grid-template-columns: 1fr !important; }
+  }
+
+  @media (min-width: 769px) {
+    .video-grid { grid-template-columns: 1fr 1fr 1fr !important; }
+  }
+
+  /* ── VIDEO PLAY OVERLAY ───────────────────────────────────── */
+  .video-wrap {
+    position: relative; width: 100%; aspect-ratio: 9/16;
+    border-radius: 12px; overflow: hidden; cursor: pointer;
+    background: var(--peach-mid);
+  }
+  .video-wrap video {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+  }
+  .video-play-btn {
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 64px; height: 64px; border-radius: 50%;
+    background: rgba(255,255,255,0.92);
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 6px 24px rgba(90,8,32,0.35);
+    transition: transform 0.2s ease, background 0.2s ease;
+    pointer-events: none;
+  }
+  .video-play-btn svg { width: 22px; height: 22px; margin-left: 3px; }
+  .video-wrap:hover .video-play-btn { transform: translate(-50%, -50%) scale(1.08); background: #fff; }
+  .video-wrap.playing .video-play-btn { opacity: 0; }
+  .video-wrap.playing::after { content: none; }
+  .video-wrap::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: rgba(74,21,32,0.18);
+    transition: opacity 0.2s ease;
+  }
+  .video-wrap.playing::after { opacity: 0; pointer-events: none; }
+
+  /* ── "AN IMMERSIVE JOURNEY" SPLIT LAYOUT ─────────────────── */
+  .journey-wrap {
+    max-width: 1100px; margin: 0 auto;
+    padding: 5rem 3rem;
+  }
+  .journey-header { margin-bottom: 2.5rem; }
+  .journey-row {
+    display: flex; align-items: flex-start; gap: 3.5rem;
+  }
+  .journey-row-image { flex-shrink: 0; width: 320px; }
+  .journey-row-image img {
+    width: 100%; height: auto; border-radius: 16px; display: block;
+    box-shadow: 0 12px 40px rgba(138,12,47,0.12);
+  }
+  .journey-row-content { flex: 1; min-width: 0; }
+
+  @media (max-width: 768px) {
+    .journey-wrap { padding: 3.5rem 1.5rem; }
+    .journey-row { flex-direction: column; gap: 1.5rem; }
+    .journey-row-image { width: 100%; }
   }
 </style>
 </head>
@@ -433,7 +519,7 @@
     <button class="popup-close" onclick="closePopup()" aria-label="Close">×</button>
     <div class="popup-form-inner">
       <h3>Secure Your Spot</h3>
-      <p class="popup-sub">Saturday, June 28 · Boulder, CO · 4:00–6:30 PM</p>
+      <p class="popup-sub">Saturday, June 28 · Boulder, CO · 4:00–7:00 PM</p>
       <div id="form-error" style="display:none; color:#8a0c2f; font-size:0.85rem; margin-bottom:0.75rem; font-family:var(--sans); text-align:center;"></div>
       <input type="text" class="form-field" id="fd-firstName" placeholder="First Name" name="firstName">
       <input type="email" class="form-field" id="fd-email" placeholder="Email Address" name="email">
@@ -485,29 +571,34 @@
 </nav>
 
 <!-- ── HERO ───────────────────────────────────────────────────── -->
-<header class="hero">
-  <span class="hero-eyebrow">In-Person Workshop · Boulder, CO · June 28 · 4:00 – 7:00 PM</span>
-  <h1 class="hero-title">Orgasmic<br><em>Body</em></h1>
-  <p class="hero-subtitle"><strong>Free up</strong>  your energetic channels. <strong>Open</strong>  your body to more pleasure and vitality. <br><strong>Connect</strong> with the power of your sexual energy — in a platonic setting. </p>
-  <div class="hero-meta">
+<section style="background: var(--peach-light); border-bottom: 1px solid rgba(138,12,47,0.08); padding-top: 2rem;">
+  <span class="hero-eyebrow" style="display:block; text-align:center; margin-bottom: 2rem;">In-Person Workshop ◆ Boulder, CO ◆ June 28, 4:00 – 7:00 PM</span>
+  <div class="hero-split">
 
-  <button onclick="openPopup()" class="btn btn-primary">Secure Your Spot</button>
-</header>
+    <div class="hero-text">
+      <h1 class="hero-title">Orgasmic<br><em>Body</em></h1>
+      <p class="hero-subtitle"><strong>Free up</strong>  your energetic channels. <strong>Open</strong>  your body to more pleasure and vitality. <br><strong>Connect</strong> with the power of your sexual energy — in a platonic setting.</p>
+      <button onclick="openPopup()" class="btn btn-primary">Secure Your Spot</button>
+    </div>
 
-<!-- ── HERO IMAGE ──────────────────────────────────────────────── -->
-<div class="hero-image-wrap">
-  <img src="IMG_1584.jpeg" alt="Orgasmic Body workshop — energy activation and platonic touch" style="width:100%; height:480px; object-fit:cover; object-position:center 30%; border-radius:16px; display:block;">
-</div>
+    <div class="hero-image">
+      <img src="IMG_1584.jpeg" alt="Orgasmic Body workshop" style="width:100%; height:auto; border-radius:16px; display:block;">
+    </div>
+
+  </div>
+</section>
 
 <!-- ── INTRO ───────────────────────────────────────────────────── -->
 <section>
   <div class="inner">
-    <span class="section-label">What this is</span>
-    <h2 class="section-title">Your body holds more<br><em>than you've been told.</em></h2>
+    <span class="section-label">Why this workshop</span>
+    <h2 class="section-title">Your body holds unresolved experiences<br><em>preventing your energy to flow freely</em></h2>
     <div class="body-text">
-      <p>Sexual energy is life-force. Creative power. The aliveness that fuels your vitality, your magnetism, your joy — everywhere you go. And yet most of us have been trained to suppress it, disconnect from it, or keep it separate from "regular" life.</p>
-      <p>Orgasmic Body is a 3-hour immersive experience where we change that. Through breath, energy activation, somatic practice, and <span class="hi">completely platonic partner work</span>, we open the channels your body has been holding closed — and let life-force flow again.</p>
-      <p>No partner needed. No experience required. Just a readiness to feel more.</p>
+      <p>Your body holds information about everything that has ever happened to you. Every moment of stress, shutdown, or disconnection is stored — often as bracing, contracting, closing.</p>
+      <p>On top of that, most have learned to repress their emotions or sexual energy on some level. The body is then using it's precious energy holding back your natural energy flow — sometimes for years — which often result in emotional flatness or feeling like you're going through the motions. All this leads to <span class="hi">disminished vitality, energy levels, turn on, libido, access to pleasure, and overall well-being</span>.</p>
+      <p>Sexual energy is life-force. It is creative and healing energy. It fuels your aliveness, your magnetism, your joy — everywhere you go. Being conditionned to disconnect from it, or keep it separate from "regular" life, we can experience only a fraction of it's power and gifts.</p>
+      <p>Orgasmic Body is a 3-hour immersive experience — using energy activation and platonic somatic practices — to release what no longer serves you, reopen your channels, and reconnect to your own powerful energy so that you can feel more alive, more open, more you, and more connected to your body intelligence and natural flow.</p>
+      <p class="practice-note">No partner needed. No experience required. Just a readiness to feel more.</p>
     </div>
     <div class="feel-grid">
       <div class="feel-item">More alive</div>
@@ -523,23 +614,34 @@
 <hr class="divider">
 
 <!-- ── WHAT WE COVER ───────────────────────────────────────────── -->
-<section class="alt-bg">
-  <div class="inner">
-    <span class="section-label">What we'll explore</span>
-    <h2 class="section-title">An immersive journey<br><em>through the body.</em></h2>
-    <div class="body-text">
-      <p>This workshop blends modern nervous system science with ancient tantric wisdom — the <span class="hi">Energy Orgasm methodology</span> — developed to awaken healing sexual energy and nourish body, mind, and soul with life-force flow and pleasure.</p>
+<section class="alt-bg" style="padding:0;">
+  <div class="journey-wrap">
+
+    <div class="journey-header">
+      <span class="section-label">What we'll explore</span>
+      <h2 class="section-title">An immersive journey<br><em>through the body.</em></h2>
+      <div class="body-text">
+        <p>This workshop blends modern nervous system science with ancient tantric wisdom and draws from the <span class="hi">Energy 0rgasm method</span> — developed to awaken healing sexual energy and nourish body, mind, and soul with life-force flow and pleasure.</p>
+      </div>
     </div>
-    <ul class="practice-list">
-      <li><span class="dot">◆</span><div><strong>The Wheel of Sexuality</strong> — Identify where your energy is blocked and why</div></li>
-      <li><span class="dot">◆</span><div><strong>Body & Energy Cleansing + Sexual Cord Cutting</strong> — Release what's ready to go</div></li>
-      <li><span class="dot">◆</span><div><strong>Creating a Magnetic Field</strong> — Open channels for vital energy to circulate freely</div></li>
-      <li><span class="dot">◆</span><div><strong>Intimate Muscle Anatomy & Pleasure-Awareness Activation</strong> — Know your body's design, awaken its capacity</div></li>
-      <li><span class="dot">◆</span><div><strong>Power Within Activation</strong> — Reclaim your sexual energy as a source of self-healing and joy</div></li>
-      <li><span class="dot">◆</span><div><strong>Tantric Breathwork for Energy Mastery</strong> — Use breath as the key to presence and flow</div></li>
-      <li><span class="dot">◆</span><div><strong>From Tension to Surrender</strong> — Free blockages, feel vital, connect with kundalini energy</div></li>
-    </ul>
-    <p class="practice-note">All partner work uses completely platonic, consensual touch to support each other in opening energy channels. This is non-sexual practice rooted in safety, care, and mutual support.</p>
+
+    <div class="journey-row">
+      <div class="journey-row-image">
+        <img src="IMG_1585.jpeg" alt="Energy Orgasms workshop atmosphere">
+      </div>
+      <div class="journey-row-content">
+        <ul class="practice-list">
+          <li><span class="dot">◆</span><div><strong>Body & Energy Cleansing</strong> — Release what's ready to go</div></li>
+          <li><span class="dot">◆</span><div><strong>Creating a Magnetic Field</strong> — Open channels for vital energy to circulate freely</div></li>
+          <li><span class="dot">◆</span><div><strong>Intimate Muscle Anatomy & Pleasure Activation</strong> — Know your body's design, awaken its capacity</div></li>
+          <li><span class="dot">◆</span><div><strong>Power Within Activation</strong> — Reclaim your sexual energy as a source of self-healing, joy and vitality</div></li>
+          <li><span class="dot">◆</span><div><strong>Tantric Breathwork for Energy Sovereignty</strong> — Use breath as a tool to direct energy flow and dial up your pleasure</div></li>
+          <li><span class="dot">◆</span><div><strong>From Tension to Surrender</strong> — Connect with kundalini energy and deepen trust in your own power through surrender</div></li>
+        </ul>
+        <p class="practice-note">All partner work uses completely platonic, consensual touch to support each other in opening energy channels. This workshop includes only non-sexual partner practice rooted in safety, care, and mutual support.</p>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -551,65 +653,90 @@
 
 <!-- ── WHY IT WORKS ────────────────────────────────────────────── -->
 <section>
-  <div class="inner">
-    <span class="section-label">Why it works</span>
-    <h2 class="section-title">The body keeps<br><em>everything.</em></h2>
-    <div class="body-text">
-      <p>Your body holds information about everything that has ever happened to you. Every moment of stress, shutdown, or disconnection is stored — as bracing, contracting, closing — which leads to <span class="hi">energy loss, emotional flatness, and feeling like you're going through the motions</span>.</p>
-      <p>Energy Orgasms work by filling the body with sensations of love, care, and joy — opening flow again, removing blocks, and awakening your body's innate libido potential. The result: greater vitality, emotional well-being, and a deeper relationship with yourself and others.</p>
-      <p>For couples, this work can <span class="hi">reignite passion and deepen intimacy</span>. For everyone, it can feel like coming home to yourself.</p>
+  <div class="journey-wrap" style="padding-top:5rem; padding-bottom:5rem;">
+    <div class="journey-row">
+      <div class="journey-row-content">
+        <span class="section-label">How it works</span>
+        <h2 class="section-title">Your body is<br><em>naturally orgasmic</em></h2>
+        <div class="body-text">
+          <p>As we fill the body and mind with love, care, and joy energy, though various techniques, we create greater safety for energy to flow more freely. Surrender — the gateway to your full orgasmic potential — then becomes more accessible. The immediate impacts in your life are: greater vitality, a deeper sense of ease, emotional well-being, and a more intimate relationship with yourself, your pleasure and your loved ones.</p>
+          <p>For couples, this work often <span class="hi">reignite passion and deepen intimacy</span>. For everyone, it can feel like coming home to yourself.</p>
+        </div>
+      </div>
+      <div class="journey-row-image">
+        <img src="IMG_1591.jpeg" alt="Energy Orgasms session moment">
+      </div>
     </div>
   </div>
 </section>
 
 <hr class="divider">
 
-<!-- ── TESTIMONIALS ────────────────────────────────────────────── -->
-<section style="background: var(--peach-mid);">
-  <div class="inner-wide">
-    <span class="section-label" style="text-align:center; display:block;">What people are saying</span>
-    <div class="testi-grid">
-      <div class="testi-card">
-        <p class="testi-quote">"Energy Orgasms session was sooo yummy. You need to have one, or like twenty... So much bliss, like ecstasy throughout the body. So much pleasure."</p>
-        <p class="testi-name">— A.D., Miami FL</p>
-      </div>
-      <div class="testi-card">
-        <p class="testi-quote">"I can sense energy in a way I've never sensed before — it's a whole new sensory feeling."</p>
-        <p class="testi-name">— A.B., New York</p>
-      </div>
-      <div class="testi-card">
-        <p class="testi-quote">"It was really, really releasing... I feel like I'm still kind of high on the energy, shaking around."</p>
-        <p class="testi-name">— G.O., Istanbul, Turkey</p>
+<!-- ── TESTIMONIALS (split with image) ─────────────────────────── -->
+<section class="alt-bg" style="padding:0;">
+  <div class="testimonials-split-inner">
+
+    <div class="testimonials-split-image">
+      <img src="IMG_1588.jpeg" alt="Energy Orgasms workshop atmosphere" style="width:100%; height:auto; border-radius:16px; display:block;">
+    </div>
+
+    <div class="testimonials-split-content">
+      <span class="section-label">What people are saying</span>
+      <div class="testimonials-split-list">
+
+        <div class="testi-card">
+          <p class="testi-quote">"Energy Orgasms session was sooo yummy. You need to have one, or like twenty... So much bliss, like ecstasy throughout the body. So much pleasure."</p>
+          <p class="testi-name">— A.D.</p>
+        </div>
+
+        <div class="testi-card">
+          <p class="testi-quote">"I can sense energy in a way I've never sensed before — it's a whole new sensory feeling."</p>
+          <p class="testi-name">— A.B.</p>
+        </div>
+
+        <div class="testi-card">
+          <p class="testi-quote">"It was really, really releasing... I feel like I'm still kind of high on the energy, shaking around."</p>
+          <p class="testi-name">— G.O.</p>
+        </div>
+
       </div>
     </div>
+
   </div>
 </section>
-
-<!-- ── ATMOSPHERE IMAGE ───────────────────────────────────────────── -->
-<div style="max-width:1080px; margin: 0 auto; padding: 0 2rem;">
-  <img src="IMG_1588.jpeg" alt="Energy Orgasms workshop atmosphere" style="width:100%; height:420px; object-fit:cover; object-position:center 25%; border-radius:16px; display:block;">
-</div>
 
 <!-- ── VIDEOS / GALLERY ────────────────────────────────────────── -->
 <section style="background: var(--peach-light); padding: 4rem 2rem;">
   <div class="inner-wide">
     <span class="section-label" style="text-align:center; display:block;">Feel the energy</span>
-    <div class="video-grid" style="display:grid; grid-template-columns: 1fr 1fr 1fr; gap:1.25rem; margin-top:2rem;">
+    <div class="video-grid" style="display:grid; gap:1.25rem; margin-top:2rem;">
 
-      <video autoplay muted loop playsinline
-        style="width:100%; aspect-ratio:9/16; object-fit:cover; border-radius:12px; display:block;">
-        <source src="945225b3-a9f1-4997-bcc7-ce94fa3e2818.mov" type="video/mp4">
-      </video>
+      <div class="video-wrap" onclick="toggleVideo(this)">
+        <video loop playsinline preload="metadata">
+          <source src="945225b3-a9f1-4997-bcc7-ce94fa3e2818.mov" type="video/mp4">
+        </video>
+        <div class="video-play-btn">
+          <svg viewBox="0 0 24 24" fill="#8a0c2f"><path d="M8 5v14l11-7z"/></svg>
+        </div>
+      </div>
 
-      <video autoplay muted loop playsinline
-        style="width:100%; aspect-ratio:9/16; object-fit:cover; border-radius:12px; display:block;">
-        <source src="98462cac-34ba-47f7-9af9-eb2bd8a2e9c7.mov" type="video/mp4">
-      </video>
+      <div class="video-wrap" onclick="toggleVideo(this)">
+        <video loop playsinline preload="metadata">
+          <source src="98462cac-34ba-47f7-9af9-eb2bd8a2e9c7.mov" type="video/mp4">
+        </video>
+        <div class="video-play-btn">
+          <svg viewBox="0 0 24 24" fill="#8a0c2f"><path d="M8 5v14l11-7z"/></svg>
+        </div>
+      </div>
 
-      <video autoplay muted loop playsinline
-        style="width:100%; aspect-ratio:9/16; object-fit:cover; border-radius:12px; display:block;">
-        <source src="646efef0-6591-4593-affd-3dc80d2c1459.mov" type="video/mp4">
-      </video>
+      <div class="video-wrap" onclick="toggleVideo(this)">
+        <video loop playsinline preload="metadata">
+          <source src="646efef0-6591-4593-affd-3dc80d2c1459.mov" type="video/mp4">
+        </video>
+        <div class="video-play-btn">
+          <svg viewBox="0 0 24 24" fill="#8a0c2f"><path d="M8 5v14l11-7z"/></svg>
+        </div>
+      </div>
 
     </div>
   </div>
@@ -620,7 +747,10 @@
   <div class="marilys-inner">
     <div class="marilys-photo-wrap">
       <div class="marilys-photo-round">
-        <img src="IMG_1585.jpeg" alt="Marilys facilitating Orgasmic Body workshop" style="width:100%; height:100%; object-fit:cover; object-position:center 20%;">
+        <img src="AND_9036.1.jpg" alt="Marilys facilitating Orgasmic Body workshop" style="width:100%; height:auto; display:block;">
+      </div>
+      <div class="marilys-photo-second">
+        <img src="IMG_1590.jpeg" alt="Marilys in session with a participant" style="width:100%; height:auto; display:block;">
       </div>
     </div>
     <div class="marilys-text">
@@ -708,6 +838,20 @@
 </footer>
 
 <script>
+  function toggleVideo(wrapEl) {
+    const video = wrapEl.querySelector('video');
+    if (video.paused) {
+      document.querySelectorAll('.video-wrap video').forEach(function(v) {
+        if (v !== video) { v.pause(); v.parentElement.classList.remove('playing'); }
+      });
+      video.play();
+      wrapEl.classList.add('playing');
+    } else {
+      video.pause();
+      wrapEl.classList.remove('playing');
+    }
+  }
+
   function openPopup() {
     document.getElementById('popupOverlay').classList.add('active');
     document.body.style.overflow = 'hidden';
