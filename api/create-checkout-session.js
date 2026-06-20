@@ -12,8 +12,7 @@ export default async function handler(req, res) {
       ui_mode: 'embedded',
       line_items: [
         {
-          price: 'price_1TjuilFw6D2MNlPCOF7t6ZeP', // Orgasmic Body - $55
-          quantity: 1,
+price: 'price_1TjuilFw6D2MNIPCOF7t6ZeP', // Orgasmic Body - $55          quantity: 1,
         },
       ],
       mode: 'payment',
