@@ -7,11 +7,13 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  try {
+try {
     const session = await stripe.checkout.sessions.create({
-ui_mode: 'embedded_page',      line_items: [
+      ui_mode: 'embedded_page',
+      line_items: [
         {
-price: 'price_1TjuilFw6D2MNIPCOF7t6ZeP', // Orgasmic Body - $55          quantity: 1,
+          price: 'price_1TjuilFw6D2MNIPCOF7t6ZeP',
+          quantity: 1,
         },
       ],
       mode: 'payment',
