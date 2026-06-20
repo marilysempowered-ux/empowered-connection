@@ -26,11 +26,16 @@ export default async function handler(req, res) {
     }
 
     const email = session.customer_details?.email;
-    const name = session.customer_details?.name || '';
-    const firstName = name.split(' ')[0] || '';
+
+    const fullName =
+      session.customer_details?.individual_name ||
+      session.customer_details?.name ||
+      '';
+    const nameParts = fullName.trim().split(' ').filter(Boolean);
+    const firstName = nameParts[0] || '';
+    const lastName = nameParts.slice(1).join(' ') || '';
 
     if (email) {
-      // Add subscriber to Flodesk
       await fetch('https://api.flodesk.com/v1/subscribers', {
         method: 'POST',
         headers: {
@@ -39,11 +44,11 @@ export default async function handler(req, res) {
         },
         body: JSON.stringify({
           first_name: firstName,
+          last_name: lastName,
           email: email,
         }),
       });
 
-      // Add to Orgasmic Body segment
       await fetch(`https://api.flodesk.com/v1/subscribers/${email}/segments`, {
         method: 'POST',
         headers: {
@@ -58,6 +63,8 @@ export default async function handler(req, res) {
       status: session.status,
       paid: true,
       email: email,
+      firstName: firstName,
+      lastName: lastName,
     });
   } catch (error) {
     console.error('Checkout status / Flodesk error:', error);
