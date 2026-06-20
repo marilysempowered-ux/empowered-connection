@@ -931,8 +931,8 @@ async function openCheckout() {
   const res = await fetch('/api/create-checkout-session', { method: 'POST' });
   const { clientSecret } = await res.json();
 
-  checkoutInstance = stripe.initEmbeddedCheckout({ clientSecret });
-  checkoutInstance.mount('#checkout-container');
+ checkoutInstance = await stripe.createEmbeddedCheckoutPage({ clientSecret });
+checkoutInstance.mount('#checkout-container');
 }
 
 function closeCheckout() {
