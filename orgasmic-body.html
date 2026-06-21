@@ -505,6 +505,13 @@
     .journey-row-image { width: 100%; }
   }
 </style>
+
+<!-- PostHog Analytics -->
+<script>
+  !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init Ge ws me Ai capture Ke calculateEventProperties Ws register register_once register_for_session unregister unregister_for_session Ts getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSurveysLoaded onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey getNextSurveyStep identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups setOptedIn setOptedOut hasOptedIn hasOptedOut clear_opt_in_out_capturing debug".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+  posthog.init('phc_vtGetNT7JjRiHuzkcAFwy3Qr9o5wNLW9V4XzbdYPso2k', { api_host: 'https://us.i.posthog.com', person_profiles: 'identified_only' });
+</script>
+
 </head>
 <body>
 
@@ -563,7 +570,7 @@
 </nav>
 
 <!-- ── HERO ───────────────────────────────────────────────────── -->
-<section style="background: var(--peach-light); border-bottom: 1px solid rgba(138,12,47,0.08); padding-top: 2rem;">
+<section style="background: var(--peach-light); border-bottom: 1px solid rgba(138,12,47,0.08); padding-top: 2rem;" data-section="hero">
   <span class="hero-eyebrow" style="display:block; text-align:center; margin-bottom: 2rem;">In-Person Workshop ◆ Boulder, CO ◆ June 28, 4:00 – 7:00 PM</span>
   <div class="hero-split">
 
@@ -580,7 +587,7 @@
 </section>
 
 <!-- ── INTRO ───────────────────────────────────────────────────── -->
-<section>
+<section data-section="intro">
   <div class="inner" style="max-width: 1000px;">
     <span class="section-label">Why this workshop</span>
     <h2 class="section-title">Your body holds unintegrated experiences<br><em>preventing your energy to flow freely</em></h2>
@@ -597,7 +604,7 @@
 <hr class="divider">
 
 <!-- ── WHAT WE COVER ───────────────────────────────────────────── -->
-<section class="alt-bg" style="padding:0;">
+<section class="alt-bg" style="padding:0;" data-section="what_we_cover">
   <div class="journey-wrap">
 
     <div class="journey-header">
@@ -627,13 +634,13 @@
 </section>
 
 <!-- ── PULL QUOTE ──────────────────────────────────────────────── -->
-<div class="pull-quote-section">
+<div class="pull-quote-section" data-section="pull_quote">
   <blockquote>"All my body was vibrating — and the most important thing: I felt so much happiness and joy. I felt like I'm radiating love. That was the first time experiencing this."</blockquote>
   <cite>— M.H., Miami FL</cite>
 </div>
 
 <!-- ── WHY IT WORKS ────────────────────────────────────────────── -->
-<section>
+<section data-section="why_it_works">
 <div class="journey-wrap" style="padding-top:5rem; padding-bottom:2rem;">    <div class="journey-row">
       <div class="journey-row-content">
         <span class="section-label">How it works</span>
@@ -653,7 +660,7 @@
 <hr class="divider">
 
 <!-- ── TESTIMONIALS (split with image) ─────────────────────────── -->
-<section class="alt-bg" style="padding:0;">
+<section class="alt-bg" style="padding:0;" data-section="testimonials">
   <div class="testimonials-split-inner">
 
     <div class="testimonials-split-image">
@@ -686,7 +693,7 @@
 </section>
 
 <!-- ── VIDEOS / GALLERY ────────────────────────────────────────── -->
-<section style="background: var(--peach-light); padding: 4rem 2rem;">
+<section style="background: var(--peach-light); padding: 4rem 2rem;" data-section="videos">
   <div class="inner-wide">
     <span class="section-label" style="text-align:center; display:block;">Feel the energy</span>
     <div class="video-grid" style="display:grid; gap:1.25rem; margin-top:2rem;">
@@ -723,7 +730,7 @@
 </section>
 
 <!-- ── MARILYS ─────────────────────────────────────────────────── -->
-<section class="marilys-section">
+<section class="marilys-section" data-section="facilitator">
   <div class="marilys-inner">
     <div class="marilys-photo-wrap">
       <div class="marilys-photo-round">
@@ -751,7 +758,7 @@
 </section>
 
 <!-- ── SCHEDULE + DETAILS ──────────────────────────────────────── -->
-<section class="alt-bg" id="details">
+<section class="alt-bg" id="details" data-section="schedule_details">
   <div class="inner">
     <span class="section-label">Details</span>
     <h2 class="section-title">Saturday, June 28<br><em>Boulder, CO</em></h2>
@@ -780,7 +787,7 @@
 </section>
 
 <!-- ── WHAT'S NEXT / SEEDING ───────────────────────────────────── -->
-<section class="next-section">
+<section class="next-section" data-section="whats_next">
   <div class="inner-wide">
     <span class="section-label" style="text-align:center; display:block;">Expanding into an orgasmic life</span>
     <h2 class="section-title" style="text-align:center;">This is just the beginning<br><em>of what's possible.</em></h2>
@@ -795,7 +802,7 @@
 </section>
 
 <!-- ── FINAL CTA ───────────────────────────────────────────────── -->
-<section class="final-cta" id="register">
+<section class="final-cta" id="register" data-section="final_cta">
   <div class="final-cta-inner">
     <span class="final-cta-eyebrow">June 28 · Boulder, CO · Limited Spots</span>
     <h2 class="final-cta-title">Ready for an<br><em>Orgasmic Body?</em></h2>
