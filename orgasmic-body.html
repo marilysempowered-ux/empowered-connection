@@ -537,7 +537,22 @@
     </div>
   </div>
 </div>
-
+<div class="popup-overlay" id="olPopupOverlay">
+  <div class="popup-box">
+    <button class="popup-close" onclick="closeOLPopup()" aria-label="Close">×</button>
+    <h3>Be the First to Know</h3>
+    <p class="popup-sub">Orgasmic Life · 6-Week Immersion · Starting July</p>
+    <div id="ol-form-error" style="display:none; color:#8a0c2f; font-size:0.85rem; margin-bottom:0.75rem; font-family:var(--sans); text-align:center;"></div>
+    <input type="text" class="form-field" id="ol-firstName" placeholder="First Name">
+    <input type="email" class="form-field" id="ol-email" placeholder="Email Address">
+    <button class="btn btn-primary" id="ol-submit" style="width:100%; margin-top:0.5rem;" onclick="submitOLForm()">Keep Me Posted →</button>
+    <div id="ol-form-success" style="display:none; text-align:center; padding:1.5rem 0;">
+      <p style="font-family:var(--serif); font-size:1.3rem; font-weight:700; color:var(--accent-deep); margin-bottom:0.5rem;">You're on the list ✨</p>
+      <p style="font-family:var(--sans); font-size:0.9rem; color:var(--text-mid);">You'll hear from me as soon as Orgasmic Life is open.</p>
+    </div>
+    <p class="popup-trust">✦ No spam. Just the details when they're ready.</p>
+  </div>
+</div>
 <!-- ── NAV ───────────────────────────────────────────────────── -->
 <nav>
   <a href="/" class="nav-logo"><img src="Logo. Dark red.png" alt="Empowered Connection"></a>
@@ -794,8 +809,7 @@
         <span class="next-card-label">Group Program · Starting in July</span>
         <p class="next-card-title">Orgasmic Life</p>
         <p class="next-card-body">It starts with an Orgasmic Body. Then, we learn to cultivate an Orgasmic Life — not just sometimes, when things align — everyday, in every moment. This is a live in-depth 6-week program shared with an small group, supporting youto integrate simple yet powerful practices into your daily life, increasing the pleasure, aliveness and vitality you experience. It's for those who want to feel sovereign with their energy and the fulness of their orgasmic potential.</p>
-        <a href="/coming-soon" class="btn btn-light" style="align-self: flex-start;">All Details Coming Soon</a>
-      </div>
+<a onclick="openOLPopup()" class="btn btn-light" style="align-self: flex-start; cursor: pointer;">Be the first to know</a>      </div>
     </div>
   </div>
 </section>
@@ -971,6 +985,65 @@ window.addEventListener('DOMContentLoaded', async () => {
     }
   }
 });
+</script>
+<script>
+  function openOLPopup() {
+    document.getElementById('olPopupOverlay').classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeOLPopup() {
+    document.getElementById('olPopupOverlay').classList.remove('active');
+    document.body.style.overflow = '';
+  }
+  document.getElementById('olPopupOverlay').addEventListener('click', function(e) {
+    if (e.target === this) closeOLPopup();
+  });
+
+  async function submitOLForm() {
+    const firstName = document.getElementById('ol-firstName').value.trim();
+    const email = document.getElementById('ol-email').value.trim();
+    const errorEl = document.getElementById('ol-form-error');
+    const submitBtn = document.getElementById('ol-submit');
+    errorEl.style.display = 'none';
+    if (!firstName) {
+      errorEl.textContent = 'Please enter your first name.';
+      errorEl.style.display = 'block'; return;
+    }
+    if (!email || !email.includes('@')) {
+      errorEl.textContent = 'Please enter a valid email address.';
+      errorEl.style.display = 'block'; return;
+    }
+    submitBtn.textContent = 'Saving...';
+    submitBtn.disabled = true;
+    try {
+      const response = await fetch('/api/join', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          firstName: firstName,
+          email: email,
+          segmentId: '6a39b118e1c4bf62dcaaefb5'
+        })
+      });
+      const data = await response.json();
+      if (response.ok && data.success) {
+        document.getElementById('ol-firstName').style.display = 'none';
+        document.getElementById('ol-email').style.display = 'none';
+        submitBtn.style.display = 'none';
+        document.getElementById('ol-form-success').style.display = 'block';
+      } else {
+        errorEl.textContent = data.error || 'Something went wrong. Please try again.';
+        errorEl.style.display = 'block';
+        submitBtn.textContent = 'Keep Me Posted →';
+        submitBtn.disabled = false;
+      }
+    } catch (err) {
+      errorEl.textContent = 'Connection error. Please try again.';
+      errorEl.style.display = 'block';
+      submitBtn.textContent = 'Keep Me Posted →';
+      submitBtn.disabled = false;
+    }
+  }
 </script>
 </body>
 </html>
