@@ -842,15 +842,23 @@
 </footer>
 
 <script>
-  // Initialize Flodesk form once on page load into the always-present container
-  window.fd('form', {
-    formId: '6a3c01423f52b5e70779f389',
-    containerEl: '#flodesk-embed-container'
-  });
+  var flodeskFormLoaded = false;
 
   function openPopup() {
     document.getElementById('popupOverlay').classList.add('active');
     document.body.style.overflow = 'hidden';
+
+    // Only init the form once, after popup is visible
+    if (!flodeskFormLoaded) {
+      flodeskFormLoaded = true;
+      // Small delay to ensure container is visible and Flodesk script is ready
+      setTimeout(function() {
+        window.fd('form', {
+          formId: '6a3c01423f52b5e70779f389',
+          containerEl: '#flodesk-embed-container'
+        });
+      }, 100);
+    }
   }
 
   function closePopup() {
