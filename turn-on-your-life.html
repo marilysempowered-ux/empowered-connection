@@ -16,6 +16,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+
+
 <style>
   :root {
     --accent:      #8a0c2f;
@@ -42,7 +45,7 @@
     overflow-x: hidden;
   }
 
-/* STICKY LIVE BANNER (logo + live event details + CTA) */
+/* STICKY LIVE BANNER */
 .live-banner {
   position: sticky; top: 0; z-index: 200;
   background: var(--accent-deep);
@@ -79,7 +82,7 @@
   0%, 100% { opacity: 1; transform: scale(1); }
   50% { opacity: 0.4; transform: scale(0.85); }
 }
-.live-details { font-size: 0.85rem; color:  #fff ; }
+.live-details { font-size: 0.85rem; color: #fff; }
 .live-cta {
   background: var(--accent) !important; color: #fff !important;
   padding: 0.5rem 1.3rem !important; border-radius: 30px !important;
@@ -95,7 +98,6 @@
   .live-logo img { height: 32px; }
 }
 
-  /* ANIMATED ARROW */
   .btn-arrow {
     display: inline-block;
     animation: arrowPulse 1.4s ease-in-out infinite;
@@ -105,7 +107,6 @@
     50%       { transform: translateX(5px); opacity: 0.7; }
   }
 
-  /* BUTTONS */
   .btn {
     display: inline-block; text-decoration: none;
     font-family: var(--sans); font-size: 1rem; font-weight: 600;
@@ -118,82 +119,60 @@
   .btn-cream:hover { background: var(--peach); transform: translateY(-2px); }
   .btn-large { font-size: 1.1rem; padding: 1.1rem 3rem; }
 
-  /* ANIMATED ARROW */
-  .btn-arrow {
-    display: inline-block;
-    animation: arrowPulse 1.4s ease-in-out infinite;
-  }
-  @keyframes arrowPulse {
-    0%, 100% { transform: translateX(0); opacity: 1; }
-    50%       { transform: translateX(5px); opacity: 0.7; }
-  }
-
-
-  /* POPUP OVERLAY */
+  /* POPUP OVERLAY — uses visibility/opacity so Flodesk container stays in DOM */
   .popup-overlay {
-    display: none;
+    visibility: hidden;
+    opacity: 0;
     position: fixed; inset: 0; z-index: 1000;
     background: rgba(90,8,32,0.7);
     backdrop-filter: blur(4px);
+    display: flex;
     align-items: center; justify-content: center;
     padding: 1.5rem;
+    transition: opacity 0.25s ease, visibility 0.25s ease;
   }
-  .popup-overlay.active { display: flex; }
+  .popup-overlay.active {
+    visibility: visible;
+    opacity: 1;
+  }
   .popup-box {
     background: var(--peach-light);
     border-radius: 16px;
-    padding: 3rem 2.5rem;
-    max-width: 480px; width: 100%;
+    padding: 2.5rem 2.5rem;
+    max-width: 520px; width: 100%;
     position: relative;
     box-shadow: 0 20px 60px rgba(90,8,32,0.4);
-    animation: popIn 0.3s ease;
+    max-height: 90vh;
+    overflow-y: auto;
+    transform: scale(0.92) translateY(20px);
+    transition: transform 0.25s ease;
   }
-  @keyframes popIn {
-    from { opacity: 0; transform: scale(0.92) translateY(20px); }
-    to   { opacity: 1; transform: scale(1) translateY(0); }
+  .popup-overlay.active .popup-box {
+    transform: scale(1) translateY(0);
   }
   .popup-close {
     position: absolute; top: 1rem; right: 1.2rem;
     background: none; border: none; cursor: pointer;
     font-size: 1.5rem; color: var(--text-mid); line-height: 1;
     transition: color 0.2s;
+    z-index: 10;
   }
   .popup-close:hover { color: var(--accent); }
-  .popup-box h3 {
-    font-family: var(--serif); font-size: 1.4rem; font-weight: 700;
-    color: var(--accent-deep); text-align: center; margin-bottom: 0.4rem;
-  }
-  .popup-box .popup-sub {
-    font-family: var(--sans); font-size: 0.88rem;
-    color: var(--text-mid); text-align: center; margin-bottom: 1.8rem;
-    font-style: italic;
-  }
-  .form-field {
-    width: 100%; padding: 0.75rem 1rem; margin-bottom: 0.75rem;
-    border: 1px solid rgba(138,12,47,0.2); border-radius: 6px;
-    font-family: var(--sans); font-size: 0.95rem; color: var(--text-dark);
-    background: #fff; outline: none; transition: border-color 0.2s;
-  }
-  .form-field:focus { border-color: var(--accent); }
-  .form-field::placeholder { color: rgba(122,48,32,0.4); }
-  select.form-field { cursor: pointer; }
-  .popup-trust {
-    font-size: 0.78rem; color: var(--text-mid);
-    text-align: center; margin-top: 0.8rem; font-style: italic;
-  }
+
+
 
   /* HERO */
   .hero {
     position: relative; min-height: 70vh;
     display: grid; grid-template-columns: 55% 50%;
-    overflow: hidden; margin-top: -2rem
+    overflow: hidden; margin-top: -2rem;
   }
-.hero-left {
-  display: flex; flex-direction: column;
-  justify-content: center; align-items: center;
-  text-align: center; padding: 5rem 4rem 1rem;
-  background: var(--peach-light); position: relative; z-index: 2;
-}
+  .hero-left {
+    display: flex; flex-direction: column;
+    justify-content: center; align-items: center;
+    text-align: center; padding: 5rem 4rem 1rem;
+    background: var(--peach-light); position: relative; z-index: 2;
+  }
   .hero-eyebrow {
     font-family: var(--sans); font-size: 0.78rem; font-weight: 500;
     letter-spacing: 0.18em; text-transform: uppercase;
@@ -213,20 +192,14 @@
     font-family: var(--sans); font-size: 1rem;
     color: var(--text-mid); line-height: 1.75; margin-bottom: 2rem; max-width: 520px;
   }
-.hero-body strong { color: var(--coral); font-weight: 600; }
-  .hero-zinger {
-    font-family: var(--serif); font-style: italic; font-weight: 700;
-    font-size: 1.1rem; color: var(--text-dark); margin-bottom: 1.2rem;
-  }
+  .hero-body strong { color: var(--coral); font-weight: 600; }
   .hero-right { position: relative; margin-top: -3.5rem; overflow: hidden; }
-.hero-right img { width: 100%; height: 125%; object-fit: cover; object-position: center 30%; display: block; transform: scale(1); }
-
-.hero-right::before {
+  .hero-right img { width: 100%; height: 125%; object-fit: cover; object-position: center 30%; display: block; }
+  .hero-right::before {
     content: ''; position: absolute; inset: 0; z-index: 1;
     background: linear-gradient(to right, var(--peach-light) 0%, transparent 12%);
   }
 
-  /* IA LINK */
   .ia-link {
     color: var(--text-dark); font-weight: 400; text-decoration: underline;
     transition: color 0.2s;
@@ -266,335 +239,64 @@
   }
   .proof-line .dot { color: rgba(253,232,192,0.5); font-weight: 400; }
 
-  /* MIRROR — ALIGNED 3-COLUMN TOLD / TRUTH */
+  /* MIRROR */
   .mirror { background: var(--accent-deep); padding: 5rem 4rem; }
   .mirror-inner { max-width: 1000px; margin: 0 auto; text-align: center; }
-  .mirror-q {
-    font-family: var(--serif); font-weight: 700;
-    font-size: clamp(1.5rem, 2.6vw, 2.2rem);
-    color: var(--peach-light); line-height: 1.4; margin: 0 auto 0.5rem;
-  }
-  .mirror-dimming {
-    font-family: var(--serif); font-weight: 700; font-style: italic;
-    font-size: clamp(1.1rem, 2vw, 1.1rem);
-    color: rgba(253,232,192,0.55); line-height: 1.4; margin-bottom: 0.8rem;
-  }
-  .mirror-not {
-    font-family: var(--serif); font-weight: 700;
-    font-size: clamp(1.3rem, 2.6vw, 1.2rem);
-    color: var(--peach-mid); line-height: 1; margin-bottom: 2.8rem;
-  }
-  .mirror-conditioned {
-    font-family: var(--sans); font-size: 0.88rem; font-weight: 600;
-    letter-spacing: 0.18em; text-transform: uppercase; color: var(--coral);
-    text-align: center; margin-bottom: 1.2rem;
-  }
-
-  .mirror-grid {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
-    max-width: 920px; margin: 0 auto 2.5rem; text-align: left;
-  }
-  .mirror-col-told {
-    font-family: var(--serif); font-size: 0.98rem;
-    color: rgba(253,232,192,0.55); line-height: 1.65; margin-bottom: 0.5rem;
-    background: rgba(253,232,192,0.06); border-radius: 10px; padding: 1.4rem;
-  }
+  .mirror-q { font-family: var(--serif); font-weight: 700; font-size: clamp(1.5rem, 2.6vw, 2.2rem); color: var(--peach-light); line-height: 1.4; margin: 0 auto 0.5rem; }
+  .mirror-dimming { font-family: var(--serif); font-weight: 700; font-style: italic; font-size: clamp(1.1rem, 2vw, 1.1rem); color: rgba(253,232,192,0.55); line-height: 1.4; margin-bottom: 0.8rem; }
+  .mirror-not { font-family: var(--serif); font-weight: 700; font-size: clamp(1.3rem, 2.6vw, 1.2rem); color: var(--peach-mid); line-height: 1; margin-bottom: 2.8rem; }
+  .mirror-conditioned { font-family: var(--sans); font-size: 0.88rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--coral); text-align: center; margin-bottom: 1.2rem; }
+  .mirror-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; max-width: 920px; margin: 0 auto 2.5rem; text-align: left; }
+  .mirror-col-told { font-family: var(--serif); font-size: 0.98rem; color: rgba(253,232,192,0.55); line-height: 1.65; margin-bottom: 0.5rem; background: rgba(253,232,192,0.06); border-radius: 10px; padding: 1.4rem; }
   .mirror-col-told strong { color: rgba(253,232,192,0.7); font-style: normal; font-weight: 600; }
-  .mirror-truth-label {
-    font-family: var(--sans); font-size: 0.90rem; font-weight: 600;
-    letter-spacing: 0.18em; text-transform: uppercase; color: var(--coral);
-    text-align: center; display: block; margin: 2.5rem 0 1.2rem;
-  }
-  .mirror-col-truth {
-    font-family: var(--sans); font-size: 0.95rem; font-weight: 500;
-    color: var(--peach-light); line-height: 1.7;
-    background: rgba(253,232,192,0.06); border-radius: 10px; padding: 1.4rem;
-    position: relative; overflow: hidden; z-index: 0;
-  }
-  .mirror-col-truth::before {
-    content: ''; position: absolute; inset: -75%; z-index: -2;
-    background: conic-gradient(from 0deg, transparent 0deg, transparent 280deg, var(--peach-mid) 320deg, var(--peach-light) 340deg, var(--peach-mid) 350deg, transparent 360deg);
-    animation: travelLight 4s linear infinite;
-  }
-  .mirror-col-truth::after {
-    content: ''; position: absolute; inset: 1px; border-radius: 9px; z-index: -1;
-    background: rgba(90,8,32,0.97);
-  }
+  .mirror-truth-label { font-family: var(--sans); font-size: 0.90rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--coral); text-align: center; display: block; margin: 2.5rem 0 1.2rem; }
+  .mirror-col-truth { font-family: var(--sans); font-size: 0.95rem; font-weight: 500; color: var(--peach-light); line-height: 1.7; background: rgba(253,232,192,0.06); border-radius: 10px; padding: 1.4rem; position: relative; overflow: hidden; z-index: 0; }
+  .mirror-col-truth::before { content: ''; position: absolute; inset: -75%; z-index: -2; background: conic-gradient(from 0deg, transparent 0deg, transparent 280deg, var(--peach-mid) 320deg, var(--peach-light) 340deg, var(--peach-mid) 350deg, transparent 360deg); animation: travelLight 4s linear infinite; }
+  .mirror-col-truth::after { content: ''; position: absolute; inset: 1px; border-radius: 9px; z-index: -1; background: rgba(90,8,32,0.97); }
   .mirror-col-truth strong { color: var(--peach); font-weight: 700; }
-
-  @keyframes travelLight {
-    from { transform: rotate(0deg); }
-    to   { transform: rotate(360deg); }
-  }
-
-  .mirror-craving {
-    font-family: var(--serif); font-style: italic; font-weight: 700;
-    font-size: clamp(1.2rem, 2vw, 1.2rem); color: var(--peach);
-    text-align: center; max-width: 720px; margin: 4.5rem auto 2.5rem; line-height: 1.5;
-  }
-  .mirror-craving  strong { color: var(--peach-light); }
-
-  /* WRONG THINGS LIST */
+  @keyframes travelLight { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+  .mirror-craving { font-family: var(--serif); font-style: italic; font-weight: 700; font-size: clamp(1.2rem, 2vw, 1.2rem); color: var(--peach); text-align: center; max-width: 720px; margin: 4.5rem auto 2.5rem; line-height: 1.5; }
+  .mirror-craving strong { color: var(--peach-light); }
   .wrong-things { max-width: 760px; margin: 0 auto 2.5rem; text-align: left; }
-  .wrong-thing {
-    font-family: var(--sans); font-size: 0.97rem; color: rgba(253,232,192,0.75);
-    line-height: 1.75; margin-bottom: 1rem; padding-left: 0.2rem;
-  }
+  .wrong-thing { font-family: var(--sans); font-size: 0.97rem; color: rgba(253,232,192,0.75); line-height: 1.75; margin-bottom: 1rem; padding-left: 0.2rem; }
   .wrong-thing strong { color: var(--peach-light); font-weight: 600; }
-
-  .life-force-callout {
-    font-family: var(--serif); font-weight: 700;
-    font-size: clamp(1.3rem, 2.2vw, 1.8rem); color: var(--peach-light);
-    text-align: center; max-width: 740px; margin: 2.5rem auto 0; line-height: 1.5;
-  }
+  .life-force-callout { font-family: var(--serif); font-weight: 700; font-size: clamp(1.3rem, 2.2vw, 1.8rem); color: var(--peach-light); text-align: center; max-width: 740px; margin: 2.5rem auto 0; line-height: 1.5; }
   .life-force-callout strong { color: var(--peach); }
 
-  /* THE MECHANISM */
-  .mechanism { background: var(--peach-light); padding: 5rem 4rem; }
-  .mechanism-inner { max-width: 1000px; margin: 0 auto; }
-  .mechanism-tagline {
-    font-family: var(--serif); font-style: italic; font-weight: 700;
-    font-size: clamp(2.2rem, 4.5vw, 3.4rem); color: var(--accent-deep);
-    text-align: center; margin: 0 auto 1.8rem; line-height: 1.15;
-  }
-  .mechanism-inner p { font-family: var(--sans); font-size: 1.02rem; color: var(--text-dark); line-height: 1.85; margin-bottom: 1.1rem; }
-  .mechanism-big {
-    font-family: var(--serif); font-weight: 700;
-    font-size: clamp(1.3rem, 2.2vw, 1.8rem);
-    color: var(--accent); line-height: 1.4;
-    margin: 1.8rem 0 1.2rem !important;
-  }
-
-  /* IMAGINE — REDESIGNED (single column, after story) */
-  .imagine-section { background: var(--peach-mid); padding: 5rem 4rem; }
-  .imagine-title { font-family: var(--serif); font-weight: 700; font-style: italic; font-size: clamp(3rem, 6vw, 5.5rem); color: var(--accent-deep); text-align: center; line-height: 1; margin-bottom: 0.4rem; }
-  .imagine-tag { font-family: var(--sans); font-size: 0.92rem; color: var(--text-mid); text-align: center; font-style: italic; margin-bottom: 3.5rem; margin-top: 1rem; }
-  .imagine-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; max-width: 1000px; margin: 0 auto 3rem; }
-  .imagine-card {
-    background: rgba(255,255,255,0.6); border-radius: 12px; padding: 1.8rem;
-    border-left: 3px solid var(--coral);
-  }
-  .imagine-moment {
-    font-family: var(--serif); font-weight: 700; font-size: 1.12rem;
-    color: var(--accent); line-height: 1.4; margin-bottom: 0.7rem;
-  }
-  .imagine-detail { font-family: var(--sans); font-size: 0.92rem; color: var(--text-mid); line-height: 1.7; }
-  .imagine-detail strong { color: var(--text-dark); font-weight: 600; }
-  .imagine-proof {
-    font-family: var(--serif); font-style: italic; font-size: 0.88rem;
-    color: var(--accent); line-height: 1.6; margin-top: 0.8rem;
-    padding-top: 0.8rem; border-top: 1px solid rgba(138,12,47,0.1);
-  }
-
-  /* MY PROMISE TO YOU */
-  .promise-block {
-    max-width: 760px; margin: 1rem auto 2.5rem; text-align: center;
-    background: rgba(255,255,255,0.55); border-radius: 16px;
-    padding: 2.5rem 2.5rem; border: 1px solid rgba(255,255,255,0.6);
-  }
-  .guarantee-label {
-    font-family: var(--sans); font-size: 0.8rem; font-weight: 600;
-    letter-spacing: 0.2em; text-transform: uppercase; color: var(--coral);
-    margin-bottom: 1.2rem; display: block; text-align: center;
-  }
-  .promise-line {
-    font-family: var(--serif); font-size: clamp(1.1rem, 2vw, 1.4rem);
-    color: var(--accent-deep); line-height: 1.6;
-    margin-bottom: 0.9rem;
-  }
-  .promise-line:last-child { margin-bottom: 0; }
-  .promise-line strong { color: var(--accent); font-weight: 700; }
-
-  /* BINARY CHOICE */
-  .binary { background: var(--accent-deep); padding: 5rem 4rem; }
-  .binary-inner { max-width: 900px; margin: 0 auto; text-align: center; }
-  .binary-lead {
-    font-family: var(--serif); font-weight: 700; font-size: clamp(1.6rem, 2.8vw, 2.4rem);
-    color: var(--peach-light); margin-bottom: 2.5rem; line-height: 1.3;
-  }
-  .binary-options { display: grid; grid-template-columns: 1fr auto 1fr; gap: 1.5rem; align-items: center; margin-bottom: 2.5rem; }
-  .binary-card {
-    background: rgba(253,232,192,0.05); border: 1px solid rgba(253,232,192,0.12);
-    border-radius: 12px; padding: 1.8rem; text-align: left;
-  }
-  .binary-card.highlight {
-    background: rgba(245,201,138,0.1); border: 1px solid rgba(245,201,138,0.35);
-  }
-  .binary-card p { font-family: var(--sans); font-size: 0.95rem; color: rgba(253,232,192,0.7); line-height: 1.7; }
-  .binary-card.highlight p { color: var(--peach-light); }
-  .binary-card p strong { color: var(--peach); }
-  .binary-or {
-    font-family: var(--serif); font-style: italic; font-weight: 700;
-    font-size: 1.3rem; color: var(--coral);
-  }
-  .binary-close {
-    font-family: var(--serif); font-weight: 700;
-    font-size: clamp(1.2rem, 2vw, 1.7rem); color: var(--peach);
-    line-height: 1.6; margin-bottom: 0.5rem;
-  }
-
   /* STORY */
-  .story-hook {
-    font-family: var(--serif); font-style: italic; font-weight: 700;
-    font-size: clamp(2rem, 4.5vw, 2rem); color: var(--accent);
-    text-align: center; max-width: 860px; margin: 0 auto 2.5rem; line-height: 1.15;
-}
-
+  .story-hook { font-family: var(--serif); font-style: italic; font-weight: 700; font-size: clamp(2rem, 4.5vw, 2rem); color: var(--accent); text-align: center; max-width: 860px; margin: 0 auto 2.5rem; line-height: 1.15; }
   .story { background: var(--peach-light); padding: 5rem 4rem; }
   .story-inner { max-width: 1000px; margin: 0 auto; }
   .story-inner p { font-family: var(--sans); font-size: 1.05rem; color: var(--text-dark); line-height: 1.85; margin-bottom: 1.1rem; }
   .story-inner p strong { color: var(--text-dark); font-weight: 600; }
   .story-inner .red { color: var(--accent); font-weight: 700; }
-  .story-inner .red-plain { color: var(--accent); }
-  .story-big {
-    font-family: var(--serif); font-weight: 700;
-    font-size: clamp(1.5rem, 2.6vw, 2.1rem);
-    color: var(--accent-deep); line-height: 1.35;
-    margin: 1.8rem 0 1.2rem !important;
-  }
-  .story-bigger { font-family: var(--sans); font-size: 1.1rem; font-weight: 600; color: var(--text-dark); margin-bottom: 0.5rem !important; }
-  .story-quiet {
-    font-family: var(--serif); font-style: italic;
-    font-size: 1rem; color: var(--text-mid);
-  }
-.ia-link {
-  color: var(--text-dark); font-weight: 600; text-decoration: underline;
-  transition: color 0.2s;
-}
-.ia-link:hover { color: var(--accent); }
-
-  .story-img-left {
-    float: left;
-    width: 250px;
-    height: auto;
-    border-radius: 12px;
-    margin: 0 1.8rem 1rem 0;
-    shape-outside: margin-box;
-  }
-  @media (max-width: 640px) {
-    .story-img-left {
-      float: none;
-      width: 100%;
-      max-width: 320px;
-      margin: 0 auto 1.5rem;
-      display: block;
-    }
-  }
-  .story-img-right {
-  float: right;
-  width: 350px;
-  height: auto;
-  border-radius: 12px;
-  margin: 0 0 1rem 1.8rem;
-  shape-outside: margin-box;
-}
-@media (max-width: 640px) {
-  .story-img-right {
-    float: none;
-    width: 100%;
-    max-width: 320px;
-    margin: 0 auto 1.5rem;
-    display: block;
-  }
-}
-
+  .story-big { font-family: var(--serif); font-weight: 700; font-size: clamp(1.5rem, 2.6vw, 2.1rem); color: var(--accent-deep); line-height: 1.35; margin: 1.8rem 0 1.2rem !important; }
+  .story-quiet { font-family: var(--serif); font-style: italic; font-size: 1rem; color: var(--text-mid); }
+  .ia-link { color: var(--text-dark); font-weight: 600; text-decoration: underline; transition: color 0.2s; }
+  .ia-link:hover { color: var(--accent); }
+  .story-img-left { float: left; width: 250px; height: auto; border-radius: 12px; margin: 0 1.8rem 1rem 0; shape-outside: margin-box; }
+  .story-img-right { float: right; width: 350px; height: auto; border-radius: 12px; margin: 0 0 1rem 1.8rem; shape-outside: margin-box; }
   .story-divider { width: 48px; height: 2px; background: var(--coral); margin: 2rem 0; opacity: 0.4; }
-  .story-welcome { color: var(--accent); font-weight: 600; font-size: 1.05rem; }
 
-  /* DARK SECTION */
-  .section-dark { background: var(--accent-deep); padding: 5rem; }
-  .dark-inner { max-width: 900px; margin: 0 auto; text-align: center; }
-  .dark-lead {
-    font-family: var(--serif); font-weight: 700;
-    font-size: clamp(1.8rem, 3.2vw, 2.8rem);
-    color: var(--peach-light); line-height: 1.2; margin-bottom: 0.5rem;
-  }
-  .dark-lead2 {
-    font-family: var(--serif); font-weight: 700;
-    font-size: clamp(1.6rem, 2.8vw, 2.4rem);
-    color: var(--peach-light); line-height: 1.2; margin-bottom: 1.5rem;
-  }
-  .dark-secondary {
-    font-family: var(--serif); font-style: italic;
-    font-size: clamp(1rem, 1.6vw, 1.25rem);
-    color: rgba(253,232,192,0.75); margin-bottom: 0.5rem;
-  }
-  .dark-p { font-family: var(--sans); font-size: 1rem; color: rgba(253,232,192,0.82); line-height: 1.8; margin-bottom: 1rem; }
-  .dark-p strong { color: var(--peach-light); font-weight: 600; }
-  .reason-block { margin: 2rem 0; }
-  .reason {
-    font-family: var(--serif); font-weight: 700;
-    font-size: clamp(1.1rem, 1.8vw, 1.4rem);
-    color: var(--peach); margin-bottom: 0.4rem;
-  }
-  .reason-continuation {
-    font-family: var(--sans); font-size: 0.97rem;
-    color: rgba(253,232,192,0.7); font-style: italic; margin-bottom: 1rem;
-  }
-  .big-q {
-    font-family: var(--serif); font-weight: 700;
-    font-size: clamp(2rem, 3.5vw, 3.2rem);
-    color: var(--peach); line-height: 1.15; margin: 2.5rem 0 0.5rem;
-  }
-  .dimming { font-family: var(--serif); font-weight: 700; font-size: 1.1rem; color: var(--peach-light); margin-bottom: 0.3rem; }
-  .not-you { font-family: var(--serif); font-style: italic; font-size: 1rem; color: rgba(253,232,192,0.55); margin-bottom: 2.5rem; }
+  /* IMAGINE */
+  .imagine-section { background: var(--peach-mid); padding: 5rem 4rem; }
+  .imagine-title { font-family: var(--serif); font-weight: 700; font-style: italic; font-size: clamp(3rem, 6vw, 5.5rem); color: var(--accent-deep); text-align: center; line-height: 1; margin-bottom: 0.4rem; }
+  .imagine-tag { font-family: var(--sans); font-size: 0.92rem; color: var(--text-mid); text-align: center; font-style: italic; margin-bottom: 3.5rem; margin-top: 1rem; }
+  .imagine-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; max-width: 1000px; margin: 0 auto 3rem; }
+  .imagine-card { background: rgba(255,255,255,0.6); border-radius: 12px; padding: 1.8rem; border-left: 3px solid var(--coral); }
+  .imagine-moment { font-family: var(--serif); font-weight: 700; font-size: 1.12rem; color: var(--accent); line-height: 1.4; margin-bottom: 0.7rem; }
+  .imagine-detail { font-family: var(--sans); font-size: 0.92rem; color: var(--text-mid); line-height: 1.7; }
+  .imagine-detail strong { color: var(--text-dark); font-weight: 600; }
+  .imagine-proof { font-family: var(--serif); font-style: italic; font-size: 0.88rem; color: var(--accent); line-height: 1.6; margin-top: 0.8rem; padding-top: 0.8rem; border-top: 1px solid rgba(138,12,47,0.1); }
+  .promise-block { max-width: 760px; margin: 1rem auto 2.5rem; text-align: center; background: rgba(255,255,255,0.55); border-radius: 16px; padding: 2.5rem 2.5rem; border: 1px solid rgba(255,255,255,0.6); }
+  .guarantee-label { font-family: var(--sans); font-size: 0.8rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--coral); margin-bottom: 1.2rem; display: block; text-align: center; }
+  .promise-line { font-family: var(--serif); font-size: clamp(1.1rem, 2vw, 1.4rem); color: var(--accent-deep); line-height: 1.6; margin-bottom: 0.9rem; }
+  .promise-line:last-child { margin-bottom: 0; }
+  .promise-line strong { color: var(--accent); font-weight: 700; }
 
-  /* INVERSION */
-  .inv-table { display: grid; grid-template-columns: 1fr 1fr; max-width: 940px; margin: 2.5rem auto; border: 1px solid rgba(253,232,192,0.15); border-radius: 8px; overflow: hidden; }
-  .inv-h { background: rgba(253,232,192,0.08); padding: 0.9rem 1.5rem; font-family: var(--sans); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--coral); text-align: center; border-bottom: 1px solid rgba(253,232,192,0.15); }
-  .inv-h.r { border-left: 1px solid rgba(253,232,192,0.15); }
-  .inv-l { padding: 1.3rem 1.5rem; border-bottom: 1px solid rgba(253,232,192,0.1); font-family: var(--sans); font-size: 0.92rem; color: rgba(253,232,192,0.55); line-height: 1.65; font-style: italic; }
-  .inv-r { padding: 1.3rem 1.5rem; border-bottom: 1px solid rgba(253,232,192,0.1); border-left: 1px solid rgba(253,232,192,0.15); font-family: var(--sans); font-size: 0.92rem; color: var(--peach-light); line-height: 1.65; font-weight: 500; }
-  .inv-l:last-child, .inv-r:last-child { border-bottom: none; }
-
-  .numbness { font-family: var(--serif); font-style: italic; font-size: clamp(1.1rem,1.8vw,1.5rem); color: rgba(253,232,192,0.6); margin: 2.5rem 0 0.5rem; }
-  .body-sensation {
-    font-family: var(--serif); font-weight: 700;
-    font-size: clamp(1.5rem, 2.8vw, 2.4rem);
-    color: var(--peach-light); line-height: 1.25; margin-bottom: 2.5rem;
-  }
-  .wrong-intro { font-family: var(--serif); font-weight: 700; font-size: clamp(1.1rem,1.8vw,1.5rem); color: var(--peach); margin-bottom: 0.6rem; }
-  .wrong-list-flat { font-family: var(--sans); font-size: 1rem; color: rgba(253,232,192,0.7); margin-bottom: 1.2rem; font-style: italic; }
-  .not-circ { font-family: var(--sans); font-size: 1rem; color: rgba(253,232,192,0.82); margin-bottom: 0.3rem; }
-  .life-force { font-family: var(--serif); font-weight: 700; font-size: clamp(1.6rem,3vw,2.8rem); color: var(--peach); margin-bottom: 2rem; }
-  .baseline-lines p {
-    font-family: var(--serif); font-weight: 700;
-    font-size: clamp(1.3rem, 2.3vw, 2rem);
-    color: var(--peach); line-height: 1.3; margin-bottom: 0.2rem;
-  }
-
-  /* WHAT'S POSSIBLE */
-  .possible { background: var(--peach-light); padding: 5rem; }
-  .imagine { font-family: var(--serif); font-weight: 700; font-style: italic; font-size: clamp(3.5rem, 7vw, 7rem); color: var(--accent-deep); text-align: center; line-height: 1; margin-bottom: 0.5rem; }
-  .imagine-sub { font-family: var(--sans); font-size: 0.9rem; color: var(--text-mid); text-align: center; font-style: italic; margin-bottom: 1.2rem; }
-  .imagine-bridge { font-family: var(--serif); font-weight: 700; font-size: clamp(1.1rem,1.8vw,1.4rem); color: var(--accent); text-align: center; max-width: 640px; margin: 0 auto 4rem; line-height: 1.5; }
-  .scene { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; max-width: 1100px; margin: 0 auto 5rem; }
-  .scene.rev { direction: rtl; }
-  .scene.rev > * { direction: ltr; }
-  .scene-img { border-radius: 12px; overflow: hidden; aspect-ratio: 4/3; }
-  .scene-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .scene-headline { font-family: var(--serif); font-weight: 700; font-size: clamp(1.2rem, 2vw, 1.7rem); color: var(--accent); line-height: 1.25; margin-bottom: 0.8rem; }
-  .scene-body { font-family: var(--sans); font-size: 1rem; color: var(--text-mid); line-height: 1.8; margin-bottom: 1rem; }
-  .scene-body strong { color: var(--text-dark); font-weight: 600; }
-  .testi {
-    background: rgba(255,255,255,0.6); border-left: 3px solid var(--coral);
-    border-radius: 0 8px 8px 0; padding: 1.2rem 1.5rem;
-  }
-  .testi blockquote { font-family: var(--serif); font-style: italic; font-size: 0.95rem; color: var(--text-mid); line-height: 1.7; margin-bottom: 0.4rem; }
-  .testi blockquote strong { color: var(--accent-deep); font-style: normal; font-weight: 700; }
-  .testi blockquote em { font-style: italic; font-weight: 700; color: var(--accent-deep); }
-  .testi-name { font-family: var(--sans); font-size: 0.8rem; font-weight: 500; color: var(--accent); }
-
-  .feel-diff { text-align: center; max-width: 720px; margin: 0 auto 2rem; }
-  .feel-diff p.lighter { font-family: var(--serif); font-weight: 700; color: var(--accent-deep); font-size: clamp(1.4rem,2.6vw,2rem); line-height: 1.5; }
-  .outcome-bullets { list-style: none; max-width: 680px; margin: 1.5rem auto; }
-  .outcome-bullets li { font-family: var(--sans); font-size: 1rem; color: var(--text-mid); padding: 0.55rem 0; border-bottom: 1px solid rgba(138,12,47,0.1); display: flex; gap: 0.75rem; align-items: flex-start; line-height: 1.6; }
-
-  /* DOES IT WORK / FOR SOMEONE LIKE ME */
+  /* WORKS */
   .works { background: rgba(253,232,192,0.45); padding: 5rem; text-align: center; }
-  .works-h1 { font-family: var(--serif); font-weight: 700; font-size: clamp(1.4rem,2.3vw,2rem); color: var(--accent); margin-bottom: 0; }
   .works-h2 { font-family: var(--serif); font-weight: 700; font-size: clamp(1.6rem,2.8vw,2.4rem); color: var(--accent-deep); margin-bottom: 1.5rem; }
-  .works-powerful { font-family: var(--sans); font-size: 0.78rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--coral); margin: 0 0 0.6rem; }
   .works-testi-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; max-width: 1100px; margin: 0 auto; }
   .works-testi { background: rgba(255,255,255,0.55); border-radius: 8px; padding: 1.8rem; text-align: left; }
   .works-testi blockquote { font-family: var(--serif); font-style: italic; font-size: 0.97rem; color: var(--text-mid); line-height: 1.75; margin-bottom: 0.8rem; }
@@ -602,74 +304,40 @@
   .works-testi blockquote em { font-weight: 700; font-style: italic; }
   .works-testi .name { font-family: var(--sans); font-size: 0.8rem; font-weight: 500; color: var(--accent); }
   .price-anchor { background: rgba(253,232,192,0.45); padding: 0 4rem 4rem; text-align: center; }
-  .price-anchor p {
-    max-width: 700px; margin: 0 auto; padding: 1.6rem 2rem;
-    background: var(--peach); border-radius: 10px;
-    border: 1px solid rgba(232,168,90,0.4);
-    font-family: var(--serif); font-style: italic; font-size: 1.05rem;
-    color: var(--accent-deep); line-height: 1.7;
-  }
+  .price-anchor p { max-width: 700px; margin: 0 auto; padding: 1.6rem 2rem; background: var(--peach); border-radius: 10px; border: 1px solid rgba(232,168,90,0.4); font-family: var(--serif); font-style: italic; font-size: 1.05rem; color: var(--accent-deep); line-height: 1.7; }
   .price-anchor p strong { color: var(--accent); font-style: normal; font-weight: 700; }
 
-  /* FOR YOU */
+  /* FOR YOU / NOT FOR YOU */
   .for-you { background: var(--peach-mid); padding: 5rem; text-align: center; }
   .for-you h2 { font-family: var(--serif); font-weight: 700; font-size: clamp(1.8rem,3vw,2.8rem); color: var(--accent-deep); margin-bottom: 2rem; }
   .check-list { list-style: none; max-width: 800px; margin: 0 auto 2.5rem; text-align: left; }
   .check-list li { font-family: var(--sans); font-size: 1rem; color: var(--text-mid); padding: 0.7rem 0; border-bottom: 1px solid rgba(138,12,47,0.1); display: flex; gap: 0.75rem; align-items: flex-start; line-height: 1.6; }
-
-  /* NOT FOR YOU */
   .not-for-you { background: var(--peach-mid); padding: 2rem 5rem 5rem; text-align: center; }
   .not-for-you h3 { font-family: var(--serif); font-size: 1.4rem; font-weight: 700; color: var(--text-mid); margin-bottom: 1.5rem; }
   .x-list { list-style: none; max-width: 620px; margin: 0 auto; text-align: left; }
   .x-list li { font-family: var(--sans); font-size: 1rem; color: var(--text-mid); padding: 0.6rem 0; border-bottom: 1px solid rgba(138,12,47,0.08); display: flex; gap: 0.75rem; align-items: flex-start; line-height: 1.6; }
-  .x-icon { color: var(--accent); font-weight: 700; flex-shrink: 0; }
 
   /* HOW IT WORKS */
   .how { background: var(--peach-light); padding: 5rem; }
   .how-title { font-family: var(--serif); font-weight: 700; font-size: clamp(1.8rem,3vw,2rem); color: var(--accent-deep); text-align: center; margin-bottom: 0.4rem; }
   .how-sub { font-family: var(--sans); font-size: 1rem; color: var(--text-mid); text-align: center; margin-bottom: 3rem; font-style: italic; }
   .how-steps { max-width: 880px; margin: 0 auto 3rem; }
-  .how-step {
-    display: grid; grid-template-columns: 64px 1fr; gap: 1.6rem;
-    align-items: flex-start; padding: 1.6rem 0;
-    border-bottom: 1px solid rgba(138,12,47,0.1);
-  }
+  .how-step { display: grid; grid-template-columns: 64px 1fr; gap: 1.6rem; align-items: flex-start; padding: 1.6rem 0; border-bottom: 1px solid rgba(138,12,47,0.1); }
   .how-step:last-child { border-bottom: none; }
-  .how-step-num {
-    font-family: var(--serif); font-weight: 700;
-    font-size: 1.6rem; color: var(--coral); line-height: 1;
-    display: flex; align-items: center; justify-content: center;
-  }
+  .how-step-num { font-family: var(--serif); font-weight: 700; font-size: 1.6rem; color: var(--coral); line-height: 1; display: flex; align-items: center; justify-content: center; }
   .how-step-title { font-family: var(--serif); font-weight: 700; font-size: 1.15rem; color: var(--accent); margin-bottom: 0.5rem; line-height: 1.35; }
   .how-step p { font-family: var(--sans); font-size: 0.95rem; color: var(--text-mid); line-height: 1.75; }
-  .how-step p a { color: var(--text-dark); text-decoration: underline; font-style: italic; }
 
-  /* 7 DAYS — TIMELINE */
+  /* TIMELINE */
   .days { background: var(--accent-deep); padding: 5rem; }
   .days h2 { font-family: var(--serif); font-weight: 700; font-size: clamp(1.8rem,3vw,2rem); color: var(--peach-light); text-align: center; margin-bottom: 3.5rem; }
   .timeline { max-width: 1000px; margin: 0 auto; position: relative; }
-  .timeline::before {
-    content: ''; position: absolute; left: 28px; top: 14px; bottom: 14px;
-    width: 2px; background: rgba(253,232,192,0.15);
-  }
-  .timeline-item {
-    display: grid; grid-template-columns: 56px 1fr; gap: 1.5rem;
-    margin-bottom: 1.6rem; position: relative;
-  }
+  .timeline::before { content: ''; position: absolute; left: 28px; top: 14px; bottom: 14px; width: 2px; background: rgba(253,232,192,0.15); }
+  .timeline-item { display: grid; grid-template-columns: 56px 1fr; gap: 1.5rem; margin-bottom: 1.6rem; position: relative; }
   .timeline-item:last-child { margin-bottom: 0; }
-  .timeline-num {
-    width: 56px; height: 56px; border-radius: 50%;
-    background: rgba(253,232,192,0.06); border: 1px solid rgba(253,232,192,0.18);
-    display: flex; align-items: center; justify-content: center;
-    font-family: var(--serif); font-weight: 700; font-size: 1.3rem;
-    color: var(--peach); flex-shrink: 0; position: relative; z-index: 1;
-    transition: background 0.2s, border-color 0.2s;
-  }
+  .timeline-num { width: 56px; height: 56px; border-radius: 50%; background: rgba(253,232,192,0.06); border: 1px solid rgba(253,232,192,0.18); display: flex; align-items: center; justify-content: center; font-family: var(--serif); font-weight: 700; font-size: 1.3rem; color: var(--peach); flex-shrink: 0; position: relative; z-index: 1; transition: background 0.2s, border-color 0.2s; }
   .timeline-item:hover .timeline-num { background: var(--coral); border-color: var(--coral); color: var(--accent-deep); }
-  .timeline-content {
-    background: rgba(253,232,192,0.05); border: 1px solid rgba(253,232,192,0.12);
-    border-radius: 10px; padding: 1.3rem 1.6rem; transition: background 0.2s;
-  }
+  .timeline-content { background: rgba(253,232,192,0.05); border: 1px solid rgba(253,232,192,0.12); border-radius: 10px; padding: 1.3rem 1.6rem; transition: background 0.2s; }
   .timeline-item:hover .timeline-content { background: rgba(253,232,192,0.09); }
   .timeline-content h3 { font-family: var(--serif); font-size: 1.08rem; font-weight: 700; font-style: italic; color: var(--peach); margin-bottom: 0.4rem; line-height: 1.3; }
   .timeline-content p { font-family: var(--sans); font-size: 0.9rem; color: rgba(253,232,192,0.65); line-height: 1.65; }
@@ -683,24 +351,26 @@
   .faq-label { font-family: var(--sans); font-size: 0.72rem; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(122,48,32,0.35); text-align: center; display: block; margin-bottom: 0.4rem; }
   .faq h2 { font-family: var(--serif); font-weight: 700; font-size: clamp(1.8rem,3vw,2.6rem); color: var(--accent-deep); text-align: center; margin-bottom: 2.5rem; }
   .faq-accordion { max-width: 860px; margin: 0 auto; }
-  .faq-item {
-    background: rgba(255,255,255,0.25); border-radius: 8px;
-    margin-bottom: 0.8rem; overflow: hidden;
-  }
-  .faq-item summary {
-    font-family: var(--serif); font-size: 1.02rem; font-weight: 700; font-style: italic;
-    color: var(--accent); padding: 1.1rem 1.6rem; cursor: pointer;
-    list-style: none; display: flex; justify-content: space-between; align-items: center;
-    gap: 1rem;
-  }
+  .faq-item { background: rgba(255,255,255,0.25); border-radius: 8px; margin-bottom: 0.8rem; overflow: hidden; }
+  .faq-item summary { font-family: var(--serif); font-size: 1.02rem; font-weight: 700; font-style: italic; color: var(--accent); padding: 1.1rem 1.6rem; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
   .faq-item summary::-webkit-details-marker { display: none; }
-  .faq-item summary::after {
-    content: '⌄'; font-family: var(--sans); font-weight: 700; font-size: 1.3rem;
-    color: var(--coral); flex-shrink: 0; transition: transform 0.2s; line-height: 1;
-  }
+  .faq-item summary::after { content: '⌄'; font-family: var(--sans); font-weight: 700; font-size: 1.3rem; color: var(--coral); flex-shrink: 0; transition: transform 0.2s; line-height: 1; }
   .faq-item[open] summary::after { transform: rotate(180deg); }
   .faq-item p { font-family: var(--sans); font-size: 0.92rem; color: var(--text-mid); line-height: 1.7; padding: 0 1.6rem 1.3rem; }
   .faq-item p strong { color: var(--accent-deep); font-weight: 600; }
+
+  /* BINARY */
+  .binary { background: var(--accent-deep); padding: 5rem 4rem; }
+  .binary-inner { max-width: 900px; margin: 0 auto; text-align: center; }
+  .binary-lead { font-family: var(--serif); font-weight: 700; font-size: clamp(1.6rem, 2.8vw, 2.4rem); color: var(--peach-light); margin-bottom: 2.5rem; line-height: 1.3; }
+  .binary-options { display: grid; grid-template-columns: 1fr auto 1fr; gap: 1.5rem; align-items: center; margin-bottom: 2.5rem; }
+  .binary-card { background: rgba(253,232,192,0.05); border: 1px solid rgba(253,232,192,0.12); border-radius: 12px; padding: 1.8rem; text-align: left; }
+  .binary-card.highlight { background: rgba(245,201,138,0.1); border: 1px solid rgba(245,201,138,0.35); }
+  .binary-card p { font-family: var(--sans); font-size: 0.95rem; color: rgba(253,232,192,0.7); line-height: 1.7; }
+  .binary-card.highlight p { color: var(--peach-light); }
+  .binary-card p strong { color: var(--peach); }
+  .binary-or { font-family: var(--serif); font-style: italic; font-weight: 700; font-size: 1.3rem; color: var(--coral); }
+  .binary-close { font-family: var(--serif); font-weight: 700; font-size: clamp(1.2rem, 2vw, 1.7rem); color: var(--peach); line-height: 1.6; margin-bottom: 0.5rem; }
 
   /* FINAL CTA */
   .final-cta { position: relative; overflow: hidden; background: var(--accent); padding: 6rem 5rem; text-align: center; }
@@ -709,13 +379,12 @@
   .final-title { font-family: var(--serif); font-weight: 700; font-size: clamp(2.2rem,4.5vw,4rem); color: var(--peach-light); line-height: 1.1; margin-bottom: 0.3rem; position: relative; }
   .final-title2 { font-family: var(--serif); font-size: clamp(1.1rem,1.8vw,1.5rem); color: rgba(253,232,192,0.75); margin-bottom: 2rem; position: relative; }
   .upsell-note { font-family: var(--serif); font-style: italic; font-size: 0.95rem; color: rgba(253,232,192,0.5); max-width: 580px; margin: 1.5rem auto 0; position: relative; }
-  .final-here-we-go { font-family: var(--serif); font-weight: 700; font-style: italic; font-size: 1.2rem; color: var(--peach-light); margin-top: 1.5rem; position: relative; }
 
-  /* IMG DIVIDER */
-  .img-divider { position: relative; height: 380px; overflow: hidden; }
-  .img-divider img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; display: block; filter: brightness(0.72); }
-  .img-divider-overlay { position: absolute; inset: 0; background: rgba(90,8,32,0.4); display: flex; align-items: center; justify-content: center; }
-  .img-divider-text { font-family: var(--serif); font-style: italic; font-weight: 700; font-size: clamp(1.4rem,2.8vw,2.2rem); color: #fff; text-align: center; max-width: 700px; padding: 0 2rem; text-shadow: 0 2px 12px rgba(0,0,0,0.4); line-height: 1.4; }
+  /* OUTCOME BULLETS */
+  .feel-diff { text-align: center; max-width: 720px; margin: 0 auto 2rem; }
+  .feel-diff p.lighter { font-family: var(--serif); font-weight: 700; color: var(--accent-deep); font-size: clamp(1.4rem,2.6vw,2rem); line-height: 1.5; }
+  .outcome-bullets { list-style: none; max-width: 680px; margin: 1.5rem auto; }
+  .outcome-bullets li { font-family: var(--sans); font-size: 1rem; color: var(--text-mid); padding: 0.55rem 0; border-bottom: 1px solid rgba(138,12,47,0.1); display: flex; gap: 0.75rem; align-items: flex-start; line-height: 1.6; }
 
   /* FOOTER */
   footer { background: var(--accent-deep); padding: 2rem 5rem; text-align: center; }
@@ -725,17 +394,17 @@
 
   /* RESPONSIVE */
   @media (max-width: 900px) {
-    .live-banner { padding: 0.7rem 1rem; }
+    .live-banner { flex-wrap: wrap; padding: 0.6rem 1rem; gap: 0.5rem; min-height: auto; }
+    .live-center { order: 3; width: 100%; font-size: 0.78rem; }
+    .live-badge, .live-details { font-size: 0.78rem; }
+    .live-logo img { height: 32px; }
     .hero { grid-template-columns: 1fr; min-height: auto; }
     .hero-left { padding: 3rem 1.5rem; }
     .hero-right { height: 60vw; }
-    .proof-strip { padding: 1.2rem 1.5rem; }
     .mirror-grid { grid-template-columns: 1fr; gap: 2rem; }
     .mirror { padding: 3.5rem 1.5rem; }
-    .mirror-block { padding: 1.4rem 1.5rem; }
-    .wrong-things { margin: 2rem auto; }
     .story { padding: 3.5rem 1.5rem; }
-    .story-float-right, .story-float-left { float: none; width: 100%; margin: 0 0 1.5rem 0; }
+    .story-img-left, .story-img-right { float: none; width: 100%; max-width: 320px; margin: 0 auto 1.5rem; display: block; }
     .imagine-section { padding: 3.5rem 1.5rem; }
     .imagine-grid { grid-template-columns: 1fr; }
     .works { padding: 3.5rem 1.5rem; }
@@ -743,81 +412,38 @@
     .for-you, .not-for-you { padding: 3.5rem 1.5rem; }
     .how { padding: 3.5rem 1.5rem; }
     .how-step { grid-template-columns: 44px 1fr; gap: 1rem; }
-    .how-step-num { font-size: 1.3rem; }
     .days { padding: 3.5rem 1.5rem; }
     .timeline::before { left: 22px; }
     .timeline-item { grid-template-columns: 44px 1fr; gap: 1rem; }
     .timeline-num { width: 44px; height: 44px; font-size: 1.05rem; }
     .faq { padding: 3.5rem 1.5rem; }
-    .faq-item summary { font-size: 0.95rem; padding: 1rem 1.2rem; }
-    .faq-item p { padding: 0 1.2rem 1.2rem; }
-    .promise-block { padding: 1.8rem 1.4rem; }
     .binary { padding: 3.5rem 1.5rem; }
     .binary-options { grid-template-columns: 1fr; }
     .binary-or { text-align: center; }
     .final-cta { padding: 4rem 1.5rem; }
     footer { padding: 2rem 1.5rem; }
-    .img-divider { height: 260px; }
     .popup-box { padding: 2rem 1.5rem; }
   }
 
-</style>
 
-<!-- PostHog Analytics -->
-<script>
-  !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init Ge ws me Ai capture Ke calculateEventProperties Ws register register_once register_for_session unregister unregister_for_session Ts getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSurveysLoaded onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey getNextSurveyStep identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups setOptedIn setOptedOut hasOptedIn hasOptedOut clear_opt_in_out_capturing debug".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
-  posthog.init('phc_vtGetNT7JjRiHuzkcAFwy3Qr9o5wNLW9V4XzbdYPso2k', { api_host: 'https://us.i.posthog.com', person_profiles: 'identified_only' });
-</script>
+</style>
 
 <!-- Vercel Analytics -->
 <script>
   window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
 </script>
 <script defer src="/_vercel/insights/script.js"></script>
-
 </head>
 <body>
 
-<!-- FLODESK POPUP OVERLAY -->
-<div class="popup-overlay" id="popupOverlay">
-  <div class="popup-box">
-    <button class="popup-close" onclick="closePopup()" aria-label="Close">×</button>
-    <div class="popup-form-inner">
-      <div id="form-error" style="display:none; color:#8a0c2f; font-size:0.85rem; margin-bottom:0.75rem; font-family:var(--sans); text-align:center;"></div>
-      <input type="text" class="form-field" id="fd-firstName" placeholder="First Name" name="firstName">
-      <input type="email" class="form-field" id="fd-email" placeholder="Email Address" name="email">
-      <select class="form-field" id="fd-hearAbout" name="hearAbout">
-        <option value="" disabled selected>How did you hear about this challenge?</option>
-        <option>Intimacy Artists Community</option>
-        <option>Friend / Word of Mouth</option>
-        <option>WhatsApp Group</option>
-        <option>Telegram Group</option>
-        <option>Instagram</option>
-        <option>Facebook</option>
-        <option>Actualize</option>
-        <option>Eventbrite</option>
-        <option>Email</option>
-        <option>Other</option>
-      </select>
-      <button class="btn btn-primary btn-large" id="fd-submit" style="width:100%; margin-top:0.5rem;" onclick="submitToFlodesk()">Let's Turn It All The Way ONNNNN!!! <span class="btn-arrow">→</span></button>
-      <div id="form-success" style="display:none; text-align:center; padding:1.5rem 0;">
-        <p style="font-family:var(--serif); font-size:1.6rem; font-weight:700; color:var(--accent-deep); margin-bottom:1rem;">You're IN! 🔥</p>
-        <p style="font-family:var(--serif); font-size:1.4rem; font-weight:700; color:var(--accent-deep); margin-bottom:1rem;">Welcome to Turn On Your Life!</p>
-        <p style="font-family:var(--sans); font-size:1rem; font-weight:600; color:var(--accent); margin-bottom:1rem;">IMPORTANT: <br>Check your emails!</p>
-        <p style="font-family:var(--sans); font-size:0.9rem; color:var(--text-mid); margin-bottom:1rem;"> → You'll receive everything about the challenge straight in your inbox.</p>
-        <p style="font-family:var(--serif); font-style:italic; margin-bottom:2rem; font-size:1rem; color:var(--accent-deep);">See you inside the Intimacy Artist Community & LIVE on Thursday 6pm! ✨</p>
-        <p style="font-family:var(--sans); font-size:0.82rem; color:var(--text-mid); font-style:italic; margin-bottom:0rem;">*It may take up to 1h to receive the welcome email. <br>To make sure it lands in your inbox, add <br><a href="mailto:marilys@empowered-connection.com" style="color:var(--accent);">marilys@empowered-connection.com</a> to your contacts <br>(or make sure to check your junk mail).<br>For more support, email us ❤ </p>
-      </div>
-    </div>
-  </div>
-</div>
 
-<!-- STICKY HEADER / LIVE BANNER -->
+
+<!-- STICKY HEADER -->
 <div class="live-banner">
   <a href="/" class="live-logo"><img src="Logo. Dark red.png" alt="Empowered Connection"></a>
   <div class="live-center">
     <span class="live-badge"><span class="live-dot"></span>LIVE Free 7-day Challenge</span>
-    <span class="live-details"> 📅 June 25 - July 1, 2026  ·  20 Minutes/Day</span>
+    <span class="live-details">📅 June 25 - July 1, 2026 · 20 Minutes/Day</span>
   </div>
   <button class="live-cta btn" onclick="openPopup()">Join the Challenge</button>
 </div>
@@ -825,10 +451,11 @@
 <!-- HERO -->
 <section class="hero" data-section="hero">
   <div class="hero-left">
-<img src="toyl-logo.png" alt="Turn On Your Life" style="max-width: 420px; width: 100%; margin-bottom: 0.5rem; mix-blend-mode: darken;">
+    <img src="toyl-logo.png" alt="Turn On Your Life" style="max-width: 420px; width: 100%; margin-bottom: 0.5rem; mix-blend-mode: darken;">
     <p class="hero-sub">Experience more turn-on, vitality and pleasure in 1 week than most people feel in 1 year — no matter your circumstances!</p>
-    <p class="hero-body">7 days to <strong>cultivate your Erotic Aliveness</strong> — with our <a href="https://www.facebook.com/groups/intimacy.artists.community" target="_blank" rel="noopener" class="ia-link" style="font-weight: 400;color: var(--text-mid)">community of Intimacy Artists</a> — creating ripples so <strong>high-vibe</strong> people wonder what you're on and want to have what you're having! 🤣</p>
-<p class="mirror-conditioned">JOIN THE 7-DAY CHALLENGE FOR <s style="color: var(--accent-deep);"><span style="color: var(--coral);">$177</span></s> <span style="color: var(--accent-deep); font-weight: 700;">FREE</span> (for now)!</p>    <button class="btn btn-primary btn-large" onclick="openPopup()">We say... Let's Turn It All The Way ONNNNN!!!🔥 <span class="btn-arrow">→</span></button>
+    <p class="hero-body">7 days to <strong>cultivate your Erotic Aliveness</strong> — with our <a href="https://www.facebook.com/groups/intimacy.artists.community" target="_blank" rel="noopener" class="ia-link" style="font-weight: 400; color: var(--text-mid)">community of Intimacy Artists</a> — creating ripples so <strong>high-vibe</strong> people wonder what you're on and want to have what you're having! 🤣</p>
+    <p class="mirror-conditioned">JOIN THE 7-DAY CHALLENGE FOR <s style="color: var(--accent-deep);"><span style="color: var(--coral);">$177</span></s> <span style="color: var(--accent-deep); font-weight: 700;">FREE</span> (for now)!</p>
+    <button class="btn btn-primary btn-large" onclick="openPopup()">We say... Let's Turn It All The Way ONNNNN!!!🔥 <span class="btn-arrow">→</span></button>
     <p class="imagine-tag" style="font-style: normal;">(become <strong>the one</strong> who can turn yourself on, <em>anytime, anywhere.</em>)</p>
   </div>
   <div class="hero-right">
@@ -851,7 +478,6 @@
     <span class="dot">✦</span>
     <p class="proof-line">"I feel like a new man" <span class="name">— David</span></p>
     <span class="dot">✦</span>
-    <!-- duplicate set for seamless loop -->
     <p class="proof-line">"Mom is glowing!" — after ONE session <span class="name">— Wendy's daughter</span></p>
     <span class="dot">✦</span>
     <p class="proof-line">"More connected than EVER, after 17 years of marriage" <span class="name">— Natalie</span></p>
@@ -867,7 +493,7 @@
   </div>
 </section>
 
-<!-- THE MIRROR / MYTH vs TRUTH -->
+<!-- MIRROR -->
 <section class="mirror" data-section="mirror">
   <div class="mirror-inner">
     <p class="mirror-q">Who benefits from you turning it down?</p>
@@ -891,9 +517,9 @@
       <p class="wrong-thing">⚡ <strong>Communication skills</strong> — helpful! But you can know all the right words and still feel nothing in your body.</p>
       <p class="wrong-thing">⚡ <strong>Date nights, lingerie, toys, etc</strong> — like new curtains in a house with no electricity. It's nice. Not what lights you up.</p>
     </div>
-    <p class="mirror-craving" style="margin-top:1.5rem;">But it goes wayyy beyond intimacy.<br><strong>Erotic energy </strong>isn't a nice-to-have for the right circumstances.</p>
-    <p class="life-force-callout"> It's your <strong>LIFE FORCE</strong> — what makes you feel <em><strong>alive</strong></em> in ANY situation.</p>
-    <p class="life-force-callout" style="margin-top:1rem; font-size: clamp(1.1rem,1.8vw,1.4rem); color: var(--coral) ; font-weight: 400;"><em>An Intimacy Artist chooses aliveness — in their body, relationships, lives — on purpose.</em></p>
+    <p class="mirror-craving" style="margin-top:1.5rem;">But it goes wayyy beyond intimacy.<br><strong>Erotic energy</strong> isn't a nice-to-have for the right circumstances.</p>
+    <p class="life-force-callout">It's your <strong>LIFE FORCE</strong> — what makes you feel <em><strong>alive</strong></em> in ANY situation.</p>
+    <p class="life-force-callout" style="margin-top:1rem; font-size: clamp(1.1rem,1.8vw,1.4rem); color: var(--coral); font-weight: 400;"><em>An Intimacy Artist chooses aliveness — in their body, relationships, lives — on purpose.</em></p>
     <p class="life-force-callout" style="margin-top:1rem; font-size: clamp(1.1rem,1.8vw,1.4rem); font-weight: 400;">Inside Turn On Your Life, pleasure becomes your baseline. <br>How you move through the world — as you were designed to. 🔥</p>
     <div style="text-align:center; margin-top:2.5rem;">
       <button class="btn btn-cream btn-large" onclick="openPopup()">I'M IN!!! <span class="btn-arrow">→</span></button>
@@ -905,59 +531,32 @@
 <section class="story" data-section="story">
   <p class="story-hook">My story: Sneakily Turned Down</p>
   <div class="story-inner">
-
-    <div class="story-inner">
-
-  <p><strong>I woke up in a sigh...</strong></p>
-
+    <p><strong>I woke up in a sigh...</strong></p>
     <p><strong>Dragging my feet. Doing what I thought a "good wife" does.</strong></p>
-
-          <img src="QQP_5886.jpg" alt="Marilys" style="float: right; width: 300px; height: auto; border-radius: 12px; margin: 0 0 1rem 1.8rem; shape-outside: margin-box;">
-
-
+    <img src="QQP_5886.jpg" alt="Marilys" style="float: right; width: 300px; height: auto; border-radius: 12px; margin: 0 0 1rem 1.8rem; shape-outside: margin-box;">
     <p>Palmtree outside our window, "power couple" building our dream business...<br><span class="red">It looked good from the outside — but it felt heavy.</span><br>Living for a future that never came. Even doing what I love, I felt <em>disconnected.</em></p>
-    
     <p class="red"><strong>My turn-on was sneakily yet steadily going downhill.</strong></p>
-
     <p>I searched outside myself. Better communication. More effort. More trying.</p>
     <p>Asking for a hug, I was called <em>needy</em>.<br><span class="red">So I got smaller. Quieter about what I wanted.</span><br>I felt <em>depressed</em>.<br>Small decisions made to keep things "good" were <span class="red">slowly shutting me down — <em>turning down my aliveness, my fire, my turn-on.</em></span></p>
-
     <p class="story-big">It was slowly killing me, and the relationship.</p>
-
     <div class="story-divider"></div>
-
     <img src="AND_3223.2.dance.jpg" alt="Marilys dancing freely in a field" class="story-img-left">
-
     <p>Meeting me today, you'd never imagine how turned off I'd been.</p>
-
     <p style="font-family: var(--serif); font-style: italic; font-weight: 700; font-size: clamp(1.6rem, 4vw, 1.6rem); color: var(--accent-deep); line-height: 1.3; margin: 1.2rem 0;">I had to learn how to turn myself back on.</p>
-
     <p>Now, you'll find me <span class="red">dancing at the grocery store, singing out loud walking the dogs, laughing for no apparent reason</span> — because life feels so good.</p>
-
     <p>But… <em><strong>divorce happened</strong></em> before I found the "switch" — and I then realized <em><strong>so many relationships end that way.</strong></em> Yet,<span class="red"> no one teaches this</span>.</p>
-
     <p>Beyond polarity, communication skills, attachment style… <br><span class="red">your turn on, your energy, your erotic presence is where it's at.</span></p>
-
     <p><strong>Everything becomes more pleasurable</strong> — even the most mundane tasks!</p>
     <p class="red">And it ripples out in all areas of your life.</p>
-
     <div class="story-divider"></div>
-
-    <img src="ripples.png" alt="Ripples of aliveness rippling out into the world" class="story-img-right">
-
+    <img src="ripples.png" alt="Ripples of aliveness" class="story-img-right">
     <p>After years of supporting hundreds through my brand Empowered Connection, I recently created this free <a href="https://www.facebook.com/groups/intimacy.artists.community" target="_blank" rel="noopener" class="ia-link">Intimacy Artists community</a> — which immediately grew to <strong>160+ people</strong> — and I had this shower thought…</p>
     <p class="story-quiet">💭 <span class="red">What amazing HIGH-VIBE ripple effect could we create in the world if we all cultivated our turn-on together for 1 week!? 💫</span></p>
     <p>We are doing it! <br>I distilled in <span class="red">Turn On Your Life</span> the exact method I use to <strong>generate aliveness and pleasure, anytime I want.</strong></p>
-
     <p>On a Tuesday. In traffic. Doing dishes. <br>No matter what's happening outside of you.</p>
-
     <p>You know, it's not about more information. <br><span class="red">It's time to feel real shifts, in your body.</span></p>
-
-    <p><strong>Welcome to Turn On Your Life. 🔥</strong>
-    <br><em>And, your community, of Intimacy Artists.</em></p>
-
+    <p><strong>Welcome to Turn On Your Life. 🔥</strong><br><em>And, your community, of Intimacy Artists.</em></p>
     <button class="btn btn-primary" style="margin-top:1.2rem;" onclick="openPopup()">Let's Turn It All The Way ONNNNN!!! <span class="btn-arrow">→</span></button>
-
   </div>
 </section>
 
@@ -978,7 +577,7 @@
     </div>
     <div class="imagine-card">
       <p class="imagine-moment">"What are you ON?! You're GLOWING. I want whatever you're having!"</p>
-      <p class="imagine-detail">Says a friend you haven't seen in months, when meeting at the coffee shop. You remember how you felt last time you saw each other — <strong>and now you feel so damn good!</strong></p>
+      <p class="imagine-detail">Says a friend you haven't seen in months. You remember how you felt last time you saw each other — <strong>and now you feel so damn good!</strong></p>
       <p class="imagine-proof">"Mom is glowing! What have you done?" — Wendy's daughter</p>
     </div>
     <div class="imagine-card">
@@ -1009,19 +608,19 @@
   </div>
 </section>
 
-<!-- DOES IT WORK / WHO THIS HELPS -->
+<!-- WORKS -->
 <section class="works" data-section="works">
   <p class="works-h2">No matter where you're at in your journey — this is powerful. 🔥</p>
   <p style="font-family: var(--sans); font-size: 1rem; color: var(--text-mid); max-width: 720px; margin: 0 auto 2.5rem; line-height: 1.8;">I've worked with people who hadn't felt desire in years. People in long-term relationships that had gone quiet. Singles who'd given up on feeling magnetic. People who thought they were "just not that sexual." And people who thought they were already pretty turned on — and opened up a whole new dimension they didn't know was there.</p>
   <div class="works-testi-grid">
     <div class="works-testi">
-      <blockquote>"We had come to believe my wife was <strong>asexual.</strong> For over 30 years <em>I tried everything. No dice.</em> After one session with Marilys, our daughters looked at Wendy and said: 'What did you do? Mom is glowing!' Now in our midlife <strong>we feel more turned on than in our 20s</strong> and have never been more excited about the adventures ahead together." — Dan </blockquote>
+      <blockquote>"We had come to believe my wife was <strong>asexual.</strong> For over 30 years <em>I tried everything. No dice.</em> After one session with Marilys, our daughters looked at Wendy and said: 'What did you do? Mom is glowing!' Now in our midlife <strong>we feel more turned on than in our 20s</strong> and have never been more excited about the adventures ahead together." — Dan</blockquote>
     </div>
     <div class="works-testi">
-      <blockquote>"I've done a lot of therapy in my life. In terms of experiential growth in a short period of time, <strong>working with Marilys has been nothing short of miraculous.</strong> I've become much more confident expressing my desires. People close to me have noticed a change — and people I've just met seem more open and receptive to me in ways I hadn't experienced before." — David </blockquote>
+      <blockquote>"I've done a lot of therapy in my life. In terms of experiential growth in a short period of time, <strong>working with Marilys has been nothing short of miraculous.</strong> I've become much more confident expressing my desires. People close to me have noticed a change — and people I've just met seem more open and receptive to me in ways I hadn't experienced before." — David</blockquote>
     </div>
     <div class="works-testi">
-      <blockquote>"What I gained <strong>transformed every area of my life</strong> — not just relationships, but how I show up everywhere. The value I received far exceeded my expectations." — Martin </blockquote>
+      <blockquote>"What I gained <strong>transformed every area of my life</strong> — not just relationships, but how I show up everywhere. The value I received far exceeded my expectations." — Martin</blockquote>
     </div>
   </div>
 </section>
@@ -1031,7 +630,7 @@
   <p>✨ What I'm sharing in these 7 days includes practices I've only taught inside <strong>private sessions</strong> and my <strong>Orgasmic Life</strong> program (valued at $1333). <br>This challenge is your free door in.</p>
 </section>
 
-<!-- THIS IS FOR YOU -->
+<!-- FOR YOU -->
 <section class="for-you" data-section="for_you">
   <h2>This is for you if...</h2>
   <ul class="check-list">
@@ -1064,7 +663,7 @@
       <span class="how-step-num">✦</span>
       <div>
         <p class="how-step-title">We kick things off together — live.</p>
-        <p>Join me live for the <strong>Turn On Kickoff</strong> on day 1: <a href="#">Turn On Your Erotic Presence</a>, June 25th. We set the tone, the energy, and the intention for the whole week — together.</p>
+        <p>Join me live for the <strong>Turn On Kickoff</strong> on day 1: Turn On Your Erotic Presence, June 25th. We set the tone, the energy, and the intention for the whole week — together.</p>
       </div>
     </div>
     <div class="how-step">
@@ -1078,14 +677,14 @@
       <span class="how-step-num">✦</span>
       <div>
         <p class="how-step-title">We come together inside the Intimacy Artist Community throughout the week.</p>
-        <p>160+ humans choosing aliveness &amp; genuine connection. Together we compound it. You'll feel the difference between doing this alone and with others who care, like you.</p>
+        <p>160+ humans choosing aliveness &amp; genuine connection. Together we compound it.</p>
       </div>
     </div>
     <div class="how-step">
       <span class="how-step-num">✦</span>
       <div>
         <p class="how-step-title">We close it out together — live.</p>
-        <p>Compounding turn on with <a href="#">Secrets of an Orgasmic Life</a> on day 7 — integration, reflection, and a celebration of everything that shifted this week. Plus: what's next, if you want to keep going.</p>
+        <p>Secrets of an Orgasmic Life on day 7 — integration, reflection, and a celebration of everything that shifted this week.</p>
       </div>
     </div>
   </div>
@@ -1094,7 +693,7 @@
   </div>
 </section>
 
-<!-- 7 DAYS — TIMELINE -->
+<!-- TIMELINE -->
 <section class="days" data-section="days_breakdown">
   <h2>Each day, a new dimension of your aliveness expands</h2>
   <div class="timeline">
@@ -1102,14 +701,14 @@
       <div class="timeline-num">1</div>
       <div class="timeline-content">
         <h3>Turn On Your Erotic Presence - Live Call</h3>
-        <p>Reclaim pleasure not as a destination but as how you experience the world. <strong></strong>Warning: you may get high on your own supply ;)</strong></p>
+        <p>Reclaim pleasure not as a destination but as how you experience the world. Warning: you may get high on your own supply ;)</p>
       </div>
     </div>
     <div class="timeline-item">
       <div class="timeline-num">2</div>
       <div class="timeline-content">
         <h3>Turn On Your Desires</h3>
-        <p>Permission to want what you want — lear to channel that energy into aliveness instead of contracting.</p>
+        <p>Permission to want what you want — learn to channel that energy into aliveness instead of contracting.</p>
       </div>
     </div>
     <div class="timeline-item">
@@ -1137,14 +736,14 @@
       <div class="timeline-num">6</div>
       <div class="timeline-content">
         <h3>Compound Your Energy</h3>
-        <p>Intro to the Feminine & Masculine Dance: the polarity that creates erotic tension and aliveness — inside and out — for deeper intimacy with yourself, a partner, or the whole world.</p>
+        <p>Intro to the Feminine &amp; Masculine Dance: the polarity that creates erotic tension and aliveness — inside and out.</p>
       </div>
     </div>
     <div class="timeline-item final">
       <div class="timeline-num">7</div>
       <div class="timeline-content">
         <h3>Secrets of an Orgasmic Life - Live Call</h3>
-        <p>Anchoring it all — Integration & Celebration. This is only the beginning. Because you are an <em>Intimacy Artist. </em></p>
+        <p>Anchoring it all — Integration &amp; Celebration. This is only the beginning. Because you are an <em>Intimacy Artist.</em></p>
       </div>
     </div>
   </div>
@@ -1162,12 +761,12 @@
     <details class="faq-item"><summary>What if I'm single?</summary><p>Most practices are solo. Your relationship with your own body is the foundation everything else is built on.</p></details>
     <details class="faq-item"><summary>Is this sexually explicit?</summary><p>No. Think more "finally feeling alive in your body." This is about your vitality.</p></details>
     <details class="faq-item"><summary>I've done therapy, yoga and tantra. How is this different?</summary><p>TOYL connects you directly with your body's erotic intelligence — rooted in modern nervous system science and following tantric principles, it's designed for immediate somatic shifts.</p></details>
-    <details class="faq-item"><summary>How do I access it?</summary><p>After registering you'll receive a welcome email with everything you need — including your invite to the <strong>Intimacy Artist Community</strong>. The practices will land in your inbox daily.</p></details>
-    <details class="faq-item"><summary>Is it really free?</summary><p>Yes — I want to turn on the whole world. Let's reach more people and create more ripples. The more people know about what's possible and that the work I do exist, the better. After the challenge, there will be an invitation to continue on this path together with <strong>Orgasmic Life</strong> — and whether that's for you or not, I love that we get to at least have 7 days together. ❤</p></details>
+    <details class="faq-item"><summary>How do I access it?</summary><p>After registering you'll receive a confirmation email from Flodesk — <strong>click the confirmation link</strong> to activate your spot. Your daily practices will then land in your inbox each morning.</p></details>
+    <details class="faq-item"><summary>Is it really free?</summary><p>Yes — I want to turn on the whole world. After the challenge, there will be an invitation to continue on this path together with <strong>Orgasmic Life</strong> — and whether that's for you or not, I love that we get to at least have 7 days together. ❤</p></details>
   </div>
 </section>
 
-<!-- BINARY CHOICE -->
+<!-- BINARY -->
 <section class="binary" data-section="binary_choice">
   <div class="binary-inner">
     <p class="binary-lead">You have two options.</p>
@@ -1177,7 +776,7 @@
       </div>
       <span class="binary-or">or</span>
       <div class="binary-card highlight">
-        <p>Spend 7 days to take back the power switch and own it like you mean it. 😄 Be the one dancing at the grocery store because life actually feels that good. Be the one whose energy walks into the room before they do. Be the one who can turn themselves on, anywhere, anytime — and in doing so, creates ripples from the inside out, making the world a little more alive just by being in it. <strong>Because you are an Intimacy Artist.</strong></p>
+        <p>Spend 7 days to take back the power switch and own it like you mean it. 😄 Be the one dancing at the grocery store because life actually feels that good. Be the one whose energy walks into the room before they do. Be the one who can turn themselves on, anywhere, anytime — and in doing so, creates ripples from the inside out. <strong>Because you are an Intimacy Artist.</strong></p>
       </div>
     </div>
     <p class="binary-close" style="margin-top:1.5rem;">That's what's possible inside Turn On Your Life.</p>
@@ -1188,9 +787,9 @@
 <section class="final-cta" data-section="final_cta">
   <p class="final-small">The world has been telling you to turn it down your whole life.</p>
   <h2 class="final-title">This is your moment</h2>
-  <p class="final-title2">to say yes — to 7 days turning it ON, together. </p>
+  <p class="final-title2">to say yes — to 7 days turning it ON, together.</p>
   <button class="btn-cream btn btn-large" onclick="openPopup()">See you inside, Intimacy Artist. 🔥 <span class="btn-arrow">→</span></button>
-  <p class="upsell-note">For those who want to continue on the Intimacy Artistry path &amp; truly live an Orgasmic Life, there will be a special invitation inside. <br>You'll know if it's for you. </p>
+  <p class="upsell-note">For those who want to continue on the Intimacy Artistry path &amp; truly live an Orgasmic Life, there will be a special invitation inside. <br>You'll know if it's for you.</p>
 </section>
 
 <!-- FOOTER -->
@@ -1201,80 +800,180 @@
 </footer>
 
 <script>
-  async function submitToFlodesk() {
-    const firstName = document.getElementById('fd-firstName').value.trim();
-    const email = document.getElementById('fd-email').value.trim();
-    const hearAbout = document.getElementById('fd-hearAbout').value;
-    const errorEl = document.getElementById('form-error');
-    const submitBtn = document.getElementById('fd-submit');
-    errorEl.style.display = 'none';
-    if (!firstName) {
-      errorEl.textContent = 'Please enter your first name.';
-      errorEl.style.display = 'block';
-      return;
-    }
-    if (!email || !email.includes('@')) {
-      errorEl.textContent = 'Please enter a valid email address.';
-      errorEl.style.display = 'block';
-      return;
-    }
-    submitBtn.textContent = 'Saving your spot...';
-    submitBtn.disabled = true;
-    try {
-      const response = await fetch('/api/join', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          firstName: firstName,
-          email: email,
-          segmentId: '6a225a1190d4fc4a1372ae02',
-          hearAbout: hearAbout || 'Not specified'
-        })
-      });
-      const data = await response.json();
-   if (response.ok && data.success) {
-  document.getElementById('fd-firstName').style.display = 'none';
-  document.getElementById('fd-email').style.display = 'none';
-  document.getElementById('fd-hearAbout').style.display = 'none';
-  submitBtn.style.display = 'none';
-  document.getElementById('form-success').style.display = 'block';
-
-  if (typeof posthog !== 'undefined') {
-    posthog.capture('toyl_signup', {
-      hear_about: hearAbout,
-      first_name: firstName
-    });
-  }
-}
-      else {
-        errorEl.textContent = data.error || 'Something went wrong. Please try again.';
-        errorEl.style.display = 'block';
-        submitBtn.textContent = "Let's Turn It All The Way ONNNNN!!! →";
-        submitBtn.disabled = false;
-      }
-    } catch (err) {
-      errorEl.textContent = 'Connection error. Please try again.';
-      errorEl.style.display = 'block';
-      submitBtn.textContent = "Let's Turn It All The Way ONNNNN!!! →";
-      submitBtn.disabled = false;
-    }
-  }
-
   function openPopup() {
-    document.getElementById('popupOverlay').classList.add('active');
-    document.body.style.overflow = 'hidden';
+    var modal = document.querySelector('.ff-6a3c1cd6a3f8a195784c5c40 [data-ff-el="modal"]');
+    if (modal) {
+      modal.classList.add('fd-is-open');
+      document.body.style.overflow = 'hidden';
+    }
   }
+
   function closePopup() {
-    document.getElementById('popupOverlay').classList.remove('active');
-    document.body.style.overflow = '';
+    var modal = document.querySelector('.ff-6a3c1cd6a3f8a195784c5c40 [data-ff-el="modal"]');
+    if (modal) {
+      modal.classList.remove('fd-is-open');
+      document.body.style.overflow = '';
+    }
   }
-  document.getElementById('popupOverlay').addEventListener('click', function(e) {
-    if (e.target === this) closePopup();
+
+  document.addEventListener('click', function(e) {
+    if (e.target.closest('[data-ff-el="modal-close"]')) closePopup();
+    if (e.target.matches('[data-ff-el="modal"]')) closePopup();
   });
+
   document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') closePopup();
   });
 </script>
-<script src="/analytics.js"></script>
+
+
+<!-- Flodesk form — new form ID 6a3c1cd6a3f8a195784c5c40 with double opt-in -->
+<link rel="preload" href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" as="style">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap">
+<link rel="preload" href="https://assets.flodesk.com/pp-editorial-new.css" as="style">
+<link rel="stylesheet" href="https://assets.flodesk.com/pp-editorial-new.css">
+<link rel="preload" href="https://assets.flodesk.com/flodesk-sans.css" as="style">
+<link rel="stylesheet" href="https://assets.flodesk.com/flodesk-sans.css">
+
+<style>
+  [data-ff-el="root"].ff-6a3c1cd6a3f8a195784c5c40 *, [data-ff-el="root"].ff-6a3c1cd6a3f8a195784c5c40 *::before, [data-ff-el="root"].ff-6a3c1cd6a3f8a195784c5c40 *::after { box-sizing: border-box; }
+  [data-ff-el="root"].ff-6a3c1cd6a3f8a195784c5c40 .fd-modal { top:0;left:0;right:0;bottom:0;display:block;opacity:0;outline:0;z-index:-1;position:fixed;background:rgba(0,0,0,0.4);overflow-x:hidden;overflow-y:auto;transition:opacity 0.4s,visibility 0.4s;visibility:hidden; }
+  [data-ff-el="root"].ff-6a3c1cd6a3f8a195784c5c40 .fd-modal.fd-is-open { opacity:1;z-index:1040;visibility:visible; }
+  [data-ff-el="root"].ff-6a3c1cd6a3f8a195784c5c40 .fd-modal__dialog { width:calc(100% - 60px);margin:30px auto;display:flex;position:relative;max-width:750px;min-height:calc(100% - 60px);align-items:center;pointer-events:none;justify-content:center; }
+  [data-ff-el="root"].ff-6a3c1cd6a3f8a195784c5c40 .fd-modal__content { width:100%;border:0 solid #d7d7d7;display:flex;outline:0;position:relative;background:#fff;box-shadow:6.5px 11.3px 19px 0 rgba(0,0,0,0.11);border-radius:0;flex-direction:column;pointer-events:auto; }
+  [data-ff-el="root"].ff-6a3c1cd6a3f8a195784c5c40 .fd-modal__body { flex:1 1 auto;padding:0;position:relative; }
+  [data-ff-el="root"].ff-6a3c1cd6a3f8a195784c5c40 .fd-modal__close { top:0;color:#000;right:0;width:40px;border:0;cursor:pointer;height:40px;margin:0;display:flex;padding:0;z-index:1000;position:absolute;appearance:none;background:transparent;align-items:center;line-height:1;justify-content:center; }
+  [data-ff-el="root"].ff-6a3c1cd6a3f8a195784c5c40 .fd-form-control { width:100%;display:block;outline:none;position:relative;-webkit-appearance:none;appearance:none; }
+  [data-ff-el="root"].ff-6a3c1cd6a3f8a195784c5c40 .fd-form-control::-webkit-input-placeholder { color:transparent!important;opacity:0!important; }
+  [data-ff-el="root"].ff-6a3c1cd6a3f8a195784c5c40 .fd-form-control::placeholder { color:transparent!important;opacity:0!important; }
+  [data-ff-el="root"].ff-6a3c1cd6a3f8a195784c5c40 .fd-form-label { top:0;left:0;right:0;margin:0;overflow:hidden;position:absolute;white-space:nowrap;text-overflow:ellipsis; }
+  [data-ff-el="root"].ff-6a3c1cd6a3f8a195784c5c40 .fd-form-control:not(:placeholder-shown)+.fd-form-label { opacity:0; }
+  [data-ff-el="root"].ff-6a3c1cd6a3f8a195784c5c40 .fd-form-group { margin:0 0 15px;position:relative; }
+  [data-ff-el="root"].ff-6a3c1cd6a3f8a195784c5c40 .fd-btn { cursor:pointer;display:inline-flex;outline:none;max-width:100%;-webkit-appearance:none;appearance:none;font-style:normal;text-align:center;align-items:center;text-shadow:none;white-space:normal;justify-content:center;text-decoration:none; }
+  [data-ff-el="root"].ff-6a3c1cd6a3f8a195784c5c40 .fd-form-content { position:relative; }
+  [data-ff-el="root"].ff-6a3c1cd6a3f8a195784c5c40 .fd-has-success .fd-form-content { display:none; }
+  [data-ff-el="root"].ff-6a3c1cd6a3f8a195784c5c40 .fd-has-captcha .fd-form-content>*:not(.fd-form-captcha) { opacity:0;visibility:hidden; }
+  [data-ff-el="root"].ff-6a3c1cd6a3f8a195784c5c40 .fd-form-captcha { top:0;left:0;width:100%;height:100%;display:flex;position:absolute;align-items:center;justify-content:flex-start; }
+  [data-ff-el="root"].ff-6a3c1cd6a3f8a195784c5c40 .fd-form-success { width:100%;display:none; }
+  [data-ff-el="root"].ff-6a3c1cd6a3f8a195784c5c40 .fd-has-success .fd-form-success { display:block; }
+  [data-ff-el="root"].ff-6a3c1cd6a3f8a195784c5c40 .fd-form-error { display:none; }
+  [data-ff-el="root"].ff-6a3c1cd6a3f8a195784c5c40 .fd-has-error .fd-form-error { display:block; }
+  [data-ff-el="root"].ff-6a3c1cd6a3f8a195784c5c40 .ff-6a3c1cd6a3f8a195784c5c40__modal { background:rgba(255,241,213,0.3); }
+  [data-ff-el="root"].ff-6a3c1cd6a3f8a195784c5c40 .ff-6a3c1cd6a3f8a195784c5c40__modal-dialog { max-width:620px; }
+  [data-ff-el="root"].ff-6a3c1cd6a3f8a195784c5c40 .ff-6a3c1cd6a3f8a195784c5c40__modal-content { background:#fde8c0; }
+  [data-ff-el="root"].ff-6a3c1cd6a3f8a195784c5c40 .ff-6a3c1cd6a3f8a195784c5c40__modal-close { color:#000000;position:absolute!important;font-size:10px; }
+  [data-ff-el="root"].ff-6a3c1cd6a3f8a195784c5c40 .ff-6a3c1cd6a3f8a195784c5c40__wrapper { display:flex; }
+  [data-ff-el="root"].ff-6a3c1cd6a3f8a195784c5c40 .ff-6a3c1cd6a3f8a195784c5c40__form { color:#8a0c2f;width:100%;margin:0;padding:70px;font-size:13px;text-align:center;font-family:Poppins,sans-serif;font-weight:300;line-height:1.6;letter-spacing:0.1px; }
+  @media (max-width:767px) { [data-ff-el="root"].ff-6a3c1cd6a3f8a195784c5c40 .ff-6a3c1cd6a3f8a195784c5c40__form { padding:25px; } }
+  [data-ff-el="root"].ff-6a3c1cd6a3f8a195784c5c40 .ff-6a3c1cd6a3f8a195784c5c40__title { color:#8a0c2f;width:100%;margin:0 0 25px 0;display:block;font-size:40px;text-align:center;font-family:Baskerville,serif;font-weight:600;line-height:1; }
+  [data-ff-el="root"].ff-6a3c1cd6a3f8a195784c5c40 .ff-6a3c1cd6a3f8a195784c5c40__subtitle { width:100%;margin:0 0 30px 0;display:block; }
+  [data-ff-el="root"].ff-6a3c1cd6a3f8a195784c5c40 .ff-6a3c1cd6a3f8a195784c5c40__fields { margin:0 0 15px; }
+  [data-ff-el="root"].ff-6a3c1cd6a3f8a195784c5c40 .ff-6a3c1cd6a3f8a195784c5c40__field { font-size:16px;text-align:left;font-family:Poppins,sans-serif;font-weight:400;letter-spacing:0.1px; }
+  [data-ff-el="root"].ff-6a3c1cd6a3f8a195784c5c40 .ff-6a3c1cd6a3f8a195784c5c40__control { color:#6c0a26;border:1px solid #dddddd;height:46px;padding:12px 20px;font-size:16px;background:transparent;text-align:left;font-family:Poppins,sans-serif;font-weight:400;line-height:20px;border-radius:0px;letter-spacing:0.1px; }
+  [data-ff-el="root"].ff-6a3c1cd6a3f8a195784c5c40 .ff-6a3c1cd6a3f8a195784c5c40__label { color:#6c0a26;border:1px solid transparent;padding:12px 20px;font-size:16px;text-align:left;font-family:Poppins,sans-serif;font-weight:400;line-height:20px;letter-spacing:0.1px; }
+  [data-ff-el="root"].ff-6a3c1cd6a3f8a195784c5c40 .ff-6a3c1cd6a3f8a195784c5c40__footer { text-align:center; }
+  [data-ff-el="root"].ff-6a3c1cd6a3f8a195784c5c40 .ff-6a3c1cd6a3f8a195784c5c40__button { color:#ffffff;width:100%;border:0px solid #000000;display:inline-block;padding:12px 20px;font-size:19px;background:#8a0c2f;text-align:center;font-weight:400;line-height:20px;border-radius:4.4px;letter-spacing:0.1px; }
+  [data-ff-el="root"].ff-6a3c1cd6a3f8a195784c5c40 .ff-6a3c1cd6a3f8a195784c5c40__success { display:none; }
+  [data-ff-el="root"].ff-6a3c1cd6a3f8a195784c5c40[data-ff-stage="success"] .ff-6a3c1cd6a3f8a195784c5c40__success { display:block; }
+  [data-ff-el="root"].ff-6a3c1cd6a3f8a195784c5c40[data-ff-stage="success"] .ff-6a3c1cd6a3f8a195784c5c40__content { display:none; }
+  [data-ff-el="root"].ff-6a3c1cd6a3f8a195784c5c40 .ff-6a3c1cd6a3f8a195784c5c40__success-message { color:#8a0c2f;width:100%;display:block;font-size:20px;word-wrap:anywhere;min-height:1.6em;text-align:center;font-family:pp-editorial-new,serif;font-weight:200;line-height:1.6; }
+  [data-ff-el="root"].ff-6a3c1cd6a3f8a195784c5c40 .ff-6a3c1cd6a3f8a195784c5c40__error { margin:15px 0 0 0; }
+</style>
+
+<div class="ff-6a3c1cd6a3f8a195784c5c40" data-ff-el="root" data-ff-version="3" data-ff-type="popup" data-ff-name="popupNoImage" data-ff-stage="default">
+  <div data-ff-el="config" data-ff-config="eyJ0cmlnZ2VyIjp7Im1vZGUiOiJpbW1lZGlhdGVseSIsInZhbHVlIjowfSwib25TdWNjZXNzIjp7Im1vZGUiOiJtZXNzYWdlIiwibWVzc2FnZSI6IiIsInJlZGlyZWN0VXJsIjoiIn0sImNvaSI6dHJ1ZSwic2hvd0ZvclJldHVyblZpc2l0b3JzIjp0cnVlLCJub3RpZmljYXRpb24iOnRydWUsImdkcHIiOnsiYWNjZXB0c01hcmtldGluZyI6ZmFsc2UsInByaXZhY3lQb2xpY3kiOnsiZW5hYmxlZCI6ZmFsc2UsIm1hbmRhdG9yeSI6ZmFsc2V9fSwidHJhY2tpbmdDb25maWciOnsibWV0YVBpeGVsSWQiOiIiLCJjb29raWVCYW5uZXJFbmFibGVkIjpmYWxzZSwiZ29vZ2xlQW5hbHl0aWNzSWQiOiIifX0=" style="display: none"></div>
+  <div class="ff-6a3c1cd6a3f8a195784c5c40__modal fd-modal" data-ff-el="modal">
+    <div class="ff-6a3c1cd6a3f8a195784c5c40__modal-dialog fd-modal__dialog" data-ff-el="modal-dialog">
+      <div class="ff-6a3c1cd6a3f8a195784c5c40__modal-content fd-modal__content" data-ff-el="modal-content">
+        <div class="ff-6a3c1cd6a3f8a195784c5c40__modal-body fd-modal__body" data-ff-el="modal-body">
+          <div class="ff-6a3c1cd6a3f8a195784c5c40__wrapper">
+            <form class="ff-6a3c1cd6a3f8a195784c5c40__form" action="https://form.flodesk.com/forms/6a3c1cd6a3f8a195784c5c40/submit" method="post" data-ff-el="form">
+              <div class="ff-6a3c1cd6a3f8a195784c5c40__title">
+                <div style="word-break:break-word"><div data-paragraph="true">Join Turn On Your Life 🔥</div></div>
+              </div>
+              <div class="ff-6a3c1cd6a3f8a195784c5c40__subtitle">
+                <div style="min-height: 1.6em"><div></div></div>
+              </div>
+              <div class="ff-6a3c1cd6a3f8a195784c5c40__content fd-form-content" data-ff-el="content">
+                <div class="ff-6a3c1cd6a3f8a195784c5c40__fields" data-ff-el="fields">
+                  <div class="ff-6a3c1cd6a3f8a195784c5c40__field fd-form-group">
+                    <input id="ff-6a3c1cd6a3f8a195784c5c40-firstName" class="ff-6a3c1cd6a3f8a195784c5c40__control fd-form-control" type="text" maxlength="255" name="firstName" placeholder="First name" data-ff-tab="firstName::lastName" />
+                    <label for="ff-6a3c1cd6a3f8a195784c5c40-firstName" class="ff-6a3c1cd6a3f8a195784c5c40__label fd-form-label"><div><div>First name</div></div></label>
+                  </div>
+                  <div class="ff-6a3c1cd6a3f8a195784c5c40__field fd-form-group">
+                    <input id="ff-6a3c1cd6a3f8a195784c5c40-lastName" class="ff-6a3c1cd6a3f8a195784c5c40__control fd-form-control" type="text" maxlength="255" name="lastName" placeholder="Last name" data-ff-tab="lastName:firstName:email" />
+                    <label for="ff-6a3c1cd6a3f8a195784c5c40-lastName" class="ff-6a3c1cd6a3f8a195784c5c40__label fd-form-label"><div><div>Last name</div></div></label>
+                  </div>
+                  <div class="ff-6a3c1cd6a3f8a195784c5c40__field fd-form-group">
+                    <input id="ff-6a3c1cd6a3f8a195784c5c40-email" class="ff-6a3c1cd6a3f8a195784c5c40__control fd-form-control" type="text" maxlength="255" name="email" placeholder="Email address" data-ff-tab="email:lastName:submit" required />
+                    <label for="ff-6a3c1cd6a3f8a195784c5c40-email" class="ff-6a3c1cd6a3f8a195784c5c40__label fd-form-label"><div><div>Email address</div></div></label>
+                  </div>
+                  <input type="text" maxlength="255" name="confirm_email_address" style="display: none" />
+                </div>
+                <div class="ff-6a3c1cd6a3f8a195784c5c40__footer" data-ff-el="footer">
+                  <button type="submit" class="ff-6a3c1cd6a3f8a195784c5c40__button fd-btn" data-ff-el="submit" data-ff-tab="submit">
+                    <div><span data-draw-element="editable">Let's Turn It All The Way OONNNNN!!! 🔥 →</span></div>
+                  </button>
+                </div>
+              </div>
+              <div class="ff-6a3c1cd6a3f8a195784c5c40__success fd-form-success" data-ff-el="success">
+                <div class="ff-6a3c1cd6a3f8a195784c5c40__success-message">
+                  <div><div>
+                    <div data-paragraph="true">&nbsp;</div>
+                    <div data-paragraph="true"><span style="font-size:24px;font-weight:400;"><strong>You're IN! 🔥</strong></span></div>
+                    <div data-paragraph="true"><span style="font-size:24px;font-weight:400;"><strong>Welcome to Turn On Your Life!</strong></span></div>
+                    <div data-paragraph="true">&nbsp;</div>
+                    <div data-paragraph="true"><span style="font-size:19px;font-weight:400;">IMPORTANT:</span><br><span style="font-family:Poppins,sans-serif;font-size:20px;font-weight:400;"><strong>Check your emails to confirm you want to receive our emails!</strong></span></div>
+                    <div data-paragraph="true"><span style="font-family:Poppins,sans-serif;font-size:18px;font-weight:400;">→ You'll then receive everything about the challenge <i>straight in your inbox.</i></span></div>
+                    <div data-paragraph="true">&nbsp;</div>
+                    <div data-paragraph="true"><span style="font-size:21px;font-weight:400;"><i><strong>See you inside the Intimacy Artist Community &amp; LIVE on Thursday 6pm MT! ✨</strong></i></span></div>
+                    <div data-paragraph="true">&nbsp;</div>
+                    <div data-paragraph="true"><span style="font-family:Poppins,sans-serif;font-size:16px;font-weight:400;"><i>*Note: it may take up to 1h to receive the welcome email. To make sure it lands in your inbox,</i></span><br><span style="font-family:Poppins,sans-serif;font-size:14px;font-weight:400;"><i><strong>→ add marilys@empowered-connection.com to your contacts</strong></i></span></div>
+                    <div data-paragraph="true"><br><span style="font-family:Poppins,sans-serif;font-size:17px;font-weight:400;">For more support, email us ❤</span></div>
+                  </div></div>
+                </div>
+              </div>
+              <div class="ff-6a3c1cd6a3f8a195784c5c40__error fd-form-error" data-ff-el="error"></div>
+            </form>
+          </div>
+        </div>
+        <button class="ff-6a3c1cd6a3f8a195784c5c40__modal-close fd-modal__close" data-ff-el="modal-close">
+          <svg style="width: 1em" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14.51 14.51">
+            <line x1="1" y1="1" x2="13.51" y2="13.51" fill="none" stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" />
+            <line x1="13.51" y1="1" x2="1" y2="13.51" fill="none" stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  (function(w, d, t, h, s, n) {
+    w.FlodeskObject = n;
+    var fn = function() { (w[n].q = w[n].q || []).push(arguments); };
+    w[n] = w[n] || fn;
+    var f = d.getElementsByTagName(t)[0];
+    var v = '?v=' + Math.floor(new Date().getTime() / (120 * 1000)) * 60;
+    var sm = d.createElement(t);
+    sm.async = true; sm.type = 'module';
+    sm.src = h + s + '.mjs' + v;
+    f.parentNode.insertBefore(sm, f);
+    var sn = d.createElement(t);
+    sn.async = true; sn.noModule = true;
+    sn.src = h + s + '.js' + v;
+    f.parentNode.insertBefore(sn, f);
+  })(window, document, 'script', 'https://assets.flodesk.com', '/universal', 'fd');
+</script>
+<script>
+  window.addEventListener('load', function() {
+    if (window.fd) {
+      window.fd('form:handle', {
+        formId: '6a3c1cd6a3f8a195784c5c40',
+        rootEl: '.ff-6a3c1cd6a3f8a195784c5c40',
+      });
+    }
+  });
+</script>
 </body>
 </html>
