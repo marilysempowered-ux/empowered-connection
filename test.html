@@ -842,37 +842,16 @@
 </footer>
 
 <script>
-  var flodeskFormLoaded = false;
+  // Init Flodesk — it manages its own popup overlay
+  window.fd('form', { formId: '6a1e44eea91bde6e4708bd20' });
 
   function openPopup() {
-    document.getElementById('popupOverlay').classList.add('active');
-    document.body.style.overflow = 'hidden';
-
-    // Only init the form once, after popup is visible
-    if (!flodeskFormLoaded) {
-      flodeskFormLoaded = true;
-      // Small delay to ensure container is visible and Flodesk script is ready
-      setTimeout(function() {
-        window.fd('form', {
-          formId: '6a3c01423f52b5e70779f389',
-          containerEl: '#flodesk-embed-container'
-        });
-      }, 100);
-    }
+    window.fd('showForm', { formId: '6a1e44eea91bde6e4708bd20' });
   }
 
   function closePopup() {
-    document.getElementById('popupOverlay').classList.remove('active');
-    document.body.style.overflow = '';
+    // no-op: Flodesk closes its own popup
   }
-
-  document.getElementById('popupOverlay').addEventListener('click', function(e) {
-    if (e.target === this) closePopup();
-  });
-
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') closePopup();
-  });
 </script>
 </body>
 </html>
