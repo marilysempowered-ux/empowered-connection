@@ -459,7 +459,7 @@
 <div class="popup-overlay" id="popupOverlay">
   <div class="popup-box">
     <button class="popup-close" onclick="closePopup()" aria-label="Close">×</button>
-    <div id="flodesk-embed-container"></div>
+    <div class="fd-form-container" data-form-id="6a1e44eea91bde6e4708bd20"></div>
   </div>
 </div>
 
@@ -825,41 +825,9 @@
 </footer>
 
 <script>
-  var flodeskReady = false;
-
-  function loadFlodesk(callback) {
-    if (window.fd) { callback(); return; }
-    window.FlodeskObject = 'fd';
-    var fn = function() { (window.fd.q = window.fd.q || []).push(arguments); };
-    window.fd = window.fd || fn;
-    var f = document.getElementsByTagName('script')[0];
-    var v = '?v=' + Math.floor(new Date().getTime() / (120 * 1000)) * 60;
-    var sm = document.createElement('script');
-    sm.async = true; sm.type = 'module';
-    sm.src = 'https://assets.flodesk.com/universal.mjs' + v;
-    sm.onload = callback;
-    f.parentNode.insertBefore(sm, f);
-    var sn = document.createElement('script');
-    sn.async = true; sn.noModule = true;
-    sn.src = 'https://assets.flodesk.com/universal.js' + v;
-    f.parentNode.insertBefore(sn, f);
-  }
-
   function openPopup() {
     document.getElementById('popupOverlay').classList.add('active');
     document.body.style.overflow = 'hidden';
-
-    if (!flodeskReady) {
-      flodeskReady = true;
-      loadFlodesk(function() {
-        setTimeout(function() {
-          window.fd('form', {
-            formId: '6a1e44eea91bde6e4708bd20',
-            containerEl: '#flodesk-embed-container'
-          });
-        }, 150);
-      });
-    }
   }
 
   function closePopup() {
@@ -874,6 +842,25 @@
   document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') closePopup();
   });
+</script>
+
+<!-- Flodesk embed script — auto-detects fd-form-container divs on page load -->
+<script>
+(function(w, d, t, h, s, n) {
+  w.FlodeskObject = n;
+  var fn = function() { (w[n].q = w[n].q || []).push(arguments); };
+  w[n] = w[n] || fn;
+  var f = d.getElementsByTagName(t)[0];
+  var v = '?v=' + Math.floor(new Date().getTime() / (120 * 1000)) * 60;
+  var sm = d.createElement(t);
+  sm.async = true; sm.type = 'module';
+  sm.src = h + s + '.mjs' + v;
+  f.parentNode.insertBefore(sm, f);
+  var sn = d.createElement(t);
+  sn.async = true; sn.noModule = true;
+  sn.src = h + s + '.js' + v;
+  f.parentNode.insertBefore(sn, f);
+})(window, document, 'script', 'https://assets.flodesk.com', '/universal', 'fd');
 </script>
 </body>
 </html>
