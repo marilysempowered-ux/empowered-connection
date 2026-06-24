@@ -862,22 +862,28 @@
 </footer>
 
 <script>
-  // openPopup: let Flodesk JS fully control the modal so success state works
   function openPopup() {
-    if (window.fd) {
-      window.fd('showForm', { formId: '6a1e44eea91bde6e4708bd20' });
-    } else {
-      // fallback: manually open if fd not ready yet
-      var modal = document.querySelector('[data-ff-el="modal"]');
-      if (modal) modal.classList.add('fd-is-open');
+    var modal = document.querySelector('[data-ff-el="modal"]');
+    if (modal) {
+      modal.classList.add('fd-is-open');
+      document.body.style.overflow = 'hidden';
     }
   }
 
   function closePopup() {
     var modal = document.querySelector('[data-ff-el="modal"]');
-    if (modal) modal.classList.remove('fd-is-open');
-    document.body.style.overflow = '';
+    if (modal) {
+      modal.classList.remove('fd-is-open');
+      document.body.style.overflow = '';
+    }
   }
+
+  // Close when clicking Flodesk's own X button
+  document.addEventListener('click', function(e) {
+    if (e.target.closest('[data-ff-el="modal-close"]')) closePopup();
+    // Close on backdrop click
+    if (e.target.matches('[data-ff-el="modal"]')) closePopup();
+  });
 
   document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') closePopup();
@@ -976,9 +982,14 @@
   })(window, document, 'script', 'https://assets.flodesk.com', '/universal', 'fd');
 </script>
 <script>
-  window.fd('form:handle', {
-    formId: '6a1e44eea91bde6e4708bd20',
-    rootEl: '.ff-6a1e44eea91bde6e4708bd20',
+  // Wait for Flodesk script to load before calling form:handle
+  window.addEventListener('load', function() {
+    if (window.fd) {
+      window.fd('form:handle', {
+        formId: '6a1e44eea91bde6e4708bd20',
+        rootEl: '.ff-6a1e44eea91bde6e4708bd20',
+      });
+    }
   });
 </script>
 </body>
