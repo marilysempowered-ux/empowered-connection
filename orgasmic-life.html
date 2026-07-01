@@ -73,18 +73,27 @@
   .image-slot .slot-icon { font-size:2rem; opacity:.4; }
   .image-slot .slot-note { font-size:.72rem; opacity:.55; font-style:italic; }
 
-  /* ── HERO (Cormorant display, quiet, generous) ───────────── */
-  .hero { padding-top: 5rem; padding-bottom: 4rem; text-align:center; }
+  /* ── HERO (centered text left, image right) ───────────────── */
+  .hero { padding: 0; text-align: center; }
+  .hero-flex { display: flex; align-items: stretch; min-height: 680px; }
+  .hero-content-col { flex: 1 1 56%; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 5rem 3rem; }
+  .hero-image-col { flex: 0 0 44%; position: relative; min-height: 680px; }
+  .hero-image-col .image-slot { position: absolute; inset: 0; height: 100%; width: 100%; border-radius: 0; border-width: 0 0 0 2px; }
+  .hero-image-col img { width: 100%; height: 100%; object-fit: cover; display: block; }
   .hero-eyebrow { font-family: var(--sans); font-size:.74rem; font-weight:500; letter-spacing:.26em; text-transform:uppercase; color: var(--accent); opacity:.75; margin-bottom:2rem; display:block; }
-  .hero-title { font-family: var(--display); font-weight:300; font-size: clamp(4rem, 11vw, 8rem); color: var(--accent); line-height:.92; margin-bottom:.3rem; letter-spacing:-0.01em; }
+  .hero-title { font-family: var(--display); font-weight:300; font-size: clamp(3.2rem, 7vw, 6.5rem); color: var(--accent); line-height:.92; margin-bottom:.3rem; letter-spacing:-0.01em; }
   .hero-title em { font-style: italic; font-weight:300; color: var(--text-dark); }
-  .hero-subtitle { font-family: var(--display); font-style: italic; font-weight:300; font-size: clamp(1.3rem,2.6vw,1.8rem); color: var(--text-mid); margin: 2.4rem auto 0; max-width:640px; line-height:1.55; }
+  .hero-subtitle { font-family: var(--display); font-style: italic; font-weight:300; font-size: clamp(1.2rem,2vw,1.5rem); color: var(--text-mid); margin: 2rem auto 0; max-width:520px; line-height:1.55; }
   .hero-subtitle strong { font-weight:600; color: var(--accent-deep); font-style: normal; }
-  .hero-body { font-family: var(--sans); font-size:1.02rem; color: var(--text-mid); line-height:1.9; margin: 2rem auto 2.4rem; max-width:600px; }
-  .hero-investment { font-family: var(--serif); font-style:italic; font-size:1.05rem; color: var(--text-mid); margin-bottom:2rem; }
+  .hero-body { font-family: var(--sans); font-size:1rem; color: var(--text-mid); line-height:1.9; margin: 1.8rem auto 2.2rem; max-width:480px; }
+  .hero-investment { font-family: var(--serif); font-style:italic; font-size:1.02rem; color: var(--text-mid); margin-bottom:2rem; }
   .hero-investment strong { color: var(--accent-deep); font-style:normal; font-weight:700; }
-  .hero-image-wrap { max-width: 640px; margin: 3.5rem auto 0; }
-  .hero-image-wrap .image-slot { aspect-ratio: 16/9; }
+  @media (max-width: 900px) {
+    .hero-flex { flex-direction: column; min-height: 0; }
+    .hero-content-col { padding: 3rem 1.5rem; }
+    .hero-image-col { flex: none; min-height: 380px; }
+    .hero-image-col .image-slot { border-width: 2px 0 0 0; }
+  }
 
   /* ── SECTION TITLES ──────────────────────────────────────── */
   .section-label { font-family: var(--sans); font-size:.72rem; font-weight:500; letter-spacing:.22em; text-transform:uppercase; color: var(--accent); opacity:.75; display:block; margin-bottom:1rem; }
@@ -251,7 +260,7 @@
     .nav-dropdown-menu { display:none; position:static; box-shadow:none; min-width:0; padding-left:1rem; background:transparent; }
     .nav-dropdown:hover .nav-dropdown-menu { display:none; }
     .nav-dropdown.open .nav-dropdown-menu { display:block; }
-    section, .hero, .why-section, .outcomes-section, .modules-section, .invest, .for-you, .not-for-you, .faq, .final-cta, .marilys-section { padding:3.5rem 1.5rem; }
+    section, .why-section, .outcomes-section, .modules-section, .invest, .for-you, .not-for-you, .faq, .final-cta, .marilys-section { padding:3.5rem 1.5rem; }
     footer { padding:1.5rem; }
   }
 </style>
@@ -285,21 +294,21 @@
   </ul>
 </nav>
 
-<!-- ── HERO ──────────────────────────────────────────────────── -->
+<!-- ── HERO (split: image left, content right) ─────────────────── -->
 <section class="hero">
-  <span class="hero-eyebrow">6-Week Program ◆ Starting July 16th ◆ Intimate Group</span>
-<h1 class="hero-title">Orgasmic<br><em style="margin-left: 0.75em;">Life</em></h1>
-<p class="hero-subtitle"><strong>Cultivate the most <em style="color: var(--accent);">powerful and nourishing energy</em><br> that exists — from the inside out — to experience <br> more pleasure for the <em style="color: var(--accent);">rest of your life.</em></strong></p>  
-<p class="hero-body"><strong>Orgasmic energy is creative energy — life moving through you. </strong><br> This is not about peak experiences. It's about experiencing thefullness of your life and finding pleasure in each moment — even through challenges. <strong>You become the orgasmic co-creator of your life.</strong></p>
-<p class="hero-investment">Investment: <strong><span style="text-decoration: line-through; text-decoration-color: var(--accent);">$1333</span> <span style="color: var(--accent);">$555 (pre-sale)</span></strong> <span style="opacity:.7; font-size:.9rem;"><strong></strong></span></p>    <div class="image-slot">
-      <span class="slot-icon">✦</span>
-      <span>Hero photo — Marilys, full body, alive & embodied</span>
-      <span class="slot-note">swap with your own image</span>
+  <div class="hero-flex">
+    <div class="hero-content-col">
+      <span class="hero-eyebrow">6-Week Program ◆ Starting July 16th ◆ Intimate Group</span>
+      <h1 class="hero-title">Orgasmic<br><em style="margin-left: 0.75em;">Life</em></h1>
+      <p class="hero-subtitle"><strong>Cultivate the most <em style="color: var(--accent);">powerful and nourishing energy</em> that exists — from the inside out — to experience more pleasure for the <em style="color: var(--accent);">rest of your life.</em></strong></p>
+      <p class="hero-body"><strong>Orgasmic energy is creative energy — life moving through you.</strong> This is not about peak experiences. It's about experiencing the fullness of your life and finding pleasure in each moment — even through challenges. <strong>You become the orgasmic co-creator of your life.</strong></p>
+      <p class="hero-investment">Investment: <strong><span style="text-decoration: line-through; text-decoration-color: var(--accent);">$1333</span> <span style="color: var(--accent);">$555 (pre-sale)</span></strong></p>
+      <a href="#invest" class="btn btn-primary">Reserve My Spot</a>
+    </div>
+    <div class="hero-image-col">
+      <img src="hero-orgasmic.png" alt="Woman standing in a sunlit field, arms open, radiant with energy">
     </div>
   </div>
-</section>
-
-<section style="padding:1rem 2rem 3rem; text-align:center;">
 </section>
 
 <!-- ── PULL QUOTE ──────────────────────────────────────────────── -->
@@ -509,7 +518,6 @@
       <li>✦ Bonus: Primal Play & BDSM intro (fast-action)</li>
       <li>✦ Bonus: Fascia Release (fast-action)</li>
     </ul>
-    <a href="STRIPE_LINK_HERE" class="btn btn-light">Reserve My Spot</a>
     <p class="invest-promo">Joined Turn On Your Life or Orgasmic Body? Use your promo code at checkout for a special rate.<br>Swap STRIPE_LINK_HERE with your checkout link.</p>
   </div>
 </section>
