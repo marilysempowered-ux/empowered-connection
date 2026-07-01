@@ -37,14 +37,12 @@
   .alt-bg { background: var(--peach-mid); }
   hr.divider { max-width: 1080px; margin: 0 auto; border: none; border-top: 1px solid rgba(138,12,47,0.1); }
 
-  /* ── BUTTONS (quieter — no pulsing arrows) ──────────────────── */
   .btn { display:inline-block; text-decoration:none; font-family:var(--sans); font-size:.97rem; font-weight:500; padding:.95rem 2.6rem; border-radius:30px; transition:all .25s ease; cursor:pointer; border:none; letter-spacing:.02em; }
   .btn-primary { background: var(--accent); color: #fff; }
   .btn-primary:hover { background: var(--accent-hover); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(138,12,47,.25); }
   .btn-light { background: rgb(250,235,212); color: var(--accent); }
   .btn-light:hover { background: rgb(253,247,239); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,.12); }
 
-  /* ── NAV ─────────────────────────────────────────────────── */
   nav { position: sticky; top: 0; z-index: 100; display:flex; align-items:center; justify-content:space-between; padding:0 3rem; height:64px; background: var(--accent-deep); border-bottom: 1px solid rgba(138,12,47,0.15); }
   .nav-logo img { height:44px; width:auto; display:block; }
   .nav-links { display:flex; gap:2rem; list-style:none; align-items:center; }
@@ -68,12 +66,10 @@
   .nav-toggle.open span:nth-child(2){opacity:0;}
   .nav-toggle.open span:nth-child(3){top:11px; transform:rotate(-45deg);}
 
-  /* ── IMAGE SLOT (placeholder) ────────────────────────────── */
   .image-slot { background: var(--peach-mid); border:2px dashed rgba(138,12,47,0.2); border-radius:12px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:.5rem; color:var(--text-mid); font-family:var(--sans); font-size:.82rem; padding:2rem; text-align:center; }
   .image-slot .slot-icon { font-size:2rem; opacity:.4; }
   .image-slot .slot-note { font-size:.72rem; opacity:.55; font-style:italic; }
 
-  /* ── HERO (centered text left, image right) ───────────────── */
   .hero { padding: 0; text-align: center; }
   .hero-flex { display: flex; align-items: stretch; }
   .hero-content-col { flex: 1 1 68%; display: flex; flex-direction: column; justify-content: flex-start; align-items: center; padding: 2.5rem 3.5rem; }
@@ -98,7 +94,6 @@
     .hero-image-col::after { background: linear-gradient(to bottom, transparent 88%, var(--peach-light) 100%); }
   }
 
-  /* ── SECTION TITLES ──────────────────────────────────────── */
   .section-label { font-family: var(--sans); font-size:.72rem; font-weight:500; letter-spacing:.22em; text-transform:uppercase; color: var(--accent); opacity:.75; display:block; margin-bottom:1rem; }
   .section-title { font-family: var(--serif); font-weight:700; font-size: clamp(1.6rem,3.5vw,2.5rem); color: var(--accent-deep); line-height:1.18; margin-bottom:1.8rem; }
   .section-title em { font-style: italic; color: var(--accent-hover); }
@@ -108,12 +103,10 @@
   .body-text .hi { color: var(--accent); font-weight:600; }
   .body-text em { font-style: italic; color: var(--text-mid); }
 
-  /* ── PULL QUOTE ───────────────────────────────────────────── */
   .pull-quote-section { background: var(--accent-deep); padding:5rem 2rem; text-align:center; }
   .pull-quote-section blockquote { font-family: var(--display); font-style:italic; font-weight:300; font-size: clamp(1.5rem,3.2vw,2.2rem); color: var(--peach-light); max-width:760px; margin:0 auto 1.2rem; line-height:1.5; }
   .pull-quote-section cite { font-family: var(--sans); font-size:.78rem; letter-spacing:.16em; text-transform:uppercase; color: rgba(245,201,138,.7); font-style:normal; }
 
-  /* ── JOURNEY ROW (image + content, alternating) ──────────── */
   .journey-wrap { max-width:1100px; margin:0 auto; padding: 1rem 1rem; }
   .journey-row { display:flex; align-items:flex-start; gap:3.5rem; }
   .journey-row.rev { flex-direction: row-reverse; }
@@ -122,7 +115,6 @@
   .journey-row-content { flex:1; min-width:0; }
   @media (max-width:850px) { .journey-row, .journey-row.rev { flex-direction:column; gap:1.8rem; } .journey-row-image { width:100%; } .journey-row-image .image-slot { aspect-ratio: 4/3; } }
 
-  /* ── WHY SIX WEEKS (quiet prose, no told/truth grid) ─────── */
   .why-section { background: var(--accent-deep); padding:6rem 2rem; }
   .why-inner { max-width:760px; margin:0 auto; text-align:center; }
   .why-q { font-family: var(--display); font-style:italic; font-weight:300; font-size: clamp(1.6rem,3vw,2.3rem); color: var(--peach-light); line-height:1.4; margin-bottom:2.4rem; }
@@ -133,7 +125,6 @@
   .why-close { font-family: var(--serif); font-style:italic; font-weight:700; font-size: clamp(1.15rem,2vw,1.4rem); color: var(--peach); margin-top:2.4rem; line-height:1.5; }
   .why-close strong { color: var(--peach-light); }
 
-  /* ── OUTCOMES ─────────────────────────────────────────────── */
   .outcomes-section { background: var(--peach-mid); padding:6rem 2rem; }
   .outcomes-head { text-align:center; max-width:680px; margin:0 auto 3.5rem; }
   .outcomes-grid { display:grid; grid-template-columns: repeat(2,1fr); gap:1.6rem; max-width:1000px; margin:0 auto; }
@@ -144,7 +135,6 @@
   .outcome-proof { font-family: var(--serif); font-style:italic; font-size:.85rem; color: var(--accent); line-height:1.6; margin-top:.8rem; padding-top:.8rem; border-top:1px solid rgba(138,12,47,.1); }
   @media (max-width:768px) { .outcomes-grid { grid-template-columns:1fr; } }
 
-  /* ── MODULES (refined list, not a hype timeline) ─────────── */
   .modules-section { padding: 6rem 2rem; }
   .modules-head { text-align:center; max-width:680px; margin:0 auto 3.5rem; }
   .module-list { max-width:780px; margin:0 auto; border-top:1px solid rgba(138,12,47,0.12); }
@@ -153,12 +143,10 @@
   .module-title { font-family: var(--serif); font-weight:700; font-size:1.3rem; color: var(--accent-deep); margin-bottom:.8rem; line-height:1.4; }
   .module-body { font-family: var(--sans); font-size:.97rem; color: var(--text-mid); line-height:1.85; }
 
-  /* ── BONUSES ─────────────────────────────────────────────── */
   .bonus-note { max-width:880px; margin:2.5rem auto 0; padding:1.6rem 1.8rem; border-left:2px solid rgba(232,168,90,.6); background: rgba(255,255,255,.4); border-radius:0 8px 8px 0; }
   .bonus-note p { font-family: var(--sans); font-size:.94rem; color: var(--text-mid); line-height:1.8; }
   .bonus-note strong { color: var(--accent-deep); }
 
-  /* ── FOR YOU / NOT FOR YOU ────────────────────────────────── */
   .for-you { background: var(--peach-mid); padding:6rem 2rem; text-align:center; }
   .for-you h2 { font-family: var(--serif); font-weight:700; font-size: clamp(1.6rem,2.8vw,2.2rem); color: var(--accent-deep); margin-bottom:2rem; }
   .check-list { list-style:none; max-width:740px; margin:0 auto 2.5rem; text-align:left; }
@@ -168,24 +156,26 @@
   .x-list { list-style:none; max-width:560px; margin:0 auto; text-align:left; }
   .x-list li { font-family: var(--sans); font-size:.96rem; color: var(--text-mid); padding:.55rem 0; border-bottom:1px solid rgba(138,12,47,.08); display:flex; gap:.75rem; align-items:flex-start; line-height:1.6; }
 
-  /* ── TESTIMONIALS SPLIT ──────────────────────────────────── */
   .testi-card { background: rgba(255,255,255,.62); border-radius:12px; padding:1.6rem 1.7rem; border:1px solid rgba(138,12,47,.08); display:flex; flex-direction:column; }
   .testi-quote { font-family: var(--sans); font-size:.96rem; color: var(--text-mid); line-height:1.78; flex:1; margin-bottom:1rem; }
   .testi-quote strong { color: var(--accent-deep); font-weight:600; }
   .testi-name { font-family: var(--sans); font-size:.86rem; font-weight:600; color: var(--accent); border-top:1px solid rgba(138,12,47,.12); padding-top:.8rem; }
-  .testimonials-split-inner { max-width:1100px; margin:0 auto; padding: 0 1rem; display:flex; align-items:center; gap:3rem; }
-  .testimonials-split-image { flex-shrink:0; width:340px; }
-  .testimonials-split-image .image-slot { aspect-ratio: 4/5; }
-  .testimonials-split-content { flex:1; min-width:0; }
-  .testimonials-split-list { display:flex; flex-direction:column; gap:1.1rem; margin-top:1.6rem; }
-  @media (max-width:850px) { .testimonials-split-inner { flex-direction:column; padding:0; } .testimonials-split-image { width:100%; } }
+  .testimonials-wrap { max-width:1100px; margin:0 auto; padding:6rem 2rem; }
+  .testimonials-video { max-width:900px; margin:0 auto 3.5rem; aspect-ratio:16/9; border-radius:16px; overflow:hidden; box-shadow:0 16px 48px rgba(138,12,47,.15); }
+  .testimonials-video iframe { width:100%; height:100%; display:block; border:none; }
+  .testimonials-grid-head { text-align:center; margin-bottom:2.5rem; }
+  .testimonials-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; }
+  @media (max-width:850px) { .testimonials-grid { grid-template-columns:1fr; } }
 
-  /* ── MARILYS ─────────────────────────────────────────────── */
   .marilys-section { background: var(--peach-light); padding:6rem 2rem; border-top:1px solid rgba(138,12,47,.08); }
-  .marilys-inner { max-width:1060px; margin:0 auto; display:flex; align-items:flex-start; gap:4rem; }
-  .marilys-photo-wrap { flex-shrink:0; width:300px; position:relative; padding-bottom:7rem; }
+  .marilys-inner { max-width:1150px; margin:0 auto; display:flex; align-items:flex-start; gap:4.5rem; }  .marilys-photo-wrap { flex-shrink:0; width:250px; display:flex; flex-direction:column; align-items:center; gap:2.5rem; }
+  .marilys-photo-circle { width:220px; aspect-ratio:1/1; border-radius:50%; overflow:hidden; border:4px solid var(--accent-deep); box-shadow: 0 12px 40px rgba(138,12,47,.15); }
+  .marilys-photo-circle img { width:100%; height:100%; object-fit:cover; display:block; }
+  .marilys-photo-pair { position:relative; width:300px; padding-bottom:7rem; }
   .marilys-photo-round { width:300px; border-radius:16px; overflow:hidden; box-shadow: 0 12px 40px rgba(138,12,47,.12); position:relative; z-index:1; }
-  .marilys-photo-second { width:190px; border-radius:16px; overflow:hidden; box-shadow:0 10px 30px rgba(138,12,47,.22); position:absolute; right:-18px; bottom:-13rem; z-index:2; transform: rotate(4deg); border:6px solid var(--peach-light); }
+  .marilys-photo-round img { width:100%; height:100%; object-fit:cover; display:block; }
+  .marilys-photo-second { width:170px; border-radius:16px; overflow:hidden; box-shadow:0 10px 30px rgba(138,12,47,.22); position:absolute; right:-18px; bottom:-4rem; z-index:2; transform: rotate(4deg); border:6px solid var(--peach-light); }
+  .marilys-photo-second img { width:100%; height:100%; object-fit:cover; display:block; }
   .marilys-text { flex:1; padding-top:.5rem; }
   .marilys-signature { font-family: var(--script); font-size: clamp(2.2rem,4vw,3.2rem); color: var(--accent-deep); line-height:1.1; margin-bottom:.3rem; }
   .marilys-title-1 { font-family: var(--serif); font-weight:700; font-size:1.05rem; color: var(--accent); line-height:1.4; margin-bottom:.1rem; }
@@ -194,9 +184,8 @@
   .marilys-body p { margin-bottom:1.3rem; }
   .marilys-body p:last-child { margin-bottom:0; }
   .marilys-body .hi { color: var(--accent); font-weight:600; }
-  @media (max-width:900px) { .marilys-inner { flex-direction:column-reverse; align-items:center; gap:2.5rem; } .marilys-photo-wrap { width:280px; padding-bottom:6rem; } .marilys-photo-round { width:280px; } .marilys-photo-second { width:150px; right:-15px; bottom:-1rem; } .marilys-text { text-align:center; } }
+  @media (max-width:900px) { .marilys-inner { flex-direction:column-reverse; align-items:center; gap:2.5rem; } .marilys-photo-wrap { width:280px; } .marilys-photo-pair { width:280px; padding-bottom:6rem; } .marilys-photo-round { width:280px; } .marilys-photo-second { width:150px; right:-15px; bottom:-1rem; } .marilys-photo-circle { width:180px; } .marilys-text { text-align:center; } }
 
-  /* ── PROGRAM DETAILS ─────────────────────────────────────── */
   .schedule-box { background: rgba(255,255,255,.55); border:1px solid rgba(138,12,47,.1); border-radius:12px; padding:2.2rem; margin:1.5rem 0; }
   .schedule-label { font-family: var(--sans); font-size:.72rem; font-weight:500; letter-spacing:.18em; text-transform:uppercase; color: var(--accent); opacity:.7; margin-bottom:1.2rem; display:block; }
   .details-row { display:flex; gap:1rem; padding:.7rem 0; border-bottom:1px solid rgba(138,12,47,.08); font-size:.95rem; }
@@ -205,7 +194,6 @@
   .details-value { font-family: var(--sans); color: var(--text-dark); line-height:1.7; }
   .details-value em { font-style:italic; color: var(--text-mid); font-size:.88rem; }
 
-  /* ── INVESTMENT (quiet, like the consult section) ────────── */
   .invest { background: var(--accent-deep); padding:6.5rem 2rem; text-align:center; }
   .invest-inner { max-width:680px; margin:0 auto; }
   .invest-eyebrow { font-family: var(--sans); font-size:.78rem; font-weight:500; letter-spacing:.2em; text-transform:uppercase; color: var(--peach); opacity:.7; margin-bottom:1rem; }
@@ -220,7 +208,6 @@
   .invest-includes li { font-family: var(--sans); font-size:.93rem; color: rgba(253,232,192,.8); padding:.45rem 0; display:flex; gap:.7rem; }
   .invest-promo { font-family: var(--sans); font-size:.88rem; color: rgba(253,232,192,.6); font-style:italic; margin-top:1.4rem; }
 
-  /* ── FAQ ─────────────────────────────────────────────────── */
   .faq { background: var(--peach-mid); padding:6rem 2rem; }
   .faq-label { font-family: var(--sans); font-size:.72rem; font-weight:500; letter-spacing:.15em; text-transform:uppercase; color: rgba(122,48,32,.4); text-align:center; display:block; margin-bottom:.4rem; }
   .faq h2 { font-family: var(--serif); font-weight:700; font-size: clamp(1.6rem,3vw,2.2rem); color: var(--accent-deep); text-align:center; margin-bottom:2.8rem; }
@@ -233,7 +220,6 @@
   .faq-item p { font-family: var(--sans); font-size:.92rem; color: var(--text-mid); line-height:1.75; padding:0 1.6rem 1.3rem; }
   .faq-item p strong { color: var(--accent-deep); font-weight:600; }
 
-  /* ── FINAL CTA (cinematic, image overlay — like Orgasmic Body) ── */
   .final-cta { position:relative; background: var(--accent-deep); padding:8rem 2rem; text-align:center; overflow:hidden; }
   .final-cta-overlay { position:absolute; inset:0; background: radial-gradient(ellipse at 50% 30%, rgba(245,201,138,.08) 0%, transparent 65%); }
   .final-cta-inner { position:relative; max-width:700px; margin:0 auto; }
@@ -242,7 +228,6 @@
   .final-title em { font-style: italic; color: var(--peach); }
   .final-sub { font-family: var(--sans); font-size:1.02rem; color: rgba(253,232,192,.78); margin-bottom:2.4rem; line-height:1.9; }
 
-  /* ── FOOTER ──────────────────────────────────────────────── */
   footer { background: var(--accent-deep); padding:1.5rem 3rem; display:flex; flex-direction:column; align-items:center; gap:.4rem; text-align:center; border-top:1px solid rgba(138,12,47,.15); }
   .footer-ig { font-family: var(--sans); font-size:.88rem; color: var(--peach-light); }
   .footer-ig a { color: var(--peach-light); text-decoration:none; }
@@ -252,7 +237,6 @@
   .footer-contact a:hover { color: var(--accent); }
   .footer-copy { font-size:.85rem; color: var(--peach-light); opacity:.6; }
 
-  /* ── RESPONSIVE ──────────────────────────────────────────── */
   @media (max-width:960px) {
     nav { padding:0 1rem; }
     .nav-toggle { display:block; }
@@ -270,7 +254,6 @@
 </head>
 <body>
 
-<!-- ── NAV ───────────────────────────────────────────────────── -->
 <nav>
   <a href="/" class="nav-logo"><img src="Logo. Dark red.png" alt="Empowered Connection"></a>
   <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
@@ -297,7 +280,6 @@
   </ul>
 </nav>
 
-<!-- ── HERO (image left, centered text right) ─────────────────── -->
 <section class="hero">
   <div class="hero-flex">
     <div class="hero-image-col">
@@ -313,13 +295,11 @@
   </div>
 </section>
 
-<!-- ── PULL QUOTE ──────────────────────────────────────────────── -->
 <div class="pull-quote-section">
   <blockquote>"We feel more turned on than in our 20s — and have never been more excited about the adventures ahead together."</blockquote>
   <cite>— Dan (& Wendy)</cite>
 </div>
 
-<!-- ── WHY SIX WEEKS ────────────────────────────────────────────── -->
 <section class="why-section">
   <div class="why-inner">
     <p class="why-q">6 weeks of cultivation for a new <br> lifelong baseline of embodied pleasure.</p>
@@ -328,7 +308,6 @@
   </div>
 </section>
 
-<!-- ── OUTCOMES ─────────────────────────────────────────────────── -->
 <section class="outcomes-section">
   <div class="outcomes-head">
     <span class="section-label" style="text-align:center;">What's Possible</span>
@@ -358,7 +337,6 @@
   </div>
 </section>
 
-<!-- ── THE 6 MODULES ───────────────────────────────────────────── -->
 <section class="modules-section">
   <div class="modules-head">
     <span class="section-label" style="text-align:center;">The Path</span>
@@ -412,65 +390,64 @@
 
 <hr class="divider">
 
-
-<!-- ── TESTIMONIALS ─────────────────────────────────────────────── -->
 <section class="alt-bg" style="padding:0;">
-  <div class="testimonials-split-inner" style="padding:6rem 2rem;">
-    <div class="testimonials-split-image">
-      <div class="image-slot" style="height:100%;">
-        <span class="slot-icon">✦</span>
-        <span>Workshop / session photo</span>
-        <span class="slot-note">swap with your own image</span>
-      </div>
-    </div>
-    <div class="testimonials-split-content">
+  <div class="testimonials-wrap">
+    <div class="testimonials-grid-head" style="margin-bottom:2rem;">
       <span class="section-label">What People Are Saying</span>
-      <div class="testimonials-split-list">
-        <div class="testi-card">
-          <p class="testi-quote">"We had come to believe my wife was <strong>asexual.</strong> For over 30 years I tried everything. No dice. After this work, our daughters looked at her and said: 'What did you do? Mom is glowing!'"</p>
-          <p class="testi-name">— Dan (& Wendy)</p>
-        </div>
-        <div class="testi-card">
-          <p class="testi-quote">"I've done a lot of therapy in my life. In terms of experiential growth in a short period of time, <strong>working with Marilys has been nothing short of miraculous.</strong>"</p>
-          <p class="testi-name">— David</p>
-        </div>
-        <div class="testi-card">
-          <p class="testi-quote">"I now feel more myself and <strong>more connected to my husband than ever, after 17 years of marriage.</strong>"</p>
-          <p class="testi-name">— Natalie</p>
-        </div>
+    </div>
+    <div class="testimonials-video">
+      <iframe src="https://www.youtube.com/embed/VbgG6qTS8dI" title="Orgasmic Body workshop" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testi-card">
+        <p class="testi-quote">"We had come to believe my wife was <strong>asexual.</strong> For over 30 years I tried everything. No dice. After this work, our daughters looked at her and said: 'What did you do? Mom is glowing!'"</p>
+        <p class="testi-name">— Dan (& Wendy)</p>
+      </div>
+      <div class="testi-card">
+        <p class="testi-quote">"I've done a lot of therapy in my life. In terms of experiential growth in a short period of time, <strong>working with Marilys has been nothing short of miraculous.</strong>"</p>
+        <p class="testi-name">— David</p>
+      </div>
+      <div class="testi-card">
+        <p class="testi-quote">"Honestly, just being around Marilys' energy and calibrating to it might have been the most valuable part of working together. <strong>I can now experience more pleasure in any moment </strong>like never before."</p>
+        <p class="testi-name">— M-C</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ── MARILYS ──────────────────────────────────────────────────── -->
+
 <section class="marilys-section">
   <div class="marilys-inner">
     <div class="marilys-photo-wrap">
-      <div class="marilys-photo-round">
-<div class="marilys-photo-round">
-  <img src="AND_9036.1.jpg" alt="Marilys, facilitating" style="width:100%; height:100%; object-fit:cover; display:block;">
+<div class="marilys-photo-circle">
+  <img src="IMG_8655.squareish.jpg" alt="Marilys" style="width:100%; height:100%; object-fit:cover; display:block;">
 </div>
+      <div class="marilys-photo-pair">
+        <div class="marilys-photo-round">
+          <img src="AND_9036.1.jpg" alt="Marilys, facilitating" style="width:100%; height:100%; object-fit:cover; display:block;">
+        </div>
+        <div class="marilys-photo-second">
+          <img src="IMG_8421.jpg" alt="Marilys" style="width:100%; height:100%; object-fit:cover; display:block;">
+        </div>
       </div>
-<div class="marilys-photo-second">
-  <img src="IMG_8421.jpg" alt="Marilys" style="width:100%; height:100%; object-fit:cover; display:block;">
-</div>
     </div>
     <div class="marilys-text">
       <span class="section-label">Your Guide</span>
       <p class="marilys-signature">Marilys</p>
       <p class="marilys-title-1">Somatic Intimacy & Relating Coach</p>
-      <p class="marilys-title-2">Erotic Aliveness Guide · Bodyworker</p>
+      <p class="marilys-title-2">Erotic Aliveness Guide & Bodyworker</p>
       <div class="marilys-body">
+        <p>What I do, simply can't be put in a box.</p>
         <p>I've been guiding people — individuals and couples — into <span class="hi">more aliveness in their bodies, relationships and lives</span> since 2011, across coaching, somatic bodywork, and the energetics of intimacy.</p>
-        <p>My approach blends an understanding of power and polarity dynamics with how that actually shows up in everyday moments — emotion translated into aligned action, desire spoken instead of swallowed, boundaries held with ease. <span class="hi">All energy and power, through a holistic lens.</span></p>
-        <p>Orgasmic Life is where I bring everything I teach in private sessions — distilled into six weeks, held live, inside a small group of people choosing the same thing you are.</p>
+        <p>What I know, and what most people won't say directly, is that your sexual energy isn't simply a "department" of your life. <span class="hi">It's the frequency your whole life runs on.</span> If repressed in any ways, everything feels a little muted — your energy, your creativity, your presence, your turn on. When you know how to work with it intentionally, you live an Orgasmic Life.</p>
+        <p>With a foundation of years of somatic intimacy coaching, bodywork, and authentic relating — I've also trained as a kundalini activation facilitator, in the Energy Orgasms method, and several other approaches, including ancient Taoism and Tantric wisdom. I hold it all through a <span class="hi">holistic lens</span>, working with the energetics and your body's intelligence.</p>
+        <p>I've supported people arriving feeling flat, armored, disconnected — and leave <span class="hi">radiant, open, lit up from the inside out.</span> </p>
+        <p>I was inspired to create Orgasmic Life from seeing how much impact simple teachings can have, and wanting to reach more people, creating a community of people transforming together instead of only in private sessions.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ── PROGRAM DETAILS ─────────────────────────────────────────── -->
 <section class="alt-bg">
   <div class="inner">
     <span class="section-label">Details</span>
@@ -501,7 +478,6 @@
   </div>
 </section>
 
-<!-- ── INVESTMENT ───────────────────────────────────────────────── -->
 <section class="invest" id="invest">
   <div class="invest-inner">
     <p class="invest-eyebrow">Enrollment</p>
@@ -522,7 +498,6 @@
   </div>
 </section>
 
-<!-- ── FAQ ──────────────────────────────────────────────────────── -->
 <section class="faq">
   <span class="faq-label">FAQ</span>
   <h2>You might be wondering...</h2>
@@ -536,7 +511,6 @@
   </div>
 </section>
 
-<!-- ── FINAL CTA ────────────────────────────────────────────────── -->
 <section class="final-cta">
   <div class="final-cta-overlay"></div>
   <div class="final-cta-inner">
@@ -547,7 +521,6 @@
   </div>
 </section>
 
-<!-- ── FOOTER ───────────────────────────────────────────────────── -->
 <footer>
   <p class="footer-ig"><a href="https://instagram.com/empowered.connection" target="_blank">@empowered.connection</a></p>
   <p class="footer-contact">Questions? <a href="mailto:marilys@empowered-connection.com">marilys@empowered-connection.com</a></p>
