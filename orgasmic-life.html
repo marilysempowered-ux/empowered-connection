@@ -72,11 +72,14 @@
 
   .hero { padding: 0; text-align: center; }
   .hero-flex { display: flex; align-items: stretch; }
-  .hero-content-col { flex: 1 1 68%; display: flex; flex-direction: column; justify-content: flex-start; align-items: center; padding: 2.5rem 3.5rem; }
-  .hero-image-col { flex: 0 0 32%; position: relative; overflow: hidden; }
+.hero-content-col { flex: 1 1 48%; display: flex; flex-direction: column; justify-content: flex-start; align-items: center; padding: 2.5rem 3.5rem; }
+.hero-image-col { flex: 0 0 26%; position: relative; overflow: hidden; }
   .hero-image-col .image-slot { position: absolute; inset: 0; height: 100%; width: 100%; border-radius: 0; border-width: 0 0 0 2px; }
   .hero-image-col img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
   .hero-image-col::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to right, transparent 88%, var(--peach-light) 100%); pointer-events: none; }
+  .hero-image-col-right { flex: 0 0 26%; position: relative; overflow: hidden; }
+.hero-image-col-right img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
+.hero-image-col-right::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to left, transparent 88%, var(--peach-light) 100%); pointer-events: none; }
   .hero-eyebrow { font-family: var(--sans); font-size:.74rem; font-weight:500; letter-spacing:.26em; text-transform:uppercase; color: var(--accent); opacity:.75; margin-bottom:1.2rem; display:block; }
   .hero-title { font-family: var(--display); font-weight:300; font-size: clamp(3.8rem, 7.2vw, 7.2rem); color: var(--accent); line-height:.92; margin-bottom:.3rem; letter-spacing:-0.01em; }
   .hero-title em { font-style: italic; font-weight:300; color: var(--text-dark); }
@@ -292,6 +295,9 @@
       <p class="hero-subtitle"><strong>Cultivate the most <em style="color: var(--accent);">powerful and nourishing energy</em> that exists — from the inside out — to experience more pleasure for the <em style="color: var(--accent);">rest of your life.</em></strong></p>
       <p class="hero-body"><strong>Orgasmic energy is creative energy — life moving through you.</strong> This is not about peak experiences. It's about experiencing the fullness of your life and finding pleasure in each moment — even through challenges. <strong>You become the orgasmic co-creator of your life.</strong></p>
       <p class="hero-investment">Investment: <strong><span style="text-decoration: line-through; text-decoration-color: var(--accent);">$1333</span> <span style="color: var(--accent);">$555 (pre-sale)</span></strong></p>
+    </div>
+    <div class="hero-image-col-right">
+    <img src="hero-orgasmic-man.png" alt="Man standing in a sunlit field, arms open, radiant with energy">
     </div>
   </div>
 </section>
