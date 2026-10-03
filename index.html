@@ -62,12 +62,23 @@
   }
   .nav-cta:hover { background: var(--accent-hover) !important; }
 
+  /* Two matching nav buttons */
+  .nav-pill {
+    display: inline-block; text-align: center; line-height: 1.25;
+    padding: 0.35rem 1.4rem !important; border-radius: 30px !important;
+    border: 1px solid transparent; min-width: 290px;
+  }
+  .nav-pill small {
+    display: block; font-size: 0.7rem; font-weight: 300;
+    font-style: italic; opacity: 0.85; letter-spacing: 0.02em;
+  }
+  .nav-cta.nav-pill { border-color: var(--accent); }
+
   /* Intimacy Artistry invitation button (opens the popup) */
   .nav-invite {
     display: inline-block; text-align: center; line-height: 1.25;
     border: 1px solid var(--peach) !important;
     color: var(--peach-light) !important;
-    padding: 0.35rem 1.3rem !important; border-radius: 30px;
     font-weight: 500 !important;
     transition: background 0.2s, color 0.2s;
   }
@@ -574,7 +585,7 @@
     .nav-links > li { width: 100%; }
     .nav-links a { display: block; padding: 0.8rem 0; }
     .nav-cta { display: inline-block; margin-top: 0.5rem; }
-    .nav-invite { display: inline-block; margin-top: 0.5rem; padding: 0.55rem 1.3rem !important; }
+    .nav-pill { display: inline-block; margin-top: 0.5rem; padding: 0.55rem 1.3rem !important; }
     .nav-dropdown-menu {
       display: none;
       position: static; box-shadow: none; min-width: 0;
@@ -628,6 +639,9 @@
 </script>
 
 <!-- Flodesk form fonts + styles (Intimacy Artistry popup) -->
+<link rel="stylesheet" href="https://usercontent.flodesk.com/9bd7ac4e-e82e-452c-b65b-24070413032f/css/font_f393c977-e31d-4030-8a9b-8d1305e24921_1790995328.css">
+<link rel="stylesheet" href="https://usercontent.flodesk.com/9bd7ac4e-e82e-452c-b65b-24070413032f/css/font_58f336d5-6cc7-4d48-97bc-cb00c2ef49bb_1790995366.css">
+<link rel="stylesheet" href="https://usercontent.flodesk.com/9bd7ac4e-e82e-452c-b65b-24070413032f/css/font_b5fcba5c-9b47-484a-adc3-af415913e9cf_1790994307.css">
 <link rel="stylesheet" href="https://assets.flodesk.com/pp-editorial-new.css">
 <link rel="stylesheet" href="https://assets.flodesk.com/flodesk-sans.css">
 <style>
@@ -996,7 +1010,7 @@
   }
 
   [data-ff-el="root"].ff-6ac014abe49098309b4024e9 .ff-6ac014abe49098309b4024e9__modal {
-    background: rgba(255, 241, 213, 0.3);
+    background: rgba(255, 241, 213, 0.33);
   }
 
   [data-ff-el="root"].ff-6ac014abe49098309b4024e9 .ff-6ac014abe49098309b4024e9__modal-dialog {
@@ -1048,9 +1062,9 @@
     display: block;
     font-size: 40px;
     text-align: center;
-    font-family: Baskerville, serif;
-    font-weight: 600;
-    line-height: 1;
+    font-family: Libre-Baskerville;
+    font-weight: 400;
+    line-height: 1.3;
     letter-spacing: 0px;
     text-transform: none;
   }
@@ -1127,14 +1141,14 @@
     width: 100%;
     border: 0px solid #000000;
     display: inline-block;
-    padding: 12px 20px;
+    padding: 9px 20px;
     font-size: 19px;
     background: #8a0c2f;
     text-align: center;
     font-weight: 400;
-    line-height: 20px;
-    border-radius: 4.4px;
-    letter-spacing: 0.1px;
+    line-height: 31px;
+    border-radius: 4.9px;
+    letter-spacing: 0.3px;
     text-transform: none;
   }
 
@@ -1190,14 +1204,18 @@
     <span></span><span></span><span></span>
   </button>
   <ul class="nav-links" id="navLinks">
-    <li><a href="/">Private Coaching & About</a></li>
     <li>
-      <a href="#invitation" class="nav-invite" data-ia-open>
+      <a href="#invitation" class="nav-invite nav-pill" data-ia-open>
         Receive an Invitation to Intimacy Artistry
         <small>Our signature group offering</small>
       </a>
     </li>
-    <li><a href="https://tidycal.com/intimacy-coaching/consultation-with-marilys" target="_blank" class="nav-cta">Request Your Consultation</a></li>
+    <li>
+      <a href="https://tidycal.com/intimacy-coaching/consultation-with-marilys" target="_blank" class="nav-cta nav-pill">
+        Schedule a Private Consultation
+        <small>1:1 coaching with Marilys</small>
+      </a>
+    </li>
   </ul>
 </nav>
 
@@ -1499,10 +1517,10 @@
 <!-- ── INTIMACY ARTISTRY INVITATION POPUP (Flodesk form, Flodesk styling) ──
      Opens from any element with the data-ia-open attribute,
      or when someone lands on empowered-connection.com/#invitation.
-     Changed from Flodesk's export: data-ff-type "popup" → "inline" so it
-     never opens by itself on page load — our button opens it instead.
+     Same setup as the Turn On Your Life page: Flodesk handles the form,
+     our button adds "fd-is-open" to open it.
      ─────────────────────────────────────────────────────────────── -->
-<div class="ff-6ac014abe49098309b4024e9" id="iaRoot" data-ff-el="root" data-ff-version="3" data-ff-type="inline" data-ff-name="popupNoImage" data-ff-stage="default" data-section="ia_invite_popup">
+<div class="ff-6ac014abe49098309b4024e9" id="iaRoot" data-ff-el="root" data-ff-version="3" data-ff-type="popup" data-ff-name="popupNoImage" data-ff-stage="default" data-section="ia_invite_popup">
   <div data-ff-el="config" data-ff-config="eyJ0cmlnZ2VyIjp7Im1vZGUiOiJpbW1lZGlhdGVseSIsInZhbHVlIjowfSwib25TdWNjZXNzIjp7Im1vZGUiOiJtZXNzYWdlIiwibWVzc2FnZSI6IiIsInJlZGlyZWN0VXJsIjoiIn0sImNvaSI6dHJ1ZSwic2hvd0ZvclJldHVyblZpc2l0b3JzIjp0cnVlLCJub3RpZmljYXRpb24iOnRydWUsImdkcHIiOnsiYWNjZXB0c01hcmtldGluZyI6ZmFsc2UsInByaXZhY3lQb2xpY3kiOnsiZW5hYmxlZCI6ZmFsc2UsIm1hbmRhdG9yeSI6ZmFsc2V9fSwidHJhY2tpbmdDb25maWciOnsibWV0YVBpeGVsSWQiOiIiLCJjb29raWVCYW5uZXJFbmFibGVkIjpmYWxzZSwiZ29vZ2xlQW5hbHl0aWNzSWQiOiIifX0=" style="display: none"></div>
   <div class="ff-6ac014abe49098309b4024e9__modal fd-modal" data-ff-el="modal" id="iaModal" role="dialog" aria-modal="true" aria-label="Intimacy Artistry invitation">
     <div class="ff-6ac014abe49098309b4024e9__modal-dialog fd-modal__dialog" data-ff-el="modal-dialog">
@@ -1512,12 +1530,14 @@
             <form class="ff-6ac014abe49098309b4024e9__form" action="https://form.flodesk.com/forms/6ac014abe49098309b4024e9/submit" method="post" data-ff-el="form">
               <div class="ff-6ac014abe49098309b4024e9__title">
                 <div style="word-break:break-word">
-                  <div data-paragraph="true">I'd love to be invited first to join Intimacy Artistry!</div>
+                  <div style="line-height:0.5;" data-paragraph="true"><span style="font-size:30px;">Be first to be invited to</span></div>
+                  <div data-paragraph="true"><span style="font-size:30px;">our signature group offering</span></div>
+                  <div style="line-height:1.8;" data-paragraph="true"><span style="font-family:Brittany-Signature;font-size:61px;"><strong>Intimacy Artistry</strong></span></div>
                 </div>
               </div>
               <div class="ff-6ac014abe49098309b4024e9__subtitle">
                 <div style="word-break:break-word">
-                  <div data-paragraph="true">This is a group offering for those who understand the value of practicing connection &amp; relating in community. <strong>Intimacy Artistry</strong> is being built towards a yearlong experience including all of our programs such as Closer through Conflicts, Orgasmic Life and Orgasmic Intimacy which may also be offered individually to you.</div>
+                  <div data-paragraph="true">A comprehensive experience - with<strong> </strong>programs such as Closer through Conflicts, Orgasmic Life and Orgasmic Intimacy - designed for couples and individuals ready to reclaim and cocreate the connection &amp; intimacy they desire, and who want to do it alongside community.</div>
                 </div>
               </div>
               <div class="ff-6ac014abe49098309b4024e9__content fd-form-content" data-ff-el="content">
@@ -1555,7 +1575,7 @@
 
                 <div class="ff-6ac014abe49098309b4024e9__footer" data-ff-el="footer">
                   <button type="submit" class="ff-6ac014abe49098309b4024e9__button fd-btn" data-ff-el="submit" data-ff-tab="submit">
-                    <div><span data-draw-element="editable">I am an Intimacy Artist. Let's co-create a masterpiece! 🎨👩‍🎨❤️‍ →</span></div>
+                    <div><span data-draw-element="editable">I am an Intimacy Artist. &nbsp;Ready to co-create a masterpiece! &nbsp;🎨 👩‍🎨 💖 &nbsp;→</span></div>
                   </button>
                 </div>
 
@@ -1565,14 +1585,15 @@
                   <div>
                     <div>
                       <div data-paragraph="true">&nbsp;</div>
-                      <div data-paragraph="true"><span style="font-size:24px;font-weight:400;"><strong>Thank you for joining and</strong></span></div>
-                      <div data-paragraph="true"><span style="font-size:24px;font-weight:400;"><strong>Welcome to the Intimacy Artist Community!</strong></span></div>
+                      <div data-paragraph="true"><span style="font-family:Libre-Baskerville;font-size:25px;font-weight:400;"><strong>Welcome to the&nbsp;</strong></span></div>
+                      <div data-paragraph="true"><span style="font-family:Libre-Baskerville;font-size:25px;font-weight:400;"><strong>Intimacy Artist Community!</strong></span></div>
                       <div data-paragraph="true">&nbsp;</div>
-                      <div data-paragraph="true"><span style="font-size:19px;font-weight:400;">IMPORTANT:</span><br><span style="font-family:Poppins, sans-serif;font-size:20px;font-weight:400;"><strong>Check your emails to confirm</strong></span></div>
+                      <div data-paragraph="true"><span style="font-family:Libre-Baskerville;font-size:19px;font-weight:400;">IMPORTANT:</span><br><span style="font-family:Poppins, sans-serif;font-size:20px;font-weight:400;"><strong>Check your emails to confirm</strong></span></div>
                       <div data-paragraph="true"><span style="font-family:Poppins, sans-serif;font-size:20px;font-weight:400;"><strong>&nbsp;you want to receive our emails!</strong></span></div>
-                      <div data-paragraph="true"><span style="font-family:Poppins, sans-serif;font-size:18px;font-weight:400;">→ You'll then be ready to receive exclusive invitations from us as soon as they open.</span></div>
+                      <div data-paragraph="true"><span style="font-family:Poppins, sans-serif;font-size:18px;font-weight:400;">→ Once confirmed, you'll be at the top of our list to receive exclusive invitations as soon as they open.</span></div>
                       <div data-paragraph="true">&nbsp;</div>
-                      <div data-paragraph="true"><span style="font-size:21px;font-weight:400;"><i><strong>See you inside the Intimacy Artist Community! ✨</strong></i></span></div>
+                      <div data-paragraph="true"><span style="font-family:Libre-Baskerville;font-size:21px;font-weight:400;"><i><strong>See you inside the&nbsp;</strong></i></span></div>
+                      <div data-paragraph="true"><span style="font-family:Libre-Baskerville;font-size:21px;font-weight:400;"><i><strong>Intimacy Artist Community! ✨</strong></i></span></div>
                       <div data-paragraph="true">&nbsp;</div>
                       <div data-paragraph="true"><span style="font-family:Poppins, sans-serif;font-size:16px;font-weight:400;"><i>*Note: &nbsp;it may take up to 1h to receive the welcome email.</i></span><br><span style="font-family:Poppins, sans-serif;font-size:16px;font-weight:400;"><i>To make sure it lands in your inbox,&nbsp;</i></span><br><span style="font-family:Poppins, sans-serif;font-size:14px;font-weight:400;"><i><strong>→ add &nbsp;marilys@empowered-connection.com to your contacts&nbsp;</strong></i></span></div>
                       <div data-paragraph="true"><br><span style="font-family:Poppins, sans-serif;font-size:17px;font-weight:400;">For more support, email us ❤</span></div>
@@ -1595,9 +1616,13 @@
   </div>
 </div>
 <script>
-  window.fd('form:handle', {
-    formId: '6ac014abe49098309b4024e9',
-    rootEl: '.ff-6ac014abe49098309b4024e9',
+  window.addEventListener('load', function() {
+    if (window.fd) {
+      window.fd('form:handle', {
+        formId: '6ac014abe49098309b4024e9',
+        rootEl: '.ff-6ac014abe49098309b4024e9',
+      });
+    }
   });
 </script>
 
